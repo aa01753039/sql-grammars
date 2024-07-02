@@ -3,9 +3,10 @@ from llama_cpp import Llama, LlamaGrammar
 import json
 import argparse
 import re
+from tqdm import tqdm
 
 class SQLGrammar:
-    def __init__(self, grammar_path,db_path, grammar_embedded_path=None):
+    def __init__(self, grammar_path,db_path, grammar_embedded_path):
         
         with open(grammar_path, 'r') as file:
             self.grammar = file.read()
@@ -57,6 +58,7 @@ class SQLGrammar:
         # Write the grammar to the grammar file
         with open(self.grammar_embedded, 'w') as file:
             file.write(self.grammar)
+        print("Grammar saved to ", self.grammar_embedded)
 
 #create a llm response object
 class LLMResponse:
@@ -73,6 +75,8 @@ class LLMResponse:
         
         
     def read_questions(self,questions_file):
+
+        print("Reading questions from ", questions_file)
             #read the questions from the json file
         with open(questions_file, 'r') as file:
             json_questions = json.load(file)
@@ -85,10 +89,11 @@ class LLMResponse:
             self.questions[question['db_id']].append(question['question'])
 
     def get_answers(self):
+        print("NL2SQL")
         #iterate over the questions dictionary
-        for db_id, questions in self.questions.items():
+        for db_id, questions in tqdm(self.questions.items(), desc="Answering questions"):
             #iterate over the questions
-            for question in questions:
+            for question in tqdm(questions, desc="Question"):
                 #get the answer for each question
                 #prompt the model
                 answer = self.llm(
@@ -103,10 +108,22 @@ class LLMResponse:
     def write_predictions(self):
         #write the answers to the output file
         #predicted sql file where each line is a predicted SQL, and interactions are seperated by one empty line
+        print("Writing predictions to ", self.predicted_path)
         with open(self.predicted_path, 'w') as file:
             for db_id, answers in self.answers.items():
                 for answer in answers:
                     file.write(f"{answer}\n")
+        #save txt file
+        print("Predictions saved to ", self.predicted_path)
+
+    def predict(self, question_file):
+        #read the questions from the json file
+        self.read_questions(question_file)
+        #get the answers for the questions
+        self.get_answers()
+        #write the answers to the output file
+        self.write_predictions()
+
         
     
 
@@ -117,9 +134,25 @@ class LLMResponse:
 if __name__ == '__main__':
     #parse the arguments: databases folder path, questions json file path, and the output file path, and if use_embedded_grammar is set
     parser = argparse.ArgumentParser(description='Evaluate grammar')
-    parser.add_argument('databases_folder', type=str, help='Folder containing the databases')
+    parser.add_argument("llm_repo", type=str, help="The repository id of the LLM model")
+    parser.add_argument("llm_file", type=str, help="The file name of the LLM model")
+    parser.add_argument("grammar_path", type=str, help="The path to the grammar file")
+    parser.add_argument("db_path", type=str, help="The path to the database folder")
+    parser.add_argument("grammar_embedded_path", type=str, help="The path to the embedded grammar file", default=None)
     parser.add_argument('questions_file', type=str, help='JSON file containing the questions')
-    parser.add_argument('output_file', type=str, help='Output file')
+    parser.add_argument('predicted_path', type=str, help='Output file')
     args = parser.parse_args()
-    USE_EMBEDDED_GRAMMAR = args.use_embedded_grammar
+    
+    #create a SQLGrammar object if grammar_embedded_path is provided
+    sql_grammar = SQLGrammar(args.grammar_path,args.db_path, args.grammar_embedded_path)
+    #write the grammar to the embedded grammar file
+    sql_grammar.write_grammar()
+
+    #create a LLMResponse object
+    llm_response = LLMResponse(args.llm_repo,args.llm_file, args.grammar_embedded_path,args.predicted_path)
+    #read the questions from the json file
+    llm_response.predict(args.questions_file)
+    #get the answers for the questions
+    
+
 
