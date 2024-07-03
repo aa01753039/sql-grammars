@@ -1,0 +1,335 @@
+SELECT BY
+SELECT COUNT(*) FROM clubs;
+SELECT * FROM clubs ORDER BY name ASC
+SELECT name
+SELECT manager FROM clubs
+SELECT manager_name FROM clubs JOIN managers ON clubs.id = managers.id GROUP BY club
+SELECT *
+SELECT answer
+SELECT ropa
+SELECT name FROM games ORDER BY wins DESC LIMIT 1
+SELECT Name FROM Player WHERE Earnings > 100
+SELECT Name FROM Players ORDER BY Money DESC LIMIT 1
+SELECT country FROM player_earnings WHERE earnings > 120000
+SELECT Country
+SELECT country
+SELECT Country
+SELECT Players, Clubs
+SELECT FA
+SELECT Name
+SELECT club
+SELECT name
+SELECT one
+SELECT * FROM club ORDER BY avg_earnings DESC
+SELECT name, AVG(earnings)
+SELECT manufacturer, number_of_clubs
+SELECT BY
+SELECT manufacturer FROM clubs
+SELECT manufacturer FROM clubs ORDER BY COUNT DESC LIMIT 1
+SELECT manufacturer FROM Manufacturers JOIN Clubs ON Manufacturers.id = clubs.id GROUP BY manufacturer ORDER BY count DESC
+SELECT manufacturer FROM manufacturers WHERE club_name IN (SELECT DISTINCT club_name FROM clubs WHERE club_id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM clubs WHERE id IN (SELECT DISTINCT id FROM
+SELECT Country
+SELECT Choice
+SELECT name FROM Club
+SELECT ONE
+SELECT *
+SELECT Country
+SELECT BY
+SELECT COUNT(*), COUNT(*) FROM countries
+SELECT * FROM Players
+SELECT * FROM players
+
+SELECT customer_id, first_name, last_name FROM customers GROUP BY customer_id, first_name, last_name ORDER BY COUNT DESC LIMIT 5
+SELECT first_name FROM customers WHERE order_count > 2 GROUP BY first_name ORDER BY count DESC LIMIT 1
+SELECT Id FROM orders WHERE ProductID IN (SELECT ProductID FROM product_table GROUP BY ProductID)
+SELECT product_id FROM products WHERE order_id IN (SELECT id FROM orders WHERE status = 'Open');
+SELECT order_date FROM orders 
+ORDER BY order_date ASC
+SELECT DATEDIFF(CURDATE), BDATE(ORDERED)
+SELECT First_name, MiddleInitial, LastName
+SELECT last_name, middle_initial FROM customers WHERE order_status = 'none'
+SELECT * FROM orders WHERE order_date >= DATE_SUB.now.year LIMIT 2
+SELECT id, name, price, color
+SELECT OrderID, DATE(), COUNT(*) FROM Orders WHERE Products IN (SELECT * FROM Products)
+GROUP BY OrderID
+SELECT id, date FROM order 
+WHERE product_id IN (SELECT product_id FROM product)
+SELECT Product
+SELECT * FROM orders ORDER BY order_date DESC
+SELECT T2.order_id, T2.product_price
+SELECT FROM
+
+WHERE I
+
+>
+B
+SELECT * FROM table_name ORDER BY popularity DESC LIMIT 1
+SELECT "Payment Method" FROM customer WHERE "Customer ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID" = (SELECT MIN("Customer ID") FROM customer WHERE "ID
+SELECT product
+SELECT ively
+SELECT COUNT(*) FROM orders WHERE gender = 'Male' ORDER BY gender;
+SELECT BY
+SELECT * FROM Customers
+SELECT * FROM customer WHERE id = 1
+SELECT status, date, shipment FROM invoices
+SELECT status, date, shipment_date FROM Invoices WHERE invoice_id = (SELECT MIN(invoice_id) FROM Invoices);
+SELECT ProductName, ShipDate
+SELECT FROM 
+   
+    	FROM A
+SELECT ively
+SELECT order_number FROM orders
+SELECT the  ORDER BY DATE
+SELECT the  	  
+  
+			  
+  
+			  
+  
+			  
+  
+			  
+  
+		  
+
+		  
+  
+		  
+		  
+  
+		  
+
+		  
+  
+		  
+		  
+  
+		  
+
+		  
+		  
+		  
+  
+		  
+  
+		  
+  
+		  
+		  
+
+		  
+  
+		  
+		  
+
+		  
+		  
+		  
+
+		  
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+		  
+
+		  
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+
+		  
+		  
+
+		  
+		  
+
+		  
+		  
+
+	
+SELECT name, price, description
+SELECT product_name FROM female_customers WHERE gender = 'female'
+SELECT order_id FROM orders WHERE ship_date < DATE_SUBScrFT.now
+SELECT OrderID, InvoiceStatus
+SELECT Orders.id, Date, Total_cost
