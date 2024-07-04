@@ -1,11 +1,10 @@
-# import necessary libraries
 import argparse
 import json
 import os
+import sqlite3
 
 from llama_cpp import Llama, LlamaGrammar
 from tqdm import tqdm
-import sqlite3
 
 
 class SQLGrammar:
@@ -23,19 +22,21 @@ class SQLGrammar:
         """Extracts tables and columns from the SQLite database."""
         conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
-        
+
         # Extract table names
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
         tables = cursor.fetchall()
-        
+
         # Extract columns for each table
         schema = {}
         for table in tables:
             table_name = table[0]
             cursor.execute(f"PRAGMA table_info({table_name})")
             columns = cursor.fetchall()
-            schema[table_name] = [col[1] for col in columns]  # Assuming col[1] is the column name
-        
+            schema[table_name] = [
+                col[1] for col in columns
+            ]  # Assuming col[1] is the column name
+
         conn.close()
         return schema
 
@@ -62,12 +63,16 @@ class SQLGrammar:
         # Replace placeholders with actual content
         table_names = self.get_table_names(schema)
         column_names = self.get_column_names(schema, table_names)
-        columns_placeholder, tables_placeholder, aliases_placeholder = self.get_placeholders(column_names, table_names)
-        
-        grammar = self.grammar_template.replace("COLUMN_NAMES_PLACEHOLDER", columns_placeholder)
+        columns_placeholder, tables_placeholder, aliases_placeholder = (
+            self.get_placeholders(column_names, table_names)
+        )
+
+        grammar = self.grammar_template.replace(
+            "COLUMN_NAMES_PLACEHOLDER", columns_placeholder
+        )
         grammar = grammar.replace("TABLE_NAMES_PLACEHOLDER", tables_placeholder)
         grammar = grammar.replace("ALIAS_NAMES_PLACEHOLDER", aliases_placeholder)
-        
+
         return grammar
 
     def process_databases(self):
@@ -95,7 +100,7 @@ class LLMResponse:
         self.llm = Llama.from_pretrained(
             repo_id=llm_repo, filename=llm_file, verbose=False
         )
-        self.questions = {}
+        self.questions = []
         self.grammar_directory = grammar_directory
         self.predicted_path = predicted_path
 
@@ -108,50 +113,85 @@ class LLMResponse:
         with open(questions_file, "r") as file:
             json_questions = json.load(file)
 
-        # extract db_id and question from the json file
+        # add an id to each question in jsson_questions
+        for i, question in enumerate(json_questions):
+            question["id"] = i
+
+        # extract id, db_id, and question from the json file
         for question in json_questions:
-            # add each db_id with all its questions to the questions dictionary
-            if question["db_id"] not in self.questions:
-                self.questions[question["db_id"]] = []
-            self.questions[question["db_id"]].append(question["question"])
+            self.questions.append(
+                {
+                    "id": question["id"],
+                    "db_id": question[
+                        "db_id"
+                    ],  # "db_id" is the key for the database id in the json file
+                    "question": question["question"],
+                }
+            )
 
     def get_answers(self):
         print("NL2SQL")
-        # iterate over the questions dictionary
-        with open(self.predicted_path, "w") as file:
-            i = 1
-            for db_id, questions in tqdm(
-                self.questions.items(), desc="Answering questions"
-            ):
-                # load the specific grammar for the db_id if available
-                grammar = None
-                if self.grammar_directory:
-                    grammar_path = os.path.join(self.grammar_directory, f"{db_id}.gbnf")
-                    if os.path.exists(grammar_path):
-                        print("DB ID: ", db_id, "Grammar Path: ", grammar_path)
-                        grammar = LlamaGrammar.from_file(grammar_path)
+        # Create a dictionary to store the answers
+        answers_list = []
 
-                # iterate over the questions
-                for question in tqdm(questions,desc=f"Answering question {i}/{len(questions)}"):
-                    # get the answer for each question
-                    # prompt the model
-                    answer = self.llm(
-                        question,  # prompt
-                        grammar=grammar,
-                        max_tokens=-1,  # as necessary tokens
-                    )
-                    # write the answer directly to the file
-                    file.write(f"{answer['choices'][0]['text']}\n")
-                file.write("\n")
-                i += 1
+        # iterate over the questions dictionary
+        for question in tqdm(
+            self.questions, desc=f"Answering {len(self.questions)} questions"
+        ):
+            # load the specific grammar for the db_id if available
+            grammar = None
+            if self.grammar_directory:
+                grammar_path = os.path.join(
+                    self.grammar_directory, f"{question['db_id']}.gbnf"
+                )
+                if os.path.exists(grammar_path):
+                    grammar = LlamaGrammar.from_file(grammar_path, verbose=False)
+
+            # get the answer for each question
+            question_id = question["id"]
+            question_db = question["db_id"]
+            question = question["question"]
+            # get the answer for each question
+            answer = self.llm(
+                question,  # prompt
+                grammar=grammar,
+                max_tokens=-1,  # as necessary tokens
+                seed=0,  # seed for reproducibility
+            )
+            # store the answer in the dictionary
+            answers_list.append(
+                {
+                    "id": question_id,
+                    "db_id": question_db,
+                    "question": question,
+                    "answer": answer["choices"][0]["text"],
+                }
+            )
+
+            # save the answers_dict to a json file after each answer
+            with open(self.predicted_path, "w") as file:
+                json.dump(answers_list, file, indent=2)
         print("Predictions saved to ", self.predicted_path)
+
+    def convert_json_to_txt(self, json_file, txt_file):
+        # read the answers from the json file
+        with open(json_file, "r") as file:
+            answers = json.load(file)
+
+        # Ensure the directory exists before writing the txt file
+        os.makedirs(os.path.dirname(txt_file), exist_ok=True)
+
+        # write the answers to the txt file
+        with open(txt_file, "w") as file:
+            for answer in answers:
+                file.write(answer["answer"].replace("\n", "") + "\n")
+        print(f"Answers written to {txt_file}")
 
     def predict(self, question_file):
         # read the questions from the json file
         self.read_questions(question_file)
         # get the answers for the questions
         self.get_answers()
-
 
 
 if __name__ == "__main__":
@@ -196,7 +236,12 @@ if __name__ == "__main__":
     parser.add_argument(
         "--predicted_path",
         type=str,
-        help="Output  SQL .txt file path",
+        help="Output JSON file path",
+    )
+    parser.add_argument(
+        "--output_txt_file",
+        type=str,
+        help="Output TXT file path",
     )
     args = parser.parse_args()
 
@@ -214,3 +259,5 @@ if __name__ == "__main__":
     )
     # read the questions from the json file
     llm_response.predict(args.questions_file)
+    # convert the JSON file to a TXT file
+    llm_response.convert_json_to_txt(args.predicted_path, args.output_txt_file)
