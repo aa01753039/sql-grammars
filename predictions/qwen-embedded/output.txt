@@ -1,0 +1,2147 @@
+SELECT BY
+SELECT COUNT(*) FROM club
+SELECT name FROM club_name ORDER BY name ASC
+SELECT F
+SELECT managers FROM clubs WHERE team_name = 'FC Barcelona'
+SELECT managers FROM clubs ORDER BY manager_name ASC LIMIT 1
+SELECT DISTINCT names FROM clubs JOIN manufacturers ON clubs.name = manufacturers.name
+SELECT DISTINCT
+SELECT FROM
+SELECT Name FROM Players ORDER BY WinCount DESC
+SELECT the(player_name) FROM players ORDER BY earnings DESC LIMIT 1
+SELECT name FROM player_table ORDER BY earnings DESC LIMIT 1
+SELECT * FROM Players WHERE Earnings > 1200000
+SELECT country
+SELECT name
+SELECT the
+SELECT player, team_name
+SELECT BY
+SELECT Name
+SELECT Club FROM Table_name WHERE PlayerID IN (SELECT PlayerID FROM Player WHERE Name='John Doe') GROUP BY Club
+SELECT IN
+SELECT BY
+SELECT club_name FROM player_earnings GROUP BY AVG_earnings ORDER BY avg_earnings DESC
+SELECT * FROM players ORDER BY average_earnings DESC
+SELECT manufacturer, COUNT(*) FROM manufacturers GROUP BY manufacturer
+SELECT BY
+SELECT Manufacturer
+SELECT manufacturer
+SELECT name FROM Manufacturers WHERE club = 'SELECT name FROM Manufacturers WHERE club = '
+SELECT manufacturer
+SELECT * FROM sports
+SELECT country FROM countries WHERE name IN (SELECT name FROM players WHERE player_id = 2021);
+SELECT DISTINCT names FROM club
+SELECT A
+SELECT name FROM Players WHERE earnings > 1400000
+SELECT BY
+SELECT COUNT(DISTINCTPlayer) FROM Players
+SELECT COUNT(*)
+SELECT Name
+SELECT the_country
+SELECT ID, First_Name, Last_Name FROM Customers WHERE Orders > 2 ORDER BY ItemIN                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+SELECT ID FROM customers ORDER BY COUNT DESC LIMIT 1
+SELECT product_id FROM orders
+SELECT product FROM orders WHERE status = 'open';
+SELECT DATEDIFF(minute) AS order_date FROM orders
+SELECT MAX(DATEDIFF) FROM orders
+SELECT FirstName FROM Customers
+SELECT A.first_name, A.last_name FROM Customers WHERE D.status = '未完成';
+SELECT id FROM products WHERE order_count > 2
+SELECT product_id, name, price, color FROM orders WHERE order_id < 2
+SELECT Orders.Id, Orders.Date
+SELECT DISTINCT ids, MIN(date) FROM orders WHERE products IN (SELECT product FROM orders GROUP BY order_id);
+SELECT ProductId, ProductName, Price
+SELECT * FROM order_table ORDER BY id DESC LIMIT 1
+SELECT T1.OrderId, SUM(T2.ProductPrice) FROM orders AS T
+SELECT BY
+SELECT FROM
+SELECT FROM         WHERE customer_id IN (SELECT customer_id FROM customers)
+SELECT product
+SELECT BY GROUP BY gender
+SELECT COUNT(*) FROM orders WHERE gender = 'female';
+SELECT BY
+SELECT First_name, Middle_initial, Last_Name, Payment_method FROM Customers
+SELECT Name, MiddleName, LastName FROM Customers;
+SELECT status FROM Invoices WHERE date = '2021-03-25'GROUP BY invoice
+SELECT * FROM invoice_status WHERE status = 'In Progress'
+SELECT * FROM Product WHERE ShippingDate = (SELECT MAX(ShippingDate) FROM ShippingDate GROUP BY Product_id)
+SELECT Product
+SELECT the(status_code) FROM orders
+SELECT status_code FROM order_items WHERE order_id = 1
+SELECT * FROM order
+SELECT A
+SELECT name, price, description
+SELECT FROM       	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	    	  	                                                                                                                                                       
+SELECT *
+SELECT T1.OrderID FROM OrderT1 JOIN SalesOrder ON OrderT1.OrderID = SalesOrder.OrderID
+SELECT OrderId, Date, TotalCost
+SELECT orders.id, orders.date, SUM(amount) AS total_amount
+SELECT COUNT(*) FROM orders
+SELECT FROM
+SELECT "0"
+SELECT BY
+SELECT COUNT(DISTINCTpayment_method) FROM payments;
+SELECT IV
+SELECT FROM
+SELECT a
+SELECT BY
+SELECT the
+SELECT MAXPrice FROM products WHERE Price > 10
+SELECT name
+SELECT BY
+SELECT COUNT(DISTINCT.product_id) FROM orders
+SELECT COUNT(DISTINCT)
+SELECT COUNT(DISTINCT) FROM Customers WHERE PaymentMethod = 'N/A';
+SELECT order_id, order_status, order_date
+SELECT Orders.order_number, Status_code FROM Orders
+SELECT the    FROM customer_address
+SELECT City, State, ZipCode FROM Customers WHERE State = 'USA'
+SELECT First_name, Product_Name FROM buyers WHERE First_Name = 'John'
+SELECT T2.T1 FROM table_name
+SELECT A.One
+SELECT BY
+SELECT T1.product_id, AVG(T2.price) FROM table_name
+SELECT SUM(amount) FROM products
+SELECT product, AVG(price) FROM orders
+SELECT * FROM order WHERE order_date >= DATE_SUBForever                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+SELECT COUNT(*) FROM customer WHERE gender = 'M'
+SELECT order
+SELECT Orders.orderDate FROM Orders WHERE Customers.customerID = (SELECT CustomerID FROM Orders WHERE OrderStatus = 'Completed' LIMIT 1)
+SELECT Date
+SELECT Orders.status
+SELECT * FROM orders
+SELECT Product_ID FROM Products WHERE ProductID > (SELECT MAX(ProductID) FROM Products)GROUP BY Product
+SELECT Product_ID, Description
+SELECT DISTINCT invoice_date, invoice_id FROM invoices WHERE order_id = 'order_id' GROUP BY invoice_date, invoice_id
+SELECT T1.InvoiceID, T1.Date, T1.Id FROM Invoices TGROUP BY T1.InvoiceID
+SELECT A
+SELECT DISTINCT TrackingNumber, Date
+SELECT ProductID
+SELECT A
+SELECT director_name FROM directors ORDER BY age DESC LIMIT 1
+SELECT directors
+SELECT TheAnswer
+SELECT ured
+SELECT Year, ProgramTitle
+SELECT director FROM program
+SELECT D.Name, D.Age
+SELECT Title FROM Program WHERE DateCreated >= DATEADD_YEARhirthesisUTC_HERE  LIMIT 1
+SELECT channel_name, website_link
+SELECT ChannelName, COUNT(*) FROM Programming
+SELECT Channel
+SELECT The
+SELECT FROM
+SELECT directors
+SELECT Channel
+SELECT id, name FROM channels WHERE channel_id = (SELECT channel_id FROM channels WHERE owner = 'Hank Baskett')
+SELECT BY
+SELECT transmitter_name
+SELECT BY
+SELECT Choice
+SELECT transmitter_name
+SELECT the LIMIT 1
+SELECT FROMERP WHERE Radio = 'Radio 1';
+SELECT column
+SELECT channel, COUNT(*) FROM city_channels GROUP BY channel
+SELECT city FROM affiliation WHERE channel = 'channel_1'
+SELECT StationName, CityName FROM stations ORDER BY StationName ASC
+SELECT "Transmitter" FROM radio
+SELECT station_name, transmitter_name FROM radio_table ORDER BY ERP DESC
+SELECT Transmitter, Channel
+SELECT "Radio" FROM stations WHERE station_id = (SELECT MIN(station_id) FROM stations)
+SELECT V6
+SELECT TheModel
+SELECT The
+SELECT Driver_Name FROM Drivers WHERE Country = 'United States'
+SELECT COUNT(*) FROM vehicle_data WHERE driver_id IN (SELECT driver_id FROM vehicle_data ORDER BY num_of_miles DESC LIMIT 1);
+SELECT the LIMIT 1
+SELECT BY
+SELECT * FROM Vehicle WHERE Model = 'Zhuzhou'
+SELECT COUNT(DISTINCT_vehicle_id) FROM vehicles ORDER BY distance ASC LIMIT 1
+SELECT Vehicle_ID FROM Vehicles ORDER BY COUNT DESC LIMIT 1
+SELECT Name, Speed, Power
+SELECT T1.speed, T1.power FROM Vehicles T WHERE Year = 1996
+SELECT BY
+SELECT vehicle_name
+SELECT COUNT(DISTINCTDriverID) FROM DriverList WHERE Year = 2012
+SELECT COUNT(*)
+SELECT A
+SELECT COUNT(*) FROM drivers WHERE race = 'NASCAR'
+SELECT MIN(data.speed) FROM vehicles
+SELECT AVG(top_speed) FROM vehicles
+SELECT ively
+SELECT name FROM drivers WHERE power > 5000
+SELECT car_model
+SELECT models
+SELECT model
+SELECT car_name, model_year FROM cars WHERE model_name IN (SELECT model_name FROM models WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM car WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM car WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM car WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM car WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM car WHERE year IN (SELECT year FROM car WHERE year IN (SELECT year FROM car WHERE year IN (SELECT year FROM car WHERE year IN (SELECT year FROM car WHERE year IN (SELECT year FROM car WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM car WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM cars WHERE year IN (SELECT year FROM car WHERE year IN (SELECT year FROM car WHERE year IN (SELECT year FROM car WHERE year IN (SELECT year FROM cars WHERE year
+SELECT ioni
+SELECT * FROM Vehicles WHERE Model = 'Never Driven'
+SELECT vehicles
+SELECT vehicles.id, models.name FROM vehicles JOIN drivers ON vehicles.driver_id = drivers.id GROUP BY vehicles.id ORDER BY COUNTDRIVERID DESC LIMIT 2
+SELECT Vehicleids, Models
+SELECT v.id, v.model FROM vehicles v JOIN vehicles_v driver ON v.id = vehicle_v.driver_id JOIN vehicles_driver ON vehicles_v.driver_id = driver.id GROUP BY v.id ORDER BY COUNT DESC LIMIT 1;
+SELECT MIN(B2) FROM V
+SELECT COUNT(*)
+SELECT name
+SELECT *
+SELECT COUNT(DISTINCT.DriverID) FROM Driver
+SELECT Series, COUNT(Driver) FROM DriverSeries;
+SELECT the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+SELECT Name, Citizen
+SELECT Answer
+SELECT COUNT(DISTINCT) FROM drivers WHERE not_driven = 0
+SELECT ically
+SELECT COUNT(*) FROM exam
+SELECT SubjectCode
+SELECT *
+SELECT Name FROM exam WHERE SubjectCode = 'Database';
+SELECT exam_date FROM exams WHERE subject_code = 'Database';
+SELECT DATEADD(monthwormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormswormsworm
+SELECT Date FROM exams WHERE SubjectCode IN (SELECT substr(SubjectCode) FROM exams                 WHERE StringSUBSTRING_INDEX_subjectCode.java2021                         = 'data')ORDER BY Date DESC
+SELECT type
+SELECT "QuestionType", COUNT(*) FROM questions
+SELECT title
+SELECT *
+SELECT COUNT(*) FROM comments WHERE student_answer = 'your answer';
+SELECT COUNT(*)
+SELECT * FROM StudentAnswerTexts ORDER BY Count DESC
+SELECT * FROM students_answer WHERE question = 'How does it work?';
+SELECT "First Name"
+SELECT student_name, Answer_date
+SELECT StudentName, DateAnswer FROM Students WHERE DateAnswer < '2021-09-15';
+SELECT T1.student_id, T2.email_address FROM students AS TGROUP BY T1.student_id
+SELECT FROM
+SELECT Name
+SELECT First_name
+SELECT First_Name
+SELECT MIN(T1.value)
+SELECT FROMAnswerTexts WHERE AnswerTextID IN (SELECT ID FROM AnswerTexts ORDER BY Score DESC LIMIT 1)
+SELECT "B"
+SELECT icamente
+SELECT Gender, COUNT(*) FROM Students GROUP BY Gender;
+SELECT gender_code, COUNT(*) FROM students WHERE gender = '$(gender)` GROUP BY gender Code ORDER BY COUNT(*) DESC LIMIT 1;```vbnet```vbnet-- Function to count the number of students in a group by genderfunction CountStudentsByGenderGroup(genderCode)    -- Create a new table to store the gender codes and their counts    var genderCounts =         { gender: {count: 0 } }                -- Loop through each student in the groups        for i := 1; i < students.length; i++ do             -- Get the gender code of the current student            gCode = students[i].genderCode;                        -- If the gender code is 'GROUP BY gender, counties, and                 				                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	                  	
+SELECT Name FROM Student WHERE Gender = 'F'
+SELECT Lastname FROM Students WHERE Gender = 'F'
+SELECT * FROM student WHERE answer = 0
+SELECT First_Name
+SELECT T2
+SELECT Student
+SELECT DISTINCT T
+SELECT *
+SELECT *
+SELECT BY
+SELECT COUNT(*) FROM address WHERE country = 'USA'
+SELECT COUNT(*) FROM address
+SELECT AddressID, AddressName FROM Address WHERE Location = 'New York'
+SELECT AddressID FROM table
+SELECT ically
+SELECT COUNT(*) FROM table_name
+SELECT Product_id, Product_type_code, Product_name
+SELECT ProductId, TypeCode, Name FROM Products
+SELECT product_name, price
+SELECT Product
+SELECT MIN_price FROM Products GROUP BY Product
+SELECT * FROM table_name
+SELECT * FROM Products WHERE Type = 'Clothes';
+SELECT AVG(price) FROM clothes
+SELECT II
+SELECT ProductID, COUNT(*) FROM Hardware GROUP BY ProductID
+SELECT product_name FROM products WHERE price > (SELECT AVG(price) FROM products GROUP BY product_id);
+SELECT Name
+SELECT product_name, price
+SELECT A FROM hardware_table
+SELECT "Product Name" FROM "Clothes" ORDER BY Price DESC LIMIT 1
+SELECT The  FROM Products
+SELECT MIN(id), MAX(id) FROM hardware WHERE category = 'Cheapest Hardware'
+SELECT Id FROM Hardware WHERE Name = 'Best Price';
+SELECT product_name, price FROM products ORDER BY price DESC;
+SELECT * FROM orders
+SELECT product
+SELECT A
+SELECT * FROM table_name
+SELECT BY ORDER BY ProductType
+SELECT * FROM ProductType WHERE Type = 'T1'
+SELECT category, product_type, AVG(price) FROM table_name GROUP BY category
+SELECT product_type_code
+SELECT from
+SELECT MAX(production_date)
+SELECT * FROM product_table
+SELECT COUNT(*) FROM orders
+SELECT COUNT(*) FROM customers
+SELECT Customer_id FROM Customers
+SELECT id, name FROM customers
+SELECT Customer_address, Customer_phone, Customer_email
+SELECT FROMorders
+SELECT paymentMethodCode, COUNT(*) FROM payments WHERE customer_id = (SELECT customer_id FROM payments WHERE customer_id IN (SELECT customer_id FROM payments WHERE customer_id IN (SELECT customer_id FROM orders WHERE order_date >= CURDATE)))
+SELECT COUNT(DISTINCTcustomer_id) FROM payments WHERE customer_type='bank'
+SELECT * FROM orders WHERE customer_id = 1
+SELECT PaymentMethod
+SELECT Customer_name, Payment_method_code FROM Customers WHERE Customers_id IN (SELECT customer_id FROM Orders)
+SELECT customer_id, COUNT(*) FROM transactions GROUP BY payment_method ORDER BY COUNT DESC LIMIT 1
+SELECT Payment_method FROM Customer WHERE Name = 'Jeromy'
+SELECT *
+SELECT category, COUNT(*) FROM transactions GROUP BY category
+SELECT PaymentMethodCode FROM Customers WHERE CustomerID = 1
+SELECT * FROM products
+SELECT id FROM product_table ORDER BY product_name ASC
+SELECT "Product Type" FROM table_name
+SELECT column_name FROM table_name GROUP BY column_name ORDER BY COUNT DESC LIMIT 1
+SELECT COUNT(*) FROM orders
+SELECT COUNT(*) FROM Orders
+SELECT order_id FROM orders WHERE customer = jeromy
+SELECT id FROM Orders WHERE order_date = '2021-04-25'
+SELECT Customer_name FROM Orders
+SELECT CustomerName, OrderID, COUNT(*) FROM Orders
+SELECT Customer_id FROM Orders GROUP BY Order_id ORDER BY COUNT DESC LIMIT 1
+SELECT id FROM orders
+SELECT OrderID, Status, COUNT(*) FROM Orders WHERE Status = 'Open'
+SELECT COUNT(*) FROM orders WHERE status_code = 'order_status'
+SELECT the ORDER BY clause
+SELECT Status_code
+SELECT COUNT(*) FROM orders
+SELECT COUNT(*) FROM orders
+SELECT Product_name
+SELECT BY
+SELECT A
+SELECT COUNT(*), SUM(Quantity) FROM Monitor;
+SELECT COUNT(*) FROM orders WHERE product_name = 'Monitor';
+SELECT COUNT(DISTINCTCustomerID) FROM Customers WHERE ProductID = 'Monitor Product'GROUP BY CustomerID
+SELECT COUNT(*) FROM orders
+SELECT COUNT(DISTINCTCustomerID) FROM Customers
+SELECT customer_id FROM orders
+SELECT T1.Id FROM Customers AS T WHERE T2.Status = 'Not Yet Made'
+SELECT order_date, id FROM orders WHERE product_id IN (SELECT product_id FROM orders GROUP BY product_id)
+SELECT id, date FROM orders WHERE quantity > 6 ORDER BY product_id LIMIT 3
+SELECT BY
+SELECT COUNT(*) FROM buildings
+SELECT * FROM building WHERE floor = 1
+SELECT FROM
+SELECT Address
+SELECT Building_Name FROM Buildings ORDER BY Completion_year DESC;
+SELECT A
+SELECT COUNT(*) FROM buildings WHERE year = 1980
+SELECT COUNT(*) FROM regions
+SELECT the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+SELECT BY
+SELECT name
+SELECT Capital FROM region ORDER BY Area DESC LIMIT 2
+SELECT Region
+SELECT city FROM cities WHERE region = 'East Asia'
+SELECT region
+SELECT Region FROM GeographicalLocation ORDER BY Area DESC LIMIT 5
+SELECT A
+SELECT Name FROM buildings WHERE Region IN (SELECT Region FROM regions)
+SELECT * FROM buildings
+SELECT name
+SELECT region
+SELECT T1.name FROM Building AS TJOIN City AS C ON T.city_id = C.id GROUP BY T1.name
+SELECT region, COUNT(*) FROM buildings GROUP BY region
+SELECT column FROM buildings WHERE city = 'New York';
+SELECT baddress, r.name FROM buildings b JOIN regions r ON b.region_id = r.id
+SELECT *
+SELECT name, COUNT(*) FROM buildings WHERE region = ' Abruzzo'
+SELECT completion_year, COUNT(*) FROM completed_bills GROUP BY completion_year
+SELECT Year, COUNT(*) FROM Buildings
+SELECT YEAR() FROM building
+SELECT YEAR(), COUNT(*) FROM construction
+SELECT name
+SELECT FROM
+SELECT YEAR, COUNT(*) FROM buildings WHERE floor > 20 GROUP BY YEAR
+SELECT Year FROM buildings WHERE Story > 20
+SELECT * FROM building WHERE address = '123 Main St'
+SELECT The FROM buildings
+SELECT COUNT(*) FROM buildings WHERE year IN (SELECT MAX(year) FROM buildings WHERE year = 2021) ORDER BY numstories DESC
+SELECT b.name, COUNT(*) AS num_stories FROM buildings b ORDER BY num_stories DESC
+SELECT Channel, COUNT(*) FROM Channel GROUP BY Channel
+SELECT *
+SELECT A.One
+SELECT COUNT(*) FROM service
+SELECT the    FROM table
+SELECT AnalyticalLayerTypeCode
+SELECT service
+SELECT the
+SELECT name
+SELECT column
+SELECT CustomerName FROM Customers WHERE ServiceUsage = 'Most Used'
+SELECT COUNT(*) FROM customers
+SELECT * FROM customers WHERE service_type = 'services';
+SELECT Customers
+SELECT CustomerID, Name
+SELECT column
+SELECT Customer_id FROM Customers WHERE Service = 'less-used-service';
+SELECT the  FROM table
+SELECT ured
+SELECT customer_id, service_name FROM customers
+SELECT those
+SELECT column
+SELECT Name
+SELECT "service detail"
+SELECT Name
+SELECT Name
+SELECT column
+SELECT ically
+SELECT customer_id FROM customers WHERE status = 'Stuck'
+SELECT theCustomer
+SELECT BY
+SELECT COUNT(DISTINCTPlatformID)
+SELECT thecustomer
+SELECT T1.Name
+SELECT ively
+SELECT Services
+SELECT MAX(COUNT) FROM LayerTypeCode
+SELECT COUNT(*) AS numTimes
+SELECT Service, Customers
+SELECT service
+SELECT Choice
+SELECT COUNT(*) FROM cars
+SELECT Name
+SELECT C
+SELECT T2.model, T2.name FROM Powertrain WHERE T2.type = 'Powertrain';
+SELECT BY
+SELECT Model, Year, Powertrain, FuelCost
+SELECT Name
+SELECT years
+SELECT The
+SELECT powertrain FROM vehicles WHERE model = 'cura'
+SELECT igr
+SELECT Powertrain
+SELECT A
+SELECT year, min(fuel_cost), max(fuel_cost), avg(fuel_cost) FROM vehicle_data WHERE model = 'A'
+SELECT min(year), max(year), avg(year)
+SELECT Model, Name
+SELECT models
+SELECT car.make, model, year, fuel_type
+SELECT A
+SELECT A
+SELECT Name FROM Customers WHERE Age > 25
+SELECT MAX(NEWIDA) FROM customers
+SELECT customer_id, COUNT(*) FROM customers GROUP BY member_id ORDER BY COUNT DESC LIMIT 1
+SELECT AVG(age) FROM customers WHERE membership_credits > (SELECT AVG(membership_credits)FROM customers WHERE membership_credits >= 1000)
+SELECT AVG(age) FROM customers WHERE membership > (SELECT AVG(age) FROM customers WHERE age < 20);
+SELECT discount
+SELECT * FROM discount
+SELECT vehicles_name, SUM(hours) FROM rentals WHERE rental_date >= DATE_SUB.nowchronologies.year_ago
+SELECT car_type, COUNT(*) FROM vehicles WHERE location = 'New York City'
+SELECT Vehicle_name
+SELECT ively
+SELECT Customer_id, rental_history_1, rental_history_2 FROM rentals
+SELECT Name
+SELECT car_name, car_year FROM rental_history WHERE vehicle_id = (SELECT MAX(car_id) FROM rental_history WHERE vehicle_id = (SELECT MIN(car_id) FROM rental_history))
+SELECT VehicleModelYear FROM RentingVehicle WHERE RrenterID = (SELECT RrenterID FROM VehicleRental WHERE RrenterID = 1)
+SELECT VMake, Model, Year, HoursOfRent
+SELECT V
+SELECT T1.customer_id FROM rental_history AS TWHERE T1.renting_history_date > DATEADDDTD                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+SELECT * FROM discounts WHERE rental_history_records > 5
+SELECT CarID, PowertrainType FROM Cars WHERE rentalTime > 30
+SELECT * FROM rental_cars WHERE rental_time > DATEADD.MINUTE.MINUTESANSICHE
+SELECT the   FROM cars
+SELECT Powertrain FROM City WHERE FuelEconomyRate < 12
+SELECT AVG
+SELECT COUNT(*) FROM students
+SELECT COUNT(DISTINCTStudentID) FROM Students WHERE Class = 2
+SELECT DISTINCT StudentID FROM Students WHERE ClassID IN (SELECT ClassID FROM Courses WHERE Date = DATE_SUB_DATE_SUBLetsencrypt_DATE  ORDER BY Date DESC LIMIT 1)
+SELECT the
+SELECT *
+SELECT Name FROM Student
+SELECT Biographical
+SELECT student_name, COUNT(*) FROM students WHERE achievement > 10
+SELECT DATE(ENDDATE) FROM StudentAchievements WHERE Student_Age >= 18
+SELECT teacher_id FROM students WHERE course_id = (SELECT MAX(course_id) FROM students ORDER BY degree DESC LIMIT 1)
+SELECT teacher FROM course WHERE course_id = (SELECT MAX(id) FROM course GROUP BY ID)
+SELECT three
+SELECT DISTINCT D1
+SELECT name, email, phone_number FROM students WHERE gender = 'male'
+SELECT column_name, data_type
+SELECT T2.address, T1.bio
+SELECT name, age, gender, address, phone_number
+SELECT title, gender, age, class, transcript_date
+SELECT FROM
+SELECT column1, column2
+SELECT ically
+SELECT Student_id FROM Student WHERE Result = 'most common'
+SELECT COUNT(*) as total_count, COUNT(DISTINCT_name) as distinct_name FROM students
+SELECT Biographical_info FROM Student WHERE Name = 'John Smith'
+SELECT student_id FROM behaviormonitor WHERE behavior_monitor_name = 'John Doe'
+SELECT BiographicalData, EventDate
+SELECT T2.first_name, T2.last_name, T3.title, T3.score
+SELECT COUNT(*) FROM events
+SELECT event_type, COUNT(*) FROM student_events
+SELECT A, B
+SELECT BY
+SELECT Choice
+SELECT COUNT(*)
+SELECT date, transcript
+SELECT FROM
+SELECT AchievementTypeCode, AchievementDetails, Date
+SELECT COUNT(*) FROM achievements
+SELECT F
+SELECT A
+SELECT ONE
+SELECT name FROM table_name
+SELECT subject, teacher_name, student_name
+SELECT name
+SELECT COUNT(*) FROM teachers WHERE subject = 'Mathematics'
+SELECT id FROM course WHERE instructor = 'John Doe'
+SELECT COUNT(*) FROM courses WHERE student_id = (SELECT MAX(student_id) FROM courses GROUP BY student_id)
+SELECT ID FROM Students WHERE CourseID = (SELECT ID FROM Courses WHERE Name = 'Your Course')
+SELECT student_id FROM courses WHERE course_name = '2'
+SELECT DISTINCT students.id, students.name FROM students WHERE students.courses = '2'
+SELECT COUNT(*)
+SELECT A
+SELECT BiographicalData, COUNT(*) FROM Students WHERE LoanAmount > 1000
+SELECT biographical_data, details FROM students WHERE loan_amount > (SELECT AVG(l2.amount) FROM loans WHERE loan_status = 'student')
+SELECT MAX(Instant)
+SELECT MIN(Dates) FROM loans WHERE Date <= DATE_SUB.nowCLAUGHT_ON;
+SELECT first_name, last_name
+SELECT student_id FROM loans WHERE loan_status = 'Underwriting'
+SELECT date
+SELECT COUNT(*) FROM students WHERE loan_amount = (SELECT MAX(loan_amount) FROM loans WHERE category = 'student')
+SELECT T2.first_name, T2.last_name
+SELECT name FROM teachers WHERE student_id = (SELECT id FROM students WHERE student_name = 'John Smith')
+SELECT Student_id FROM loans WHERE Loan_status = 'pending'
+SELECT S.ID FROM Student WHERE S.StudentID = 'student_id';
+SELECT * FROM student WHERE student_id = (SELECT Student_id FROM students WHERE name = 'John Doe')
+SELECT COUNT(*) FROM students WHERE student_id = (SELECT student_id FROM students WHERE class_code = 'C' LIMIT 1);
+SELECT ively
+SELECT COUNT(*) FROM Students WHERE DetentionRecord = 1
+SELECT student_id, city, state, zip_code
+SELECT T1.Address FROM Student AS T WHERE T1.Name = 'John Smith'
+SELECT FROM
+SELECT T2.name FROM StudentEvents AS T WHERE T1.date = '2021-01-01'
+SELECT Student_ID, Start_Time, End_Time FROM Student WHERE Transcripts = 2
+SELECT DATE_FORMAT(StartTime), DATE_FORMAT(EndTime) FROM students
+SELECT BY
+SELECT DATEADD(minute.fromtimestampourt_date), DAY FROM court
+SELECT author_name
+SELECT FROM
+SELECT Name FROM Client WHERE Address = '123 Main St, Anytown, USA'
+SELECT client_id
+SELECT * FROM Books
+SELECT T2.title, T1ISBN, T3.sale_price
+SELECT II
+SELECT COUNT(*) FROM books
+SELECT BY
+SELECT COUNT(*)
+SELECT BY
+SELECT COUNT(*) FROM clients
+SELECT client_name, client_address FROM clients ORDER BY name ASC
+SELECT client
+SELECT Title, Author
+SELECT FROM
+SELECT Order_ID, Client_Name FROM Orders
+SELECT Order_id, Client_name FROM Orders
+SELECT title, COUNT(*) FROM authors WHERE author_id = (SELECT id FROM authors WHERE name = 'John Smith')
+SELECT the_NAME FROM authors WHERE author = 'John Doe'
+SELECT title, author, COUNT(*) FROM books b GROUP BY title ORDER BY count DESC LIMIT 1
+SELECT Books.title FROM Books
+SELECT title, price
+SELECT Books FROM books WHERE Isbn IN (SELECT ISbn FROM isbn)
+SELECT book_title
+SELECT T1.title
+SELECT T2.title FROM books AS T WHERE T2.order_count = (SELECT COUNT(*) FROM orders) ORDER BY T2.price DESC LIMIT 1
+SELECT Title, PurchasePrice FROM orders WHERE OrderTotalAmount > 500
+SELECT Title
+SELECT Title
+SELECT Name
+SELECT Name FROM orders
+SELECT DISTINCT * FROM Orders
+SELECT Name, COUNT(*) FROM Orders
+SELECT * FROM clients ORDER BY COUNT DESC LIMIT 1
+SELECT name
+SELECT name, SUM(total_amount) FROM clients
+SELECT client, COUNT(*) FROM orders
+SELECT MAX(title) FROM orders
+SELECT ClientID FROM Customers WHERE OrderTotal > 1000
+SELECT T2.title FROM books AS T WHERE T2.order_id = 0
+SELECT A
+SELECT ClientID, Name FROM Orders WHERE Status = 0
+SELECT * FROM orders
+SELECT Option
+SELECT MAX_books FROM sales WHERE seller = 'John Smith'
+SELECT AVG(A.P) FROM Sales
+SELECT Books FROM sales WHERE Date >= '2021-01-01' ORDER BY AverageSalePrice DESC LIMIT 1
+SELECT A
+SELECT MAX(SalesPrice) FROM SalesPrice WHERE PurchasePrice = (SELECT Max(PurchasePrice) FROM PurchasePrice WHERE PurchaseDate = (SELECT MAX(PurchaseDate)) LIMIT 1);
+SELECT title, price
+SELECT title FROM sales WHERE sale_price > (SELECT AVG(sale_price) FROM sales)
+SELECT T2.title
+SELECT T2.Name FROM Books AS T WHERE T2.SalePrice = (SELECT MIN(SalePrice) FROM Books WHERE T2.Type = 'Book')
+SELECT * FROM booktitle WHERE price > 1
+SELECT T2.title FROM books AS T WHERE T2.price > (SELECT MAX(price) FROM books)
+SELECT the.Name FROM books WHERE Author = 'George Orwell'
+SELECT genre
+SELECT FROM
+SELECT book_name FROM books WHERE author = 'Plato'LIMIT 1
+SELECT Answer
+SELECT title
+SELECT T1.title
+SELECT Thetitle
+SELECT "Jane Austen"
+SELECT FROM
+SELECT * FROM book
+SELECT T1.title
+SELECT COUNT(*) FROM orders
+SELECT COUNT(*) FROM orders
+SELECT Id
+SELECT *
+SELECT T1.Sorts
+SELECT Name FROM books ORDER BY ClientName ASC
+SELECT T1.title
+SELECT Title FROM Orders WHERE Client = 'Peter Doe'
+SELECT ClientName FROM Orders
+SELECT *
+SELECT BY
+SELECT * FROM book_table ORDER BY title ASC
+SELECT Title FROM Books ORDER BY Pages DESC
+SELECT A.fiction
+SELECT book_id FROM books
+SELECT the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+SELECT AVGRating FROM reviews
+SELECT T2.title FROM books AS T WHERE T2.year = 1983
+SELECT RATED FROM books WHERE author = 'John Doe'
+SELECT Choice
+SELECT title FROM reviews WHERE author = 'John Smith'
+SELECT AVG
+SELECT title, COUNT(*) FROM books
+SELECT T1.Name FROM Books AS T WHERE T1.Type = 'Book'
+SELECT "Book" FROM books WHERE genre = 'fiction'
+SELECT T1.title FROM Books AS T WHERE T.author = 'John Doe' ORDER BY T3.ratings DESC
+SELECT * FROM booklist ORDER BY numreaders DESC
+SELECT COUNT(*)
+SELECT books
+SELECT II
+SELECT "Title", "Type"
+SELECT BY
+SELECT COUNT(*) FROM customers
+SELECT * FROM customer
+SELECT customer_name
+SELECT nationality FROM customers
+SELECT CustomerName, Nationality, CreditCard
+SELECT Name
+SELECT Customer FROM Customers WHERE Country = ' England'
+SELECT AVG(credit) FROM customers WHERE membership_level > 1
+SELECT T2.ProductName FROM Customers AS T JOIN ProductCredit AS P ON T.CustomerID = P.CustomerID GROUP BY T2.ProductName ORDER BY AVGptomCount DESC LIMIT 1
+SELECT the FROM cards
+SELECT name, contact_number FROM customers WHERE membership_level = (SELECT MAX(membership_level) FROM customers GROUP BY membership_level);
+SELECT COUNT(*) FROM Customers
+SELECT country, COUNT(*) FROM customers
+SELECT Customer_name, COUNT(*) FROM Customers GROUP BY nationality ORDER BY COUNT DESC LIMIT 5
+SELECT nationality FROM Customers
+SELECT FROMCustomer WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE CustomerID IN (SELECT CustomerID FROM Customers WHERE Customer
+SELECT A
+SELECT Name FROM Customers
+SELECT c.name FROM orders o JOIN customers c ON o.customer_id = c.id
+SELECT name FROM customers ORDER BY quantity DESC
+SELECT name FROM orders WHERE order_id = (SELECT id FROM orders WHERE order_date >= CURDATE)
+SELECT CustomerName, TotalQuantity FROM Customers
+SELECT Name, SUM(TotalQuantity)
+SELECT * FROM customers WHERE order_quantity > 1
+SELECT name FROM customers WHERE order_quantity > 1
+SELECT name
+SELECT BY
+SELECT Name
+SELECT Name FROM Customers
+SELECT A.One
+SELECT Name
+SELECT FROM
+SELECT Name
+SELECT * FROM Members WHERE Age >= 19
+SELECT The
+SELECT nationality, COUNT(*) FROM countries GROUP BY nationality ORDER BY COUNT DESC
+SELECT Nationality
+SELECT Country, COUNT(*) FROM Nations GROUP BY Country
+SELECT Name FROM ClubLeaders WHERE JoiningClub = '俱乐部1'
+SELECT DISTINCT club_name
+SELECT club
+SELECT * FROM " clubs" WHERE "name" = ' Houston';
+SELECT * FROM table_name
+SELECT Country
+SELECT AVG(age) FROM club_leaders
+SELECT * FROM clubs WHERE state = 'New York'
+SELECT sub
+SELECT Name FROM table_name
+SELECT Collection
+SELECT A
+SELECT a
+SELECT file_name FROM file_set WHERE file_type = 'document'
+SELECT column
+SELECT Name
+SELECT id
+SELECT id FROM documents
+SELECT Document_id FROM Document WHERE Owner = Marlin
+SELECT DocumentObjectId FROM marlin
+SELECT theOwner
+SELECT Name
+SELECT name
+SELECT T1.name
+SELECT A
+SELECT FROM
+SELECT COUNT(*)
+SELECT COUNT(*) FROM marlin
+SELECT ID FROM document_id WHERE parent_id = (SELECT MIN(id) FROM parent_id ORDER BY parent_id ASC LIMIT 1);
+SELECT DISTINCT ID FROM documents
+SELECT COUNT(DISTINCT.DocumentID) FROM parent
+SELECT * FROM documents WHERE parent_id = (SELECT MIN(parent_id) FROM documents WHERE id = 1)
+SELECT DISTINCT CollectionName
+SELECT DISTINCT collection_name
+SELECT COUNT(*) FROM best
+SELECT title
+SELECT parent
+SELECT Name
+SELECT * FROM mycollection
+SELECT the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+SELECT doc_id FROM document
+SELECT DISTINCT ID
+SELECT COUNT(*) FROM Best
+SELECT COUNT(*)
+SELECT documents
+SELECT docObjectIds FROM documents WHERE owner = 'Ransom'
+SELECT collection_name FROM collection WHERE collection_id IN (SELECT collection_id FROM collection GROUP BY subcollection)
+SELECT subset_id FROM subset_table
+SELECT documents
+SELECT COUNT(*) FROM documents
+SELECT * FROM document
+SELECT DocumentObjectId
+SELECT Document_id, Number_ofrelatedDocuments
+SELECT DISTINCT ID
+SELECT * FROM document WHERE owner = 'Braeden'
+SELECT Owner
+SELECT name
+SELECT doc_type FROM documents WHERE owner = 'braeden'
+SELECT MAX(id), COUNT(*) FROM subset
+SELECT subset_id, name, number_ofdocuments
+SELECT title FROM document WHERE type = 'document'
+SELECT allsubset_id, name FROM doc_subsets WHERE id IN (SELECT SUBSTRING(id) FROM doc)
+SELECT ID
+SELECT DocumentID
+SELECT SUBSET_NAME, SUBSET_ID FROM documents
+SELECT documents_id, document_name
+SELECT collection_name
+SELECT name
+SELECT COUNT(*) FROM documents
+SELECT COUNT(*) FROM documents
+SELECT COUNT(*) FROM Collection
+SELECT COUNT(*)
+SELECT Id FROM best
+SELECT * FROM best
+SELECT COUNT(*) FROM documents
+SELECT * FROM Best
+SELECT document
+SELECT doc_id
+SELECT document
+SELECT doc_id FROM Best
+SELECT document
+SELECT docId
+SELECT Name FROM "Best"
+SELECT the.Name
+SELECT COUNT(*) FROM best
+SELECT BY ORDER BY DESC
+SELECT *
+SELECT COUNT(*) FROM Best
+SELECT COUNT(*) FROM songs WHERE title = 'Love';
+SELECT Song FROM ListOfSongs ORDER BY Song ASC
+SELECT THE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+SELECT MAX(SUM)
+SELECT COUNT(*)
+SELECT s
+SELECT Name
+SELECT song_name FROM songs WHERE language = 'English'
+SELECT DISTINCT ID FROM Performance WHERE Name IN (SELECT DISTINCT Name FROM Participation WHERE StartYear <= 2021)
+SELECT id, name, popularity
+SELECT DISTINCT " participant_id"
+SELECT name
+SELECT the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+SELECT Stage_name
+SELECT COUNT(DISTINCTsong_id) FROM songs WHERE year = 2014
+SELECT thesong
+SELECT two
+SELECT BY
+SELECT name
+SELECT A
+SELECT ively
+SELECT COUNT(*) FROM cities
+SELECT state
+SELECT ively
+SELECT II
+SELECT COUNT(*) FROM your_table
+SELECT city FROM cities ORDER BY name ASC
+SELECT City, Code FROM cities
+SELECT latitude, longitude FROM city WHERE name = 'Baltimore'
+SELECT *
+SELECT Name FROM City WHERE State = 'PA'
+SELECT Name FROM cities
+SELECT COUNT(*) FROM city WHERE country = 'Canada'
+SELECT COUNT(*) FROM         	ORDER BY City
+SELECT Name
+SELECT city_name
+SELECT state, COUNT(*) FROM states;
+SELECT A
+SELECT country, COUNT(*) FROM countries GROUP BY country ORDER BY count DESC
+SELECT A
+SELECT state FROM States WHERE city IN (SELECT city FROM States WHERE name = 'New York') GROUP BY state
+SELECT FROM
+SELECT A
+SELECT COUNT(*)
+SELECT A
+SELECT IN                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+SELECT name, last_name FROM students WHERE state = 'MD'
+SELECT full_name FROM students
+SELECT BY
+SELECT COUNT(*) FROM student
+SELECT T2.first_name, T2.major FROM Students AS T WHERE T2.city = 'Baltimore';
+SELECT "first_name", "major"
+SELECT country, COUNT(*) FROM students
+SELECT BY
+SELECT * FROM city_data WHERE city = 'New York';
+SELECT COUNT(*) FROM students WHERE city = 'New York';
+SELECT BY
+SELECT Name FROM students WHERE State = 'California'
+SELECT BY
+SELECT Name FROM countries ORDER BY Students DESC LIMIT 1
+SELECT * FROM city_data WHERE student_count > 3
+SELECT City FROM students WHERE StudentID IN (SELECT * FROM students) ORDER BY COUNT DESC LIMIT 3
+SELECT name, COUNT(*) FROM states WHERE num_students > 5
+SELECT Name
+SELECT DISTINCT ID FROM student WHERE country = 'USA'
+SELECT T1.Id FROM Student AS T WHERE T1.Country = 'USA'
+SELECT BY                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+SELECT student_id FROM students WHERE gender = 'female';
+SELECT id
+SELECT id FROM student WHERE country = 'USA'
+SELECT city
+SELECT *
+SELECT AVG(B1), AVG(C1) FROM     LIMIT 500
+SELECT FROM
+SELECT City, AVG(Distance) FROM Cities;
+SELECT the FROM statement
+SELECT city, MAX(distance)
+SELECT * FROM city_code WHERE distance > 1
+SELECT * FROM table_name WHERE distance > (SELECT AVG(distance) FROM table_name WHERE name = 'city1' LIMIT 1);
+SELECT * FROM CityCode WHERE Distance > 50
+SELECT The  FROM (SELECT * FROM cities WHERE city_name = 'New York' GROUP BY city_name ORDER BY distance DESC LIMIT 1) AS c
+SELECT city_code
+SELECT city FROM table_name
+SELECT MIN(Distance) FROM Bal
+SELECT COUNT(*) FROM Boston
+SELECT The  FROM the
+SELECT city
+SELECT TheAnswer
+SELECT FURthest
+SELECT TheCity
+SELECT city_code, COUNT(*) FROM cities GROUP BY city_code ORDER BY COUNT DESC LIMIT 10
+SELECT * FROM distance
+SELECT CityName, AVG(Distance) FROM Cities;
+SELECT name FROM cities ORDER BY distance DESC
+SELECT ively
+SELECT A
+SELECT The
+SELECT FName FROM Students WHERE StudentID = (SELECT StudentID FROM Students WHERE Name = 'Linda Smith')
+SELECT name FROM students WHERE first_name = 'Linda';
+SELECT name FROM students WHERE first_name = 'Linda'
+SELECT name, age FROM sailors WHERE age > 30
+SELECT BY
+SELECT name, age FROM sailors WHERE age < 30
+SELECT FROM
+SELECT * FROM Boat WHERE id = 1
+SELECT DISTINCT b.id
+SELECT erti
+SELECT V
+SELECT DISTINCT bid FROM boats WHERE status = 'Reserve'
+SELECT boat_id
+SELECT SAILORS
+SELECT V
+SELECT * FROM sailors WHERE age > 30
+SELECT A
+SELECT name FROM sailors WHERE age > 30
+SELECT Name FROM sailors WHERE Rating > 7
+SELECT Name FROM SeatingReservations WHERE BoatID IN (SELECT MIN(BoatID) FROM SeatingReservations WHERE Year = 2017);
+SELECT FROM
+SELECT ID, Name FROM sailors WHERE Reservations > 1
+SELECT V
+SELECT sid FROM sailors WHERE color = 'red' ORDER BY color
+SELECT THE  	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    	    
+SELECT sid
+SELECT BY
+SELECT sid FROM Sailors
+SELECT id
+SELECT sid, color FROM sailors WHERE color = 'red'
+SELECT BY
+SELECT DISTINCT ids
+SELECT id
+SELECT A
+SELECT BY
+SELECT Id FROM Sailors WHERE Status = 'Not Reserved'
+SELECT Choice
+SELECT chos
+SELECT * FROM table_name
+SELECT T1.rating
+SELECT Name FROM sailors
+SELECT names
+SELECT Name FROM sailors WHERE Rating > 1
+SELECT name FROM ratings WHERE rating > 2
+SELECT * FROM sailors WHERE rating >= 3
+SELECT Name, Age FROM sailors WHERE Age > 60
+SELECT MAXAge FROM sailors
+SELECT BY
+SELECT BY
+SELECT AVG(T1.Rating) FROM sailors T;
+SELECT * FROM sailors WHERE rating >= 7
+SELECT COUNT(D) FROM sailors WHERE name_start_with_digit = 'D'
+SELECT COUNT(D)
+SELECT Age, AVG(Rating) FROM sailors
+SELECT iced
+SELECT boat_id FROM reservations WHERE boat_name = 'Buoy 1';
+SELECT COUNT(DISTINCTboat_id) FROM reservations
+SELECT BoatID FROM Boats WHERE Reservations > 50
+SELECT COUNT(*) FROM boats WHERE id > 50
+SELECT Boat, COUNT(*) FROM Reservations GROUP BY Boat
+SELECT COUNT(*) FROM boats WHERE number > 1
+SELECT id FROM boats WHERE id > 1
+SELECT BY ORDER BY DESC
+SELECT r.rating, AVG(a.age) FROM sailers r JOIN groups g ON r.group_id = g.group_id GROUP BY r.rating
+SELECT Rating, AVG(Age) FROM sailors WHERE Rated = 'Red'
+SELECT Name FROM sailors ORDER BY Rating DESC, Age DESC
+SELECT * FROM sailors ORDER BY rating DESC
+SELECT COUNT(*)
+SELECT BY
+SELECT A
+SELECT BY
+SELECT Name
+SELECT T1.bod
+SELECT *
+SELECT A
+SELECT ival
+SELECT chos
+SELECT * FROM sailors WHERE name = 'Melon';
+SELECT V
+SELECT * FROM sailors ORDER BY rating DESC
+SELECT A
+SELECT the
+SELECT brand, product
+SELECT Model, Length
+SELECT name, model FROM headphones ORDER BY model ASC
+SELECT MIN(label) FROM headphones GROUP BY label
+SELECT TheBest
+SELECT FROM GROUP BY headphones
+SELECT the   FROM headphones
+SELECT genre, COUNT(*) FROM headphones GROUP BY genre ORDER BY COUNT DESC LIMIT 10
+SELECT "GROUP BY"
+SELECT A
+SELECT COUNT(DISTINCTearpad) FROM ear
+SELECT Earpads FROM Ears WHERE Color = 'red'
+SELECT _xlabel
+SELECT lect
+SELECT min(price)
+SELECT Construction, AVG(Price)
+SELECT BY
+SELECT thecategories
+SELECT "耳机 type"
+SELECT A
+SELECT ear
+SELECT MIN(Price)
+SELECT column
+SELECT * FROM stores
+SELECT *
+SELECT * FROM stores WHERE location = 'Tarzana'
+SELECT Store
+SELECT COUNT(DISTINCTStoreID) FROM store
+SELECT COUNT(*)
+SELECT DISTINCT Neurb
+SELECT A
+SELECT MIN(HUSB_ID) FROM store_handshop
+SELECT Store, Total_quantity
+SELECT StoreName FROM store WHERE ProductID = (SELECT ProductID FROM store WHERE ProductName = ' headphones' ORDER BY ProductID DESC LIMIT 1)
+SELECT store_name FROM stores WHERE headphones = 0
+SELECT Model
+SELECT * FROM headphones WHERE model_id IN (SELECT MIN(model_id) FROM headphones GROUP BY model_id)
+SELECT brand FROM headphones GROUP BY model
+SELECT max()
+SELECT alls
+SELECT COUNT(*) FROM inventory WHERE store_name = 'Woodman';
+SELECT A
+SELECT MIN(neighhood) FROM inventory WHERE inventory.stock < 5
+SELECT RETURN
+SELECT COUNT(*)
+SELECT ically
+SELECT COUNT(*) FROM papers
+SELECT COUNT(*) FROM affiliates
+SELECT COUNT(*) FROM users WHERE username = 'user_name';
+SELECT COUNT(*) FROM papers WHERE conference = 'NAACL 2000';
+SELECT COUNT(*) FROM papers
+SELECT COUNT(*)
+SELECT COUNT(*) FROM ColumbiaUniversity P
+SELECT list_name, address FROM list_of_affiliations WHERE affiliated = 'XYZ'GROUP BY list_name
+SELECT A.Name FROM Affiliation A JOIN Employee E ON A.Id = E.Id
+SELECT DISTINCT Venue
+SELECT year
+SELECT T.title FROM papers WHERE P.year = 1972
+SELECT PaperID
+SELECT paper_id, title FROM papers WHERE author = 'Mckeown'
+SELECT *
+SELECT Paper_ID, Title FROM papers WHERE StanfordUniversity = 'Stanford' ORDER BY Papers, StanfordUniversity, ColumbiaUniversity
+SELECT therequired
+SELECT COUNT(*) FROM papers WHERE author = 'Mckeown' JOIN papers ON papers.author_id = Mckeown JOIN papers ON papers.id = Rambow
+SELECT DISTINCT title
+SELECT T.title, T_paper_ID FROM papers AS T JOIN authors ON T.author_id = authors.id GROUP BY T.title
+SELECT RABOW
+SELECT *
+SELECT COUNT
+SELECT Name, Number_of_Papers FROM authors ORDER BY Number_of_Papers DESC
+SELECT * FROM authors ORDER BY number_of_papers DESC
+SELECT title, author, publication_date
+SELECT T2.PaperTitle FROM Affiliation AS T WHERE T2.Name = 'XYZ'
+SELECT Name
+SELECT title
+SELECT Name
+SELECT A
+SELECT Venue, Year FROM publications WHERE Year IN (SELECT Year FROM publications WHERE Date = 2013)
+SELECT Venue, Year
+SELECT Venue
+SELECT A.LibraryB.Repository
+SELECT COUNT(*) FROM p
+SELECT COUNT(*)
+SELECT COUNT(*) FROM reference
+SELECT COUNT(*)
+SELECT MAX(T2.id) FROM papers T JOIN authors A ON T.author_id = A.author_id GROUP BY T.id ORDER BY T1.citation_count DESC LIMIT 1
+SELECT "Id", "Number of Citations"
+SELECT the FROM T
+SELECT T2.title
+SELECT "papersTitle", "number_of_citations" FROM "top_10";
+SELECT column
+SELECT A.One
+SELECT COUNT(*) FROM citation_mckeown
+SELECT _tokenize
+SELECT COUNT(*)
+SELECT T2.Name, COUNT(T1.CitationID) AS Citations
+SELECT Name, COUNT(*) FROM authors ORDER BY Number DESC LIMIT 1
+SELECT venue, year
+SELECT venue
+SELECT venue
+SELECT A
+SELECT Name FROM Books WHERE Year = 2009
+SELECT A1
+SELECT T1.year FROM table_name WHERE T1.country = 'United States'
+SELECT first
+SELECT BY
+SELECT COUNT(*) FROM paper
+SELECT FROM
+SELECT COUNT
+SELECT COUNT(DISTINCTauthor_id)
+SELECT "papers"
+SELECT chos
+SELECT COUNT(*)
+SELECT MAX(papers)
+SELECT name
+SELECT IN
+SELECT title
+SELECT DISTINCT PaperId, Title
+SELECT T2.Id FROM P1 AS T WHERE T2.Title = 'Paper Title'GROUP BY T2
+SELECT * FROM (SELECT T1.name, COUNT(*) AS papers FROM table_nameJOIN T2 ON t1.id = t2.id GROUP BY T1.name) AS T
+SELECT column_name
+SELECT COUNT(DISTINCTPaperID) FROM conferences WHERE ConferenceName IN (SELECT conferenceName FROM conference ORDER BY ConferenceStart DESC LIMIT 1);
+SELECT venue, COUNT(*) FROM venues GROUP BY venue
+SELECT COUNT(*)
+SELECT COUNT(*)
+SELECT T2.title
+SELECT title
+SELECT author FROM papers WHERE count > 5
+SELECT COUNT(*) FROM authors WHERE publication_date >= DATEADDmonthsADDLeapYear.to_dateYesterday;
+SELECT theFROM authors
+SELECT A, B
+SELECT name FROM authors WHERE notpub_date < DATEADD_years.MAX
+SELECT A
+SELECT COUNT(*) FROM conferences WHERE country = 'United States';
+SELECT COUNT(*) FROM conferences
+SELECT DISTINCT name
+SELECT BY
+SELECT name, year, location FROM conference
+SELECT DISTINCT conference_name, conference_year, conference_location
+SELECT name, COUNT(*) FROM conferences
+SELECT COUNT(*) FROM conferences
+SELECT Year, Number_of_conferences
+SELECT COUNT(*) FROM conferences WHERE year = 2021
+SELECT years FROM conference_info WHERE conference_name = 'N/A';
+SELECT MIN(conference)
+SELECT * FROM conferences
+SELECT Location
+SELECT Name, Location, FoundedYear
+SELECT FROM
+SELECT BY
+SELECT COUNT(*) FROM institution
+SELECT * FROM institution
+SELECT two
+SELECT institutions, number_of_staff
+SELECT InstituteName FROM institutions
+SELECT institutions
+SELECT institution_name FROM information
+SELECT staff_name, AVG(age) FROM staff
+SELECT staff_name
+SELECT Age FROM Employees WHERE State = 'United States';
+SELECT BY
+SELECT T2.ConferenceName FROM conferences AS T
+SELECT conference
+SELECT staff
+SELECT staff_name FROM conferences WHERE conference_name = 'Please Select Conference'
+SELECT Name FROM Name GROUP BY Name
+SELECT The
+SELECT staff_name FROM conference WHERE year = 2003 ORDER BY year
+SELECT staff_name FROM conference WHERE year IN (SELECT MIN(year) FROM conference GROUP BY conference_id);
+SELECT * FROM conferences
+SELECT conferences_id, name, year, number_of_participants
+SELECT Name FROM conference GROUP BY Attendant ORDER BY Attendant DESC LIMIT 2
+SELECT T1.name
+SELECT name FROM individuals WHERE nationality = 'Unknown'
+SELECT Name
+SELECT name FROM university WHERE conference_id = (SELECT id FROM conference WHERE year = 2004)
+SELECT university
+SELECT The
+SELECT name FROM pilots ORDER BY age DESC LIMIT 1
+SELECT Age, Name
+SELECT pilot_name FROM pilots ORDER BY age ASC
+SELECT *
+SELECT * FROM pilots WHERE age < 30
+SELECT pilot
+SELECT first_name
+SELECT A
+SELECT hangar
+SELECT FROM
+SELECT COUNT(DISTINCT_location) FROM hangars;
+SELECT A
+SELECT A
+SELECT COUNT(*) FROM pilots WHERE age > 40
+SELECT COUNT(*)
+SELECT COUNT(*) FROM Planes WHERE Pilot = 'JIM'
+SELECT COUNT(DISTINCTilotID) FROM pilots WHERE Age < 35
+SELECT *
+SELECT Name FROM Pilot WHERE Age < 20
+SELECT MAX(CASE_whenCASEWHENUGHTEDOFUGHTTHE) THEN  ORDER BY MAX
+SELECT answer
+SELECT Name
+SELECT FROM LIMIT 10
+SELECT COUNT(*)
+SELECT COUNT(*) FROM flights WHERE city = 'Chicago'GROUP BY count
+SELECT p FROM planes WHERE p.age > 41
+SELECT name FROM plane WHERE pilot_name = 'Smith'
+SELECT A
+SELECT COUNT(DISTINCTPlaneName) FROM Planes;
+SELECT COUNT(*) FROM Plane WHERE Pilot = 'Smith';
+SELECT COUNT(*) FROM plane WHERE origin = 'Smith'
+SELECT Age FROM pilots WHERE Age > 40 ORDER BY Age ASC LIMIT 1;
+SELECT COUNT(*)
+SELECT Name
+SELECT first_name
+SELECT name FROM pilot_names ORDER BY age DESC
+SELECT the ORDER BY name
+SELECT Location FROM Plan ORDER BY PlaneName ASC
+SELECT * FROM planes ORDER BY plane_name
+SELECT DISTINCT p
+SELECT ively
+SELECT COUNT(*) FROM pilots WHERE age > 40 ORDER BY age;
+SELECT COUNT(*)
+SELECT Age, Name
+SELECT * FROM Pilots WHERE Age > 35
+SELECT MAX
+SELECT Name
+SELECT Name FROM pilots WHERE Plane = 'Piper Cub'
+SELECT BY
+SELECT Age
+SELECT AVG(ages), MIN(ages) FROM pilots
+SELECT their_first_name
+SELECT from
+SELECT pilots
+SELECT theirnames
+SELECT * FROM planes ORDER BY age DESC LIMIT 5
+SELECT flight_name, AVG(age) FROM pilots GROUP BY flight_name
+SELECT flight_type, COUNT(*) FROM flights GROUP BY flight_type
+SELECT plane_name FROM flights WHERE flight_number = (SELECT MAX(flight_number) FROM flights WHERE date = DATE_SUBEXP_monthflake1984)
+SELECT name FROM plane ORDER BY plane_name
+SELECT * FROM planes ORDER BY plane_name
+SELECT BY
+SELECT PlaneName FROM Planes ORDER BY Age DESC LIMIT 10
+SELECT Name FROM Pilots GROUP BY Age
+SELECT MAX(Ages)
+SELECT cities, AVG(age) FROM flights WHERE year IN (SELECT year FROM flights WHERE city = 'New York')
+SELECT HangarLocation, COUNT(*) FROM pilots WHERE JobTitle = 'Pilot' GROUP BY HangarLocation
+SELECT pilots
+SELECT theFROM flights
+SELECT Name, Age FROM Pilots WHERE Age < 25
+SELECT FROM WHERE age < 20
+SELECT P.pieler_NAME, P.pieler_AGE FROM pilots WHERE city = 'Austin'
+SELECT the FROM flights
+SELECT Name
+SELECT Name FROM PilsPilots ORDER BY Age DESC LIMIT 1
+SELECT MAX(PilotAge)
+SELECT umped FROM (SELECT * FROM aircraft WHERE date < '2023')
+SELECT OUTPUT
+SELECT FROM
+SELECT p.age
+SELECT Age FROM Pipers WHERE Year > 2018 ORDER BY Age DESC LIMIT 1
+SELECT district FROM area WHERE area_size = (SELECT MAX(area_size) FROM area)
+SELECT * FROM districts WHERE district_name = '__________'
+SELECT district, population
+SELECT District FROM D3 WHERE District IN (SELECT District FROM D4 WHERE District IN (SELECT District FROM D5 WHERE District IN (SELECT District FROM D6 WHERE District IN (SELECT District FROM D7 WHERE District IN (SELECT District FROM D8 WHERE District IN (SELECT District FROM D9 WHERE District IN (SELECT District FROM D10)))))) GROUP BY District ORDER BY SUM ASCLIMIT 2.00 OFFSET 3.50)
+SELECT district, COUNT(*) FROM districts ORDER BY area DESC LIMIT 1
+SELECT * FROM districts WHERE district_id IN (SELECT id FROM districts GROUP BY district_id ORDER BY population DESC LIMIT 10)
+SELECT district
+SELECT id, name FROM districts WHERE population > 4000 ORDER BY area LIMIT 1
+SELECT *
+SELECT P FROM table_name WHERE R = 1
+SELECT R
+SELECT A.entertainment
+SELECT SpreaderName FROM Spreadsheets WHERE SpreadingCompany = 'ABC Company' ORDER BY SpreaderName ASC LIMIT 1
+SELECT district
+SELECT * FROM Spokesmen WHERE District IN (SELECT District FROM Spokesmen WHERE StartYear <= 1999)
+SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district IN (SELECT district FROM mydb WHERE district
+SELECT District, String
+SELECT District
+SELECT district
+SELECT FROM       FROM "spokesmen"
+SELECT District, TotalPopulation, AveragePopulation FROM Districts WHERE Spokesman IN (SELECT spname FROM spaires WHERE spname = 'district1')
+SELECT "雕塑Title"
+SELECT T1.name
+SELECT ively
+SELECT BY
+SELECT sculpture
+SELECT A
+SELECT title, location FROM paintings
+SELECT FROM
+SELECT title, location FROM sculpture_table
+SELECT II
+SELECT and                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+SELECT ID
+SELECT Name FROM artists WHERE Year_Born > 1850
+SELECT *
+SELECT sculpture, name FROM sculptures WHERE location IN (SELECT location FROM galleries WHERE id = '226');
+SELECT Name
+SELECT the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+SELECT ively
+SELECT T1.BirthYear FROM sculpture AS T JOIN artist AS A ON T.Asther_id = A.Asther_id GROUP BY T1.BirthYear
+SELECT BY
+SELECT BY
+SELECT ONE
+SELECT A
+SELECT FROM
+SELECT FROM
+SELECT The
+SELECT BY
+SELECT COUNT(*)
+SELECT BY
+SELECT COUNT(*) FROM paintings
+SELECT A
+SELECT * FROM paintings WHERE artist_name = 'Mary';
+SELECT The
+SELECT THE WHERE OUT    	<liurent
+SELECT answer
+SELECT therequired
+SELECT first_name, last_name
+SELECT A, B
+SELECT the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+SELECT three
+SELECT year
+SELECT YEAR(Agent) FROM artists WHERE Year = 1884
+SELECT artist, First_name
+SELECT T2.first_name
+SELECT number
+SELECT BY
+SELECT "MediumType" FROM paintings WHERE "Height" > 3
+SELECT * FROM paintings WHERE medium_type = 'watercolor'
+SELECT the
+SELECT COUNT(*) FROM paintings WHERE year > 1900
+SELECT Title
+SELECT COUNT(*) FROM paintings
+SELECT *
+SELECT id FROM artists WHERE medium = 'oil'
+SELECT Title FROM Paintings WHERE Height > 5
+SELECT the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+SELECT *
+SELECT painting, ID
+SELECT Painting_ID
+SELECT ively
+SELECT two
+SELECT Name FROM sculptures WHERE Title = 'female';
+SELECT Name FROM Paints ORDER BY Distinctness DESC
+SELECT Picture
+SELECT Name
+SELECT Name
+SELECT BY
+SELECT THE
+SELECT Title FROM PIANETAS
+SELECT two
+SELECT name
+SELECT artist_id
+SELECT BY
+SELECT Answer
+SELECT Name FROM Painting WHERE Width < 600 ORDER BY Height
+SELECT T1.name
+SELECT TEAS
+SELECT A
+SELECT ID FROM paintings WHERE height > 500 ORDER BY height LIMIT 1
+SELECT ID FROM paintings WHERE height > 500 ORDER BY height LIMIT 1
+SELECT cities
+SELECT two
+SELECT Location
+SELECT two
+SELECT *
+SELECT AVG(ArtHeight) FROM paintings WHERE Gallery = 'Gallery 241'
+SELECT FROM
+SELECT isser
+SELECT YEAR, MAX(height), MAX(width)
+SELECT YEAR FROM painting
+SELECT painting_name, height, width
+SELECT COUNT(*) AS total, AVG(AVERAGE) FROM paintings GROUP BY painters ORDER BY paintings ASC
+SELECT artist_name, COUNT(*) FROM paintings GROUP BY artist_name
+SELECT three
+SELECT name, COUNT(*) FROM artists GROUP BY name ORDER BY COUNT DESC LIMIT 1
+SELECT MAX(t)
+SELECT death_year
+SELECT *
+SELECT ID, height
+SELECT FROM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+SELECT ID FROM paintings WHERE gallery_id = 240
+SELECT painting
+SELECT ID
+SELECT ID FROM Painting WHERE Year > 1900
+SELECT name, COUNT(*) FROM paintings GROUP BY medium ORDER BY COUNT DESC LIMIT 3
+SELECT *
+SELECT id FROM art_painting ORDER BY year DESC
+SELECT oilPainting FROM oilPaintings ORDER BY created_at DESC
+SELECT year, location, title FROM paintings ORDER BY height DESC
+SELECT year, location, name FROM paintings WHERE height > 1000
+SELECT first, last
+SELECT COUNT(*)
+SELECT name
+SELECT A.useum
+SELECT BY
+SELECT COUNT(*) FROM race
+SELECT Name FROM Wins ORDER BY TeamName ASC
+SELECT RACE
+SELECT * FROM racing WHERE driver_name = 'Juli'
+SELECT Name, wins FROM races WHERE year = 2016
+SELECT ioni
+SELECT * FROM cars ORDER BY age ASC
+SELECT COUNT(DISTINCT.DriverID)
+SELECT COUNT(*)
+SELECT icamente
+SELECT driver_age, MAX(driver_age) AS max_age, MIN(driver_age) AS min_age
+SELECT COUNT(*) FROM cars WHERE model = 'Audi'
+SELECT Engine FROM Driver WHERE Age >= 30 ORDER BY Age LIMIT 5
+SELECT Name
+SELECT F
+SELECT Name, race FROM drivers WHERE age > 50
+SELECT BY
+SELECT * FROM Drivers
+SELECT A
+SELECT Driver_name FROM Races WHERE Race_date >= DATE_SUB_SUBLets_date
+SELECT theAGE
+SELECT Name, Age
+SELECT A
+SELECT Race
+SELECT Race FROM Race WHERE Age > 26
+SELECT the
+SELECT Driver
+SELECT COUNT(DISTINCTConstructor) FROM List;
+SELECT COUNT(DISTINCT.DriverID) FROM DriverConfiguration WHERE DriverType = 'driver';
+SELECT thetype FROM engines WHERE model = 'sed'
+SELECT A
+SELECT EngineType FROM cars WHERE Driver1 = 'John Doe'
+SELECT two
+SELECT Driver
+SELECT BY
+SELECT *
+SELECT two
+SELECT Team FROM Teams ORDER BY WinCount DESC LIMIT 1
+SELECT * FROM table_name
+SELECT driver
+SELECT * FROM Drivers WHERE Position = ' pole position'
+SELECT the FROM drivers
+SELECT driver
+SELECT BY
+SELECT COUNT(*) FROM languages
+SELECT * FROM Language ORDER BY English ASC
+SELECT FROM
+SELECT icamente
+SELECT * FROM your_table
+SELECT Country FROM scores ORDER BY OverallScore DESC
+SELECT BY
+SELECT AVG(Age)
+SELECT COUNT(*)
+SELECT Country, MaxHealthScore
+SELECT max_health_score, min_health_score FROM countries GROUP BY country
+SELECT BY
+SELECT COUNT(*), SUM(CASEWhenLanguageCodeIsInCountryAndLanguageCodeIsNotInCountry)
+SELECT country_name FROM list_name ORDER BY score DESC
+SELECT TE
+SELECT Name
+SELECT FROM
+SELECT Country, Language
+SELECT FROM
+SELECT country FROM table_name WHERE language = 'English'
+SELECT two
+SELECT Country FROM languages WHERE Language = 'English';
+SELECT BY
+SELECT language_name FROM country_data WHERE country_code IN (SELECT country_code FROM country_data GROUP BY country_code ORDER BY language_count DESC LIMIT 1)
+SELECT A
+SELECT * FROM country_table WHERE language = 'English'
+SELECT Country, AVG(OverallScore) FROM countries GROUP BY Country
+SELECT THREE
+SELECT two
+SELECT Language FROM country ORDER BY AverageOverallScore DESC
+SELECT * FROM countries ORDER BY average_score DESC
+SELECT Name
+SELECT A
+SELECT Name
+SELECT BY
+SELECT Country
+SELECT ONE
+SELECT country_name FROM language_table WHERE score > 95
+SELECT A
+SELECT Name
+SELECT A
+SELECT III
+SELECT *
+SELECT Feature
+SELECT * FROM user
+SELECT feature_name FROM properties WHERE property_type = 'Properties'
+SELECT property, feature_name
+SELECT min(num_rows)
+SELECT COUNT(*) FROM Properties
+SELECT ister
+SELECT property_id FROM Property WHERE parkinglot = 1 ORDER BY garage
+SELECT gender
+SELECT *
+SELECT name
+SELECT First_name FROM Users WHERE Property_count = (SELECT COUNT(*) FROM Properties) ORDER BY Property_count DESC LIMIT 1
+SELECT COUNT(*) FROM Properties WHERE Garden = 1
+SELECT BY
+SELECT IN
+SELECT City FROM Properties WHERE PropertyType = '游泳 pool'
+SELECT p1, p2 FROM table_name WHERE t1 = 1
+SELECT Property_id FROM Properties WHERE Requested_price = 0
+SELECT COUNT(*) FROM Properties WHERE PropertyType = ' apartment'
+SELECT COUNT(*) FROM Properties WHERE PropertyType = 'house'
+SELECT A
+SELECT COUNT(*) FROM rooms
+SELECT user_id FROM users WHERE search_count > 2
+SELECT u.id FROM users u JOIN searches s ON u.id = s.user_id GROUP BY u.id ORDER BY COUNT DESC LIMIT 1
+SELECT T1
+SELECT Time
+SELECT title
+SELECT search_string, time_stamp
+SELECT ZipCode FROM Properties WHERE Users = 'John Smith'
+SELECT z FROM Users WHERE u = 'user1'
+SELECT categories
+SELECT id, category_code FROM users WHERE user_id IN (SELECT MIN(user_id) FROM users)
+SELECT age FROM users WHERE first_search_date >= '2010-01-01'
+SELECT category FROM users WHERE date_first_search = '2023-01-01'
+SELECT Name
+SELECT first_name
+SELECT COUNT(*) FROM searches
+SELECT COUNT(*) FROM sales
+SELECT MIN(username) FROM users WHERE username = 'user_name'
+SELECT r.login_name FROM users WHERE r.login_name = 'ratione'
+SELECT first_name FROM sellers WHERE seller_value = 1
+SELECT ingle
+SELECT Age
+SELECT BY        	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	                                                                                                                                                                                               
+SELECT * FROM table_name WHERE column_name = 'feature1' ORDER BY feature1 LIMIT 3
+SELECT property, COUNT(*) FROM table_name GROUP BY property
+SELECT uring                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+SELECT id FROM properties
+SELECT id, num
+SELECT property_id, COUNT(*) FROM propertyPhotos WHERE owner_id IN (SELECT id FROM userids WHERE username = 'property Owner')
+SELECT SUM_price FROM properties WHERE gender = 'single mother' ORDER BY gender
+SELECT COUNT(*) FROM properties WHERE parent = 'single母亲' ORDER BY parent
+SELECT property_name, date_stamp
+SELECT * FROM events ORDER BY dateStamp DESC
+SELECT theDescription FROM table_name
+SELECT FROMProperties WHERE PropertyType = 'PropertyType'
+SELECT the     FROM table
+SELECT Age
+SELECT A
+SELECT * FROM table_name
+SELECT country FROM users WHERE first_name = 'Robbie'
+SELECT * FROM countries WHERE country_name = 'India'
+SELECT A FROM user_table WHERE L = 'property';
+SELECT full_name FROM users WHERE property_id IN (SELECT property_id FROM properties WHERE address = '$(address)')
+SELECT the FROM users
+SELECT COUNT(*)
+SELECT DISTINCT name, id FROM users WHERE property_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT id FROM users WHERE user_id IN (SELECT
+SELECT COUNT(*) FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id IN (SELECT * FROM users WHERE id
+SELECT COUNT(*) FROM bikes WHERE weight > 780
+SELECT Product_Name, Weight
+SELECT heat FROM cycling_cities WHERE country = ' United States'
+SELECT MIN(max_weight) FROM bikes
+SELECT Bicycles
+SELECT * FROM table
+SELECT DISTINCT bike_id FROM bikes WHERE year = 2015
+SELECT ids, names FROM race_bikes WHERE year = 2015
+SELECT MIN(id), MAX(name) FROM cyclists WHERE address = 'New York City'
+SELECT Product_name
+SELECT BY
+SELECT COUNT(*)
+SELECT bike
+SELECT name FROM cycling_bikes WHERE owner = 'Bradley Wiggins'
+SELECT race, winner
+SELECT FROM
+SELECT COUNT(*) FROM cyclists ORDER BY id
+SELECT FROMSELECT
+SELECT flavor
+SELECT Choice
+SELECT "id" FROM "cookie" WHERE "flavor" = 'cheese';
+SELECT id FROM table_name
+SELECT * FROM apple
+SELECT id
+SELECT id FROM products WHERE price < 3
+SELECT DISTINCT CustomerID FROM Customers WHERE CakeFlavor = 'lemon'
+SELECT DISTINCT ID
+SELECT type_of_food FROM orders WHERE customer_id = 1
+SELECT the WHERE clause.SELECT   	<Item_id  		ORDER BY _items
+SELECT Customer_id
+SELECT COUNT(*) FROM orders
+SELECT T1.customer_name FROM customers AS T WHERE T1.order_date > DATE_SUBnihLastOrderDateGROUP BY T1.customer_name
+SELECT T1.Name FROM Customers AS T WHERE T1.CustomerID = (SELECT CustomerID FROM orders WHERE orderDate >= '2023-05-01' ORDER BY OrderDate DESC)
+SELECT COUNT(*)
+SELECT Type
+SELECT flavor
+SELECT flavor
+SELECT column
+SELECT icamente
+SELECT AVG(T2.price), MAX(T2.price), MIN(T2.price) FROM your_table_name
+SELECT column_name
+SELECT receipt_number
+SELECT COUNT(DISTINCTcakeID)
+SELECT * FROM order
+SELECT receipt_number FROM customers WHERE last_name = ' Logan'
+SELECT receipt_number, receipt_date FROM transactions WHERE item_name = 'Most Expensive Item'
+SELECT receipt_number, date
+SELECT T1.name FROM table_name AS T WHERE T2.price = 0
+SELECT MIN(Product)
+SELECT BY                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+SELECT name FROM table_name GROUP BY food_type
+SELECT name FROM orders WHERE order_date >= '2021-03-15'
+SELECT FoodType, AVGPrice
+SELECT product_name, price
+SELECT Product
+SELECT * FROM cake WHERE price > 10
+SELECT flavor FROM cakes WHERE price > 10
+SELECT distinct(id) FROM goods WHERE price < (SELECT AVG(price) FROM goods);
+SELECT FROM
+SELECT the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+SELECT *
+SELECT *
+SELECT number FROM transactions WHERE cost > 13
+SELECT T2.Date FROM Customers AS T WHERE T3.Name = 'John'
+SELECT date FROM purchase WHERE cost > 15
+SELECT *
+SELECT DISTINCT T1.id
+SELECT FROM
+SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (SELECT * FROM "Good" WHERE "ID" = (
+SELECT name
+SELECT name
+SELECT * FROM good_ids ORDER BY id ASC
+SELECT DISTINCT Id
+SELECT receipt
+SELECT receipt_number
+SELECT date FROM receipt
+SELECT receipt_number
+SELECT receipt_date FROM receipt_table WHERE receipt_type = 'invoice' ORDER BY receipt_date DESC LIMIT 5
+SELECT receipt_number
+SELECT ID
+SELECT the GROUP BY column
+SELECT name FROM customers WHERE date = (SELECT MIN(date) FROM customers WHERE customer_id IN (SELECT customer_id FROM orders))
+SELECT "customer_id" FROM customers WHERE "date_of_birth" = (SELECT MIN("date_of_birth") FROM customers WHERE "first_name" = 'John')
+SELECT ansi
+SELECT color
+SELECT MIN_price FROM products WHERE product_name = 'Cheese-Fruity'
+SELECT VEGETABLE
+SELECT product, AVG(price) FROM products GROUP BY flavor ORDER BY price DESC
+SELECT MAX(), MIN(), AVG()
+SELECT FoodType, MINPrice, MAXPrice FROM goods GROUP BY FoodType ORDER BY Price ASC
+SELECT *
+SELECT Date FROM transactions WHERE Date >= '2018-01-01'
+SELECT MIN(T1.Date) FROM Sales WHERE T1.Product = 'A'
+SELECT customer FROM shopping_table GROUP BY customer
+SELECT COUNT(*) FROM orders WHERE customer_id = (SELECT customer_id FROM orders WHERE order_id = 1234567890)
+SELECT DATE, COUNT(DISTINCT.customer_id) as distinct_customers
+SELECT COUNT(*)
+SELECT FROM  GROUP BY customer
+SELECT BY
+SELECT MIN(price)
+SELECT CookId FROM cooks WHERE Price < 10
+SELECT ID FROM Cakes WHERE Price >= (SELECT AVG(TartPrice) FROM Cakes WHERE Date >= '2021-01-01')
+SELECT DISTINCT CakeId FROM cake WHERE Price > (SELECT AVG(TartPrice) FROM tart)
+SELECT icamente
+SELECT id
+SELECT id, flavor, type FROM orders
+SELECT id FROM goods ORDER BY price DESC
+SELECT flavor, id FROM orders
+SELECT ids, flavors
+SELECT * FROM products WHERE flavor = 'chocolate'
+SELECT COUNT(*)
+SELECT A
+SELECT A
+SELECT the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+SELECT A
+SELECT id
+SELECT id FROM customer WHERE amount_spent > 150
+SELECT * FROM customer
+SELECT id
+SELECT DATEDIFF(CURDATEuestion_ID), MIN(DATEDIFF)
+SELECT T2.date FROM Sales AS T WHERE T1.product = 'bakery' ORDER BY SUM ASC
+SELECT BY
+SELECT COUNT(*) FROM Driver
+SELECT COUNT(DISTINCT.make) FROM cars c JOIN drivers d ON c.make = d.make
+SELECT make FROM table_name
+SELECT driver, AVG(age)
+SELECT Age, Make
+SELECT AVG(lap) FROM drivers WHERE age < 20
+SELECT AVG(laps) FROM drivers WHERE age < 20
+SELECT car
+SELECT TeamName, ManagerName, SponsorName FROM teams ORDER BY Owner
+SELECT Name FROM Team
+SELECT A
+SELECT RATED
+SELECT car_name FROM Team WHERE owner = 'Buddy Arrington';
+SELECT A
+SELECT Driver FROM drivers ORDER BY Distance DESC LIMIT 1
+SELECT COUNT(*) FROM Driver WHERE Points < 150
+SELECT COUNT(D) FROM drivers WHERE points < 150
+SELECT driver_name FROM drivers ORDER BY age ASC
+SELECT driver_name FROM drivers ORDER BY age ASC
+SELECT driver_name FROM driver_table ORDER BY points DESC
+SELECT driver_name
+SELECT driver_name, country
+SELECT driver_name FROM drivers
+SELECT The                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+SELECT MAX(max_value)
+SELECT A
+SELECT AVG(DATEDIFF) FROM drivers WHERE country = 'USA';
+SELECT name FROM drivers WHERE points > 150
+SELECT Country, Points
+SELECT BY
+SELECT country, MAX(points) FROM drivers ORDER BY points DESC LIMIT 1
+SELECT driver
+SELECT m
+SELECT name FROM MakeTable
+SELECT IVE
+SELECT DISTINCT     FROM Driver    GROUP BY driver
+SELECT first_name
+SELECT team
+SELECT A
+SELECT BY
+SELECT ONE
+SELECT DriverName, COUNT(*) FROM Drivers GROUP BY DriverName ORDER BY COUNT DESC LIMIT 1
+SELECT BY
+SELECT * FROM Driver WHERE Country = 'Unknown'
+SELECT Choice
+SELECT manager, sponsor
+SELECT name, manager_name FROM drivers WHERE driver_id = (SELECT id FROM drivers WHERE location = 'New York')
+SELECT manager
+SELECT driver_name, manager_name FROM team
+SELECT II
+SELECT COUNT(*) FROM institution
+SELECT Name
+SELECT iva
+SELECT * FROM institutions
+SELECT FROM
+SELECT Quantity
+SELECT City, Province FROM institutions WHERE institution_name = 'John Smith';
+SELECT T2.accesion FROM institution AS T
+SELECT maxEnrollment, minEnrollment FROM enrollments GROUP BY institution
+SELECT Name
+SELECT institution_id, affiliation
+SELECT STATION
+SELECT * FROM sports_stadiums ORDER BY capacity DESC
+SELECT MAX(Btn)
+SELECT theStadium
+SELECT BY
+SELECT i.name FROM institutions WHERE i.name IN (SELECT name FROM universities WHERE university.id = 2001)
+SELECT DISTINCT college_name
+SELECT institution_name FROM enrollments ORDER BY enrollment_count ASC LIMIT 1
+SELECT * FROM institution ORDER BY COUNT DESC
+SELECT A
+SELECT institution, COUNT(*) FROM institutions GROUP BY institution
+SELECT DISTINCT the     FROM institution
+SELECT COUNT(*) FROM institutions WHERE publicAffiliation = 'public'
+SELECT COUNT(*) FROM institutions WHERE publicAffiliation = 'public'
+SELECT thefull_name, COUNT(*) FROM institutions
+SELECT Type FROM affiliated_institutes WHERE Affiliation = 'Type'
+SELECT column
+SELECT * FROM affiliatedities GROUP BY institution
+SELECT Year
+SELECT years FROM institution_data WHERE institution_name IN (SELECT name FROM institution_data WHERE location = 'US') GROUP BY years ORDER BY year ASC
+SELECT name
+SELECT A
+SELECT COUNT(*) FROM universities
+SELECT Name, Email FROM Enrollments WHERE City IN (SELECT City FROM Cities WHERE Region = 'VANDA' ORDER BY Region) ORDER BY City LIMIT 1
+SELECT * FROM provinces
+SELECT one
+SELECT BY
+SELECT COUNT(DISTINCTprovince) FROM province;
+SELECT WarehouseID FROM Warehouse WHERE WarehouseName = 'John Smith'
+SELECT warehouse_name FROM warehouses
+SELECT *
+SELECT two
+SELECT *
+SELECT name FROM box WHERE value > 150
+SELECT Warehouse, AVG(AvgBox) FROM warehouses
+SELECT COUNT(*) FROM warehouses ORDER BY AVG_value DESC
+SELECT COUNT(*) FROM box
+SELECT COUNT(*) FROM boxes
+SELECT warehouses.id, SUM(warehouses.capacity) as total_capacity FROM warehouses;
+SELECT SUM(AUM), COUNT(*) FROM warehouses
+SELECT the    FROM content
+SELECT COUNT(*) FROM content
+SELECT T1, SUM(T2) FROM table_name
+SELECT FROM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+SELECT AVG
+SELECT AVG(price) FROM boxes
+SELECT box
+SELECT A.Books
+SELECT * FROM boxes
+SELECT BY
+SELECT * FROM warehouse
+SELECT city, location
+SELECT boxes FROM warehouse WHERE warehouse_name IN (SELECT warehouse_name FROM warehouses WHERE location = 'Chicago' ORDER BY location)
+SELECT category
+SELECT SUM(Bbox) FROM warehouses
+SELECT FROM
+SELECT *
+SELECT city FROM cities WHERE location IN (SELECT location FROM cities WHERE city = 'Chicago');
+SELECT "File Name" FROM warehouse WHERE "City" = 'New York'
+SELECT A
+SELECT warehouse_id, MAX(value)
+SELECT IN
+SELECT warehouse FROM rock_store WHERE material = 'Rocks'
+SELECT RANK
+SELECT warehouse FROM table_name
+SELECT warehouse FROM warehouses WHERE type = 'rock'
+SELECT Box1, Box2, Box3
+SELECT IVE
+SELECT BoxCode
+SELECT MIN(B1) FROM Box B
+SELECT Box
+SELECT content FROM box WHERE value > (SELECT AVG(value) FROM box GROUP BY content)
+SELECT * FROM contents ORDER BY contents
+SELECT ives
+SELECT BoxId FROM Boxes WHERE RockType = 'Rocks'
+SELECT boxes
+SELECT * FROM boxes
+SELECT A
+SELECT MAX(A2) FROM warehouse A
+SELECT A
+SELECT Warehouse, AVG(boxes)
+SELECT Warehouse, AVG(boxes) FROM warehouses GROUP BY Warehouse ORDER BY AVGboxes DESC LIMIT 3
+SELECT name, COUNT(*) FROM content_types GROUP BY type
+SELECT * FROM your_table
+SELECT MAX_capacity
+SELECT * FROM warehouses
+SELECT SUM(capacity) FROM warehouse
+SELECT FROM
+SELECT * FROM warehouses ORDER BY price DESC LIMIT 1
+SELECT * FROM warehouses WHERE warehouse_location = 'New York'
+SELECT Warehouse, COUNT(*) FROM warehouses GROUP BY Warehouse
+SELECT COUNT(*) FROM warehouses
+SELECT COUNT(DISTINCT_location) FROM rocks
+SELECT Choice
+SELECT box1, box2
+SELECT FROM
+SELECT box_name
+SELECT FROMWarehouse WHERE City = 'Chicago'
+SELECT Warehouse, COUNT(*) FROM warehouse GROUP BY Warehouse
+SELECT A
+SELECT COUNT(*) FROM warehouses
+SELECT the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+SELECT WarehouseCode
+SELECT BY
+SELECT BoxId, SUM(TotalValue) FROM warehouses WHERE Location = 'Chicago'
+SELECT icamente
+SELECT name FROM universities ORDER BY city ASC
+SELECT ically
+SELECT COUNT
+SELECT COUNT(DISTINCTUniversity) FROM university;
+SELECT COUNT(*) FROM university WHERE state = 'CA'
+SELECT max, AVG, MIN FROM universities
+SELECT t1.name FROM team t JOIN student s ON t.id = s.id GROUP BY t1.name
+SELECT Name FROM university_name GROUP BY Name ORDER BY Number DESC
+SELECT name
+SELECT Name FROM HomeConferences
+SELECT conferences
+SELECT COUNT(*) FROM conferences WHERE university = 'University of California'
+SELECT BY
+SELECT the.state FROM universities ORDER BY number DESC LIMIT 1
+SELECT T1.name
+SELECT COUNT(*)
+SELECT T2.event_name FROM conference_t2 JOIN conference ON conference.t2_id = conference.t2_id GROUP BY T1.event_name ORDER BY COUNT DESC LIMIT 1
+SELECT DISTINCT event
+SELECT major, code FROM list
+SELECT BY
+SELECT MajName FROM majors WHERE University = 'Augustana College'
+SELECT r FROM major ORDER BY rank
+SELECT City FROM university ORDER BY Rank DESC
+SELECT T2.Name FROM universities AS T WHERE T1.Name = 'University of California Berkeley'
+SELECT Subject, Rank
+SELECT Subject FROM University ORDER BY Major DESC LIMIT 1
+SELECT FROM
+SELECT ively
+SELECT u_name FROM university WHERE major = 'Accounting'
+SELECT U.name
+SELECT "name" FROM "universities" ORDER BY "rank" DESC
+SELECT university, rank
+SELECT Name
+SELECT "University" FROM "Universities" ORDER BY "Research Points" DESC LIMIT 1
+SELECT * FROM university ORDER BY reputation_points DESC;
+SELECT * FROM university WHERE reputation_points > 1
+SELECT *
+SELECT A.name
+SELECT COUNT(*) FROM universities WHERE rank IN (SELECT rank FROM universities WHERE rank < 4) GROUP BY university ORDER BY rank ASC
+SELECT COUNT(*) FROM universities WHERE rank < 5;
+SELECT U_NAME FROM university_reputation ORDER BY REPUTATION DESC LIMIT 3
+SELECT T2.Name, T2.Citation
+SELECT DISTINCT universities
+SELECT Name
+SELECT movie_name FROM movies WHERE rating < 1
+SELECT the FROM movie
+SELECT ics
+SELECT T1.Name
+SELECT thetitle FROM movies WHERE theater = 'Odeon'
+SELECT movies FROM theatre WHERE location = 'Odeon'
+SELECT * FROM theaters
+SELECT * FROM theaters WHERE theater_name = ' Theatre A';
+SELECT A
+SELECT COUNT(*) FROM movie WHERE rating >= 9
+SELECT BY
+SELECT BY
+SELECT A.One
+SELECT BY
+SELECT BY
+SELECT ively
+SELECT THEmovie
+SELECT genre FROM movies WHERE title IN (SELECT title FROM movies WHERE movie_name IN (SELECT movie_name FROM movies WHERE title IN (SELECT title FROM movies WHERE movie_name IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (SELECT title FROM movies WHERE title IN (
+SELECT cinema
+SELECT movie
+SELECT The_name FROM Movies
+SELECT Movie
+SELECT theater
+SELECT name
+SELECT Movie FROM Movies WHERE theater = 'Odeon'
+SELECT DISTINCT themovie
+SELECT Title
+SELECT Name FROM Movie
+SELECT Title
+SELECT movies
+SELECT T2.Name FROM theaters AS T JOIN movies AS M ON T2.Title = M.Title GROUP BY T2.Name ORDER BY COUNT ASCLIMIT 1
+SELECT name FROM theater WHERE year = 2021
+SELECT T2.title FROM movies AS T JOIN theaters AS T1 ON T1.id = T2.id GROUP BY T1.name ORDER BY COUNT ASC
+SELECT film_name FROM movies WHERE theater_count = 3
+SELECT Rating FROM ratings ORDER BY Rating DESC
+SELECT COUNT(*) FROM movie_rating WHERE rating = 'movie'
+SELECT COUNT(*)
+SELECT COUNT(*) FROM movies WHERE rating <> null
+SELECT T2.title FROM theaters AS T JOIN movies AS M ON T2.id = M.id GROUP BY T2.title
+SELECT Name
+SELECT *
+SELECT A
+SELECT Name
+SELECT the FROM theater
+SELECT movie
+SELECT title
+SELECT rating
+SELECT genre, COUNT(*) FROM movies
+SELECT title FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year IN (SELECT year FROM movie WHERE year
+SELECT The
+SELECT movie_name
+SELECT BY
+SELECT MAX(COUNT)
+SELECT Client_name FROM Package_A
+SELECT A.Over                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+SELECT SUM(value) FROM package
+SELECT FROM
+SELECT A
+SELECT FROM
+SELECT FROM
+SELECT AVG(salary) FROM intern
+SELECT AVG(salary) FROM intern
+SELECT the
+SELECT T1.patientID FROM doctor WHERE T2.Classification = 'P'
+SELECT SUM
+SELECT COUNT(*)
+SELECT COUNT(*) FROM package_numbers
+SELECT Answer
+SELECT Name
+SELECT FROM
+SELECT COUNT(*) FROM package_count WHERE sender = 'Ogden Wernstrom'
+SELECT FROM                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+SELECT FROM
+SELECT V
+SELECT PackageNo, PackageWeight
+SELECT package_number, weight
+SELECT * FROM packages ORDER BY package_number DESC LIMIT 3
+SELECT package_number, weight
+SELECT COUNT(*)
+SELECT COUNT(*) FROM orders WHERE order_date >= '2023-01-01' ORDER BY order_count DESC LIMIT 5
+SELECT COUNT(*) FROM packages
+SELECT package_number
+SELECT Client_name FROM order
+SELECT * FROM order WHERE order_date >= DATE_SUBADD_subplotSTRurnalMonth_130627284596972202302397959823261003 ORDER BY COUNT
+SELECT coordinate
+SELECT icamente
+SELECT Name FROM Planets ORDER BY Name ASC
+SELECT Planet FROM Planets ORDER BY Name ASC
+SELECT DISTINCT sh.id
+SELECT shipping_id
+SELECT DATE(panchrono) FROM shipments
+SELECT DISTINCT Date FROM shipment WHERE Date < '2023-01-01'
+SELECT ID FROM shs
+SELECT BY
+SELECT DISTINCT i FROM shipments WHERE planet = 'Mars'
+SELECT id
+SELECT TO
+SELECT id
+SELECT planet, SUM(shipments)
+SELECT A
+SELECT planet
+SELECT TheBestName FROM shipping WHERE country = ' United States'
+SELECT manager_name, number_of_ships
+SELECT Name, Number FROM shipments
+SELECT MAX(Weight)
+SELECT package_id FROM deliveries WHERE planet = 'Mars'
+SELECT Planet FROM table_name
+SELECT Planet FROM planets WHERE Planet = '火星'
+SELECT planet
+SELECT Name
+SELECT List, List, COUNT(*) FROM List GROUP BY List
+SELECT package
+SELECT * FROM OmicronPersei
+SELECT ically
+SELECT PackageNumber, Weight
+SELECT PackageNumbers, Weight
+SELECT Name
+SELECT BY
+SELECT Employee
+SELECT ively
+SELECT planet FROM planets WHERE employee_id = 1
+SELECT FROM
+SELECT name FROM table_name
+SELECT Name FROM Employees WHERE Salary >= 5000
+SELECT name
+SELECT employee_name FROM employees WHERE salary > 5000
+SELECT employee_name
+SELECT ION
+SELECT ioni
+SELECT COUNT(*) FROM Games
+SELECT Game, Title, Developer
+SELECT A
+SELECT Product
+SELECT COUNT(*) FROM sales WHERE game = 'Ninty'
+SELECT THE  FROM A
+SELECT * FROM platforms
+SELECT BY
+SELECT platform_name, download_rank FROM platforms ORDER BY download_rank DESC LIMIT 1
+SELECT Year FROM Players ORDER BY Rank DESC
+SELECT year FROM player
+SELECT COUNT(*) FROM player WHERE rank < 3
+SELECT COUNT(*)
+SELECT * FROM PlayerName ORDER BY Name ASC
+SELECT *
+SELECT Name FROM Players ORDER BY Year DESC
+SELECT *
+SELECT ONE
+SELECT ONE
+SELECT FROM
+SELECT DISTINCT D
+SELECT COUNT(DISTINCTPlayerID) FROM Players WHERE Position = 'Guard'
+SELECT AVG(number_sold) FROM games WHERE position = Guard
+SELECT games
+SELECT the                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+SELECT A
+SELECT "Title"
+SELECT franchise, games
+SELECT BY
+SELECT frname FROM franchises WHERE gamecount > 5
+SELECT franchise
+SELECT franchise
+SELECT BY
+SELECT DISTINCT
+SELECT FROM
+SELECT The
+SELECT Title
+SELECT fr
+SELECT A
+SELECT title
+SELECT BY
+SELECT name, profit FROM press WHERE year = 2017
+SELECT name FROM sorted_all
+SELECT publisher
+SELECT * FROM Press
+SELECT * FROM presses
+SELECT year, MAX(profit) as max_profit FROM press
+SELECT publisher_name
+SELECT MAX(COUNT)
+SELECT publisher_name
+SELECT * FROM press
+SELECT COUNT(*) FROM authors WHERE age < 30
+SELECT author_name, COUNT(*) FROM authors WHERE age < 30
+SELECT gender, AVG(age) FROM authors GROUP BY gender
+SELECT gender, AVG(age) FROM authors
+SELECT age, COUNT(*) as num_authors
+SELECT gender, COUNT(*) FROM authors GROUP BY gender
+SELECT * FROM booktitles ORDER BY release_date DESC
+SELECT title FROM books ORDER BY release_date DESC
+SELECT Books
+SELECT COUNT(*) FROM series WHERE title = 'Series Title';
+SELECT title, publisher, publication_date
+SELECT titles
+SELECT Title FROM BookSeries WHERE Sales > 1000
+SELECT bookseller FROM books WHERE sale_amount > 1000 GROUP BY bookseller ORDER BY sale_amount DESC LIMIT 2
+SELECT a
+SELECT a
+SELECT a.name, a.age
+SELECT Author
+SELECT Name
+SELECT Name FROM BookDB
+SELECT * FROM sales WHERE year = 2021
+SELECT from  GROUP BY title
+SELECT P.PrintName, SUM(T.SaleAmount) AS TotalBookSale
+SELECT p.name, COUNT(*) AS total_book_sales
+SELECT P.PressName
+SELECT press_name, COUNT(*) AS book_count
+SELECT T1.name
+SELECT A
+SELECT Name, Gender FROM Books ORDER BY BookCount DESC LIMIT 1
+SELECT FROM LIMIT 1
+SELECT T2.author
+SELECT author
+SELECT title, year
+SELECT book_name FROM press WHERE year = 2018
+SELECT RETURN
+SELECT name FROM users
+SELECT name, title
+SELECT BY
+SELECT COUNT(*)
+SELECT id
+SELECT "The New York Times"
+SELECT COUNT(*) FROM Document
+SELECT document_name, description
+SELECT document_id, name FROM documents WHERE author = 'Bianka Cummings';
+SELECT FROM
+SELECT * FROM author
+SELECT title
+SELECT T1.author_name, COUNT(*) AS num_document
+SELECT IV
+SELECT process_name, process_description
+SELECT ProcessNumber
+SELECT COUNT(*) FROM my_table
+SELECT COUNT(*) FROM ProcessOutcomes
+SELECT Process, Action
+SELECT * FROM my_table WHERE process_status = 'ON'
+SELECT ProcessName FROM ProcessStatus WHERE Status = 'Under Review'
+SELECT ProcessNumber
+SELECT BY
+SELECT staff.id, staff.name FROM staff
+SELECT ID
+SELECT StaffName
+SELECT staffrole
+SELECT FROMHR
+SELECT Choice
+SELECT id, COUNT(*) FROM process_id GROUP BY doc
+SELECT doc
+SELECT ProcessID, COUNT(*) FROM ProcessID GROUP BY ProcessID
+SELECT COUNT(*) FROM documents WHERE id = 0
+SELECT title FROM documents WHERE country = 'Brazil'
+SELECT ProcessID, COUNT(DocumentID) FROM processes
+SELECT StaffName
+SELECT * FROM Staff
+SELECT * FROM StaffRole
+SELECT COUNT(*) FROM staff WHERE id = 3
+SELECT IV
+SELECT COUNT(*) FROM agencies
+SELECT AgencyID FROM Agency WHERE AgencyName = 'Company'
+SELECT agency_id
+SELECT COUNT(*)
+SELECT BY
+SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM Clients WHERE Client_ID IN (SELECT Client_ID FROM clients WHERE Client_ID IN (SELECT Client_ID
+SELECT client_id FROM clients
+SELECT Agency_id, COUNT(*) FROM agencies GROUP BY Agency_id
+SELECT iva
+SELECT ag_id, ag_details FROM ag_info
+SELECT ag.id, ag.name, COUNT(*) AS client_count FROM clients GROUP BY ag.id ORDER BY client_count DESC LIMIT 1
+SELECT ID FROM Agencies WHERE Name = 'ABC'
+SELECT A
+SELECT A
+SELECT theFROM clients
+SELECT the  	FROM clients
+SELECT client_id, name, agency_name FROM clients;
+SELECT sic, COUNT(*) FROM sic_code GROUP BY sic
+SELECT A
+SELECT IV
+SELECT A
+SELECT agency_id FROM clients WHERE client_id IN (SELECT client_id FROM clients WHERE client_name = 'John Doe')
+SELECT A1.AID, A1.ANSIS FROM agencies WHERE Client = 'Example'
+SELECT Agency_id FROM Agency WHERE Client_id = 1
+SELECT id FROM agency WHERE client_id = 0
+SELECT IV
+SELECT COUNT(*) FROM Invoices
+SELECT id, status_code, detailed_message FROM invoices
+SELECT id, status, details FROM invoices
+SELECT COUNT(*) FROM invoices WHERE client_id = (SELECT id FROM invoices WHERE client_id IN (SELECT id FROM clients))
+SELECT COUNT(*) FROM clients WHERE id = (SELECT client_id FROM invoices WHERE date = CURDATE);
+SELECT MAX(id) FROM invoices
+SELECT COUNT(*) FROM Invoices WHERE ClientID = (SELECT ClientID FROM Clients WHERE City = 'New York')
+SELECT Client_id
+SELECT Client_id FROM Invoices WHERE Invoice_number IN (SELECT invoice_number FROM Invoices LIMIT 1)
+SELECT invoice_status_code, COUNT(*) FROM invoices
+SELECT COUNT(*) FROM Invoices WHERE StatusCode = 'A'
+SELECT the    FROM invoice_status_code
+SELECT T1.invoice_status FROM Invoices AS TWHERE T2.date >= CURDATE
+SELECT *
+SELECT COUNT(*) FROM invoice_status WHERE client_id = 1
+SELECT name FROM list_of_meeting_type WHERE code IN (SELECT code FROM meeting_type)
+SELECT A
+SELECT DISTINCT  FROM meeting
+SELECT All
+SELECT ID FROM invoices WHERE Status = 'Working'
+SELECT DISTINCT Pn
+SELECT ID FROM Invoice WHERE Status = 'pending'
+SELECT * FROM invoice WHERE status = '未支付'
+SELECT COUNT(*) FROM payments WHERE payment_date >= '2023-01-01'
+SELECT COUNT(*) FROM payments
+SELECT DISTINCT id FROM payments WHERE status = 'pending'GROUP BY id
+SELECT Payment_ID, Invoice_ID, Payment_details FROM payments
+SELECT by                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+SELECT COUNT(*) FROM payments WHERE payment_date >= DATEADDMonthsADDYearhir.now
+SELECT InvoiceID, COUNT(*) FROM Invoices
+SELECT COUNT(*)
+SELECT COUNT(*) AS total_payment_count, SUM(order_total) AS payment_amount
+SELECT COUNT(*) AS count, SUM(amount) AS total_amount, SUM(status_id) AS total_status_id, COUNT(*) AS payment_count, COUNT(*) AS payment_status
+SELECT BY
+SELECT COUNT(*) FROM Employees
+SELECT Agency_id, COUNT(*) FROM Agent WHERE Agent_type = 'Agency'
+SELECT Agency_ids, COUNT(*) FROM Staff GROUP BY Agency_ids
+SELECT ag_id FROM agencies WHERE staff_count = 3
+SELECT AgencyID, StaffName FROM agencies ORDER BY StaffCount DESC LIMIT 1
+SELECT T2.X, T2.Y FROM meetings m JOIN (SELECT X, Y, COUNT(*) AS COUNTX FROM meetings WHERE t1.X = m1.X) AS t1 ON m1.X = t2.X GROUP BY t2.X ORDER BY COUNTX DESC
+SELECT COUNT(DISTINCT)
+SELECT Client_ID, Meeting_ID FROM Client_Calendar
+SELECT COUNT(*) FROM clients WHERE client_id = (SELECT client_id FROM clients WHERE name IN (SELECT name FROM meetings))
+SELECT DISTINCT meeting_type, COUNT(*) FROM meetings WHERE client_id = (SELECT MIN(client_id) FROM clients);
+SELECT T2.model, COUNT(*) AS num_meetings
+SELECT * FROM Meeting
+SELECT T2.ClientId FROM meetings AS T WHERE T1.ClientId = 'valueOfClient1';
+SELECT M.MID, COUNT(*) FROM meetings WHERE m.id = 1
+SELECT * FROM meetings
+SELECT StaffId, COUNT(*) FROM Meeting WHERE Attendee = 'Staff1'
+SELECT staff_id FROM table_name WHERE event = 'min'
+SELECT COUNT(*) FROM meetings WHERE date >= '2019-04-25'
+SELECT COUNT(DISTINCTstaff) FROM meetings
+SELECT COUNT(DISTINCT)
+SELECT COUNT(*) FROM Meeting WHERE StaffID = (SELECT StaffID FROM Meeting WHERE Meeting_ID = (SELECT Meeting_ID FROM Meeting WHERE Meeting_ID = (SELECT Meeting_ID FROM Meeting WHERE Meeting_ID = (SELECT Meeting_ID FROM Meeting WHERE Meeting_ID = (SELECT Meeting_ID FROM Meeting WHERE Meeting_ID = (SELECT Meeting_ID FROM Meeting WHERE Meeting_ID = (SELECT Meeting_ID FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meeting IN (SELECT * FROM Meeting WHERE meeting IN (SELECT * FROM Meeting WHERE meeting IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting WHERE meetings IN (SELECT * FROM Meeting
+SELECT id, detailed
+SELECT Client_id, Client_name, Meeting_date, Invoice_amount FROM clients WHERE Meeting_date >= DATEADD.microsofteksysONCEMonthwormEDUTC_HERE  ORDER BY Meeting_date;
+SELECT *
+SELECT id, staff_name FROM staff WHERE meeting_id IN (SELECT MAX(meeting_id) FROM staff GROUP BY meeting_id)
+SELECT the   FROM clients
+SELECT DISTINCT clientId, sicCode, agencyId FROM meetings WHERE clientID = (SELECT DISTINCT clientId FROM clients WHERE clientID = (SELECT DISTINCT clientId FROM meetings))
+SELECT Start_Time FROM meetings WHERE Client_ID = 'your_client_id'
+SELECT DATE(start), DATE(end), client, staff

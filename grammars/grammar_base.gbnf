@@ -87,6 +87,4 @@ quoted-identifier ::= ["] [^"]* ["]
 ws ::= [ \t\n]*
 
 # Placeholders for dynamic content, to be populated by the Python script
-columns-placeholder ::= COLUMN_NAMES_PLACEHOLDER
-tables-placeholder ::= TABLE_NAMES_PLACEHOLDER
-aliases-placeholder ::= ALIAS_NAMES_PLACEHOLDER
+

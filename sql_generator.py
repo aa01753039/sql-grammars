@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import sqlite3
+from pathlib import Path
 
 from llama_cpp import Llama, LlamaGrammar
 from tqdm import tqdm
@@ -67,11 +68,11 @@ class SQLGrammar:
             self.get_placeholders(column_names, table_names)
         )
 
-        grammar = self.grammar_template.replace(
-            "COLUMN_NAMES_PLACEHOLDER", columns_placeholder
-        )
-        grammar = grammar.replace("TABLE_NAMES_PLACEHOLDER", tables_placeholder)
-        grammar = grammar.replace("ALIAS_NAMES_PLACEHOLDER", aliases_placeholder)
+        # add a text line to the grammar
+        grammar = self.grammar_template
+        grammar += "columns-placeholder ::= " + columns_placeholder + "\n"
+        grammar += "tables-placeholder ::= " + tables_placeholder + "\n"
+        grammar += "aliases-placeholder ::= " + aliases_placeholder + "\n"
 
         return grammar
 
@@ -102,10 +103,12 @@ class LLMResponse:
         )
         self.questions = []
         self.grammar_directory = grammar_directory
-        self.predicted_path = predicted_path
+        self.json_output = predicted_path + "/output.json"
+        self.txt_output = predicted_path + "/output.txt"
 
         # Ensure the predicted_path exists
-        os.makedirs(os.path.dirname(predicted_path), exist_ok=True)
+        os.makedirs(os.path.dirname(self.json_output), exist_ok=True)
+        os.makedirs(os.path.dirname(self.txt_output), exist_ok=True)
 
     def read_questions(self, questions_file):
         print("Reading questions from ", questions_file)
@@ -129,6 +132,20 @@ class LLMResponse:
                 }
             )
 
+    def get_embedded_grammar(self, db_id):
+        if self.grammar_directory:
+            grammar_path = os.path.join(self.grammar_directory, f"{db_id}.gbnf")
+            if os.path.exists(grammar_path):
+                grammar = LlamaGrammar.from_file(grammar_path, verbose=False)
+        return grammar
+
+    def get_base_grammar(self):
+        if self.grammar_directory:
+            grammar_path = (self.grammar_directory)
+            if os.path.exists(grammar_path):
+                grammar = LlamaGrammar.from_file(grammar_path, verbose=False)
+        return grammar
+
     def get_answers(self):
         print("NL2SQL")
         # Create a dictionary to store the answers
@@ -138,14 +155,16 @@ class LLMResponse:
         for question in tqdm(
             self.questions, desc=f"Answering {len(self.questions)} questions"
         ):
-            # load the specific grammar for the db_id if available
-            grammar = None
+            
+            # if grammar_directory is a directory get_embedded_grammar if grammar_directory is a file get_base_grammar
             if self.grammar_directory:
-                grammar_path = os.path.join(
-                    self.grammar_directory, f"{question['db_id']}.gbnf"
-                )
-                if os.path.exists(grammar_path):
-                    grammar = LlamaGrammar.from_file(grammar_path, verbose=False)
+                grammar_path = Path(self.grammar_directory)
+                if grammar_path.is_dir():
+                    grammar = self.get_embedded_grammar(question["db_id"])
+                elif grammar_path.is_file():
+                    grammar = self.get_base_grammar()
+            else:
+                grammar = None
 
             # get the answer for each question
             question_id = question["id"]
@@ -169,23 +188,20 @@ class LLMResponse:
             )
 
             # save the answers_dict to a json file after each answer
-            with open(self.predicted_path, "w") as file:
+            with open(self.json_output, "w") as file:
                 json.dump(answers_list, file, indent=2)
-        print("Predictions saved to ", self.predicted_path)
+        print("Predictions saved to ", self.json_output)
 
-    def convert_json_to_txt(self, json_file, txt_file):
+    def convert_json_to_txt(self):
         # read the answers from the json file
-        with open(json_file, "r") as file:
+        with open(self.json_output, "r") as file:
             answers = json.load(file)
 
-        # Ensure the directory exists before writing the txt file
-        os.makedirs(os.path.dirname(txt_file), exist_ok=True)
-
         # write the answers to the txt file
-        with open(txt_file, "w") as file:
+        with open(self.txt_output, "w") as file:
             for answer in answers:
                 file.write(answer["answer"].replace("\n", "") + "\n")
-        print(f"Answers written to {txt_file}")
+        print(f"Answers written to {self.txt_output}")
 
     def predict(self, question_file):
         # read the questions from the json file
@@ -236,28 +252,31 @@ if __name__ == "__main__":
     parser.add_argument(
         "--predicted_path",
         type=str,
-        help="Output JSON file path",
+        help="Output directory for the predictions ",
     )
-    parser.add_argument(
-        "--output_txt_file",
-        type=str,
-        help="Output TXT file path",
-    )
+
     args = parser.parse_args()
 
     # create a SQLGrammar object if grammar_directory is provided
     if args.grammar_directory:
-        sql_grammar = SQLGrammar(
+        if Path(args.grammar_directory).is_dir():
+            sql_grammar = SQLGrammar(
             args.grammar_template_path, args.db_base_path, args.grammar_directory
         )
-        # write the grammar to the embedded grammar file
-        sql_grammar.process_databases()
+            # write the grammar to the embedded grammar file
+            sql_grammar.process_databases()
+            grammar_path = args.grammar_directory
+    else:
+        if args.grammar_template_path:
+            grammar_path = args.grammar_template_path
+        else:
+            grammar_path = None
 
     # create a LLMResponse object
     llm_response = LLMResponse(
-        args.llm_repo, args.llm_file, args.predicted_path, args.grammar_directory
+        args.llm_repo, args.llm_file, args.predicted_path, grammar_path
     )
     # read the questions from the json file
     llm_response.predict(args.questions_file)
     # convert the JSON file to a TXT file
-    llm_response.convert_json_to_txt(args.predicted_path, args.output_txt_file)
+    llm_response.convert_json_to_txt()
