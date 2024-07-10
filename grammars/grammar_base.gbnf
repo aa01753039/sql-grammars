@@ -14,9 +14,10 @@ columns ::= "*" | column-or-function (", " column-or-function)*
 column-or-function ::= (column | function alias?)
 
 # Individual column name
-column ::= (schema-name ".")? (table-name ".")? ([a-zA-Z_][a-zA-Z0-9_]* | quoted-identifier)
+column ::= (schema-name ".")? (table-name ".")? (column-name | quoted-identifier)
 schema-name ::= [a-zA-Z_][a-zA-Z0-9_]*
 table-name ::= [a-zA-Z_][a-zA-Z0-9_]*
+column-name ::= [a-zA-Z_][a-zA-Z0-9_]*
 
 # Function call, simplified to no arguments or single argument
 function ::= [a-zA-Z_][a-zA-Z0-9_]* "(" (column | "*" | ) ")"
@@ -28,7 +29,7 @@ from-clause ::= ws? "FROM " (tables | subquery) (ws table-alias)?
 tables ::= table (", " table)*
 
 # Individual table name or subquery as table
-table ::= [a-zA-Z_][a-zA-Z0-9_]* | "(" select-statement ")" | quoted-identifier
+table ::= table-name | "(" select-statement ")" | quoted-identifier
 
 # Alias for a table or subquery, simplified
 alias ::= ws? ("AS " | "as ")? [a-zA-Z][a-zA-Z0-9_]*
@@ -86,5 +87,4 @@ quoted-identifier ::= ["] [^"]* ["]
 # Optional whitespace, for better readability in the grammar
 ws ::= [ \t\n]*
 
-# Placeholders for dynamic content, to be populated by the Python script
 

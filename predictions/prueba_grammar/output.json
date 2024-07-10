@@ -1,0 +1,830 @@
+[
+  {
+    "id": 0,
+    "db_id": "soccer_3",
+    "question": "How many clubs are there?",
+    "answer": "SELECT \"In the United States, the most common form of club is a football club. In addition to that, there are also other forms of clubs such as basketball, soccer, and volleyball.\""
+  },
+  {
+    "id": 1,
+    "db_id": "soccer_3",
+    "question": "Count the number of clubs.",
+    "answer": "SELECT COUNT(*) FROM club"
+  },
+  {
+    "id": 2,
+    "db_id": "soccer_3",
+    "question": "List the name of clubs in ascending alphabetical order.",
+    "answer": "SELECT club.Name FROM club \nORDER BY club.Name \n\nLIMIT 5"
+  },
+  {
+    "id": 3,
+    "db_id": "soccer_3",
+    "question": "What are the names of clubs, ordered alphabetically?",
+    "answer": "SELECT \"? A) The English National League B) The Football Association C) The Football League D) The English Premier League\n\nThe answer is (D). The English Premier League is the name of one of the four major professional football leagues in the United Kingdom, along with the Football Association and the English National League. The clubs ordered alphabetically are SELECT, which means \"WHERE Country  IN (SELECT COUNT(\") and includes teams such as Manchester United, Liverpool FC, Arsenal, and West Ham United. Therefore, the correct answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer is (D). The answer"
+  },
+  {
+    "id": 4,
+    "db_id": "soccer_3",
+    "question": "What are the managers and captains of clubs?",
+    "answer": "SELECT Manager FROM club"
+  },
+  {
+    "id": 5,
+    "db_id": "soccer_3",
+    "question": "Return the managers and captains of all clubs.",
+    "answer": "SELECT * FROM club"
+  },
+  {
+    "id": 6,
+    "db_id": "soccer_3",
+    "question": "List the name of clubs whose manufacturer is not \"Nike\"",
+    "answer": "SELECT DISTINCT *"
+  },
+  {
+    "id": 7,
+    "db_id": "soccer_3",
+    "question": "What are the names of clubs who do not have the manufacturer Nike?",
+    "answer": "SELECT DISTINCT Name FROM club"
+  },
+  {
+    "id": 8,
+    "db_id": "soccer_3",
+    "question": "What are the names of players in ascending order of wins count?",
+    "answer": "SELECT player.Player_ID \nFROM player"
+  },
+  {
+    "id": 9,
+    "db_id": "soccer_3",
+    "question": "Return the names of players in order of count of wins, ascending.",
+    "answer": "SELECT Player_ID FROM player ORDER BY Wins_count LIMIT 10"
+  },
+  {
+    "id": 10,
+    "db_id": "soccer_3",
+    "question": "What is the name of the player with the highest earnings?",
+    "answer": "SELECT MAX(Earnings ) FROM player"
+  },
+  {
+    "id": 11,
+    "db_id": "soccer_3",
+    "question": "Return the name of the player who earns the most money.",
+    "answer": "SELECT player.Name FROM player JOIN player ON player.Player_ID = player.Player_ID GROUP BY player.Name ORDER BY player.Name LIMIT 1"
+  },
+  {
+    "id": 12,
+    "db_id": "soccer_3",
+    "question": "What are the distinct countries of players with earnings higher than 1200000?",
+    "answer": "SELECT DISTINCT Name FROM player WHERE Earnings > 1200000"
+  },
+  {
+    "id": 13,
+    "db_id": "soccer_3",
+    "question": "From which countries are players who make more than 1200000 from?",
+    "answer": "SELECT Country FROM player WHERE Player_ID > 50"
+  },
+  {
+    "id": 14,
+    "db_id": "soccer_3",
+    "question": "What is the country of the player with the highest earnings among players that have more than 2 win counts?",
+    "answer": "SELECT Country FROM player JOIN player WinCount ON player.Name = player.Name GROUP BY Country ORDER BY Wins_count LIMIT 1"
+  },
+  {
+    "id": 15,
+    "db_id": "soccer_3",
+    "question": "Of players who have more than 2 wins, what is the country of the player who makes the most?",
+    "answer": "SELECT Country FROM player WHERE Wins_count > 2"
+  },
+  {
+    "id": 16,
+    "db_id": "soccer_3",
+    "question": "Show names of players and names of clubs they are in.",
+    "answer": "SELECT Name FROM player WHERE Club_ID = 1"
+  },
+  {
+    "id": 17,
+    "db_id": "soccer_3",
+    "question": "What are the names of players and the corresponding clubs that they are in?",
+    "answer": "SELECT player.Name    WHERE club.Name     = \"LeBron James\""
+  },
+  {
+    "id": 18,
+    "db_id": "soccer_3",
+    "question": "Show names of clubs that have players with more than 2 win counts.",
+    "answer": "SELECT Club_ID FROM player WHERE Player_ID = (SELECT Player_ID FROM player WHERE Name = 'Team_name')"
+  },
+  {
+    "id": 19,
+    "db_id": "soccer_3",
+    "question": "What are the names of clubs that have players who have won more than twice?",
+    "answer": "SELECT * FROM club"
+  },
+  {
+    "id": 20,
+    "db_id": "soccer_3",
+    "question": "Show names of players from the club with manager \"Sam Allardyce\".",
+    "answer": "SELECT Player_ID "
+  },
+  {
+    "id": 21,
+    "db_id": "soccer_3",
+    "question": "What are the names of players from the club managed by Sam Allardyce?",
+    "answer": "SELECT Player_ID "
+  },
+  {
+    "id": 22,
+    "db_id": "soccer_3",
+    "question": "Show names of clubs in descending order of average earnings of players belonging.",
+    "answer": "SELECT Name FROM player JOIN club ON player.Player_ID = club.Player_ID ORDER BY Player_ID LIMIT 1"
+  },
+  {
+    "id": 23,
+    "db_id": "soccer_3",
+    "question": "What are the names of clubs, ordered descending by the average earnings of players within each?",
+    "answer": "SELECT Club_ID FROM club ORDER BY Earnings \n\nLIMIT 5"
+  },
+  {
+    "id": 24,
+    "db_id": "soccer_3",
+    "question": "Show different manufacturers and the number of clubs they are associated with.",
+    "answer": "SELECT \"Manufacture\" FROM \"Manufacturers\" JOIN \"Clubs\" ON \"\u5236\u9020\u5546.ID\" = \"Clubs.ID\" GROUP BY \"Manufacture\" ORDER BY \"Number_of_clubmes\" DESC LIMIT 1"
+  },
+  {
+    "id": 25,
+    "db_id": "soccer_3",
+    "question": "How many clubs use each manufacturer?",
+    "answer": "SELECT Events_number "
+  },
+  {
+    "id": 26,
+    "db_id": "soccer_3",
+    "question": "Please show the most common manufacturer of clubs.",
+    "answer": "SELECT Name FROM club"
+  },
+  {
+    "id": 27,
+    "db_id": "soccer_3",
+    "question": "Which manufacturer is most common among clubs?",
+    "answer": "SELECT * FROM club"
+  },
+  {
+    "id": 28,
+    "db_id": "soccer_3",
+    "question": "List the manufacturers that are associated with more than one club.",
+    "answer": "SELECT MAX(Country ) FROM \" manufacturers\" JOIN \"clubs\" ON Manager = \" clubs.id\""
+  },
+  {
+    "id": 29,
+    "db_id": "soccer_3",
+    "question": "Which manufacturers work for more than 1 club?",
+    "answer": "SELECT Name FROM \" Manufacturers\" JOIN \"clubs\" ON \" Manufacturers\u5236\u9020\u4ff1\u4e50\u90e8\" = \"clubs.id\""
+  },
+  {
+    "id": 30,
+    "db_id": "soccer_3",
+    "question": "List the country that have more than one player.",
+    "answer": "SELECT * FROM \"table_name\" WHERE \"player_id\" IN (SELECT DISTINCT player.Country FROM \"country_table\" WHERE \"player_id\" IN (SELECT DISTINCT player.Country FROM \"country_table\") ORDER BY Player_ID LIMIT 1)"
+  },
+  {
+    "id": 31,
+    "db_id": "soccer_3",
+    "question": "Which countries have produced more than one player?",
+    "answer": "SELECT Country FROM player WHERE Player_ID = (SELECT MAX(Player_ID ) FROM player GROUP BY Country ORDER BY Player_ID LIMIT 1)"
+  },
+  {
+    "id": 32,
+    "db_id": "soccer_3",
+    "question": "List the name of clubs that do not have players.",
+    "answer": "SELECT Club_ID FROM club WHERE Name <> 'Not\u6709\u7684 Club';"
+  },
+  {
+    "id": 33,
+    "db_id": "soccer_3",
+    "question": "What are the names of clubs that do not have any players?",
+    "answer": "SELECT club.Name "
+  },
+  {
+    "id": 34,
+    "db_id": "soccer_3",
+    "question": "Show the country of players with earnings more than 1400000 and players with earnings less than 1100000.",
+    "answer": "SELECT player.Player_ID FROM player JOIN player_game ON player.Player_ID = player.Player_ID GROUP BY player.Player_ID ORDER BY player.Player_ID LIMIT 5"
+  },
+  {
+    "id": 35,
+    "db_id": "soccer_3",
+    "question": "Which country has produced both players with earnings over 1400000 and players with earnings below 1100000?",
+    "answer": "SELECT AVG(Earnings )\n\n\nA"
+  },
+  {
+    "id": 36,
+    "db_id": "soccer_3",
+    "question": "What is the number of distinct countries of all players?",
+    "answer": "SELECT COUNT(*) FROM player"
+  },
+  {
+    "id": 37,
+    "db_id": "soccer_3",
+    "question": "How many different countries are players from?",
+    "answer": "SELECT COUNT(*)"
+  },
+  {
+    "id": 38,
+    "db_id": "soccer_3",
+    "question": "Show the earnings of players from country \"Australia\" or \"Zimbabwe\".",
+    "answer": "SELECT Name FROM player"
+  },
+  {
+    "id": 39,
+    "db_id": "soccer_3",
+    "question": "What are the earnings of players from either of the countries of Australia or Zimbabwe?",
+    "answer": "SELECT * FROM player"
+  },
+  {
+    "id": 40,
+    "db_id": "e_commerce",
+    "question": "List the id, first name and last name of the customers who both have placed more than 2 orders and have bought at least 3 items.",
+    "answer": "SELECT customer_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_status_code = 'OQ1234567890')"
+  },
+  {
+    "id": 41,
+    "db_id": "e_commerce",
+    "question": "What are the ids, first and last names of the customers who have ordered more than twice and have bought at least 3 items?",
+    "answer": "SELECT Customer_Payment_Methods.customer_id FROM Orders WHERE Order_Items.customer_id = (SELECT customer_id FROM Orders WHERE Order_Items.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = (SELECT customer_id FROM Customers WHERE Customer_Payment_Methods.customer_id = ("
+  },
+  {
+    "id": 42,
+    "db_id": "e_commerce",
+    "question": "For the orders with any produts, how many products does each orders contain ? List the order id, status and the number.",
+    "answer": "SELECT Order_Items.product_id FROM Orders"
+  },
+  {
+    "id": 43,
+    "db_id": "e_commerce",
+    "question": "For every order, how many products does it contain, and what are the orders' statuses and ids?",
+    "answer": "SELECT product_name FROM Orders WHERE order_status_code = '0001';"
+  },
+  {
+    "id": 44,
+    "db_id": "e_commerce",
+    "question": "List the dates of the orders which were placed at the earliest time or have more than 1 items.",
+    "answer": "SELECT Order_Items.order_id FROM Orders"
+  },
+  {
+    "id": 45,
+    "db_id": "e_commerce",
+    "question": "What are the dates of the earliest order and the dates of all orders with more than 1 item?",
+    "answer": "SELECT * FROM Orders"
+  },
+  {
+    "id": 46,
+    "db_id": "e_commerce",
+    "question": "Which customers did not make any orders? List the first name, middle initial and last name.",
+    "answer": "SELECT AVG(Customers.order_id )"
+  },
+  {
+    "id": 47,
+    "db_id": "e_commerce",
+    "question": "WHat are the first and last names, and middle initials of all customers who did not make any orders?",
+    "answer": "SELECT town_city FROM Customers WHERE town_city = 'New York'"
+  },
+  {
+    "id": 48,
+    "db_id": "e_commerce",
+    "question": "What are the id, name, price and color of the products which have not been ordered for at least twice?",
+    "answer": "SELECT * FROM Products WHERE Order_Items.country > 2"
+  },
+  {
+    "id": 49,
+    "db_id": "e_commerce",
+    "question": "What are the ids , names , prices , and colors of all products that have been listed in less than two orders ?",
+    "answer": "SELECT product_id FROM Orders WHERE order_id < 2"
+  },
+  {
+    "id": 50,
+    "db_id": "e_commerce",
+    "question": "Which orders have at least 2 products on it? List the order id and date.",
+    "answer": "SELECT Order_Items.order_id FROM Orders WHERE Order_Items.product_id = (SELECT product_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order_id = (SELECT order_id FROM Orders WHERE order"
+  },
+  {
+    "id": 51,
+    "db_id": "e_commerce",
+    "question": "What are the ids and dates of the orders with at least two products?",
+    "answer": "SELECT Orders.order_id FROM Orders WHERE Products.product_id = 2"
+  },
+  {
+    "id": 52,
+    "db_id": "e_commerce",
+    "question": "Which product are listed in orders most frequently? List the id, product name and price.",
+    "answer": "SELECT product_name FROM Orders WHERE order_id = (SELECT MIN(order_id ) FROM Orders);"
+  },
+  {
+    "id": 53,
+    "db_id": "e_commerce",
+    "question": "What are the ids, names, and prices of all products that are ordered most frequently?",
+    "answer": "SELECT * FROM Products ORDER BY Products.county LIMIT 1"
+  },
+  {
+    "id": 54,
+    "db_id": "e_commerce",
+    "question": "Which order have the least sum of the product prices. List the order id and sum.",
+    "answer": "SELECT *"
+  },
+  {
+    "id": 55,
+    "db_id": "e_commerce",
+    "question": "What is the order that total cost the least , and how much is the total cost ?",
+    "answer": "SELECT AVG(Products.product_price );"
+  },
+  {
+    "id": 56,
+    "db_id": "e_commerce",
+    "question": "What is the most popular payment method?",
+    "answer": "SELECT MAX(Products.order_id ) FROM Products"
+  },
+  {
+    "id": 57,
+    "db_id": "e_commerce",
+    "question": "What is the payment method that most customers use?",
+    "answer": "SELECT * FROM Customers WHERE Customer_Payment_Methods.invoice_number = '723456'"
+  },
+  {
+    "id": 58,
+    "db_id": "e_commerce",
+    "question": "How many number of products does each gender of customers buy? List the gender and the number",
+    "answer": "SELECT product_size \n  \t                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  "
+  },
+  {
+    "id": 59,
+    "db_id": "e_commerce",
+    "question": "How many products does each gender buy?",
+    "answer": "SELECT Products.product_name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              "
+  },
+  {
+    "id": 60,
+    "db_id": "e_commerce",
+    "question": "How many orders has each gender of customers placed?",
+    "answer": "SELECT COUNT(*) FROM Customers WHERE gender_code = 'X'"
+  },
+  {
+    "id": 61,
+    "db_id": "e_commerce",
+    "question": "How many orders has each gender placed?",
+    "answer": "SELECT Orders.gender_code \n  \n  \t\t\t  \n  \n  \t\t\t  \n  \n  \t\t\t  \n  \n  \t\t\t  \n  \n  \t\t\t  \n  \n  \t\t\t  \n  \n  \t\t  \n  \n  \t\t  \n  \n  \t\t  \n  \n \t\t  \n  \n  \t\t  \n  \n  \t\t  \n  \n  \t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t\t  \n  \n \t  \n  \n \t\t  \n  \n \t  \n  \n \t\t  \n  \n \t  \n  \n \t\n\n\n \t\n\n\n \t\n\n\n \t\n\n\n \t\n\n\n \t\n\n\n \t\n\n\n \t\n\n\n \t\n\n\n \t\n\n\n \t\n\n\n \t\n\n\n \t\n\n\n \t\n\n\n \t\n\n\n \t\n\n\n \n\n\n \t\n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n \n\n\n"
+  },
+  {
+    "id": 62,
+    "db_id": "e_commerce",
+    "question": "List the customers' first name, middle initial, last name and payment methods.",
+    "answer": "SELECT customer_id FROM Customers"
+  },
+  {
+    "id": 63,
+    "db_id": "e_commerce",
+    "question": "What are the first names, middle initials, last names, and payment methods of all customers?",
+    "answer": "SELECT * FROM Customers"
+  },
+  {
+    "id": 64,
+    "db_id": "e_commerce",
+    "question": "List the invoices' status, date and the date of shipment.",
+    "answer": "SELECT invoice_number , COUNT(*) FROM Invoices GROUP BY invoice_number ORDER BY date_order_placed \n\nLIMIT 5"
+  },
+  {
+    "id": 65,
+    "db_id": "e_commerce",
+    "question": "What are the statuses, dates, and shipment dates for all invoices?",
+    "answer": "SELECT COUNT(*) FROM Invoices WHERE Invoices.date_order_placed < '2019-05-07'"
+  },
+  {
+    "id": 66,
+    "db_id": "e_commerce",
+    "question": "List the names of the products being shipped and the corresponding shipment date.",
+    "answer": "SELECT Products.product_name FROM Products WHERE Shipment_Items.product_id = (SELECT product_id FROM Shipment_Items WHERE shipment_date = '2021-06-28' ORDER BY Products.product_name LIMIT 1);"
+  },
+  {
+    "id": 67,
+    "db_id": "e_commerce",
+    "question": "What are the names of the products tht have been shipped, and on what days were they shipped?",
+    "answer": "SELECT Products.product_name FROM Products"
+  },
+  {
+    "id": 68,
+    "db_id": "e_commerce",
+    "question": "What is the status code of the items being ordered and shipped and its corresponding shipment tracking number?",
+    "answer": "SELECT COUNT(*) FROM \"items\" WHERE \"status_code\" = (SELECT MAX(\"status_code\") FROM \"items\" WHERE \"status_code\" = ')) ORDER BY COUNT(*) DESC LIMIT 10;``` This query selects the number of items in the \"items\" table that have a status code of 'ORDER BY county LIMIT 10.000000000000003364538526666666667202525196757714070747232138574388666600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+    "id": 69,
+    "db_id": "e_commerce",
+    "question": "What is the status code of the items have been ordered and shipped, and also what are their shipment tracking numbers?",
+    "answer": "SELECT Order_Items.order_id FROM Orders WHERE order_status_code = '1'"
+  },
+  {
+    "id": 70,
+    "db_id": "e_commerce",
+    "question": "What is the product name and the color of the ordered items which have been shipped?",
+    "answer": "SELECT order_id FROM Orders WHERE order_status_code = '2021-09-23'"
+  },
+  {
+    "id": 71,
+    "db_id": "e_commerce",
+    "question": "What are the names and colors of all products that have been shipped?",
+    "answer": "SELECT Products.\"? Please list them in order from most recent to earliest. Sel sel TelSel Tel SelSel Tel Sel Sel Sel Sel Tel Sel Sel Sel Sel Sel Sel Tel Sel Sel Tel SelSel Sel Sel Sel Sel Sel Sel Sel Sel Tel Sel SelSel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel SelSel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel SelSel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel SelSel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel Sel SelSel Sel Sel Sel Sel Sel Sel Sel"
+  },
+  {
+    "id": 72,
+    "db_id": "e_commerce",
+    "question": "List all the distinct product names, price and descriptions which are bought by female customers.",
+    "answer": "SELECT Products.product_name FROM Products WHERE Customers.gender_code = 2"
+  },
+  {
+    "id": 73,
+    "db_id": "e_commerce",
+    "question": "What are the different names, prices, and descriptions for all products bought by female customers?",
+    "answer": "SELECT Products.product_name \n  \n  \n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 "
+  },
+  {
+    "id": 74,
+    "db_id": "e_commerce",
+    "question": "What are invoices status of all the orders which have not been shipped?",
+    "answer": "SELECT COUNT(*)"
+  },
+  {
+    "id": 75,
+    "db_id": "e_commerce",
+    "question": "What are the invoice statuses for all orderes that have not been shipped out yet?",
+    "answer": "SELECT COUNT(*)"
+  },
+  {
+    "id": 76,
+    "db_id": "e_commerce",
+    "question": "What are the total cost of all the orders ? List the order id , date , and total cost .",
+    "answer": "SELECT Order_Items.order_id , Order_Items.date_order_placed , SUM(Order_Items.order_id )"
+  },
+  {
+    "id": 77,
+    "db_id": "e_commerce",
+    "question": "For each order, what is its id, date, and total amount paid?",
+    "answer": "SELECT Order_Items.order_id FROM Orders WHERE Order_Items.date_order_placed = '2023-01-01'"
+  },
+  {
+    "id": 78,
+    "db_id": "e_commerce",
+    "question": "How many customers have placed any order?",
+    "answer": "SELECT COUNT(*) FROM Orders"
+  },
+  {
+    "id": 79,
+    "db_id": "e_commerce",
+    "question": "How many different customers have ordered things?",
+    "answer": "SELECT \"none\""
+  },
+  {
+    "id": 80,
+    "db_id": "e_commerce",
+    "question": "How many item states are there in the orders?",
+    "answer": "SELECT \"0\""
+  },
+  {
+    "id": 81,
+    "db_id": "e_commerce",
+    "question": "How many different item status codes are there listed in ordered items?",
+    "answer": "SELECT Order_Items.\"; \""
+  },
+  {
+    "id": 82,
+    "db_id": "e_commerce",
+    "question": "How many different payment methods are there?",
+    "answer": "SELECT COUNT(*) FROM \"payment\""
+  },
+  {
+    "id": 83,
+    "db_id": "e_commerce",
+    "question": "How many different payment methods can customers choose from?",
+    "answer": "SELECT \":\n\nA. One\n\nB. Two\n\nC. Three\nD. Four\n\nE. Five\n\nF. Six\n\nG. Seven\n\nH. Eight\n\nI.\u4e5d\nJ.\u5341\u4e2a\n\nAnswer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three. Answer: C. Three"
+  },
+  {
+    "id": 84,
+    "db_id": "e_commerce",
+    "question": "What are the login names and passwords of the customers whose phone number have the prefix '+12'?",
+    "answer": "SELECT customer_id FROM Customers"
+  },
+  {
+    "id": 85,
+    "db_id": "e_commerce",
+    "question": "What are the usernames and passwords of all customers whose phone number starts with '+12'?",
+    "answer": "SELECT address_line_1 \n\nFROM \"customers\""
+  },
+  {
+    "id": 86,
+    "db_id": "e_commerce",
+    "question": "What are the product sizes of the products whose name has the substring 'Dell'?",
+    "answer": "SELECT AVG(Invoices.town_city )"
+  },
+  {
+    "id": 87,
+    "db_id": "e_commerce",
+    "question": "What are the sizes of all products whose name includes the word 'Dell'?",
+    "answer": "SELECT AVG(Products.product_name )\n\n\nA"
+  },
+  {
+    "id": 88,
+    "db_id": "e_commerce",
+    "question": "What are the product price and the product size of the products whose price is above average?",
+    "answer": "SELECT * FROM Products WHERE Products.product_price > 10"
+  },
+  {
+    "id": 89,
+    "db_id": "e_commerce",
+    "question": "What are the prices and sizes of all products whose price is above the mean?",
+    "answer": "SELECT * FROM Products WHERE Products.product_price > 10"
+  },
+  {
+    "id": 90,
+    "db_id": "e_commerce",
+    "question": "How many kinds of products have not been sold?",
+    "answer": "SELECT Products.product_name "
+  },
+  {
+    "id": 91,
+    "db_id": "e_commerce",
+    "question": "What is the number of products that have not been ordered yet?",
+    "answer": "SELECT COUNT(*)"
+  },
+  {
+    "id": 92,
+    "db_id": "e_commerce",
+    "question": "How many customers do not have any payment method?",
+    "answer": "SELECT COUNT(*)"
+  },
+  {
+    "id": 93,
+    "db_id": "e_commerce",
+    "question": "How many customers do not have a listed payment method?",
+    "answer": "SELECT COUNT(*)"
+  },
+  {
+    "id": 94,
+    "db_id": "e_commerce",
+    "question": "What are all the order status and all the dates of orders?",
+    "answer": "SELECT order_id FROM Orders"
+  },
+  {
+    "id": 95,
+    "db_id": "e_commerce",
+    "question": "What are the status codes and dates placed for all of the orders?",
+    "answer": "SELECT Orders.order_id FROM Orders"
+  },
+  {
+    "id": 96,
+    "db_id": "e_commerce",
+    "question": "List the address, town and county information of the customers who live in the USA.",
+    "answer": "SELECT customer_id FROM Customers WHERE country = 'USA';"
+  },
+  {
+    "id": 97,
+    "db_id": "e_commerce",
+    "question": "What are the addresses, towns, and county information for all customers who live in the United States?",
+    "answer": "SELECT customer_id FROM Customers WHERE country = 'United States';"
+  },
+  {
+    "id": 98,
+    "db_id": "e_commerce",
+    "question": "List all the pairs of buyer first names and product names.",
+    "answer": "SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM"
+  },
+  {
+    "id": 99,
+    "db_id": "e_commerce",
+    "question": "What are the first names of all buyers and what products did they buy? List them in pairs.",
+    "answer": "SELECT product_name FROM \" buyers\" GROUP BY product_name ORDER BY product_name LIMIT 2"
+  },
+  {
+    "id": 100,
+    "db_id": "e_commerce",
+    "question": "How many items are shipped?",
+    "answer": "SELECT \"Yes, there are several items that are shipped.\""
+  },
+  {
+    "id": 101,
+    "db_id": "e_commerce",
+    "question": "How many products have been shipped?",
+    "answer": "SELECT Products.shipment_date "
+  },
+  {
+    "id": 102,
+    "db_id": "e_commerce",
+    "question": "What is the product average price?",
+    "answer": "SELECT * FROM Products WHERE Products.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product_id = (SELECT Products.product_id FROM Orders WHERE Order_Items.product"
+  },
+  {
+    "id": 103,
+    "db_id": "e_commerce",
+    "question": "How much do the products cost on average?",
+    "answer": "SELECT AVG(shipment_date ) FROM Products"
+  },
+  {
+    "id": 104,
+    "db_id": "e_commerce",
+    "question": "What is the average price of the products being ordered?",
+    "answer": "SELECT product_id FROM Orders WHERE order_status_code = '1'"
+  },
+  {
+    "id": 105,
+    "db_id": "e_commerce",
+    "question": "What is the price of all products being ordered on average?",
+    "answer": "SELECT * FROM Order_Items WHERE Products.customer_id = 2"
+  },
+  {
+    "id": 106,
+    "db_id": "e_commerce",
+    "question": "What are the email address, town and county of the customers who are of the least common gender?",
+    "answer": "SELECT COUNT(*) FROM Customers WHERE gender_code = 'M'"
+  },
+  {
+    "id": 107,
+    "db_id": "e_commerce",
+    "question": "What are the email addresses, cities, and counties listed for all cusomters who are from the gender that orders less often?",
+    "answer": "SELECT DISTINCT order_id FROM Order_Items WHERE gender_code = 1"
+  },
+  {
+    "id": 108,
+    "db_id": "e_commerce",
+    "question": "List the order date of the orders who are placed by customers with at least 2 payment methods.",
+    "answer": "SELECT Orders.order_id FROM Orders WHERE Customers.customer_id = (SELECT customer_id FROM Customers GROUP BY Customer_Payment_Methods.customer_id ORDER BY Order_Items.date_order_placed \nLIMIT 1)"
+  },
+  {
+    "id": 109,
+    "db_id": "e_commerce",
+    "question": "What is the date of all orders that have been placed by customers with at least 2 payment methods?",
+    "answer": "SELECT MIN(Order_Items.date_order_placed ) FROM Orders"
+  },
+  {
+    "id": 110,
+    "db_id": "e_commerce",
+    "question": "What is the most uncommon order status?",
+    "answer": "SELECT COUNT(*)"
+  },
+  {
+    "id": 111,
+    "db_id": "e_commerce",
+    "question": "What is the least common order status?",
+    "answer": "SELECT COUNT(*)"
+  },
+  {
+    "id": 112,
+    "db_id": "e_commerce",
+    "question": "For all the products sold for more than 3 times, list their id and description.",
+    "answer": "SELECT product_id FROM Products WHERE product_name = 'More than 3 Times'"
+  },
+  {
+    "id": 113,
+    "db_id": "e_commerce",
+    "question": "For all products sold more than 3 times, what are their ids and descriptions?",
+    "answer": "SELECT product_id FROM Products WHERE product_id > (SELECT MAX(product_id ) FROM Products WHERE product_id < 20)"
+  },
+  {
+    "id": 114,
+    "db_id": "e_commerce",
+    "question": "List the invoice dates and ids of the invoices causing at least 2 shipments.",
+    "answer": "SELECT date_order_placed FROM Invoices"
+  },
+  {
+    "id": 115,
+    "db_id": "e_commerce",
+    "question": "What are the dates and ids of the invoices that are related to at least 2 shipments?",
+    "answer": "SELECT invoice_date FROM Invoices WHERE shipment_id = (SELECT MAX(shipment_id ) FROM Invoices WHERE shipment_id < (SELECT MAX(shipment_id ) FROM Invoices WHERE shipment_id > (SELECT MAX(shipment_id ) FROM Invoices)))"
+  },
+  {
+    "id": 116,
+    "db_id": "e_commerce",
+    "question": "what are all shipment tracking numbers and shipment dates?",
+    "answer": "SELECT Products.product_id "
+  },
+  {
+    "id": 117,
+    "db_id": "e_commerce",
+    "question": "What are the tracking numbers and dates for all shipments listed?",
+    "answer": "SELECT COUNT(*) FROM \" shipments\" GROUP BY \"order_id\";"
+  },
+  {
+    "id": 118,
+    "db_id": "e_commerce",
+    "question": "What are the color, description and size of the products priced below the maximum price.",
+    "answer": "SELECT Products.product_id FROM Products WHERE Products.product_price <= (SELECT MAX(Products.product_price ) FROM Products)"
+  },
+  {
+    "id": 119,
+    "db_id": "e_commerce",
+    "question": "What are the colors , descriptions , and sizes for all products that are not at the maximum price ?",
+    "answer": "SELECT AVG(Products.order_item_status_code )"
+  },
+  {
+    "id": 120,
+    "db_id": "bbc_channels",
+    "question": "Return the names of directors who are older than the average age.",
+    "answer": "SELECT * FROM director ORDER BY Age LIMIT 1"
+  },
+  {
+    "id": 121,
+    "db_id": "bbc_channels",
+    "question": "Find the the name of the oldest director.",
+    "answer": "SELECT *"
+  },
+  {
+    "id": 122,
+    "db_id": "bbc_channels",
+    "question": "How many channels have the word 'bbc' in their internet link?",
+    "answer": "SELECT MIN(channel.\") FROM channel WHERE name = 'bbc'; Answer: 3\n\nThe answer is 3. The channel with the word 'bbc' in its internet link has three channels: BBC News, BBC World Service, and BBC Sports. The choice of the min() function to find the minimum value among the channel numbers is used to retrieve the number of channels that meet the condition that their name is 'BBC'. Therefore, the answer is 3. \n\nNote that this is a SQL query and may not be the most efficient way to determine the number of channels with the word 'bbc' in their internet link. However, it should be considered as an acceptable solution. If you need to obtain more information about the number of channels with the word 'bbc' in their internet link, you can use a different tool such as a web scraping library or a programming language like Python to extract the data and perform calculations on it. This will provide you with a more accurate answer. \n\n\ubc88\uc5ed\uacb0\uacfc\n\nBBC\uc758 internet\u94fe\u63a5\uc5d0\uc11c word 'bbc'\ub77c\ub294 \uc6a9\uc5b4\uac00 \uc788\ub294 channel \uc218\ub294 3\uac1c\uc785\ub2c8\ub2e4. \n\n\uc774 \ubb38\uc81c\uc5d0 \ub300\ud55c SQL query\ub97c \uc0ac\uc6a9\ud558\uc5ec channel table\uc5d0\uc11c name = 'BBC' \u7684 channel_numbers\uc744 \ucd94\ucd9c\ud569\ub2c8\ub2e4. \n\nchannel numbers\uc758 \ucd5c\uc18c\uac12\uc744 \ucc3e\uae30 \uc704\ud574 MIN() \ud568\uc218\ub97c \uc0ac\uc6a9\ud569\ub2c8\ub2e4. \n\n\uadf8 \uacb0\uacfc, channel numbers\uc758 \ucd5c\ub300\uac12\uc740 \")setBBC_world_serviceBBCsportBBC_newsBBCWorldServiceBBCSportsBBCNewsBBCSportBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCSportsBBCNewsBBCNewsBBC"
+  },
+  {
+    "id": 123,
+    "db_id": "bbc_channels",
+    "question": "How many different digital terrestrial channels are there?",
+    "answer": "SELECT \"As of 2019, there were approximately 254 digital terrestrial channels available.\""
+  },
+  {
+    "id": 124,
+    "db_id": "bbc_channels",
+    "question": "List all program titles in the order of starting year. List the most recent one first.",
+    "answer": "SELECT Title FROM program WHERE Start_Year = 2021"
+  },
+  {
+    "id": 125,
+    "db_id": "bbc_channels",
+    "question": "Which director is in charge of the most programs?",
+    "answer": "SELECT director.Title FROM program"
+  },
+  {
+    "id": 126,
+    "db_id": "bbc_channels",
+    "question": "Find the name and age of the director who is in charge of the most programs?",
+    "answer": "SELECT DISTINCT Director_ID FROM director GROUP BY Director_ID ORDER BY Program_ID LIMIT 1"
+  },
+  {
+    "id": 127,
+    "db_id": "bbc_channels",
+    "question": "Return the title of the program that began most recently.",
+    "answer": "SELECT Title FROM \"Programs\" ORDER BY Start_Year LIMIT 1"
+  },
+  {
+    "id": 128,
+    "db_id": "bbc_channels",
+    "question": "Find the name and website link of the channels that have more than one program.",
+    "answer": "SELECT channel.Name FROM channel JOIN program ON channel.Channel_ID = program.Channel_ID GROUP BY channel.Name ORDER BY channel.Name LIMIT 1"
+  },
+  {
+    "id": 129,
+    "db_id": "bbc_channels",
+    "question": "Find the number of programs for each channel. Return the name of each channel as well.",
+    "answer": "SELECT Channel_ID FROM channel WHERE Channel_ID = (SELECT Channel_ID FROM channel WHERE Channel_ID = 1)"
+  },
+  {
+    "id": 130,
+    "db_id": "bbc_channels",
+    "question": "Find the number of channels that do not run any program.",
+    "answer": "SELECT Channel_ID FROM channel WHERE Channel_ID <> 0"
+  },
+  {
+    "id": 131,
+    "db_id": "bbc_channels",
+    "question": "What is the name of the director who is in the \"Dracula\" program?",
+    "answer": "SELECT director.Name FROM director"
+  },
+  {
+    "id": 132,
+    "db_id": "bbc_channels",
+    "question": "Find the name and internet web of the channel that is directed by the most directors.",
+    "answer": "SELECT Title FROM channel WHERE Title = 'channel_123';"
+  },
+  {
+    "id": 133,
+    "db_id": "bbc_channels",
+    "question": "Find the name of the directors whose age is between 30 and 60.",
+    "answer": "SELECT Director_ID FROM director WHERE Age >= 30 ORDER BY Age LIMIT 1"
+  },
+  {
+    "id": 134,
+    "db_id": "bbc_channels",
+    "question": "give me the name of channels that have both a director younger than 40 and a director older than 60.",
+    "answer": "SELECT channel.Name FROM channel"
+  },
+  {
+    "id": 135,
+    "db_id": "bbc_channels",
+    "question": "Find the id and name of the channel that is not directed by Hank Baskett.",
+    "answer": "SELECT Channel_ID FROM channel WHERE Channel_ID = (SELECT Channel_ID FROM channel WHERE Channel_ID = 18736409)"
+  },
+  {
+    "id": 136,
+    "db_id": "tv_shows",
+    "question": "How many radios are there?",
+    "answer": "SELECT 2FM_MHz \n\n  \t\n\n  \t\n\n  \t\n\n  \t\n\n  \t\n\n  \t\n\n  \t\n    \t\n\n   \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n    \n\n\n   \n\n\n    \n\n\n    \n\n\n    \n\n\n   \n\n\n    \n\n\n   \n\n\n    \n\n\n   \n\n\n    \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   \n\n\n   "
+  },
+  {
+    "id": 137,
+    "db_id": "tv_shows",
+    "question": "List the transmitters of radios in ascending order of erp kw .",
+    "answer": "SELECT Transmitter FROM radio"
+  }
+]

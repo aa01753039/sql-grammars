@@ -11,28 +11,31 @@ distinct ::= "DISTINCT "?
 columns ::= "*" | column-or-function (", " column-or-function)*
 
 # Column or function
-column-or-function ::= (column | function alias?)
+column-or-function ::= column | function alias?
 
 # Individual column name
-column ::= (schema-name ".")? (table-name ".")? ([a-zA-Z_][a-zA-Z0-9_]* | quoted-identifier)
-schema-name ::= [a-zA-Z_][a-zA-Z0-9_]*
-table-name ::= [a-zA-Z_][a-zA-Z0-9_]*
+column ::= (schema-name ".")? (table-name ".")? (TABLE_COLUMNS_PLACEHOLDER | quoted-identifier)
+
+# Placeholders for schema, table, and column names
+schema-name ::= SCHEMA_NAMES_PLACEHOLDER
+table-name ::= TABLE_NAMES_PLACEHOLDER
+COLUMN_NAMES_PLACEHOLDER
 
 # Function call, simplified to no arguments or single argument
-function ::= [a-zA-Z_][a-zA-Z0-9_]* "(" (column | "*" | ) ")"
+function ::= ( "COUNT" | "AVG" | "MAX" | "MIN" | "SUM" | "LENGTH" ) "(" (column | "*" ) ")"
 
 # FROM clause specifying the table(s) or subquery to select from
-from-clause ::= ws? "FROM " (tables | subquery) (ws table-alias)?
+from-clause ::= ws? "FROM " tables
 
 # Tables, either a single table, a subquery as a table, or a comma-separated list of table names
 tables ::= table (", " table)*
 
 # Individual table name or subquery as table
-table ::= [a-zA-Z_][a-zA-Z0-9_]* | "(" select-statement ")" | quoted-identifier
+table ::= table-name | "(" select-statement ")" | quoted-identifier
 
 # Alias for a table or subquery, simplified
-alias ::= ws? ("AS " | "as ")? [a-zA-Z][a-zA-Z0-9_]*
-table-alias ::= ws? ("AS " | "as ")? [a-zA-Z]
+alias ::= ws? ("AS " | "as ")? [a-zA-Z_][a-zA-Z0-9_]*
+table-alias ::= ws? ("AS " | "as ")? [a-zA-Z_]
 
 # WHERE clause with a condition, including subquery conditions
 where-clause ::= ws? "WHERE " condition
@@ -85,8 +88,3 @@ quoted-identifier ::= ["] [^"]* ["]
 
 # Optional whitespace, for better readability in the grammar
 ws ::= [ \t\n]*
-
-# Placeholders for dynamic content, to be populated by the Python script
-columns-placeholder ::= "Employee_ID" | "Name" | "Age" | "City" | "Employee_ID" | "Shop_ID" | "Name" | "Location" | "District" | "Number_products" | "Manager_name" | "Shop_ID" | "Shop_ID" | "Employee_ID" | "Start_from" | "Is_full_time" | "Employee_ID" | "Employee_ID" | "Year_awarded" | "Bonus" | "Employee_ID" | "Year_awarded"
-tables-placeholder ::= "employee" | "shop" | "hiring" | "evaluation"
-aliases-placeholder ::= "Employee_ID" | "Name" | "Age" | "City" | "Employee_ID" | "Shop_ID" | "Name" | "Location" | "District" | "Number_products" | "Manager_name" | "Shop_ID" | "Shop_ID" | "Employee_ID" | "Start_from" | "Is_full_time" | "Employee_ID" | "Employee_ID" | "Year_awarded" | "Bonus" | "Employee_ID" | "Year_awarded"

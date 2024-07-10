@@ -52,28 +52,39 @@ class SQLGrammar:
             column_names.extend(schema[table])
         return column_names
 
-    def get_placeholders(self, column_names, table_names):
+    def get_placeholders(self, column_names, table_names, schema):
         # Prepare placeholders content
-        columns_placeholder = " | ".join(f'"{col}"' for col in column_names)
+       
         tables_placeholder = " | ".join(f'"{tbl}"' for tbl in table_names)
-        aliases_placeholder = columns_placeholder
+        
+        table_columns_placeholder = " | ".join(f'{tbl.replace("_","-")}-columns' for tbl in table_names)
+        
+        #create a placeholder for each table and its columns like: club-column ::= "Club_ID" | "Name" | "Manager" | "Captain" | "Manufacturer" | "Sponsor"/n
+        column_names_placeholder = ""
+        for table in table_names:
+            column_names_placeholder += f'{table.replace("_","-")}-columns ::= ' + ' | '.join(f'"{col} "' for col in schema[table])
+            column_names_placeholder += '\n'
 
-        return columns_placeholder, tables_placeholder, aliases_placeholder
+        return  tables_placeholder, table_columns_placeholder, column_names_placeholder
 
-    def replace_placeholders(self, schema):
+    def replace_placeholders(self, schema, db_name):
         # Replace placeholders with actual content
         table_names = self.get_table_names(schema)
         column_names = self.get_column_names(schema, table_names)
-        columns_placeholder, tables_placeholder, aliases_placeholder = (
-            self.get_placeholders(column_names, table_names)
+        schema_placeholder = '"'+db_name+'"'
+        tables_placeholder,tables_columns_placeholder,column_names_placeholder = (
+            self.get_placeholders(column_names, table_names, schema)
         )
 
-        # add a text line to the grammar
-        grammar = self.grammar_template
-        grammar += "columns-placeholder ::= " + columns_placeholder + "\n"
-        grammar += "tables-placeholder ::= " + tables_placeholder + "\n"
-        grammar += "aliases-placeholder ::= " + aliases_placeholder + "\n"
-
+        
+        
+        
+        grammar = self.grammar_template.replace("SCHEMA_NAMES_PLACEHOLDER", schema_placeholder)
+        grammar = grammar.replace("TABLE_NAMES_PLACEHOLDER", tables_placeholder)
+        grammar = grammar.replace("TABLE_COLUMNS_PLACEHOLDER", tables_columns_placeholder)
+        grammar = grammar.replace(
+            "COLUMN_NAMES_PLACEHOLDER", column_names_placeholder
+        )
         return grammar
 
     def process_databases(self):
@@ -83,7 +94,7 @@ class SQLGrammar:
             db_file = os.path.join(db_dir, f"{db_name}.sqlite")
             if os.path.isfile(db_file):
                 schema = self.extract_schema(db_file)
-                grammar = self.replace_placeholders(schema)
+                grammar = self.replace_placeholders(schema,db_name)
                 grammar_path = os.path.join(self.grammar_directory, f"{db_name}.gbnf")
                 self.write_grammar(grammar, grammar_path)
 
@@ -96,7 +107,7 @@ class SQLGrammar:
         print(f"Grammar saved to {grammar_path}")
 
 
-class LLMResponse:
+class LLMResponser:
     def __init__(self, llm_repo, llm_file, predicted_path, grammar_directory=None):
         self.llm = Llama.from_pretrained(
             repo_id=llm_repo, filename=llm_file, verbose=False
@@ -273,7 +284,7 @@ if __name__ == "__main__":
             grammar_path = None
 
     # create a LLMResponse object
-    llm_response = LLMResponse(
+    llm_response = LLMResponser(
         args.llm_repo, args.llm_file, args.predicted_path, grammar_path
     )
     # read the questions from the json file
