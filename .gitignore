@@ -1,4 +1,5 @@
 .conda/
-spider/
 .DS_Store
 embedded_grammars/
+notebooks/
+spider/
