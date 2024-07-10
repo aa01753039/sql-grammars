@@ -108,7 +108,7 @@ class LLMResponser:
         # write the answers to the txt file
         with open(self.txt_output, "w") as file:
             for answer in answers:
-                file.write(answer["answer"].replace("\n", "") + "\n")
+                file.write(answer["answer"].replace("\n", "").replace("\r","") + "\n")
         print(f"Answers written to {self.txt_output}")
 
     def predict(self, question_file):

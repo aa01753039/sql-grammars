@@ -21,33 +21,28 @@ schema-name ::= SCHEMA_NAMES_PLACEHOLDER
 table-name ::= TABLE_NAMES_PLACEHOLDER
 COLUMN_NAMES_PLACEHOLDER
 
+
 # Function call, simplified to no arguments or single argument
-function ::= ( "COUNT" | "AVG" | "MAX" | "MIN" | "SUM" | "LENGTH" ) "(" (column | "*" ) ")"
+function ::= [a-zA-Z_][a-zA-Z0-9_]* "(" (column | "*" | ) ")"
 
 # FROM clause specifying the table(s) or subquery to select from
-from-clause ::= ws? "FROM " tables
+from-clause ::= ws? "FROM " (tables | subquery) (ws table-alias)?
 
 # Tables, either a single table, a subquery as a table, or a comma-separated list of table names
 tables ::= table (", " table)*
 
 # Individual table name or subquery as table
-table ::= schema-name "." table-name (ws table-alias)? | "(" select-statement ")" | quoted-identifier
+table ::= table-name | "(" select-statement ")" | quoted-identifier
 
 # Alias for a table or subquery, simplified
-alias ::= " AS " alias-name
-table-alias ::= " AS " alias-name
-alias-name ::= [a-zA-Z_][a-zA-Z0-9_]*
-
+alias ::= ws? ("AS " | "as ")? [a-zA-Z][a-zA-Z0-9_]*
+table-alias ::= ws? ("AS " | "as ")? [a-zA-Z]
 
 # WHERE clause with a condition, including subquery conditions
 where-clause ::= ws? "WHERE " condition
 
-# JOIN clause, including INNER, LEFT, RIGHT, and OUTER JOIN types
-join-clause ::= ws? join-type "JOIN " table (ws table-alias)? " ON " condition
-
-# Different types of joins
-join-type ::= "INNER " | "LEFT " | "RIGHT " | "FULL OUTER " | "LEFT OUTER " | "RIGHT OUTER " | "FULL "
-
+# JOIN clause, simplified to INNER JOIN
+join-clause ::= ws? "JOIN " table (ws alias)? " ON " condition
 
 # Condition, allowing column comparisons, IN, EXISTS, and subquery conditions
 condition ::= (
@@ -65,24 +60,11 @@ value ::= number | quoted-string | "(" select-statement ")"
 # Subquery structure
 subquery ::= "(" select-statement ")"
 
-# Numeric value, including integers, floats, and scientific notation
-number ::= sign? (integer | float )
+# Numeric value, integer or float for simplicity
+number ::= "-"? [0-9]+ ("." [0-9]+)?
 
-# Optional sign for numbers
-sign ::= "+" | "-"
-
-# Integer, disallowing leading zeros except for zero itself
-integer ::= "0" | ([1-9] [0-9]*)
-
-# Float, ensuring the fractional part is specified
-float ::= integer "." [0-9]+
-
-
-# Quoted string, allowing for escaped single quotes and newline characters, and ensuring non-empty content
-quoted-string ::= "'" single-quoted-character+ "'"
-
-# Single quoted character, allowing for escaped single quotes and newline characters
-single-quoted-character ::= [^'\n\r] | "''" | [\n\r]
+# Quoted string, simplifying to anything between single quotes
+quoted-string ::= "'" [^']* "'"
 
 # GROUP BY clause, specifying columns for grouping
 group-by-clause ::= ws? "GROUP BY " group-columns
@@ -103,7 +85,9 @@ order-column ::= column (" ASC" | " DESC")?
 limit-clause ::= ws? "LIMIT " number (" OFFSET " number)?
 
 # Quoted identifier for cases where identifiers include spaces or other special characters
-quoted-identifier ::= "\"" [^\"]* "\""
+quoted-identifier ::= ["] [^"]* ["]
 
 # Optional whitespace, for better readability in the grammar
 ws ::= [ \t\n]*
+
+
