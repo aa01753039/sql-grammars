@@ -1,0 +1,1844 @@
+[
+  {
+    "id": 0,
+    "db_id": "car_road_race",
+    "question": "What are the winning drivers and teams of races, ordered alphabetically by team?",
+    "answer": "SELECT Winning_driver FROM (SELECT DISTINCT * FROM (SELECT RIGHT JOIN (SELECT LIMIT 3.2) AS Selection_Of_Team ON Driver_Name = 'Mario') ORDER BY Driver_Name LIMIT 1);"
+  },
+  {
+    "id": 1,
+    "db_id": "car_road_race",
+    "question": "Which winning drivers of races had pole position that is not \"Junior Strous\"?",
+    "answer": "SELECT RIGHT JOIN (SELECT * FROM (SELECT DISTINCT * FROM (SELECT DISTINCT Age FROM car_road_race.race) AS tmp)\n                           AS subquery) AS subquery1 ON race.Race_Name = race.Pole_Position ORDER BY Pole_Position   LIMIT 2;"
+  },
+  {
+    "id": 2,
+    "db_id": "car_road_race",
+    "question": "Return the winning drivers of races who did not have the pole position of Junior Strous.",
+    "answer": "SELECT \n                               FROM (SELECT RIGHT JOIN (SELECT *FROM (SELECT DISTINCT Age FROM (SELECT  RIGHT JOIN (SELECT * FROM (SELECT DISTINCT INNER JOIN (SELECT * FROM (SELECT FULL JOIN (SELECT * FROM (SELECT GROUP BY Engine )) \n    AS Colombia ON Race_Name = 'IronFlex' ORDER BY Age )\n                            AS Ferdinand"
+  },
+  {
+    "id": 3,
+    "db_id": "car_road_race",
+    "question": "Who are the constructors of drivers sorted by drivers' age in ascending order?",
+    "answer": "SELECT Driver_ID FROM (SELECT DISTINCT driver.Driver_ID ,  FROM (SELECT Driver_ID FROM (SELECT * FROM (SELECT Driver_ID FROM (SELECT Driver_ID FROM (SELECT Driver_ID ) WHERE Driver_ID >157)) AS T) AS drivers GROUP BY driver.Driver_ID ORDER BY driver.Driver_ID )\nORDER BY Age , Driver_ID );"
+  },
+  {
+    "id": 4,
+    "db_id": "car_road_race",
+    "question": "Return the different constructors of drivers, ordered by age ascending.",
+    "answer": "SELECT \nFROM (SELECT DISTINCT * FROM (SELECT * FROM car_road_race.driver) ORDER BY driver.Driver_ID ) AS D;"
+  },
+  {
+    "id": 5,
+    "db_id": "car_road_race",
+    "question": "What are the distinct entrant types of drivers aged 20 or older?",
+    "answer": "SELECT Age \n ORDER BY Age ;"
+  },
+  {
+    "id": 6,
+    "db_id": "car_road_race",
+    "question": "Give the different entrant types for drivers at least 20 years old.",
+    "answer": "SELECT driver.Driver_Name ,  \nFROM (SELECT Driver_Name ,  GROUP BY Race_Name \n        ORDER BY Race_Name ) AS TEMP \n        WHERE Age  <=  20;"
+  },
+  {
+    "id": 7,
+    "db_id": "car_road_race",
+    "question": "What are the maximum and minimum age of driver?",
+    "answer": "SELECT  RIGHT JOIN (SELECT   FROM car_road_race.driver) AS drivers ON car_road_race.race.Fastest_Lap \n<-100;"
+  },
+  {
+    "id": 8,
+    "db_id": "car_road_race",
+    "question": "Return the maximum and minimum age across drivers.",
+    "answer": "SELECT FROM car_road_race.driver, car_road_race.driver\nGROUP BY driver.Driver_ID ORDER BY car_road_race.driver.Driver_ID LIMIT 2;"
+  },
+  {
+    "id": 9,
+    "db_id": "car_road_race",
+    "question": "How many different engines are used by drivers with age older than 30 or younger than 20?",
+    "answer": "SELECT \nFROM (SELECT DISTINCT Engine FROM (SELECT * FROM (SELECT Engine FROM car_road_race.race) AS T1 WHERE Constructor  >= '20') AS TEMP1);"
+  },
+  {
+    "id": 10,
+    "db_id": "car_road_race",
+    "question": "Count the number of different engines used by drivers who had an age either over 30 or under 20.",
+    "answer": "SELECT Engine FROM (SELECT DISTINCT *FROM car_road_race.race) AS T1 WHERE driver.Age < 20 ORDER BY Race_Name LIMIT 5;"
+  },
+  {
+    "id": 11,
+    "db_id": "car_road_race",
+    "question": "List all names of drivers in descending alphabetical order.",
+    "answer": "SELECT * FROM car_road_race.driver ORDER BY Driver_ID LIMIT 1;"
+  },
+  {
+    "id": 12,
+    "db_id": "car_road_race",
+    "question": "What are the names of drivers, ordered descending alphabetically?",
+    "answer": "SELECT  LIMIT 1408.632957;"
+  },
+  {
+    "id": 13,
+    "db_id": "car_road_race",
+    "question": "Please show the names of drivers and the names of races they participate in.",
+    "answer": "SELECT driver.Driver_Name ,  GROUP BY race.Race_Name ORDER BY driver.Driver_Name ;"
+  },
+  {
+    "id": 14,
+    "db_id": "car_road_race",
+    "question": "What are the names of drivers and the names of the races they took part in?",
+    "answer": "SELECT driver.Race_Name FROM (SELECT Driver_Name FROM (SELECT DISTINCT Driver_Name FROM car_road_race.race) AS SubQuery1), car_road_race.race;"
+  },
+  {
+    "id": 15,
+    "db_id": "car_road_race",
+    "question": "Please show the names of drivers and the number of races they participate in.",
+    "answer": "SELECT * FROM (SELECT * FROM car_road_race.driver) AS d;"
+  },
+  {
+    "id": 16,
+    "db_id": "car_road_race",
+    "question": "How many races did each driver participate in?",
+    "answer": "SELECT FROM car_road_race.driver;"
+  },
+  {
+    "id": 17,
+    "db_id": "car_road_race",
+    "question": "Please show the age of the driver who participated in the most number of races.",
+    "answer": "SELECT Age FROM (SELECT DISTINCT driver.Age , driver.Driver_Name , driver.Constructor FROM (SELECT Driver_Name FROM (SELECT DISTINCT Driver_Name FROM (SELECT Driver_Name FROM (SELECT Driver_Name FROM (SELECT Driver_Name  \n       \n  WHERE driver.Constructor = 'McLaren Interlag'))) AS x) AS xx GROUP BY driver.Age ORDER BY car_road_r"
+  },
+  {
+    "id": 18,
+    "db_id": "car_road_race",
+    "question": "What is the age of the driver who raced in the most races?",
+    "answer": "SELECT Race_Name ,  RIGHT JOIN (SELECT * FROM (SELECT DISTINCT race.Race_Name ,  RIGHT JOIN (SELECT * FROM (SELECT race.Driver_Name , Driver_Name ,  WHERE Driver_Name = 'Kamilo') AS First_Qualifying) AS All_Qualifying_Drivers ON Driver_Name = race.Driver_Name )\n      AS All_Races) AS Fastest_In_"
+  },
+  {
+    "id": 19,
+    "db_id": "car_road_race",
+    "question": "Please show the names and ages of the drivers who participated in at least two races.",
+    "answer": "SELECT \nFROM car_road_race.driver AS driver_table ORDER BY driver.Driver_ID ;"
+  },
+  {
+    "id": 20,
+    "db_id": "car_road_race",
+    "question": "What are the names and ages of drivers who raced in two or more races?",
+    "answer": "SELECT driver.Engine \nFROM (SELECT DISTINCT * FROM car_road_race.driver) AS driver;"
+  },
+  {
+    "id": 21,
+    "db_id": "car_road_race",
+    "question": "Please list the names of races with drivers aged 26 or older participating.",
+    "answer": "SELECT RIGHT JOIN (SELECT GROUP BY Driver_ID ORDER BY Age ) AS T2 ON Age < 26;"
+  },
+  {
+    "id": 22,
+    "db_id": "car_road_race",
+    "question": "What are the names of races in which drivers 26 or older took part?",
+    "answer": "SELECT GROUP BY Fastest_Lap  ORDER BY Driver_Name LIMIT 32;"
+  },
+  {
+    "id": 23,
+    "db_id": "car_road_race",
+    "question": "List the names of drivers whose constructor is not \"Bugatti\".",
+    "answer": "SELECT \nGROUP BY driver.Driver_Name ORDER BY driver.Driver_Name LIMIT 5;"
+  },
+  {
+    "id": 24,
+    "db_id": "car_road_race",
+    "question": "What are the names od drivers who did not have the constructor Bugatti?",
+    "answer": "SELECT * FROM car_road_race.driver;"
+  },
+  {
+    "id": 25,
+    "db_id": "car_road_race",
+    "question": "List different constructors and the number of drivers that use each constructor.",
+    "answer": "SELECT \nFROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM car_road_race.driver) AS t1 WHERE race.Constructor = 'Allie') AS t2))\nWHERE driver.Driver_ID = 5;"
+  },
+  {
+    "id": 26,
+    "db_id": "car_road_race",
+    "question": "How many drivers use each constructor?",
+    "answer": "SELECT \nFROM (SELECT DISTINCT Driver_Name ,  \n \tWHERE driver.Constructor  = 1 ORDER BY Driver_Name ) AS RESULTS;"
+  },
+  {
+    "id": 27,
+    "db_id": "car_road_race",
+    "question": "List the most common type of engine used by drivers.",
+    "answer": "SELECT * FROM (SELECT DISTINCT Engine FROM car_road_race.race) AS df;"
+  },
+  {
+    "id": 28,
+    "db_id": "car_road_race",
+    "question": "What is the most common type of engine?",
+    "answer": "SELECT \nFROM (SELECT Engine FROM (SELECT Engine , RIGHT JOIN (SELECT * FROM (SELECT Engine FROM (SELECT Engine GROUP BY Age ORDER BY Age LIMIT 5)) AS t1) ON Constructor = 'VOLI4'))GROUP BY Engine ORDER BY Fastest_Lap    LIMIT 2;"
+  },
+  {
+    "id": 29,
+    "db_id": "car_road_race",
+    "question": "List the types of engines that are used by at least two drivers.",
+    "answer": "SELECT \nFROM (SELECT RIGHT OUTER JOIN (SELECT * FROM (SELECT * FROM car_road_race.driver) AS t1 ORDER BY race.Driver_ID ) AS T2 ON Race_Name = 'Chev')\n  LIMIT 3;"
+  },
+  {
+    "id": 30,
+    "db_id": "car_road_race",
+    "question": "What are the engine types that are used by two or more drivers?",
+    "answer": "SELECT * FROM car_road_race.driver;"
+  },
+  {
+    "id": 31,
+    "db_id": "car_road_race",
+    "question": "List the names of drivers that do not participate in any race.",
+    "answer": "SELECT \nGROUP BY driver.Driver_ID ORDER BY driver.Driver_Name LIMIT 5;"
+  },
+  {
+    "id": 32,
+    "db_id": "car_road_race",
+    "question": "What are names of drivers who did not take part in a race?",
+    "answer": "SELECT \nFROM car_road_race.race WHERE Fastest_Lap = '00:19:26' ORDER BY Entrant LIMIT 543;"
+  },
+  {
+    "id": 33,
+    "db_id": "car_road_race",
+    "question": "Show the constructors that are used both by drivers with age lower than 20 and drivers with age over than 30.",
+    "answer": "SELECT * FROM (SELECT driver.Driver_ID ,  \nFROM (SELECT * FROM (SELECT DISTINCT driver.Driver_ID FROM (SELECT * FROM (SELECT driver.Driver_ID FROM (SELECT Driver_ID WHERE Age < 20) AS driver1 INNER JOIN (SELECT Driver_ID FROM (SELECT Driver_ID WHERE Age  > 30)) AS driver2 ON Age = Driver_ID ) GROUP BY Driver_ID"
+  },
+  {
+    "id": 34,
+    "db_id": "car_road_race",
+    "question": "What are the constructors who are used by both drivers who are younger than 20 and drivers older than 30?",
+    "answer": "SELECT \nFROM (SELECT * FROM car_road_race.driver) AS t1 WHERE driver.Race_Name = 'Junior' INNER JOIN car_road_race.driver ON driver.Race_Name = 'Senior';"
+  },
+  {
+    "id": 35,
+    "db_id": "car_road_race",
+    "question": "Find the teams that won more than once.",
+    "answer": "SELECT Chassis FULL JOIN (SELECT \tORDER BY Race_Name , Pole_Position , Driver_Name )\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t \t\t\t\t   \t \t\t  \t\t\t      \t\t\t\t\t\t\t\t\t\t           \t       \t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t        \t\t\t\t\t\t\t\t\t\t\t                                                     \t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t  \t \t    \t\t\t                 \t\t  \t\t\t"
+  },
+  {
+    "id": 36,
+    "db_id": "car_road_race",
+    "question": "Which teams won more than 1 race?",
+    "answer": "SELECT DISTINCT \nFROM (SELECT DISTINCT RIGHT JOIN (SELECT DISTINCT * FROM (SELECT race.Driver_ID , race.Race_Name , race.Pole_Position ) AS T1) ON race.Driver_ID = Race_Name ORDER BY Race_Name ), (SELECT RIGHT JOIN (SELECT DISTINCT * FROM (SELECT Driver_ID , Pole_"
+  },
+  {
+    "id": 37,
+    "db_id": "car_road_race",
+    "question": "Find the names of drivers who were in both \"James Hinchcliffe\" and \"Carl Skerlong\" pole positions before.",
+    "answer": "SELECT \nGROUP BY driver.Driver_ID ORDER BY driver.Driver_ID ;"
+  },
+  {
+    "id": 38,
+    "db_id": "car_road_race",
+    "question": "What are the names of drivers who had both the pole position James Hinchcliffe and the pole position Carl Skerlong?",
+    "answer": "SELECT driver.Race_Name , \nFROM (SELECT race.Race_Name , \n   FROM (SELECT * FROM (SELECT race.Race_Name ,  RIGHT JOIN (SELECT driver.Driver_Name ) AS Race ON Driver_Name = race.Driver_Name ORDER BY Driver_Name ) GROUP BY Driver_Name ORDER BY race.Race_Name ), car_road_race.driver)\n  "
+  },
+  {
+    "id": 39,
+    "db_id": "car_road_race",
+    "question": "find the name of drivers who were never in \"James Hinchcliffe\" pole position before.",
+    "answer": "SELECT \nGROUP BY driver.Driver_Name , driver.Driver_ID ORDER BY driver.Driver_Name ;"
+  },
+  {
+    "id": 40,
+    "db_id": "car_road_race",
+    "question": "What are the names of drivers except for those who had the pole position James Hinchcliffe?",
+    "answer": "SELECT \nFROM (SELECT DISTINCT driver.Driver_Name ,  \n         FROM (SELECT Driver_Name FROM (SELECT Driver_Name FROM (SELECT Driver_Name WHERE Driver_Name = 'James') INNER JOIN (SELECT * FROM (SELECT Driver_Name FROM (SELECT FULL JOIN (SELECT Report INNER JOIN (SELECT Report ) ON driver.Report  = Report  \n\n\nINNER JOIN (SELECT Report ,"
+  },
+  {
+    "id": 41,
+    "db_id": "country_language",
+    "question": "How many languages are there?",
+    "answer": "SELECT countries.language_id FROM country_language.countries;"
+  },
+  {
+    "id": 42,
+    "db_id": "country_language",
+    "question": "Count the number of languages.",
+    "answer": "SELECT FROM country_language.countries ORDER BY countries.name , country_language.languages.name LIMIT 1;"
+  },
+  {
+    "id": 43,
+    "db_id": "country_language",
+    "question": "List the name of languages in ascending alphabetical order.",
+    "answer": "SELECT name FROM (SELECT DISTINCT name FROM (SELECT LIMIT +2001) ORDER BY name )\nGROUP BY language_id ;"
+  },
+  {
+    "id": 44,
+    "db_id": "country_language",
+    "question": "What are the names of languages, in alphabetical order?",
+    "answer": "SELECT name FROM country_language.languagesORDER BY name LIMIT 20;"
+  },
+  {
+    "id": 45,
+    "db_id": "country_language",
+    "question": "What are the names of languages that contain the word \"ish\"?",
+    "answer": "SELECT name FROM country_language.languages WHERE name = 'Italian';"
+  },
+  {
+    "id": 46,
+    "db_id": "country_language",
+    "question": "Return the names of langauges that contain the substring \"ish\".",
+    "answer": "SELECT FROM country_language.countries WHERE country_language.languages.name = 'Island'\n \n    RIGHT JOIN country_language.languages ON language_id  =   (SELECT id FROM country_language.languages)\n    \n    GROUP BY country_language.countries.name \n    ORDER BY country_language.country_id LIMIT 5;"
+  },
+  {
+    "id": 47,
+    "db_id": "country_language",
+    "question": "Show the names of countries in descending order of overall scores.",
+    "answer": "SELECT name FROM (SELECT country_id , \nFROM country_language.languages ORDER BY language_id ) AS T1 GROUP BY country_id ;"
+  },
+  {
+    "id": 48,
+    "db_id": "country_language",
+    "question": "What are the names of the countries, ordered descending by overall score?",
+    "answer": "SELECT name FROM (SELECT country_id ,  RIGHT JOIN (SELECT id WHERE economics_score  >6.5) AS economic_score_above_6_510201075594834Economics_score_data_for_most_important_census_areas ON country_id = id ) \n        ORDER BY name LIMIT 10;"
+  },
+  {
+    "id": 49,
+    "db_id": "country_language",
+    "question": "What is the average justice scores among countries?",
+    "answer": "SELECT name ,  AS ounces FROM country_language.countries WHERE country_language.countries.name  =  'China'\n                              \n                           \n   \n                               \n                               \n\n                               \n                               \n                               \n\n\n    \n       \n      \n        \n          \n         \n             \n            \n           \n              \n               \n                \n                   \n                  \n                    \n                     \n                       \n                        \n                      \n                         \n                          \n                            \n                             \n                              \n"
+  },
+  {
+    "id": 50,
+    "db_id": "country_language",
+    "question": "Give the average justice scores across all countries.",
+    "answer": "SELECT * FROM country_language.countries;"
+  },
+  {
+    "id": 51,
+    "db_id": "country_language",
+    "question": "What are the maximum and minimum health scores among countries that are not \"Norway\".",
+    "answer": "SELECT DISTINCT country_id FROM (SELECT country_id ,  WHERE EXISTS (SELECT country_id  \nFROM (SELECT name FROM country_language.languages WHERE country_language.name = 'Norway'))) AS language\n\nINNER JOIN country_language.countries ON countries.country_id = country_language.countries.id ;"
+  },
+  {
+    "id": 52,
+    "db_id": "country_language",
+    "question": "Return the maximum and minimum health scores across all countries other than Norway.",
+    "answer": "SELECT \nFROM (SELECT country_id , name FROM country_language.countries) AS t1 WHERE EXISTS (SELECT * FROM country_language.countries) GROUP BY country_id ORDER BY language_id ;"
+  },
+  {
+    "id": 53,
+    "db_id": "country_language",
+    "question": "How many different official languages are there?",
+    "answer": "SELECT countries.country_id FROM (SELECT name , official_languages.country_id \nFROM country_language.countries) AS t1 WHERE language_id ='03';"
+  },
+  {
+    "id": 54,
+    "db_id": "country_language",
+    "question": "Count the number of different official languages.",
+    "answer": "SELECT countries.country_id FROM country_language.countries WHERE official_languages.country_id = countries.id GROUP BY language_id ORDER BY countries.name \n        LIMIT 10;"
+  },
+  {
+    "id": 55,
+    "db_id": "country_language",
+    "question": "List names of countries in descending order of education_score.",
+    "answer": "SELECT * FROM (SELECT name , \nFROM (SELECT name FROM country_language.languages) AS t1 WHERE language_id = 'CHO') ORDER BY education_score  \n\n\n\n\n\n\n\n\n\n\n\n\nLIMIT 6;"
+  },
+  {
+    "id": 56,
+    "db_id": "country_language",
+    "question": "What are the names of the countries, ordered descending by education score?",
+    "answer": "SELECT name FROM (SELECT country_id ,  FULL JOIN (SELECT *   FROM country_language.countries) AS country_name ON country_id = country_language.countries.country_id ) ORDER BY language_id  DESC\n  LIMIT 5;"
+  },
+  {
+    "id": 57,
+    "db_id": "country_language",
+    "question": "List the name of the country with the biggest score in politics.",
+    "answer": "SELECT LIMIT 1967238102445332;"
+  },
+  {
+    "id": 58,
+    "db_id": "country_language",
+    "question": "What is the name of the country with the highest politics score?",
+    "answer": "SELECT \tRIGHT JOIN country_language.countries AS a ON countries.name = 'Afghanistan'\nLEFT JOIN country_language.countries AS b ON countries.name = 'USA'\n\n\nINNER JOIN country_language.countries AS c ON country_language.country_id = country_language.country_id \n\nGROUP BY"
+  },
+  {
+    "id": 59,
+    "db_id": "country_language",
+    "question": "Show the names of countries and their official languages.",
+    "answer": "SELECT GROUP BY language_id ORDER BY country_language.country_id  \n \n\n\n\n\n\n\n   \n\n   \nLIMIT 1;"
+  },
+  {
+    "id": 60,
+    "db_id": "country_language",
+    "question": "What are the names of the countries, as well as the names of their official langauges?",
+    "answer": "SELECT * FROM country_language.languages\nWHERE name = 'Afrika Pearl' ORDER BY name LIMIT 10;"
+  },
+  {
+    "id": 61,
+    "db_id": "country_language",
+    "question": "Show the official languages and the number of countries speaking each language.",
+    "answer": "SELECT official_languages.country_id , \nFROM (SELECT country_id ,  GROUP BY official_languages.language_id ) AS official_languages;"
+  },
+  {
+    "id": 62,
+    "db_id": "country_language",
+    "question": "What are the names of the different official languages, as well as the number of countries that speak each?",
+    "answer": "SELECT  LIMIT 197320.04856;"
+  },
+  {
+    "id": 63,
+    "db_id": "country_language",
+    "question": "Show the official language spoken by the most number of countries.",
+    "answer": "SELECT language_id , \nFROM (SELECT language_id , \n       FROM (SELECT language_id  \n             FROM country_language.languages) AS o) AS Subquery;"
+  },
+  {
+    "id": 64,
+    "db_id": "country_language",
+    "question": "What is the official language that is most common?",
+    "answer": "SELECT language_id ,  LIMIT 109.24856734;"
+  },
+  {
+    "id": 65,
+    "db_id": "country_language",
+    "question": "Show the official languages spoken by at least two countries.",
+    "answer": "SELECT \nFROM (SELECT name , language_id FROM country_language.countries) AS t1  \nINNER JOIN country_language.languages AS T2 ON country_language.languages.id  =  \n\n\nid   \n\nORDER BY name , language_id LIMIT 4;"
+  },
+  {
+    "id": 66,
+    "db_id": "country_language",
+    "question": "Which official languages are spoken in two or more countries?",
+    "answer": "SELECT countries.name , \nFROM (SELECT name FROM country_language.countries WHERE official_languages.country_id = country_language.languages.id GROUP BY country_language.languages.country_id ) AS two_or_more;"
+  },
+  {
+    "id": 67,
+    "db_id": "country_language",
+    "question": "Show the average overall scores of countries whose official language is \"English\".",
+    "answer": "SELECT * FROM country_language.languages;"
+  },
+  {
+    "id": 68,
+    "db_id": "country_language",
+    "question": "What is the average overall score across countries with English as their official language?",
+    "answer": "SELECT RIGHT JOIN (SELECT country_id ,  AS AS \nFROM country_language.languages) AS t1 ON country_id  =  \n\n\n(SELECT country_id FROM country_language.countries WHERE countries.name  =  'Afghanistan')\n\n\nGROUP BY countries.name ORDER BY name LIMIT 5;"
+  },
+  {
+    "id": 69,
+    "db_id": "country_language",
+    "question": "Show the three official languages that are most commonly spoken.",
+    "answer": "SELECT official_languages.language_id , \nFROM (SELECT language_id , name FROM country_language.languages) AS t1 ORDER BY countries.name LIMIT 3;"
+  },
+  {
+    "id": 70,
+    "db_id": "country_language",
+    "question": "What are the names of the three official languages spoken in the most countries?",
+    "answer": "SELECT \nFROM country_language.languages ORDER BY name LIMIT 3;"
+  },
+  {
+    "id": 71,
+    "db_id": "country_language",
+    "question": "Show the official languages sorted in descending order by the average overall scores among countries speaking them.",
+    "answer": "SELECT \t\tLIMIT 10095378426;"
+  },
+  {
+    "id": 72,
+    "db_id": "country_language",
+    "question": "What are the names of the official languages, sorted descending by the average overall scores across the countries that correspond to each?",
+    "answer": "SELECT name FROM (SELECT country_language.name ,  AS far FROM country_language.languages INNER JOIN country_language.countries ON country_language.country_id = country_language.name GROUP BY language_id ) AS average;"
+  },
+  {
+    "id": 73,
+    "db_id": "country_language",
+    "question": "Show the name of the country that has the greatest number of official languages.",
+    "answer": "SELECT * FROM country_language.languages ORDER BY countries.name LIMIT 1;"
+  },
+  {
+    "id": 74,
+    "db_id": "country_language",
+    "question": "Which country has the greatest number of official languages?",
+    "answer": "SELECT name FROM country_language.countries ORDER BY name LIMIT 1;"
+  },
+  {
+    "id": 75,
+    "db_id": "country_language",
+    "question": "List the names of languages that are not the official language of any countries.",
+    "answer": "SELECT name FROM country_language.languages;"
+  },
+  {
+    "id": 76,
+    "db_id": "country_language",
+    "question": "What are the names of languages that are not the official language of any country?",
+    "answer": "SELECT name FROM country_language.languages WHERE overall_score <> 'Polish';"
+  },
+  {
+    "id": 77,
+    "db_id": "country_language",
+    "question": "List the names of countries that do not have any official language.",
+    "answer": "SELECT FROM country_language.countries\n      WHERE language_id = 'KA' ORDER BY country_language.name ;"
+  },
+  {
+    "id": 78,
+    "db_id": "country_language",
+    "question": "What are the names of countries that do not have an official language?",
+    "answer": "SELECT name FROM country_language.countries WHERE official_languages.country_id ='\n</code>\r\n@endTeXt {#list} 158963-0274,The US has a motherfucking website (www.). Why?!? Because she doesn'' not have an English as my native language and I cannot get to the U.S... why is that?. You must be proud of her right now"
+  },
+  {
+    "id": 79,
+    "db_id": "country_language",
+    "question": "Show the names of languages that are the official language for both countries with overall score greater than 95 and countries with overall score less than than 90.",
+    "answer": "SELECT * FROM country_language.languages;"
+  },
+  {
+    "id": 80,
+    "db_id": "country_language",
+    "question": "What are the names of languages that are the official language not only for countries that have an overall score of above 95, but also for countries that have an overall score below 90?",
+    "answer": "SELECT * FROM country_language.languages\n  WHERE overall_score < 90;"
+  },
+  {
+    "id": 81,
+    "db_id": "real_estate_rentals",
+    "question": "Which countries and cities are included in addresses?",
+    "answer": "SELECT DISTINCT country ,  GROUP BY address_id ORDER BY country ;"
+  },
+  {
+    "id": 82,
+    "db_id": "real_estate_rentals",
+    "question": "What are the countries and cities for each address?",
+    "answer": "SELECT county_state_province FROM (SELECT DISTINCT country , \nFROM (SELECT country WHERE country = 'Afghanistan' ORDER BY country ), (SELECT DISTINCT country )\n\nINNER JOIN (SELECT DISTINCT country ORDER BY Rooms.country LIMIT 32) AS City_Room_City_Clubhouse ON Rooms.country ="
+  },
+  {
+    "id": 83,
+    "db_id": "real_estate_rentals",
+    "question": "In which states are each of the the properties located?",
+    "answer": "SELECT is_buyer \n                               INNER JOIN (SELECT \n    FROM (SELECT DISTINCT parking_lots ) AS SELCT RIGHT OUTER JOIN (SELECT  \n\n      FROM (SELECT DISTINCT parking_lots ) AS SINGLE_STATE \n    \n      WHERE parking_lots = 'N' ORDER BY Features.parking_lots , "
+  },
+  {
+    "id": 84,
+    "db_id": "real_estate_rentals",
+    "question": "Give the states or provinces corresponding to each property.",
+    "answer": "SELECT \nFROM (SELECT DISTINCT * FROM real_estate_rentals.Properties) AS prop;"
+  },
+  {
+    "id": 85,
+    "db_id": "real_estate_rentals",
+    "question": "How is the feature rooftop described?",
+    "answer": "SELECT town_city FROM (SELECT DISTINCT country , \nFROM (SELECT DISTINCT country ) AS rooftop\n\nINNER JOIN (SELECT DISTINCT room_count , room_count ) AS ooftopfghanentwo ON room_count = 'rooftop' ORDER BY country  ASC, room_count  ASC)"
+  },
+  {
+    "id": 86,
+    "db_id": "real_estate_rentals",
+    "question": "Return the description of the feature 'rooftop'.",
+    "answer": "SELECT * FROM (SELECT DISTINCT *FROM (SELECT DISTINCT *FROM (SELECT DISTINCT * FROM (SELECT DISTINCT *FROM (SELECT * FROM (SELECT DISTINCT *) ORDER BY Rooms.feature_name LIMIT 4)\n   \n   \n   \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+  },
+  {
+    "id": 87,
+    "db_id": "real_estate_rentals",
+    "question": "What are the feature name and description of the most commonly seen feature across properties?",
+    "answer": "SELECT * FROM (SELECT property_name , \n LIMIT 0.349756821) AS FEATURE_NAME;"
+  },
+  {
+    "id": 88,
+    "db_id": "real_estate_rentals",
+    "question": "Give the feature name and description for the most common feature across all properties.",
+    "answer": "SELECT Property_Features.feature_name , \nGROUP BY Property_Features.feature_name ORDER BY county_state_province LIMIT 1;"
+  },
+  {
+    "id": 89,
+    "db_id": "real_estate_rentals",
+    "question": "What is the minimum number of rooms in a property?",
+    "answer": "SELECT town_city , \nFROM (SELECT town_city FROM real_estate_rentals.Property_Features) AS x;"
+  },
+  {
+    "id": 90,
+    "db_id": "real_estate_rentals",
+    "question": "What is the lowest room count across all the properties?",
+    "answer": "SELECT FROM (SELECT * FROM real_estate_rentals.Property_Photos WHERE Property_Photos.room_count = (SELECT \n  FROM (SELECT property_id , Addresses.property_address_id )  \n  AS child_acres_2500ns  GROUP BY property_id ORDER BY room_count LIMIT 1)\nLIMIT 1);"
+  },
+  {
+    "id": 91,
+    "db_id": "real_estate_rentals",
+    "question": "How many properties have 1 parking lot or 1 garage?",
+    "answer": "SELECT country ,  \nFROM (SELECT * FROM (SELECT  LIMIT 9052) AS t1) AS s;"
+  },
+  {
+    "id": 92,
+    "db_id": "real_estate_rentals",
+    "question": "Count the number of properties that have 1 parking lot or 1 garage.",
+    "answer": "SELECT GROUP BY property_type_code ORDER BY county_state_province ;"
+  },
+  {
+    "id": 93,
+    "db_id": "real_estate_rentals",
+    "question": "For users whose description contain the string 'Mother', which age categories are they in?",
+    "answer": "SELECT * FROM (SELECT DISTINCT country , \nFROM (SELECT  FULL OUTER JOIN (SELECT country ) AS mother_country ON country  =  'Russia' ORDER BY country   LIMIT 21)\n\nINNER JOIN (SELECT country WHERE country =  'Belarus') AS bla ON country  = other_user_details INNER JOIN (SELECT country FROM (SELECT DISTINCT"
+  },
+  {
+    "id": 94,
+    "db_id": "real_estate_rentals",
+    "question": "What are the age categories for users whose description contains the string Mother?",
+    "answer": "SELECT ORDER BY age_category_description LIMIT 2;"
+  },
+  {
+    "id": 95,
+    "db_id": "real_estate_rentals",
+    "question": "What is the first name of the user who owns the greatest number of properties?",
+    "answer": "SELECT * FROM (SELECT GROUP BY owner_user_id ORDER BY county_state_province )\nGROUP BY owner_user_id LIMIT 1;"
+  },
+  {
+    "id": 96,
+    "db_id": "real_estate_rentals",
+    "question": "Return the first name of the user who owns the most properties.",
+    "answer": "SELECT first_name FROM (SELECT owner_user_id FROM (SELECT owner_user_id ,  RIGHT JOIN (SELECT * FROM (SELECT property_id ) AS B)\n  AS A ON Addresses.is_seller = user_address_id )  ORDER BY county_state_province )   LIMIT 1;"
+  },
+  {
+    "id": 97,
+    "db_id": "real_estate_rentals",
+    "question": "List the average room count of the properties with gardens.",
+    "answer": "SELECT Addresses.address_id , \nFROM (SELECT \n        RIGHT JOIN (SELECT address_id FROM (SELECT property_id FROM (SELECT property_id FROM (SELECT property_id FROM (SELECT  WHERE owner_user_id  = 2) AS children) AS own))\n       AS addresses\n      WHERE Addresses.property_id  = owner_user_id )\n    AS properties_with_g"
+  },
+  {
+    "id": 98,
+    "db_id": "real_estate_rentals",
+    "question": "On average, how many rooms do properties with garden features have?",
+    "answer": "SELECT *\nFROM (SELECT property_id ,  RIGHT JOIN (SELECT property_id FROM real_estate_rentals.Properties) AS T1 ON Properties.property_id = town_city )  \n\t   WHERE EXISTS (SELECT property_id INNER JOIN real_estate_rentals.Properties AS a ON property_id  = property_id )\n\t   GROUP"
+  },
+  {
+    "id": 99,
+    "db_id": "real_estate_rentals",
+    "question": "In which cities are there any properties equipped with a swimming pool?",
+    "answer": "SELECT DISTINCT Property_Photos.country , \nFROM (SELECT * FROM real_estate_rentals.Properties) AS T1 WHERE property_type_code  = 3;"
+  },
+  {
+    "id": 100,
+    "db_id": "real_estate_rentals",
+    "question": "Return the cities in which there exist properties that have swimming pools.",
+    "answer": "SELECT * FROM (SELECT DISTINCT property_id ,  GROUP BY town_city ORDER BY town_city )\nINNER JOIN (SELECT DISTINCT property_id FROM (SELECT property_type_code   FROM (SELECT property_type_code FROM (SELECT DISTINCT town_city INNER JOIN (SELECT property_type_code FROM (SELECT DISTINCT town_city FROM ("
+  },
+  {
+    "id": 101,
+    "db_id": "real_estate_rentals",
+    "question": "Which property had the lowest price requested by the vendor? List the id and the price.",
+    "answer": "SELECT photo_filename , \nFROM (SELECT photo_filename FROM (SELECT photo_filename WHERE property_type_code = '01') ORDER BY price_max LIMIT 5) AS LowestPrice;"
+  },
+  {
+    "id": 102,
+    "db_id": "real_estate_rentals",
+    "question": "What is the id of the property that had the lowest requested price from the vendor, and what was that price?",
+    "answer": "SELECT \t  \nFROM (SELECT \t  \t\t\tLIMIT 5) \t\tGROUP BY Property_Features.property_id \t\tORDER BY price_max \tLIMIT 5;"
+  },
+  {
+    "id": 103,
+    "db_id": "real_estate_rentals",
+    "question": "On average, how many rooms does a property have?",
+    "answer": "SELECT \nGROUP BY Property_Photos.property_id , Property_Photos.photo_title ORDER BY Property_Photos.property_id ;"
+  },
+  {
+    "id": 104,
+    "db_id": "real_estate_rentals",
+    "question": "What is the average number of rooms in a property?",
+    "answer": "SELECT Addresses.address_id , \nFROM (SELECT address_id , \n           FROM (SELECT DISTINCT address_id  \n                 FROM (SELECT datestamp ) AS t1) AS subquery1) \n       AS id_column;"
+  },
+  {
+    "id": 105,
+    "db_id": "real_estate_rentals",
+    "question": "How many kinds of room sizes are listed?",
+    "answer": "SELECT country FROM (SELECT county_state_province )\nWHERE town_city  =  'SELNE' ORDER BY county_state_province ;"
+  },
+  {
+    "id": 106,
+    "db_id": "real_estate_rentals",
+    "question": "Return the number of different room sizes.",
+    "answer": "SELECT \nFROM (SELECT country  FROM (SELECT room_type_code ,  FULL JOIN (SELECT *   FROM (SELECT room_type_code ) AS M1)   \n     AS MYTABL ON EXISTS (SELECT room_type_code )) GROUP BY room_type_code \n      ORDER BY county_state_province ) AS RESULTS;"
+  },
+  {
+    "id": 107,
+    "db_id": "real_estate_rentals",
+    "question": "What are the ids of users who have searched at least twice, and what did they search?",
+    "answer": "SELECT \nFROM (SELECT * FROM real_estate_rentals.Property_Photos) AS PHOTOS INNER JOIN (SELECT * FROM real_estate_rentals.Users WHERE Users.user_id = Properties.user_id ) AS PROPERTIES ON property_id  \n\n\n\n\n\n \n\n\n\n\n\n\n\n\n   \n\n\n\n\n\n     \n      \n       \n        "
+  },
+  {
+    "id": 108,
+    "db_id": "real_estate_rentals",
+    "question": "Return the ids of users who have performed two or more searches, as well as their search sequence.",
+    "answer": "SELECT user_id FROM (SELECT user_id , search_datetime ORDER BY search_datetime LIMIT 2) AS subquery\n  GROUP BY user_id ORDER BY county_state_province  \n\n  LIMIT 0;"
+  },
+  {
+    "id": 109,
+    "db_id": "real_estate_rentals",
+    "question": "When was the time of the latest search by a user?",
+    "answer": "SELECT * FROM (SELECT date_off_market , \t  \t \t    \t     \n \t\t\t  \t\t  \t   \t     \n \t  \t \t    \t     \t  \t    \t     \t       \t   \n \t  \t \t    \t     \t     \n \t  \t \t    \t     \t  \t    \t \t   \n \t  \t \t    \t     \t  \t      \t    \t   \n \t  \t \t    \t      \t    \t  \t      \t    \t   \n \t  "
+  },
+  {
+    "id": 110,
+    "db_id": "real_estate_rentals",
+    "question": "What was the time of the most recent search?",
+    "answer": "SELECT first_name FROM (SELECT last_name , date_off_market , other_property_details ) AS xtreme;"
+  },
+  {
+    "id": 111,
+    "db_id": "real_estate_rentals",
+    "question": "What are all the user searches time and content? Sort the result descending by content.",
+    "answer": "SELECT search_datetime , \nFROM (SELECT * FROM (SELECT * ORDER BY Rooms.search_datetime ) AS T1) AS T2;"
+  },
+  {
+    "id": 112,
+    "db_id": "real_estate_rentals",
+    "question": "Return the search strings and corresonding time stamps for all user searches, sorted by search string descending.",
+    "answer": "SELECT * FROM (SELECT DISTINCT search_string , \nFROM (SELECT user_id ,  LIMIT 0) AS fakeTable ORDER BY search_string  \n\n   \n\n    \n\n\n\n \n\n  \n\n\n\n\nLIMIT 4);"
+  },
+  {
+    "id": 113,
+    "db_id": "real_estate_rentals",
+    "question": "What are the zip codes of properties which do not belong to users who own at most 2 properties?",
+    "answer": "SELECT property_id FROM (SELECT property_id , \nFROM (SELECT property_id FROM (SELECT property_id FROM (SELECT property_id FROM (SELECT property_id WHERE owner_user_id = 0) AS sub1)) AS t1) AS sub2);"
+  },
+  {
+    "id": 114,
+    "db_id": "real_estate_rentals",
+    "question": "Return the zip codes for properties not belonging to users who own two or fewer properties.",
+    "answer": "SELECT property_id FROM (SELECT property_id FROM (SELECT property_id FROM (SELECT property_id FROM (SELECT DISTINCT user_id WHERE user_id = 1 ORDER BY property_id LIMIT 2)) GROUP BY property_id ORDER BY property_id LIMIT 3)\n \n     INNER JOIN (SELECT DISTINCT property_id FROM real_estate_rent"
+  },
+  {
+    "id": 115,
+    "db_id": "real_estate_rentals",
+    "question": "What are the users making only one search? List both category and user id.",
+    "answer": "SELECT \nFROM (SELECT user_id , county_state_province FROM (SELECT user_id ORDER BY county_state_province ) AS t1 GROUP BY user_id )  \nORDER BY user_id ;"
+  },
+  {
+    "id": 116,
+    "db_id": "real_estate_rentals",
+    "question": "What are the ids of users who have only made one search, and what are their category codes?",
+    "answer": "SELECT *FROM (SELECT DISTINCT user_id FROM real_estate_rentals.Rooms) AS room_searches LEFT JOIN (SELECT  FROM real_estate_rentals.Users WHERE user_id = search_string LIMIT 1) AS user_joined ON town_city = 7 ORDER BY search_datet"
+  },
+  {
+    "id": 117,
+    "db_id": "real_estate_rentals",
+    "question": "What is the age range category of the user who made the first search?",
+    "answer": "SELECT FULL JOIN (SELECT town_city ,  FULL JOIN (SELECT first_name LIMIT 15) AS MODERN_NAME_SUFFIXES ON town_city = first_name )\n AS CUT_TO_THE_NEXT_LEVELIN_CASEO3724090B86C0DEE8C0CFAE0F5A1DABIOMNIK"
+  },
+  {
+    "id": 118,
+    "db_id": "real_estate_rentals",
+    "question": "Return the age category for the user who made the earliest search.",
+    "answer": "SELECT first_name FROM (SELECT first_name , \nFROM (SELECT first_name ORDER BY first_name LIMIT 1) AS info);"
+  },
+  {
+    "id": 119,
+    "db_id": "real_estate_rentals",
+    "question": "Find the login names of all senior citizen users ordered by their first names.",
+    "answer": "SELECT DISTINCT login_name FROM (SELECT login_name FROM (SELECT first_name ORDER BY last_name ) AS x)\nWHERE first_name  =  'senior';"
+  },
+  {
+    "id": 120,
+    "db_id": "real_estate_rentals",
+    "question": "What are the login names of all senior citizens, sorted by first name?",
+    "answer": "SELECT first_name FROM (SELECT DISTINCT first_name FROM (SELECT login_name ,  FROM (SELECT country GROUP BY country ORDER BY country LIMIT 24)) AS t1)\n \tWHERE login_name  =  'admin' ORDER BY first_name ;"
+  },
+  {
+    "id": 121,
+    "db_id": "real_estate_rentals",
+    "question": "How many searches do buyers make in total?",
+    "answer": "SELECT \nFROM (SELECT country , search_datetime , date_off_market , country FROM (SELECT * FROM (SELECT country ,  ORDER BY country , search_datetime , datestamp ) AS T1 WHERE town_city  =   'USA')\n\n\nINNER JOIN (SELECT  FROM (SELECT search_datetime FROM (SELECT"
+  },
+  {
+    "id": 122,
+    "db_id": "real_estate_rentals",
+    "question": "Count the number of searches made by buyers.",
+    "answer": "SELECT *\nFROM (SELECT country ,  FROM (SELECT search_datetime ,  FROM (SELECT DISTINCT search_string ) AS b) WHERE search_string  =  'baby name' RIGHT JOIN (SELECT country ,  FROM (SELECT DISTINCT search_datetime , FROM (SELECT DISTINCT search_string )) AS a) ON address_id =10"
+  },
+  {
+    "id": 123,
+    "db_id": "real_estate_rentals",
+    "question": "When did the user with login name ratione register?",
+    "answer": "SELECT \nFROM (SELECT login_name FROM (SELECT login_name FROM (SELECT login_name ,  RIGHT JOIN (SELECT login_name   FROM (SELECT user_id ) AS user) AS USING ON Addresses.user_id = Users.user_id )\n\n WHERE login_name  ='ratione')\n LIMIT 1 OFFSET 2);"
+  },
+  {
+    "id": 124,
+    "db_id": "real_estate_rentals",
+    "question": "What was the registration date for the user whose login name is ratione?",
+    "answer": "SELECT user_id FROM (SELECT  FROM (SELECT * FROM (SELECT FROM real_estate_rentals.Users WHERE Users.login_name  = 'ratione')\n    AS subq) AS t1\n\nINNER JOIN real_estate_rentals.Properties ON Properties.user_id = town_city INNER JOIN (SELECT login_name FROM real_estate_rentals"
+  },
+  {
+    "id": 125,
+    "db_id": "real_estate_rentals",
+    "question": "List the first name, middle name and last name, and log in name of all the seller users, whose seller value is 1.",
+    "answer": "SELECT is_seller INNER JOIN (SELECT User_Property_History.first_name , user_address_id FROM (SELECT *FROM (SELECT first_name LIMIT 50) AS USERS INNER JOIN (SELECT User_Property_History.user_address_id FROM (SELECT user_address_id FROM (SELECT user_address_id FROM (SELECT user_"
+  },
+  {
+    "id": 126,
+    "db_id": "real_estate_rentals",
+    "question": "What are the first, middle, last, and login names for all users who are sellers?",
+    "answer": "SELECT user_id , \nFROM (SELECT \tRIGHT JOIN (SELECT DISTINCT user_id FROM (SELECT user_id FROM (SELECT user_id ) AS b) AS a) \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n   \n     \n    \n      \n       \n         \n        \n          \n            \n              \n             \n                \n                  \n                    \n                     "
+  },
+  {
+    "id": 127,
+    "db_id": "real_estate_rentals",
+    "question": "Where do the Senior Citizens live? List building, street, and the city.",
+    "answer": "SELECT * FROM (SELECT DISTINCT LIMIT 500)\nWHERE login_name = 'Bulding and Laying' ORDER BY owner_user_id LIMIT 1;"
+  },
+  {
+    "id": 128,
+    "db_id": "real_estate_rentals",
+    "question": "What are the buildings, streets, and cities corresponding to the addresses of senior citizens?",
+    "answer": "SELECT Addresses.address_id FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT  LIMIT 1234567890) AS streetName) INNER JOIN (SELECT * FROM (SELECT LIMIT 1234567890) WHERE address_id = 1) ON EXISTS (SELECT * FROM (SELECT town_city FROM (SELECT  LIMIT 123"
+  },
+  {
+    "id": 129,
+    "db_id": "real_estate_rentals",
+    "question": "How many properties are there with at least 2 features?",
+    "answer": "SELECT country , \nFROM (SELECT \n    FROM (SELECT \n    FROM real_estate_rentals.Properties) AS t1  \n    INNER JOIN real_estate_rentals.Features ON Properties.property_id = Features.property_id ) \n    WHERE property_name \n   \n   \n  \n\n\n \n\n\n    \n \n\n\n\n        \n        \n       \n      \n     "
+  },
+  {
+    "id": 130,
+    "db_id": "real_estate_rentals",
+    "question": "Count the number of properties with at least two features.",
+    "answer": "SELECT * FROM (SELECT property_id , \n                               GROUP BY property_id ORDER BY county_state_province ) AS T1 WHERE town_city =' ||\r\n        ';"
+  },
+  {
+    "id": 131,
+    "db_id": "real_estate_rentals",
+    "question": "How many photos does each property have?",
+    "answer": "SELECT property_name FROM (SELECT photo_title FROM (SELECT property_name FROM (SELECT property_name FROM (SELECT ))));"
+  },
+  {
+    "id": 132,
+    "db_id": "real_estate_rentals",
+    "question": "Count the number of property photos each property has by id.",
+    "answer": "SELECT photo_filename , \nFROM (SELECT property_id ) AS inner_query;"
+  },
+  {
+    "id": 133,
+    "db_id": "real_estate_rentals",
+    "question": "How many photos does each owner has of his or her properties? List user id and number of photos.",
+    "answer": "SELECT \nFROM (SELECT town_city , country  FROM (SELECT owner_user_id ) AS t1) WHERE town_city  =  'Lening' ORDER BY country ;"
+  },
+  {
+    "id": 134,
+    "db_id": "real_estate_rentals",
+    "question": "What are the user ids of property owners who have property photos, and how many do each of them have?",
+    "answer": "SELECT country ,  GROUP BY owner_user_id ;"
+  },
+  {
+    "id": 135,
+    "db_id": "real_estate_rentals",
+    "question": "What is the total max price of the properties owned by single mothers or students?",
+    "answer": "SELECT DISTINCT \nFROM (SELECT owner_user_id FROM (SELECT owner_user_id , property_type_code , \n    FROM (SELECT property_id , \n        FROM (SELECT property_id  \n          FROM (SELECT town_city ) AS b\n           INNER JOIN (SELECT property_id  \n          FROM (SELECT property_type_code )  \n               WHERE property_type_code  = '01' OR"
+  },
+  {
+    "id": 136,
+    "db_id": "real_estate_rentals",
+    "question": "Give the total max price corresponding to any properties owned by single mothers or students.",
+    "answer": "SELECT * FROM real_estate_rentals.Property_Photos WHERE Property_Photos.property_type_code  =  'M' ORDER BY property_type_code   LIMIT 1;"
+  },
+  {
+    "id": 137,
+    "db_id": "real_estate_rentals",
+    "question": "What are the date stamps and property names for each item of property history, ordered by date stamp?",
+    "answer": "SELECT photo_description , \nGROUP BY property_name ORDER BY property_name LIMIT 1;"
+  },
+  {
+    "id": 138,
+    "db_id": "real_estate_rentals",
+    "question": "Return the date stamp and property name for each property history event, sorted by date stamp.",
+    "answer": "SELECT \t    \t\t   \t \n  \t\t\t        \t \t     \t     \t     \t \t     \t   \t     \t \t     \t \t     \t     \t \t     \t \t     \t     \t \t     \t     \t \t     \t \t     \t     \t \t     \t \t     \t \t     \t \t     \t \t     \t     \t \t     \t \t     \t \t     \t     \t     \t \t     \t     \t \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     \t     "
+  },
+  {
+    "id": 139,
+    "db_id": "real_estate_rentals",
+    "question": "What is the description of the most common property type? List the description and code.",
+    "answer": "SELECT * FROM (SELECT property_type_code , \n  ORDER BY Features.property_type_description ) AS T1 GROUP BY property_type_code ORDER BY county_state_province LIMIT 5;"
+  },
+  {
+    "id": 140,
+    "db_id": "real_estate_rentals",
+    "question": "What is the most common property type, and what is its description.",
+    "answer": "SELECT \nFROM (SELECT property_type_code , county_state_province ) AS T1 GROUP BY property_type_code ORDER BY county_state_province   LIMIT 3;"
+  },
+  {
+    "id": 141,
+    "db_id": "real_estate_rentals",
+    "question": "What is the detailed description of the age category code 'Over 60'?",
+    "answer": "SELECT \nFROM (SELECT DISTINCT * FROM (SELECT Addresses.address_id , Addresses.address_id   FROM (SELECT address_id )    INNER JOIN (SELECT address_id FROM (SELECT DISTINCT  AS Addresses WHERE Addresses.age_category_code  ='Over') AS Addresses) ON address_id = Addresses.address_id GROUP BY age_"
+  },
+  {
+    "id": 142,
+    "db_id": "real_estate_rentals",
+    "question": "Give the category description of the age category 'Over 60'.",
+    "answer": "SELECT * FROM (SELECT country , \n RIGHT OUTER JOIN (SELECT country ) AS coidntryname ON country  =  country   \n GROUP BY country ORDER BY country LIMIT 1);"
+  },
+  {
+    "id": 143,
+    "db_id": "real_estate_rentals",
+    "question": "What are the different room sizes, and how many of each are there?",
+    "answer": "SELECT \nFROM (SELECT DISTINCT Rooms.room_size ,  \n      LEFT JOIN (SELECT country , \n              FROM (SELECT Rooms.date_off_market , \n                                RIGHT JOIN (SELECT room_type_code , \n FROM (SELECT Rooms.room_number LIMIT 35)) AS Room_info ON room_number = roo"
+  },
+  {
+    "id": 144,
+    "db_id": "real_estate_rentals",
+    "question": "Return the number of rooms with each different room size.",
+    "answer": "SELECT \nFROM (SELECT country ,  FULL JOIN (SELECT room_size ) AS roomsforsale ON room_size = room_type_code ORDER BY room_number LIMIT 10);"
+  },
+  {
+    "id": 145,
+    "db_id": "real_estate_rentals",
+    "question": "In which country does the user with first name Robbie live?",
+    "answer": "SELECT country FROM (SELECT DISTINCT country ,  RIGHT JOIN (SELECT DISTINCT country ) ON user_id  =  'Robbie')\nGROUP BY country ORDER BY country LIMIT 1;"
+  },
+  {
+    "id": 146,
+    "db_id": "real_estate_rentals",
+    "question": "Return the country in which the user with first name Robbie lives.",
+    "answer": "SELECT country FROM (SELECT country FROM (SELECT country WHERE country = 'Germany' ORDER BY country ));"
+  },
+  {
+    "id": 147,
+    "db_id": "real_estate_rentals",
+    "question": "What are the first, middle and last names of users who own the property they live in?",
+    "answer": "SELECT town_city FROM (SELECT property_id ,  ORDER BY owner_user_id ) AS property_city INNER JOIN (SELECT user_id   FROM (SELECT owner_user_id FROM (SELECT property_id ) AS PropertyToOwner) AS UserToProperty WHERE town_city = 'Torin')\n \n \t\n   \n  AS iliadianaasdilaaetur2014593"
+  },
+  {
+    "id": 148,
+    "db_id": "real_estate_rentals",
+    "question": "Return the full names of users who live in properties that they own.",
+    "answer": "SELECT property_id , \nFROM (SELECT user_id FROM (SELECT owner_user_id WHERE property_id = '5') AS subq) AS owners;"
+  },
+  {
+    "id": 149,
+    "db_id": "real_estate_rentals",
+    "question": "List the search content of the users who do not own a single property.",
+    "answer": "SELECT * FROM real_estate_rentals.Users WHERE owner_user_id = property_type_code ;"
+  },
+  {
+    "id": 150,
+    "db_id": "real_estate_rentals",
+    "question": "What search strings were entered by users who do not own any properties?",
+    "answer": "SELECT property_id FROM real_estate_rentals.Properties WHERE property_type_code = 'pg'\n \n\n\n\n\n\n\n\n\n\n  \n \n\nLIMIT 1;"
+  },
+  {
+    "id": 151,
+    "db_id": "real_estate_rentals",
+    "question": "List the last names and ids of users who have at least 2 properties and searched at most twice.",
+    "answer": "SELECT * FROM (SELECT User_Searches.first_name , \n    INNER JOIN (SELECT first_name   FROM (SELECT first_name LIMIT 2) AS User_FirstNameInDesireOrder) ON EXISTS (SELECT first_name FROM (SELECT FROM (SELECT town_city INNER JOIN real_estate_rentals.User_Search"
+  },
+  {
+    "id": 152,
+    "db_id": "real_estate_rentals",
+    "question": "What are the last names and ids of users who have searched two or fewer times, and own two or more properties?",
+    "answer": "SELECT search_string ,  RIGHT JOIN (SELECT search_string ) AS T1 ON Rooms.search_string  =  town_city \nINNER JOIN real_estate_rentals.Rooms AS room_name ON Rooms.room_number  =   Rooms.search_string ;"
+  },
+  {
+    "id": 153,
+    "db_id": "bike_racing",
+    "question": "How many bikes are heavier than 780 grams?",
+    "answer": "SELECT bike_id FROM (SELECT bike_id FROM (SELECT bike_id ,  RIGHT JOIN bike_racing.bike AS b ON bike_racing.bike.bike_id = bike_id ) WHERE weight > 780)\nGROUP BY bike_id ;"
+  },
+  {
+    "id": 154,
+    "db_id": "bike_racing",
+    "question": "List the product names and weights of the bikes in ascending order of price.",
+    "answer": "SELECT name FROM bike_racing.bike ORDER BY price LIMIT 2;"
+  },
+  {
+    "id": 155,
+    "db_id": "bike_racing",
+    "question": "List the heat, name, and nation for all the cyclists.",
+    "answer": "SELECT DISTINCT heat ,  GROUP BY nation ORDER BY nation ;"
+  },
+  {
+    "id": 156,
+    "db_id": "bike_racing",
+    "question": "What are the maximum and minimum weight of all bikes?",
+    "answer": "SELECT \nGROUP BY bike_id ORDER BY cyclists_own_bikes.weight LIMIT 1;"
+  },
+  {
+    "id": 157,
+    "db_id": "bike_racing",
+    "question": "What is the average price of the bikes made of material 'Carbon CC'?",
+    "answer": "SELECT RIGHT JOIN (SELECT DISTINCT material ,  AS AS \nFROM bike_racing.bike) AS t1 ON material  = 2384;"
+  },
+  {
+    "id": 158,
+    "db_id": "bike_racing",
+    "question": "What are the name and result of the cyclists not from 'Russia' ?",
+    "answer": "SELECT name , \nFROM (SELECT name FROM (SELECT name , RIGHT JOIN (SELECT name FROM bike_racing.bike) AS t1 ON name = id )  WHERE nation  = 23785);"
+  },
+  {
+    "id": 159,
+    "db_id": "bike_racing",
+    "question": "What are the distinct ids and product names of the bikes that are purchased after year 2015?",
+    "answer": "SELECT DISTINCT name FROM bike_racing.bike WHERE purchase_year = 2015;"
+  },
+  {
+    "id": 160,
+    "db_id": "bike_racing",
+    "question": "What are the ids and names of racing bikes that are purchased by at least 4 cyclists?",
+    "answer": "SELECT DISTINCT name FROM bike_racing.bike WHERE result > 1 ORDER BY name LIMIT 5;"
+  },
+  {
+    "id": 161,
+    "db_id": "bike_racing",
+    "question": "What are the id and name of the cyclist who owns the most bikes?",
+    "answer": "SELECT DISTINCT bike_id FROM (SELECT cyclist.name , bike.bike_id  FROM bike_racing.cyclist LEFT JOIN bike_racing.bike ON cyclist.name = bike.name GROUP BY cyclist.name )\n  ORDER BY name LIMIT 1;"
+  },
+  {
+    "id": 162,
+    "db_id": "bike_racing",
+    "question": "What are the distinct product names of bikes owned by cyclists from 'Russia' or cyclists from 'Great Britain'?",
+    "answer": "SELECT name FROM bike_racing.bike WHERE bike_id = 698 ORDER BY name LIMIT 5;"
+  },
+  {
+    "id": 163,
+    "db_id": "bike_racing",
+    "question": "How many different levels of heat are there for the cyclists?",
+    "answer": "SELECT \nFROM (SELECT heat FROM (SELECT heat , RIGHT JOIN (SELECT DISTINCT LEFT JOIN (SELECT name , id   FROM (SELECT name  FULL JOIN (SELECT GROUP BY name ) AS a ON name = 2) AS NULL) AS NULL ON name = 'B' ORDER BY name LIMIT 100 OFFSET 49537683) AS T2 ON heat  = -2))\nWHERE"
+  },
+  {
+    "id": 164,
+    "db_id": "bike_racing",
+    "question": "How many cyclists did not purchase any bike after year 2015?",
+    "answer": "SELECT name FROM (SELECT DISTINCT name ,  GROUP BY name ORDER BY name ) WHERE name = 'Keishi'\nGROUP BY name ;"
+  },
+  {
+    "id": 165,
+    "db_id": "bike_racing",
+    "question": "What are the names of distinct racing bikes that are purchased by the cyclists with better results than '4:21.558' ?",
+    "answer": "SELECT name FROM bike_racing.bike WHERE result  \n< 360;"
+  },
+  {
+    "id": 166,
+    "db_id": "bike_racing",
+    "question": "List the name and price of the bike that is owned by both the cyclists named 'Bradley Wiggins' and the cyclist named 'Antonio Tauler'.",
+    "answer": "SELECT cyclist.name FROM (SELECT * FROM (SELECT name , \n   FROM bike_racing.bike) AS T1 WHERE name  = 'Bradley Wiggins') INNER JOIN (SELECT name )\n \n  \n \n   \n  \n    \n     \n  \n      \n   \n    \n\n\n\n\n\n \n\n       \n   \n   \n   \n     \n        \n   \n   \n         \n          \n           "
+  },
+  {
+    "id": 167,
+    "db_id": "bike_racing",
+    "question": "Show the name, nation and result for the cyclists who did not purchase any racing bike.",
+    "answer": "SELECT * FROM (SELECT name , nation , RIGHT JOIN (SELECT name WHERE result <> 'Purchased') AS Name_of_bike ON id = name ) GROUP BY name ORDER BY bike_id LIMIT 1;"
+  },
+  {
+    "id": 168,
+    "db_id": "bike_racing",
+    "question": "What are the names of the bikes that have substring 'fiber' in their material?",
+    "answer": "SELECT name FROM bike_racing.bike WHERE bike_id \t  \t     = (SELECT bike_id FROM bike_racing.bike)\n  INNER JOIN (SELECT * FROM bike_racing.bike AS t1 WHERE material  \t       \t \t     \t   = \t'Fiber') AS subquery ON bike.name = ' +  \t     (SELECT bike_name FROM subquery);\n\nI want"
+  },
+  {
+    "id": 169,
+    "db_id": "bike_racing",
+    "question": "How many bikes does each cyclist own? Order by cyclist id.",
+    "answer": "SELECT DISTINCT cyclists_own_bikes.cyclist_id FROM (SELECT bike_id , \n \tFROM (SELECT * FROM bike_racing.bike ORDER BY name LIMIT 21) AS CTE);"
+  },
+  {
+    "id": 170,
+    "db_id": "bakery_1",
+    "question": "What is the most expensive cake and its flavor?",
+    "answer": "SELECT * FROM (SELECT customers.CustomerId ,  FULL JOIN (SELECT customers.CustomerId ) AS MostExpensiveCakeOrderingFromCustomersInAlphabetsFIRSTOFSINGULARITESTHALVOUSHAKENAWTODTCANNAMILDEREFULLCOLLECTIONOFCAKEORDERSORLORDEBYQUANTITYOFFRAMESSONTRIESFROMTHEYOURCUST"
+  },
+  {
+    "id": 171,
+    "db_id": "bakery_1",
+    "question": "Give the id and flavor of the most expensive cake.",
+    "answer": "SELECT * FROM (SELECT customers.CustomerId , \nFROM bakery_1.customers, bakery_1.customers) AS cs WHERE customers.Flavor = 'Chocolate' GROUP BY CustomerId ORDER BY CustomerId LIMIT 4;"
+  },
+  {
+    "id": 172,
+    "db_id": "bakery_1",
+    "question": "What is the cheapest cookie and its flavor?",
+    "answer": "SELECT *FROM (SELECT DISTINCT ORDER BY Price LIMIT 1)\nGROUP BY Flavor ORDER BY Price LIMIT 5;"
+  },
+  {
+    "id": 173,
+    "db_id": "bakery_1",
+    "question": "What is the id and flavor of the cheapest cookie?",
+    "answer": "SELECT customers.Ordinal , \nFROM (SELECT DISTINCT customers.Ordinal   FROM (SELECT * FROM (SELECT customers.CustomerId ) AS T1) AS CUSTOMERS ORDER BY customers.CustomerId LIMIT 2);"
+  },
+  {
+    "id": 174,
+    "db_id": "bakery_1",
+    "question": "Find the ids of goods that have apple flavor.",
+    "answer": "SELECT * FROM bakery_1.goods WHERE goods.Flavor ='apple';"
+  },
+  {
+    "id": 175,
+    "db_id": "bakery_1",
+    "question": "What are the ids with apple flavor?",
+    "answer": "SELECT \nGROUP BY bakery_1.goods.Flavor LIMIT 5;"
+  },
+  {
+    "id": 176,
+    "db_id": "bakery_1",
+    "question": "What are the ids of goods that cost less than 3 dollars?",
+    "answer": "SELECT \nFROM (SELECT * FROM (SELECT goods.Price , goods.Id  \nFROM (SELECT Price , Id  \nFROM (SELECT Id FROM (SELECT goods.Id WHERE goods.Price < 1) AS Goods_table)) AS subq)\nWHERE CustomerId = 20346579);"
+  },
+  {
+    "id": 177,
+    "db_id": "bakery_1",
+    "question": "Give the ids of goods that cost less than 3 dollars.",
+    "answer": "SELECT goods.Item ,  WHERE customers.Food  <=  20;"
+  },
+  {
+    "id": 178,
+    "db_id": "bakery_1",
+    "question": "List the distinct ids of all customers who bought a cake with lemon flavor?",
+    "answer": "SELECT DISTINCT customers.CustomerId FROM bakery_1.customers AS customers WHERE customers.CustomerId  =  \n  (SELECT CustomerId FROM bakery_1.customers) \n\n\nINNER JOIN bakery_1.customers ON customers.CustomerId = customers.CustomerId ;"
+  },
+  {
+    "id": 179,
+    "db_id": "bakery_1",
+    "question": "What are the distinct ids of customers who bought lemon flavored cake?",
+    "answer": "SELECT DISTINCT customers.Id FROM bakery_1.customers INNER JOIN bakery_1.customers ON EXISTS (SELECT DISTINCT customers.Id FROM bakery_1.customers)\n \t\t\tORDER BY customers.Id ;"
+  },
+  {
+    "id": 180,
+    "db_id": "bakery_1",
+    "question": "For each type of food, tell me how many customers have ever bought it.",
+    "answer": "SELECT * FROM (SELECT customers.Id , \nFROM (SELECT CustomerId ) AS t1 INNER JOIN (SELECT Id   FROM (SELECT CustomerId ))  AS T2 ON CustomerId  =  Id   \nGROUP BY Food );"
+  },
+  {
+    "id": 181,
+    "db_id": "bakery_1",
+    "question": "How many customers have bought each food?",
+    "answer": "SELECT * FROM (SELECT customers.CustomerId , \nFROM (SELECT CustomerId   FROM (SELECT CustomerId ) AS T1) AS customers GROUP BY customers.CustomerId );"
+  },
+  {
+    "id": 182,
+    "db_id": "bakery_1",
+    "question": "Find the id of customers who shopped at the bakery at least 15 times.",
+    "answer": "SELECT CustomerId FROM (SELECT DISTINCT customers.CustomerId ) AS CUSTOMERS\n    INNER JOIN (SELECT ORDER BY ReceiptNumber , CustomerId  \n    LIMIT 2) AS SAMPLE_RECEIVABLES ON CustomerId  = CustomerId ;"
+  },
+  {
+    "id": 183,
+    "db_id": "bakery_1",
+    "question": "What are the customer ids of customers who have at least 15 receipts?",
+    "answer": "SELECT CustomerId FROM (SELECT DISTINCT ReceiptNumber , CustomerId   FROM (SELECT DISTINCT receipts.CustomerId ) AS receipts)\nWHERE receipts.CustomerId = 1;"
+  },
+  {
+    "id": 184,
+    "db_id": "bakery_1",
+    "question": "What is the last name of the customers who shopped at the bakery more than 10 times?",
+    "answer": "SELECT customers.CustomerId FROM (SELECT CustomerId ,  FULL JOIN (SELECT CustomerId ,  FROM (SELECT CustomerId   FROM (SELECT CustomerId )  \nINNER JOIN (SELECT CustomerId WHERE CustomerId >  10) AS t2 ON customers.CustomerId  =   \n\nItem \n        INNER JOIN (SELECT Id ,  FROM (SELECT Id ,  FROM (SELECT Id FROM"
+  },
+  {
+    "id": 185,
+    "db_id": "bakery_1",
+    "question": "Give the last names of customers who have been to the bakery more than 10 times?",
+    "answer": "SELECT \nFROM (SELECT DISTINCT * FROM bakery_1.customers) AS t ORDER BY LastName LIMIT 2;"
+  },
+  {
+    "id": 186,
+    "db_id": "bakery_1",
+    "question": "How many types of Cake does this bakery sell?",
+    "answer": "SELECT * FROM bakery_1.customers;"
+  },
+  {
+    "id": 187,
+    "db_id": "bakery_1",
+    "question": "Count the number of types of cake this bakery sells.",
+    "answer": "SELECT * FROM bakery_1.customers;"
+  },
+  {
+    "id": 188,
+    "db_id": "bakery_1",
+    "question": "List all the flavors of Croissant available in this bakery.",
+    "answer": "SELECT * FROM bakery_1.customers;"
+  },
+  {
+    "id": 189,
+    "db_id": "bakery_1",
+    "question": "What are all the flavors of croissant?",
+    "answer": "SELECT * FROM bakery_1.customers\nWHERE customers.Flavor = 'Croissant' GROUP BY Flavor ORDER BY Flavor LIMIT 4;"
+  },
+  {
+    "id": 190,
+    "db_id": "bakery_1",
+    "question": "Give me a list of all the distinct items bought by the customer number 15.",
+    "answer": "SELECT DISTINCT items.Item FROM (SELECT customers.CustomerId , \nFROM (SELECT CustomerId  \nFROM (SELECT CustomerId FROM (SELECT CustomerId FROM (SELECT CustomerId ) AS B\nGROUP BY CustomerId ORDER BY CustomerId ), bakery_1.items)\nORDER BY items.Item LIMIT 20));"
+  },
+  {
+    "id": 191,
+    "db_id": "bakery_1",
+    "question": "What are all the distinct items bought by customer 15?",
+    "answer": "SELECT DISTINCT items.Item FROM (SELECT CustomerId , Item FROM (SELECT CustomerId  \nFROM (SELECT Id FROM (SELECT CustomerId ) AS T1) AS TEMP LIMIT 20));"
+  },
+  {
+    "id": 192,
+    "db_id": "bakery_1",
+    "question": "For each type of food, what are the average, maximum and minimum price?",
+    "answer": "SELECT FULL OUTER JOIN (SELECT RIGHT JOIN (SELECT * FROM bakery_1.customers) AS T1 ON CustomerId = CustomerId ORDER BY Date ) AS MAIN_QUERY_HEREENDGOESWHEREFOUNDINSID ON CustomerId   =  '   '  \nORDER BY Date ;"
+  },
+  {
+    "id": 193,
+    "db_id": "bakery_1",
+    "question": "What are the average, minimum and maximum prices for each food?",
+    "answer": "SELECT * FROM (SELECT Food ,  AS well_as INNER JOIN (SELECT Food GROUP BY Date ) AS well_as ON Date  = 2013)INNER JOIN (SELECT DISTINCT Date WHERE Date = 20148)\n                               AS well_as ON Food = 'Rye'  ORDER BY Price , Date LIMIT 5;"
+  },
+  {
+    "id": 194,
+    "db_id": "bakery_1",
+    "question": "Find the receipt numbers where both Cake and Cookie were bought.",
+    "answer": "SELECT ReceiptNumber FROM (SELECT *FROM bakery_1.customers) WHERE CustomerId  =  'cook'  INNER JOIN bakery_1.customers ON CustomerId  =    'cak234\" + CAKE_ID;\r\n</code>\r\nNow I am trying to find the receipt numbers where both Cake and Cookie were bought together, but it keeps giving me an error because of the wrong"
+  },
+  {
+    "id": 195,
+    "db_id": "bakery_1",
+    "question": "What are the receipt numbers for instances where both cakes and cookies were purchased?",
+    "answer": "SELECT * FROM bakery_1.customers WHERE customers.Id = customers.Id ORDER BY customers.Id LIMIT 2;"
+  },
+  {
+    "id": 196,
+    "db_id": "bakery_1",
+    "question": "Find all the receipt numbers in which customer with last name LOGAN purchased Croissant.",
+    "answer": "SELECT DISTINCT receipts.CustomerId FROM (SELECT ReceiptNumber ,  WHERE CustomerId  = 4) AS SubQuery;"
+  },
+  {
+    "id": 197,
+    "db_id": "bakery_1",
+    "question": "What are the receipt numbers for a customer with the last name Logan who purchased a croissant?",
+    "answer": "SELECT receipts.CustomerId FROM (SELECT customers.CustomerId , customers.CustomerId ) AS receipts WHERE receipts.CustomerId = 'LOGAN'\n  LIMIT 1;"
+  },
+  {
+    "id": 198,
+    "db_id": "bakery_1",
+    "question": "What is the receipt number and date of the receipt in which the most expensive item was bought?",
+    "answer": "SELECT \nGROUP BY receipts.ReceiptNumber ORDER BY receipts.Price   LIMIT 1;"
+  },
+  {
+    "id": 199,
+    "db_id": "bakery_1",
+    "question": "What is the receipt number and date corresponding to the receipt for which the most expensive item was purchased?",
+    "answer": "SELECT ReceiptNumber , \nFROM (SELECT RIGHT JOIN (SELECT * FROM (SELECT ReceiptNumber ) AS t1 ORDER BY Date   LIMIT 2) AS t1 ON ReceiptNumber = 'xxxxxxx-yy'\n    \n    INNER JOIN (SELECT * FROM (SELECT DISTINCT ReceiptNumber , Date FROM (SELECT receipts.ReceiptNumber FROM (SELECT receipts.Date ORDER BY Price   LIMIT "
+  },
+  {
+    "id": 200,
+    "db_id": "bakery_1",
+    "question": "What is the item that was bought the least number of times?",
+    "answer": "SELECT Item \nFROM (SELECT DISTINCT Item ,  RIGHT JOIN (SELECT Item FROM bakery_1.customers GROUP BY customers.Item ORDER BY customers.CustomerId LIMIT 50) AS item_sell_count ON customers.Item  = \n\nItem ) AS Results;"
+  },
+  {
+    "id": 201,
+    "db_id": "bakery_1",
+    "question": "Which item was bought the fewest times?",
+    "answer": "SELECT items.Item , \nGROUP BY items.Item ORDER BY customers.CustomerId LIMIT 1;"
+  },
+  {
+    "id": 202,
+    "db_id": "bakery_1",
+    "question": "How many goods are available for each food type?",
+    "answer": "SELECT customers.Food , \nGROUP BY customers.Food ;"
+  },
+  {
+    "id": 203,
+    "db_id": "bakery_1",
+    "question": "Count the number of goods for each food type.",
+    "answer": "SELECT * FROM (SELECT DISTINCT goods.Id , \n                                FULL OUTER JOIN (SELECT Id  \n                                               FROM (SELECT Id FROM (SELECT Id FROM (SELECT goods.Id ) AS T1 INNER JOIN (SELECT Id FROM (SELECT Id FROM (SELECT goods.Food ORDER BY Receipt LIMIT 4)) AS T2) ON Date = 6 GROUP BY Id , Date LIMI"
+  },
+  {
+    "id": 204,
+    "db_id": "bakery_1",
+    "question": "What is the average price for each food type?",
+    "answer": "SELECT DISTINCT Food ,  AS POWER INNER JOIN (SELECT Food FULL OUTER JOIN (SELECT Food , \nFROM (SELECT Food ) AS T1) AS T2 ON LastName = 'Wachsanz' ORDER BY Price LIMIT 5 OFFSET 3) AS TESTINGGROUPBYFOODTYPEINCORRECTSELECTSFOUNDATIONRANGEOFPRICEOFFERTHEFIRSTFOODTYPEFO"
+  },
+  {
+    "id": 205,
+    "db_id": "bakery_1",
+    "question": "Give the average price for each food type.",
+    "answer": "SELECT CustomerId , \n                               RIGHT JOIN (SELECT DISTINCT customers.Food ,  \n FROM (SELECT CustomerId ) AS T1 INNER JOIN (SELECT DISTINCT Food ) AS T2 ON customers.CustomerId = Food GROUP BY CustomerId ) ON customers.CustomerId  = Receipt \n       GROUP BY CustomerId , customers.Food ORDER BY Price ;"
+  },
+  {
+    "id": 206,
+    "db_id": "bakery_1",
+    "question": "What are ids of the goods that have Apricot flavor and are cheaper than 5 dollars?",
+    "answer": "SELECT goods.Id FROM bakery_1.goods WHERE Flavor = 'Apricot' ORDER BY goods.Price LIMIT 25;"
+  },
+  {
+    "id": 207,
+    "db_id": "bakery_1",
+    "question": "Give the ids for goods that have Apricot flavor and have a price lower than 5 dollars.",
+    "answer": "SELECT goods.Id FROM (SELECT goods.Id FROM (SELECT Id FROM (SELECT * FROM bakery_1.goods) AS goods WHERE goods.Flavor = 'Apricot') AS apricot_goods WHERE Price < 5 GROUP BY goods.Id ) AS result;"
+  },
+  {
+    "id": 208,
+    "db_id": "bakery_1",
+    "question": "Find flavor of cakes that cost more than 10 dollars.",
+    "answer": "SELECT FULL JOIN (SELECT * FROM bakery_1.customers) AS a1279548630011b50t1mbtravelandforkjoinsexstinaoflashtenflavorsofcaKESA001JOINcustoerstoBcnstnameasTakesFurnamenameCanberexpandingnametoeitheroftwist"
+  },
+  {
+    "id": 209,
+    "db_id": "bakery_1",
+    "question": "What are the flavors of cakes that cost more than 10 dollars?",
+    "answer": "SELECT * FROM bakery_1.customers AS t1JOIN ORDER BY Price LIMIT 3;"
+  },
+  {
+    "id": 210,
+    "db_id": "bakery_1",
+    "question": "Give me the distinct id and price for all goods whose price is below the average of all goods?",
+    "answer": "SELECT DISTINCT customers.CustomerId ,  FROM (SELECT customers.CustomerId FROM (SELECT Price WHERE Price < (SELECT \n     FROM (SELECT  RIGHT JOIN (SELECT Price FROM (SELECT Price INNER JOIN (SELECT CustomerId  FROM (SELECT CustomerId ) AS icsd \n       WHERE customers.CustomerId  =  ') AS cd ON customers.CustomerId ="
+  },
+  {
+    "id": 211,
+    "db_id": "bakery_1",
+    "question": "What are the distinct ids and prices for goods that cost less than the average good?",
+    "answer": "SELECT items.Item , \n WHERE items.Price < (SELECT RIGHT JOIN (SELECT DISTINCT Item ,  AS INTEGER) AS Item_and_price ON Price = (SELECT DISTINCT \n                           RIGHT JOIN (SELECT items.Id FROM (SELECT Item ) AS Item_name)  \n                            AS Item2item ON items.Item  = items.Item ORDER BY Item LIMIT"
+  },
+  {
+    "id": 212,
+    "db_id": "bakery_1",
+    "question": "What are the distinct ids of all goods that are cheaper than some goods of type Tart?",
+    "answer": "SELECT \nFROM (SELECT DISTINCT goods.Id , goods.Price FROM (SELECT goods.Id FROM (SELECT goods.Id WHERE goods.Price <=1) AS t) AS subquery) AS subquery2;"
+  },
+  {
+    "id": 213,
+    "db_id": "bakery_1",
+    "question": "Give the distinct ids for goods that cost less than any Tart.",
+    "answer": "SELECT \n                              \n        GROUP BY goods.Id  \n        ORDER BY goods.Price  \n     LIMIT 1;"
+  },
+  {
+    "id": 214,
+    "db_id": "bakery_1",
+    "question": "List distinct receipt numbers for which someone bought a good that costs more than 13 dollars.",
+    "answer": "SELECT DISTINCT receipts.ReceiptNumber FROM bakery_1.goods WHERE goods.Price > 13;"
+  },
+  {
+    "id": 215,
+    "db_id": "bakery_1",
+    "question": "What distinct receipt numbers correspond to someone who bought a good that costs more than 13 dollars?",
+    "answer": "SELECT \nFROM bakery_1.goods WHERE customers.CustomerId = '609';"
+  },
+  {
+    "id": 216,
+    "db_id": "bakery_1",
+    "question": "On which date did some customer buy a good that costs more than 15 dollars?",
+    "answer": "SELECT Date FROM (SELECT Date , \nFROM (SELECT DISTINCT Date FROM (SELECT DISTINCT Date FROM (SELECT DISTINCT CustomerId FROM (SELECT CustomerId ) AS T1 GROUP BY Date ORDER BY Date LIMIT 2)) AS T2) AS T3 GROUP BY Date ORDER BY Date LIMIT -4);"
+  },
+  {
+    "id": 217,
+    "db_id": "bakery_1",
+    "question": "Which date corresponds to when a customer purchased a good costing over 15 dollars?",
+    "answer": "SELECT DISTINCT CustomerId FROM (SELECT customers.CustomerId ,  RIGHT OUTER JOIN (SELECT goods.CustomerId ) ON goods.CustomerId = customers.CustomerId ORDER BY CustomerId )\nGROUP BY customers.CustomerId  \nORDER BY CustomerId ;"
+  },
+  {
+    "id": 218,
+    "db_id": "bakery_1",
+    "question": "Give me the list of ids of all goods whose id has \"APP\".",
+    "answer": "SELECT \n INNER JOIN (SELECT \n                                           GROUP BY CustomerId ) AS GROUPED_BY_CUSTOMERID ON CustomerId  =  'APP';"
+  },
+  {
+    "id": 219,
+    "db_id": "bakery_1",
+    "question": "What are all the ids of goods with an id which contains \"APP\"?",
+    "answer": "SELECT FROM (SELECT *FROM (SELECT *) WHERE Ordinal = '\" + order_id + \"'\nORDER BY Price ) AS TEMP;"
+  },
+  {
+    "id": 220,
+    "db_id": "bakery_1",
+    "question": "Which good has \"70\" in its id? And what is its price?",
+    "answer": "SELECT * FROM bakery_1.goods WHERE goods.Id = 46;"
+  },
+  {
+    "id": 221,
+    "db_id": "bakery_1",
+    "question": "What are the id and price for the good with \"70\" in its id?",
+    "answer": "SELECT \nGROUP BY goods.Id ORDER BY goods.Price LIMIT 3;"
+  },
+  {
+    "id": 222,
+    "db_id": "bakery_1",
+    "question": "List the last names of all customers in an alphabetical order.",
+    "answer": "SELECT * FROM (SELECT DISTINCT customers.LastName  ORDER BY customers.LastName )\n \n   INNER JOIN (SELECT DISTINCT customers.CustomerId INNER JOIN (SELECT customers.FirstName , CustomerId FROM (SELECT FirstName , LastName , CustomerId FROM (SELECT LastName , FirstName , CustomerId"
+  },
+  {
+    "id": 223,
+    "db_id": "bakery_1",
+    "question": "What are the last names of the customers in alphabetical order?",
+    "answer": "SELECT LIMIT 45.682310970834;"
+  },
+  {
+    "id": 224,
+    "db_id": "bakery_1",
+    "question": "Return the ordered list of all good ids.",
+    "answer": "SELECT * FROM (SELECT DISTINCT GROUP BY goods.Date ORDER BY goods.Date LIMIT 10)\nGROUP BY Receipt ORDER BY Date ;"
+  },
+  {
+    "id": 225,
+    "db_id": "bakery_1",
+    "question": "Order the distinct good ids.",
+    "answer": "SELECT * FROM (SELECT DISTINCT goods.Id \nFROM bakery_1.goods INNER JOIN bakery_1.goods ON goods.Id = bakery_1.goods.Id )  ORDER BY goods.Id LIMIT 342805697;"
+  },
+  {
+    "id": 226,
+    "db_id": "bakery_1",
+    "question": "Find all receipts in which either apple flavor pie was bought or customer id 12 shopped.",
+    "answer": "SELECT * FROM bakery_1.receipts WHERE customers.CustomerId = 6 ORDER BY CustomerId ;"
+  },
+  {
+    "id": 227,
+    "db_id": "bakery_1",
+    "question": "What are the receipt numbers for which either an apple flavor pie was purchased or the customer with id 12 shopped?",
+    "answer": "SELECT DISTINCT ReceiptNumber FROM (SELECT *FROM (SELECT DISTINCT receipts.ReceiptNumber , customers.CustomerId  \nFROM (SELECT receipts.ReceiptNumber FROM (SELECT * WHERE CustomerId  = '1') AS customers) \n  AS receipts GROUP BY receipts.ReceiptNumber ) ORDER BY receipts.ReceiptNumber );"
+  },
+  {
+    "id": 228,
+    "db_id": "bakery_1",
+    "question": "Find all receipts which has the latest date. Also tell me that date.",
+    "answer": "SELECT \nFROM (SELECT * FROM bakery_1.receipts ORDER BY Date LIMIT 0) AS TEMP;"
+  },
+  {
+    "id": 229,
+    "db_id": "bakery_1",
+    "question": "What is the receipt number with the latest date, and what is that date?",
+    "answer": "SELECT * FROM bakery_1.receipts WHERE receipts.Date = (SELECT DISTINCT Date FROM bakery_1.receipts ORDER BY receipts.Date LIMIT 1)\n \n\nINNER JOIN bakery_1.receipts AS Receipts ON CustomerId  =  Receipt   \n\nGROUP BY CustomerId    \nORDER BY CustomerId , Date  DES"
+  },
+  {
+    "id": 230,
+    "db_id": "bakery_1",
+    "question": "Find all receipts which either has the earliest date or has a good with price above 10.",
+    "answer": "SELECT * FROM (SELECT * FROM bakery_1.receipts)\nINNER JOIN bakery_1.goods ON goods.Id = receipts.Id ORDER BY goods.Id LIMIT 2;"
+  },
+  {
+    "id": 231,
+    "db_id": "bakery_1",
+    "question": "What are all the receipt numbers that have a good with a price above 10 or have the earliest date?",
+    "answer": "SELECT receipts.ReceiptNumber FROM (SELECT receipts.ReceiptNumber , \nFROM (SELECT receipts.ReceiptNumber  \nFROM (SELECT receipts.ReceiptNumber , \nFROM (SELECT receipts.Item   \nFROM (SELECT receipts.ReceiptNumber ) AS item)    \nWHERE receipts.Price  >10 ORDER BY Price LIMIT 3))     \nGROUP BY receipts.ReceiptNumber"
+  },
+  {
+    "id": 232,
+    "db_id": "bakery_1",
+    "question": "What are the ids of Cookie and Cake that cost between 3 and 7 dollars.",
+    "answer": "SELECT DISTINCT customers.FirstName , customers.LastName FROM bakery_1.customers AS customers WHERE customers.FirstName  = 'Cookies' ORDER BY customers.FirstName  \n    \n    LIMIT 2;"
+  },
+  {
+    "id": 233,
+    "db_id": "bakery_1",
+    "question": "Give the ids of Cookies or Cakes that cost between 3 and 7 dollars.",
+    "answer": "SELECT DISTINCT customers.CustomerId  \nFROM (SELECT DISTINCT customers.CustomerId FROM (SELECT customers.CustomerId , \n FROM (SELECT customers.CustomerId ) AS T1 \n WHERE CustomerId >= 3 ORDER BY customers.CustomerId ) \n                                           AS T2) AS T3  \nWHERE LastName  = 'Fred' ORDER BY Price ;"
+  },
+  {
+    "id": 234,
+    "db_id": "bakery_1",
+    "question": "Find the first name and last name of a customer who visited on the earliest date.",
+    "answer": "SELECT FirstName , \nFROM (SELECT DISTINCT FirstName FROM (SELECT FirstName FROM (SELECT CustomerId FROM (SELECT CustomerId ORDER BY Date LIMIT 1)) AS t) AS subq) WHERE FirstName = 'Paul';"
+  },
+  {
+    "id": 235,
+    "db_id": "bakery_1",
+    "question": "What is the full name of the customer who visited on the earliest date?",
+    "answer": "SELECT FULL OUTER JOIN (SELECT DISTINCT CustomerId , \nFROM bakery_1.customers)\n\n\n\n\n\n  \n\n\n   \n\n AS KINGdom ON CustomerId = 'JH05'\n LEFT JOIN (SELECT CustomerId FROM bakery_1.customers WHERE CustomerId  = 'JH0"
+  },
+  {
+    "id": 236,
+    "db_id": "bakery_1",
+    "question": "What is average price of goods whose flavor is blackberry or blueberry?",
+    "answer": "SELECT RIGHT JOIN (SELECT * FROM bakery_1.goods) AS t2 ON goods.Flavor = 'blackberry' ORDER BY goods.Price  LIMIT 5;"
+  },
+  {
+    "id": 237,
+    "db_id": "bakery_1",
+    "question": "What are the average prices of goods with blackberry or blueberry flavor?",
+    "answer": "SELECT RIGHT JOIN (SELECT * FROM bakery_1.goods) AS t1 ON goods.Id = Id ORDER BY Price LIMIT 5;"
+  },
+  {
+    "id": 238,
+    "db_id": "bakery_1",
+    "question": "Return the cheapest price for goods with cheese flavor.",
+    "answer": "SELECT customers.CustomerId ,  FROM (SELECT customers.CustomerId ) AS Results INNER JOIN (SELECT Id FROM (SELECT customers.CustomerId   WHERE customers.Date <>  '2019-04') AS Subquery)\n  AS Results2 ON CustomerId  = CustomerId ORDER BY Price LIMIT 5;"
+  },
+  {
+    "id": 239,
+    "db_id": "bakery_1",
+    "question": "What is the cheapest good with cheese flavor?",
+    "answer": "SELECT customers.Price FROM bakery_1.customers WHERE customers.Flavor = 234567;"
+  },
+  {
+    "id": 240,
+    "db_id": "bakery_1",
+    "question": "What are highest, lowest, and average prices of goods, grouped and ordered by flavor?",
+    "answer": "SELECT RIGHT JOIN (SELECT * FROM (SELECT customers.CustomerId ,  FULL JOIN (SELECT *   FROM (SELECT goods.Item , \n   \t\t\tORDER BY Price ) AS aTempsRONGSOnPRICE) AS NWSRONKNOWNFLOSSONPRICEEXAMPOLARITYOFGOO ON CustomerId = customers.C"
+  },
+  {
+    "id": 241,
+    "db_id": "bakery_1",
+    "question": "What are the maximum, minimum, and average prices of goods of each flavor, ordered by flavor?",
+    "answer": "SELECT RIGHT JOIN (SELECT DISTINCT goods.Flavor ,  FULL JOIN (SELECT goods.Flavor FROM (SELECT goods.Flavor ORDER BY goods.Flavor LIMIT 3) AS child)\n                               AS full_join1 ON goods.Flavor = FirstName )   AS Firstname ON goods.Price = LastName ORDER BY Flavor , Price ;"
+  },
+  {
+    "id": 242,
+    "db_id": "bakery_1",
+    "question": "Return the lowest and highest prices of goods grouped and ordered by food type.",
+    "answer": "SELECT GROUP BY Food ORDER BY Price LIMIT 10;"
+  },
+  {
+    "id": 243,
+    "db_id": "bakery_1",
+    "question": "What are the minimum and maximum prices of food goods, ordered by food?",
+    "answer": "SELECT \n FULL JOIN (SELECT Food FROM bakery_1.goods WHERE Price > 0) AS FOODS ON Receipt = '2' ORDER BY Price ;"
+  },
+  {
+    "id": 244,
+    "db_id": "bakery_1",
+    "question": "Find the top three dates with the most receipts.",
+    "answer": "SELECT \nGROUP BY Date ORDER BY ReceiptNumber LIMIT 3;"
+  },
+  {
+    "id": 245,
+    "db_id": "bakery_1",
+    "question": "What are the three dates for which the most receipts were given?",
+    "answer": "SELECT Date FROM (SELECT DISTINCT Receipt ORDER BY Receipt LIMIT 3) AS Most_Recent;"
+  },
+  {
+    "id": 246,
+    "db_id": "bakery_1",
+    "question": "Which customer shopped most often? How many times?",
+    "answer": "SELECT  \nGROUP BY CustomerId ORDER BY Flavor ;"
+  },
+  {
+    "id": 247,
+    "db_id": "bakery_1",
+    "question": "Give the customer id of the customer that made the most purchases, as well as the number of purchases made.",
+    "answer": "SELECT customers.CustomerId , \n                               FROM (SELECT customers.CustomerId  \n FROM (SELECT CustomerId FROM (SELECT DISTINCT CustomerId FROM (SELECT CustomerId FROM (SELECT CustomerId ORDER BY Price )LIMIT 10) AS T) AS Subquery) AS SubQuery2) AS ResultSet3;"
+  },
+  {
+    "id": 248,
+    "db_id": "bakery_1",
+    "question": "For each date, return how many distinct customers visited on that day.",
+    "answer": "SELECT customers.Date , \nFROM (SELECT Date , \n    LEFT JOIN (SELECT CustomerId FROM (SELECT CustomerId   FROM (SELECT CustomerId ) AS O) AS T1\n      GROUP BY CustomerId )  \n\n     AS OFTENTATCTRUEDDATE_CUSTOMERS_OF_THE_PAGE_LENGTH_AND_YOUCH_SORTING_BY_NAME_AS"
+  },
+  {
+    "id": 249,
+    "db_id": "bakery_1",
+    "question": "How many cusomters visited on each date?",
+    "answer": "SELECT CustomerId , \nFROM (SELECT CustomerId FROM (SELECT DISTINCT CustomerId ) AS SubQuery ORDER BY Date ) GROUP BY Date ;"
+  },
+  {
+    "id": 250,
+    "db_id": "bakery_1",
+    "question": "Give me the first name and last name of customers who have bought apple flavor Tart.",
+    "answer": "SELECT * FROM bakery_1.customers WHERE customers.LastName = 'Tart' ORDER BY FirstName LIMIT 2;"
+  },
+  {
+    "id": 251,
+    "db_id": "bakery_1",
+    "question": "What are the full names of customers who bought apple flavored Tarts?",
+    "answer": "SELECT \nFROM bakery_1.customers AS custs;"
+  },
+  {
+    "id": 252,
+    "db_id": "bakery_1",
+    "question": "What are the ids of Cookies whose price is lower than any Croissant?",
+    "answer": "SELECT \t  \t \t\t \t    \t   \t       \t\t\t     \t     \n                              \t\t\t\t     \t\t\t\t\t     \t\t    \t    \t     \t \t\t     \t   \t     \t     \t  \t     \t      \t     \t      \t \t  \t   \t     \t \t   \t     \t          \t  \t  \n\n   \t\t\t\t\t\t      \t      \t\t         \t   \t      \t\t           \t  \t     \t\t    \t        \t            \t                       \t               \t                     \t   \t       \n                          \t\t  \n                           \t\t \t \t\t\t     \t    \t\t       \t    "
+  },
+  {
+    "id": 253,
+    "db_id": "bakery_1",
+    "question": "Give the ids of cookes that are cheaper than any croissant.",
+    "answer": "SELECT customers.CustomerId INNER JOIN (SELECT DISTINCT customers.CustomerId FROM (SELECT CustomerId ,  RIGHT JOIN (SELECT  \n  FULL JOIN (SELECT CustomerId ) ON customers.CustomerId  = Ordinal ) AS subQuery ON CustomerId = Ordinal    GROUP BY customers.CustomerId  ORDER BY customers.CustomerId LIMIT "
+  },
+  {
+    "id": 254,
+    "db_id": "bakery_1",
+    "question": "Give me the ids of Cakes whose price is at least as much as the average price of Tart?",
+    "answer": "SELECT * FROM (SELECT DISTINCT customers.CustomerId ,  FULL OUTER JOIN (SELECT  \nFROM (SELECT customers.CustomerId ORDER BY CustomerId ) AS c) AS avgcakeclimaticsinBIGGERCALIFORCESURPOWEREDAGGREGATEGRpCUSTOMERSBYPRICEINONNEARFUTOSCAKECLIMATICSINO"
+  },
+  {
+    "id": 255,
+    "db_id": "bakery_1",
+    "question": "What are the ids of cakes that are at least as expensive as the average Tart?",
+    "answer": "SELECT * FROM (SELECT DISTINCT \nFROM (SELECT DISTINCT CustomerId ,   RIGHT JOIN (SELECT  AS desertive_desertive_2035468917,    WHERE customers.CustomerId =  'Desk to male deserted') AS Desiredalias ON CustomerId  = CustomerId ) AS aliasname) AS aliasname;"
+  },
+  {
+    "id": 256,
+    "db_id": "bakery_1",
+    "question": "What are the ids of goods whose price is above twice the average price of all goods?",
+    "answer": "SELECT goods.Item ,  AS ething, ;"
+  },
+  {
+    "id": 257,
+    "db_id": "bakery_1",
+    "question": "Give the ids of goods that are more than twice as expensive as the average good.",
+    "answer": "SELECT \nGROUP BY goods.Id ORDER BY goods.Price ;"
+  },
+  {
+    "id": 258,
+    "db_id": "bakery_1",
+    "question": "List the id, flavor and type of food of goods ordered by price.",
+    "answer": "SELECT * FROM (SELECT DISTINCT goods.Id ,  LIMIT 30) AS FOOD ORDER BY goods.Price LIMIT 1;"
+  },
+  {
+    "id": 259,
+    "db_id": "bakery_1",
+    "question": "What are the ids, flavors, and food types of goods, ordered by price?",
+    "answer": "SELECT goods.Flavor , \nORDER BY Price LIMIT -10;"
+  },
+  {
+    "id": 260,
+    "db_id": "bakery_1",
+    "question": "Return a list of the id and flavor for Cakes ordered by flavor.",
+    "answer": "SELECT * FROM (SELECT customers.CustomerId , \n                               FROM (SELECT CustomerId  \n                               FROM (SELECT DISTINCT CustomerId ) AS T1) AS FlavorsOrderByFlavor\n\n\nORDER BY CustomerId   \n\n\nLIMIT 500 OFFSET 250)\n\nINNER JOIN (SELECT CustomerId , \n                  FROM (SELECT Id  \n                      FROM ("
+  },
+  {
+    "id": 261,
+    "db_id": "bakery_1",
+    "question": "What are the ids and flavors of cakes, ordered by flavor?",
+    "answer": "SELECT Flavor FROM (SELECT DISTINCT CustomerId , \nFROM (SELECT customers.Flavor ,  WHERE customers.CustomerId = Ordinal ) AS T2) ORDER BY CustomerId ;"
+  },
+  {
+    "id": 262,
+    "db_id": "bakery_1",
+    "question": "Find all the items that have chocolate flavor but were not bought more than 10 times.",
+    "answer": "SELECT * FROM bakery_1.items WHERE items.Flavor = 'Chocolo'  \n     \n       \n      \n    \n    INNER JOIN (SELECT DISTINCT * FROM bakery_1.items) AS T2 ON items.Item >= ''')\n<jupyter_content>```  -- This is because the condition should be inside a join statement and also not in sub-select, select or anything that can reference table"
+  },
+  {
+    "id": 263,
+    "db_id": "bakery_1",
+    "question": "What are the items with chocolate flavor that were purchased at most 10 times.",
+    "answer": "SELECT items.Item ,  WHERE Price  >=   39;"
+  },
+  {
+    "id": 264,
+    "db_id": "bakery_1",
+    "question": "What are the flavors available for Cake but not for Tart?",
+    "answer": "SELECT FROM (SELECT DISTINCT Flavor , \n                               FULL OUTER JOIN (SELECT * FROM (SELECT DISTINCT Flavor ) AS T2) ON Flavor = 'Chocolate' ORDER BY Receipt  \n\n      \n       \n     \n    \n    \n   \n\n\n\n \n\n        \n  \n          \n           \n              \n            \n         \n               \n             \n                \n                 "
+  },
+  {
+    "id": 265,
+    "db_id": "bakery_1",
+    "question": "Give the flavors of Cakes that are not available for Tart.",
+    "answer": "SELECT RIGHT OUTER JOIN (SELECT customers.FirstName , customers.LastName FROM (SELECT FirstName , LastName FROM (SELECT FirstName , LastName FROM (SELECT FirstName ) WHERE FirstName  =  'Rogers') AS customers)\n   AS FlavorOfCakes\n INNER JOIN (SELECT DISTINCT CustomerId FROM (SELECT CustomerId FROM (SELECT CustomerId FROM (SELECT Id FROM"
+  },
+  {
+    "id": 266,
+    "db_id": "bakery_1",
+    "question": "What is the three most popular goods in this bakery?",
+    "answer": "SELECT \nFROM bakery_1.goods ORDER BY goods.Item LIMIT 3;"
+  },
+  {
+    "id": 267,
+    "db_id": "bakery_1",
+    "question": "Give the three most purchased items at this bakery.",
+    "answer": "SELECT \nGROUP BY items.Item ORDER BY Item , CustomerId   LIMIT 3;"
+  },
+  {
+    "id": 268,
+    "db_id": "bakery_1",
+    "question": "Find the ids of customers who have spent more than 150 dollars in total.",
+    "answer": "SELECT customers.CustomerId FROM (SELECT DISTINCT customers.CustomerId , \nFROM (SELECT customers.CustomerId   FROM (SELECT customers.CustomerId FROM (SELECT CustomerId ) AS customers) AS ucustomers GROUP BY customers.CustomerId ) AS total_spent WHERE CustomerId =123456790\n\nINNER"
+  },
+  {
+    "id": 269,
+    "db_id": "bakery_1",
+    "question": "What are the ids of customers who have spent over 150 dollars in total?",
+    "answer": "SELECT CustomerId FROM (SELECT DISTINCT customers.CustomerId ) AS T1 WHERE customers.CustomerId  =  \n 2946387;"
+  },
+  {
+    "id": 270,
+    "db_id": "bakery_1",
+    "question": "Find the ids of customers whose average spending for each good is above 5.",
+    "answer": "SELECT CustomerId FROM (SELECT customers.CustomerId , \nFROM (SELECT CustomerId FROM (SELECT CustomerId FROM (SELECT CustomerId FROM (SELECT DISTINCT CustomerId FROM (SELECT goods.CustomerId ))) AS Customers) WHERE CustomerId >=2013498765) AS SubQ1 GROUP BY CustomerId );"
+  },
+  {
+    "id": 271,
+    "db_id": "bakery_1",
+    "question": "What are the ids of customers who spend more than 5 on average for each good?",
+    "answer": "SELECT goods.CustomerId FROM (SELECT DISTINCT goods.CustomerId , goods.Date , goods.Price ) AS goods_table GROUP BY goods.CustomerId ORDER BY goods.CustomerId LIMIT 3;"
+  },
+  {
+    "id": 272,
+    "db_id": "bakery_1",
+    "question": "On which day did the bakery sell more than 100 dollars in total.",
+    "answer": "SELECT DISTINCT CustomerId , Date FROM (SELECT DISTINCT CustomerId ) AS sub WHERE Date  <> ''')\n<jupyter_output>\n47326859, Friday <--Not Sunday because the bakery did not sell more than $10 on Saturday.\n{'LIMIT 78913596;"
+  },
+  {
+    "id": 273,
+    "db_id": "bakery_1",
+    "question": "On what dates did the bakery sell more than 100 dollars worth of goods in total?",
+    "answer": "SELECT * FROM (SELECT DISTINCT Date ,  WHERE CustomerId = 'BLACK' ORDER BY CustomerId  \n  \n           \n        \n    \n        \n     \n      \n          \n        \n         \n   \n             \n            \n                 \n              \n               \n                  \n                \n                   \n                     \n                    \n                       \n                      \n                         \n                          \n                        \n                           \n                            \n                              \n                                \n                               \n"
+  },
+  {
+    "id": 274,
+    "db_id": "car_racing",
+    "question": "How many drivers are there?",
+    "answer": "SELECT country.Sponsor ;"
+  },
+  {
+    "id": 275,
+    "db_id": "car_racing",
+    "question": "Find the total number of drivers.",
+    "answer": "SELECT country.Driver_ID FROM (SELECT DISTINCT driver.Country_Id ) AS county;"
+  },
+  {
+    "id": 276,
+    "db_id": "car_racing",
+    "question": "Find the number of drivers whose points are greater than 150 for each make.",
+    "answer": "SELECT team_driver.Team_ID , \nFROM (SELECT team_driver.Driver_ID FROM (SELECT DISTINCT team_driver.Driver_ID FROM (SELECT team_driver.Points  \nFROM (SELECT Driver_ID WHERE Points > 150) AS TEAM_DRIVER)) GROUP BY Team_ID ORDER BY country.Team_ID )\nINNER JOIN (SELECT DISTINCT driver."
+  },
+  {
+    "id": 277,
+    "db_id": "car_racing",
+    "question": "How many drivers receive points greater than 150 for each make? Show the make and the count.",
+    "answer": "SELECT \nFROM (SELECT DISTINCT driver.Make ,   GROUP BY Driver ORDER BY Points ) AS T;"
+  },
+  {
+    "id": 278,
+    "db_id": "car_racing",
+    "question": "Find the average age of drivers for each make.",
+    "answer": "SELECT country.Driver_ID ,  AS ounth FROM (SELECT country.Driver_ID ,  \nFROM (SELECT country.Driver_ID ,   FROM (SELECT driver.Driver_ID FROM (SELECT driver.Driver_ID FROM (SELECT DISTINCT driver.Driver_ID INNER JOIN (SELECT driver.Driver_ID FROM (SELECT Team_ID INNER JOIN (SELECT team.Team_ID FROM"
+  },
+  {
+    "id": 279,
+    "db_id": "car_racing",
+    "question": "What is the average age of drivers for each make? Return the average age and make.",
+    "answer": "SELECT * FROM car_racing.driver;"
+  },
+  {
+    "id": 280,
+    "db_id": "car_racing",
+    "question": "What are the average laps of all the drivers who are younger than 20?",
+    "answer": "SELECT Age , Age FROM (SELECT DISTINCT RIGHT JOIN (SELECT Country_Id , Age WHERE Country_Id < 20) AS Country_Table1 ON Country_Id = Country_Id ) AS TEMP_TABLE  \n  GROUP BY Age ;"
+  },
+  {
+    "id": 281,
+    "db_id": "car_racing",
+    "question": "Compute the average laps of drivers under the age of 20.",
+    "answer": "SELECT Age FROM (SELECT DISTINCT Age FROM (SELECT Driver_ID ,  AS iculties) AS SubQuery)\nGROUP BY Age ORDER BY Age ;"
+  },
+  {
+    "id": 282,
+    "db_id": "car_racing",
+    "question": "What are the managers and sponsors of teams? Sort the results by Car Owners.",
+    "answer": "SELECT team.Laps \n WHERE Team      \n \n         \n  \n\n       \n  \n\n   \n\n  \n   \n     \n  \n    \n  \n  \n        \n    \n  \n           \n          \n            \n             \n                \n              \n                 \n                    \n                     \n                      \n                         \n                          \n                        \n                           \n                             \n                               \n                                \n\n\n\n\n\n"
+  },
+  {
+    "id": 283,
+    "db_id": "car_racing",
+    "question": "Find the manager and sponsor for each team and order them by the car owner.",
+    "answer": "SELECT DISTINCT team_driver.Driver_ID FROM (SELECT team_driver.Driver_ID ,  FROM (SELECT team_driver.Team_ID   FROM car_racing.team_driver INNER JOIN car_racing.driver ON team_driver.Driver_ID = driver.Driver_ID ) AS TEAM_DRIVER INNER JOIN car_racing.team_driver ON team"
+  },
+  {
+    "id": 284,
+    "db_id": "car_racing",
+    "question": "Find the make that has more than one team.",
+    "answer": "SELECT \nFROM (SELECT team_driver.Driver_ID , country.Team , GROUP BY driver.Make ORDER BY country.Team   LIMIT 1) AS TEAMS;"
+  },
+  {
+    "id": 285,
+    "db_id": "car_racing",
+    "question": "Which make has more than one team?",
+    "answer": "SELECT Make , country.Team_ID WHERE country.Team_ID ='\r\n<SQL>;  CREATE TABLE county (County# number, team_id Number); </SQL>  DECLARE @countY number ; SET @COUNT = 50378291 CASMEROCKINGATONLY THECOURSEOFAPERSOKNEIGHBOREDBYTHEA;\r\n<"
+  },
+  {
+    "id": 286,
+    "db_id": "car_racing",
+    "question": "What are the makes of the teams with car owner \"Buddy Arrington\"?",
+    "answer": "SELECT Team \nFROM (SELECT DISTINCT * FROM car_racing.driver) AS T;"
+  },
+  {
+    "id": 287,
+    "db_id": "car_racing",
+    "question": "Find the make of the team whose car owner is \"Buddy Arrington\".",
+    "answer": "SELECT team_driver.Make FROM (SELECT * FROM (SELECT * FROM (SELECT driver.Make FROM car_racing.team_driver) AS drivers WHERE driver.Driver = 'Buddy Arrington') AS drivers\nINNER JOIN car_racing.team ON team.Team_ID  = team_driver.Team_ID  \n\nINNER JOIN car_racing.team \n   "
+  },
+  {
+    "id": 288,
+    "db_id": "car_racing",
+    "question": "What are the maximum and minimum points of drivers.",
+    "answer": "SELECT Country , Driver_ID , Car_Owner \nFROM (SELECT * FROM (SELECT RIGHT JOIN (SELECT driver.Driver_ID , car_racing.Car_Owner , car_racing.Winnings , car_racing.Points ,  LEFT JOIN (SELECT Points , Driver_ID FROM car_racing.driver) AS point_table ON Car_Owner  =  Points ) AS subquery1"
+  },
+  {
+    "id": 289,
+    "db_id": "car_racing",
+    "question": "Find the highest and lowest points of drivers.",
+    "answer": "SELECT * FROM (SELECT DISTINCT driver.Driver_ID , \nFROM (SELECT Team_ID   FROM (SELECT Team_ID FROM car_racing.driver) AS TEAM));"
+  },
+  {
+    "id": 290,
+    "db_id": "car_racing",
+    "question": "How many drivers have points smaller than 150?",
+    "answer": "SELECT country.Driver_ID FROM (SELECT DISTINCT *FROM (SELECT Driver_ID , Points FROM (SELECT driver.Driver_ID , Points FROM (SELECT Team_ID , Points FROM (SELECT team.Team_ID , Points FROM (SELECT Team_ID , Points FROM (SELECT team.Team_ID , Points FROM (SELECT DISTINCT Team_ID , Points FROM (SELECT team.Team"
+  },
+  {
+    "id": 291,
+    "db_id": "car_racing",
+    "question": "Count the number of drivers whose points are below 150.",
+    "answer": "SELECT country.Driver_ID ,  FROM (SELECT country.Country ) AS results;"
+  },
+  {
+    "id": 292,
+    "db_id": "car_racing",
+    "question": "List all the driver names in ascending order of age.",
+    "answer": "SELECT driver.Driver_ID  FROM (SELECT Team_ID , Driver_ID , Laps , Team_ID  \nFROM (SELECT * FROM (SELECT Team_ID , Driver_ID ) AS TEMP1) AS TEMP2    \nWHERE Driver_ID  =   (SELECT Driver_ID FROM (SELECT driver.Driver_ID ORDER BY Driver_ID )    LIMIT 0 OFFSET 2))\n\nINNER JOIN (SELECT driver.Driver"
+  },
+  {
+    "id": 293,
+    "db_id": "car_racing",
+    "question": "Sort the driver names by age in ascending order.",
+    "answer": "SELECT DISTINCT * FROM (SELECT Team_ID , Age FROM (SELECT team_driver.Driver_ID , Team_ID ,  FROM (SELECT team_driver.Driver_ID INNER JOIN car_racing.team ON team_driver.Driver_ID = car_racing.team.Team_ID ) AS driver_info)\n \n    ORDER BY driver.Age  \n\n    \n\n"
+  },
+  {
+    "id": 294,
+    "db_id": "car_racing",
+    "question": "List all the driver names in descending order of points.",
+    "answer": "SELECT driver.Driver_ID  FROM (SELECT driver.Driver_ID ,  AS SUM  \nFROM (SELECT DISTINCT driver.Driver_ID ) AS TEMP) AS driver;"
+  },
+  {
+    "id": 295,
+    "db_id": "car_racing",
+    "question": "What is the list of drivers ordered by points in descending order?",
+    "answer": "SELECT DISTINCT team_driver.Points FROM (SELECT team_driver.Team , \t\tLEFT JOIN (SELECT team_driver.Team  \tORDER BY Points  DESC) AS team_driver ON team_driver.Team \t= team_driver.Team )\nGROUP BY team_driver.Team ORDER BY team_driver.Points ;"
+  },
+  {
+    "id": 296,
+    "db_id": "car_racing",
+    "question": "Please show the names of drivers, and countries they are from.",
+    "answer": "SELECT * FROM (SELECT * FROM (SELECT Driver_ID ,  GROUP BY Country ) AS t1 RIGHT JOIN (SELECT Driver_ID ,  GROUP BY Country ) AS t2 ON team.Driver_ID  = team.Country ) AS t3 WHERE Country  =  'Afghanistan'\nGROUP BY team.Driver_ID ;"
+  },
+  {
+    "id": 297,
+    "db_id": "car_racing",
+    "question": "For each driver, return his or her name and country.",
+    "answer": "SELECT * FROM car_racing.driver;"
+  },
+  {
+    "id": 298,
+    "db_id": "car_racing",
+    "question": "Show the maximum points of the drivers from countries with capital \"Dublin\"",
+    "answer": "SELECT FROM car_racing.driver;"
+  },
+  {
+    "id": 299,
+    "db_id": "car_racing",
+    "question": "What is the maximum points of the drivers from a country whose capital is \"Dublin\"?",
+    "answer": "SELECT \t  \nFROM car_racing.driver;"
+  },
+  {
+    "id": 300,
+    "db_id": "car_racing",
+    "question": "What is the average age of drivers from countries with official native language \"English\"",
+    "answer": "SELECT WHERE country.Official_native_language   =  'English'\nINNER JOIN (SELECT Age FROM car_racing.country) AS country1 ON country.Country_Id = country.Country_Id  \n    INNER JOIN (SELECT DISTINCT Laps FROM car_racing.country WHERE Country_Id   = country.Country_Id ) AS country2 ON country.Country_Id  = -608  GROUP BY"
+  },
+  {
+    "id": 301,
+    "db_id": "car_racing",
+    "question": "Find the average age of the drivers from the countries that use \"English\" as official native language.",
+    "answer": "SELECT Age FROM (SELECT DISTINCT RIGHT JOIN car_racing.driver ON driver.Country_Id = country.Country_Id ) AS drivers WHERE country.Driver_ID = 1;"
+  },
+  {
+    "id": 302,
+    "db_id": "car_racing",
+    "question": "What are the countries that have drivers with points larger than 150?",
+    "answer": "SELECT Country_Id ,  FROM (SELECT Country_Id   FROM car_racing.driver) AS t1 WHERE team_driver.Points  >      387;"
+  },
+  {
+    "id": 303,
+    "db_id": "car_racing",
+    "question": "Find all the countries where some drivers have points above 150.",
+    "answer": "SELECT DISTINCT country.Driver_ID FROM (SELECT driver.Points , FROM (SELECT driver.Country , FROM (SELECT DISTINCT country.Driver_ID FROM (SELECT driver.Points ) WHERE driver.Points  >   150) AS t2) AS t1 GROUP BY country.Driver_ID  LIMIT 3);"
+  },
+  {
+    "id": 304,
+    "db_id": "car_racing",
+    "question": "What is the capital of the country where the driver with the most points is from?",
+    "answer": "SELECT Country_Id ,  GROUP BY Country_Id ORDER BY Points ;"
+  },
+  {
+    "id": 305,
+    "db_id": "car_racing",
+    "question": "Which country is the driver with the highest points from? Give me the capital of the country.",
+    "answer": "SELECT \nGROUP BY country.Driver_ID ORDER BY Points LIMIT 1 OFFSET 0;"
+  },
+  {
+    "id": 306,
+    "db_id": "car_racing",
+    "question": "List each make with the number of drivers with that make.",
+    "answer": "SELECT * FROM car_racing.driver;"
+  }
+]
