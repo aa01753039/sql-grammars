@@ -55,10 +55,16 @@ if __name__ == "__main__":
     grammar_path = None
     # create a SQLGrammar object if grammar_directory is provided
     if args.grammar_directory:
+        print("Creating SQLGrammar object")
+        # create args.grammar_directory if it it does not exist
+        if not Path(args.grammar_directory).exists():
+            Path(args.grammar_directory).mkdir(parents=True, exist_ok=True)
+
         if Path(args.grammar_directory).is_dir():
             sql_grammar = SQLGrammar(
             args.grammar_template_path, args.db_base_path, args.grammar_directory
         )
+            print(sql_grammar)
             # write the grammar to the embedded grammar file
             sql_grammar.process_databases()
             grammar_path = args.grammar_directory

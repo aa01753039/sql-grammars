@@ -14,13 +14,10 @@ columns ::= "*" | column-or-function (", " column-or-function)*
 column-or-function ::= column | function alias?
 
 # Individual column name
-column ::= (schema-name ".")? (table-name ".")? (TABLE_COLUMNS_PLACEHOLDER | quoted-identifier)
-
-# Placeholders for schema, table, and column names
-schema-name ::= SCHEMA_NAMES_PLACEHOLDER
-table-name ::= TABLE_NAMES_PLACEHOLDER
-COLUMN_NAMES_PLACEHOLDER
-
+column ::= (schema-name ".")? (table-name ".")? (column-name )
+schema-name ::= [a-zA-Z_][a-zA-Z0-9_]*
+table-name ::= [a-zA-Z_][a-zA-Z0-9_]*
+column-name ::= [a-zA-Z_][a-zA-Z0-9_]*
 
 # Function call, simplified to no arguments or single argument
 function ::= [a-zA-Z_][a-zA-Z0-9_]* "(" (column | "*" | ) ")"
@@ -32,7 +29,7 @@ from-clause ::= ws? "FROM " (tables | subquery) (ws table-alias)?
 tables ::= table (", " table)*
 
 # Individual table name or subquery as table
-table ::= table-name | "(" select-statement ")" | quoted-identifier
+table ::= table-name | "(" select-statement ")" 
 
 # Alias for a table or subquery, simplified
 alias ::= ws? ("AS " | "as ")? [a-zA-Z][a-zA-Z0-9_]*

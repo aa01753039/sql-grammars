@@ -78,13 +78,15 @@ class LLMResponser:
             question_id = question["id"]
             question_db = question["db_id"]
             question = question["question"]
+            
             # get the answer for each question
             answer = self.llm(
                 question,  # prompt
                 grammar=grammar,
-                max_tokens=-1,  # as necessary tokens
+                max_tokens=100,  # as necessary tokens
                 seed=0,  # seed for reproducibility
             )
+            
             # store the answer in the dictionary
             answers_list.append(
                 {

@@ -3,3 +3,5 @@
 embedded_grammars/
 notebooks/
 spider/
+__pycache__
+embedded_grammars2/
