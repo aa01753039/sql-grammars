@@ -23,7 +23,7 @@ COLUMN_NAMES_PLACEHOLDER
 
 
 # Function call, simplified to no arguments or single argument
-unction ::= ( "COUNT" | "AVG" | "MAX" | "MIN" | "SUM" ) "(" (column | "*" ) ")"
+function ::= ( "COUNT" | "AVG" | "MAX" | "MIN" | "SUM" ) "(" (column | "*" ) ")"
 
 # FROM clause specifying the table(s) or subquery to select from
 from-clause ::= ws? "FROM " (tables | subquery) (ws table-alias)?
@@ -99,7 +99,7 @@ order-columns ::= order-column (", " order-column)*
 order-column ::= column (" ASC" | " DESC")?
 
 # LIMIT clause, to limit the number of results, with optional OFFSET
-limit-clause ::= ws? "LIMIT " number (" OFFSET " number)?
+limit-clause ::= ws? "LIMIT " integer (" OFFSET " integer)?
 
 # Quoted identifier for cases where identifiers include spaces or other special characters
 quoted-identifier ::= "\"" [^\"]* "\""
