@@ -2,7 +2,7 @@
 root ::= select-statement [;]?
 
 # SELECT statement with optional distinct, columns, FROM clause, WHERE clause, JOINs, GROUP BY, ORDER BY, and LIMIT
-select-statement ::= "SELECT " distinct? columns from-clause? where-clause? join-clause* group-by-clause? order-by-clause? limit-clause?
+select-statement ::= "SELECT " distinct? columns from-clause where-clause? join-clause* group-by-clause? order-by-clause? limit-clause?
 
 # Optional DISTINCT keyword
 distinct ::= "DISTINCT "?

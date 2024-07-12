@@ -2,7 +2,7 @@
 root ::= select-statement [;]?
 
 # SELECT statement with optional distinct, columns, FROM clause, WHERE clause, JOINs, GROUP BY, ORDER BY, and LIMIT
-select-statement ::= "SELECT " distinct? columns from-clause? where-clause? join-clause* group-by-clause? order-by-clause? limit-clause?
+select-statement ::= "SELECT " distinct? columns from-clause where-clause? join-clause* group-by-clause? order-by-clause? limit-clause?
 
 # Optional DISTINCT keyword
 distinct ::= "DISTINCT "?
@@ -21,7 +21,7 @@ column-name ::= [a-zA-Z_][a-zA-Z0-9_]*
 
 
 # Function call, simplified to no arguments or single argument
-function ::= [a-zA-Z_][a-zA-Z0-9_]* "(" (column | "*" | ) ")"
+function ::= ( "COUNT" | "AVG" | "MAX" | "MIN" | "SUM" ) "(" (column | "*" ) ")"
 
 # FROM clause specifying the table(s) or subquery to select from
 from-clause ::= ws? "FROM " (tables | subquery) (ws table-alias)?
@@ -30,17 +30,22 @@ from-clause ::= ws? "FROM " (tables | subquery) (ws table-alias)?
 tables ::= table (", " table)*
 
 # Individual table name or subquery as table
-table ::= table-name | "(" select-statement ")" | quoted-identifier
+table ::= schema-name "." table-name (ws table-alias)? | "(" select-statement ")" 
 
 # Alias for a table or subquery, simplified
-alias ::= ws? ("AS " | "as ")? [a-zA-Z][a-zA-Z0-9_]*
-table-alias ::= ws? ("AS " | "as ")? [a-zA-Z]
+alias ::= " AS " alias-name
+table-alias ::= " AS " alias-name
+alias-name ::= [a-zA-Z_][a-zA-Z0-9_]*
 
 # WHERE clause with a condition, including subquery conditions
 where-clause ::= ws? "WHERE " condition
 
-# JOIN clause, simplified to INNER JOIN
-join-clause ::= ws? "JOIN " table (ws alias)? " ON " condition
+# JOIN clause, including INNER, LEFT, RIGHT, and OUTER JOIN types
+join-clause ::= ws? join-type "JOIN " table (ws table-alias)? " ON " condition
+
+# Different types of joins
+join-type ::= "INNER " | "LEFT " | "RIGHT " | "FULL OUTER " | "LEFT OUTER " | "RIGHT OUTER " | "FULL "
+
 
 # Condition, allowing column comparisons, IN, EXISTS, and subquery conditions
 condition ::= (
@@ -58,11 +63,23 @@ value ::= number | quoted-string | "(" select-statement ")"
 # Subquery structure
 subquery ::= "(" select-statement ")"
 
-# Numeric value, integer or float for simplicity
-number ::= "-"? [0-9]+ ("." [0-9]+)?
+# Numeric value, including integers, floats, and scientific notation
+number ::= sign? (integer | float )
 
-# Quoted string, simplifying to anything between single quotes
-quoted-string ::= "'" [^']* "'"
+# Optional sign for numbers
+sign ::= "+" | "-"
+
+# Integer, disallowing leading zeros except for zero itself
+integer ::= "0" | ([1-9] [0-9]*)
+
+# Float, ensuring the fractional part is specified
+float ::= integer "." [0-9]+
+
+# Quoted string, allowing for escaped single quotes and newline characters, and ensuring non-empty content
+quoted-string ::= "'" single-quoted-character+ "'"
+
+# Single quoted character, allowing for escaped single quotes and newline characters
+single-quoted-character ::= [^'\n\r] | "''" | [\n\r]
 
 # GROUP BY clause, specifying columns for grouping
 group-by-clause ::= ws? "GROUP BY " group-columns
@@ -80,10 +97,10 @@ order-columns ::= order-column (", " order-column)*
 order-column ::= column (" ASC" | " DESC")?
 
 # LIMIT clause, to limit the number of results, with optional OFFSET
-limit-clause ::= ws? "LIMIT " number (" OFFSET " number)?
+limit-clause ::= ws? "LIMIT " integer (" OFFSET " integer)?
 
 # Quoted identifier for cases where identifiers include spaces or other special characters
-quoted-identifier ::= ["] [^"]* ["]
+quoted-identifier ::= "\"" [^\"]* "\""
 
 # Optional whitespace, for better readability in the grammar
 ws ::= [ \t\n]*
