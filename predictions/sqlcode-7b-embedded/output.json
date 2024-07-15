@@ -1,0 +1,50 @@
+[
+  {
+    "id": 0,
+    "db_id": "soccer_3",
+    "question": "How many clubs are there?",
+    "answer": "SELECT club.Name FROM soccer_3.club WHERE club.Name = 'Barcelona' ORDER BY club.Name LIMIT 1;"
+  },
+  {
+    "id": 1,
+    "db_id": "soccer_3",
+    "question": "Count the number of clubs.",
+    "answer": "SELECT COUNT(club.Club_ID ) FROM soccer_3.club AS c WHERE club.Club_ID = 757071;"
+  },
+  {
+    "id": 2,
+    "db_id": "soccer_3",
+    "question": "List the name of clubs in ascending alphabetical order.",
+    "answer": "SELECT club.Name FROM soccer_3.club WHERE club.Name < 'a' ORDER BY club.Name ;"
+  },
+  {
+    "id": 3,
+    "db_id": "soccer_3",
+    "question": "What are the names of clubs, ordered alphabetically?",
+    "answer": "SELECT club.Name FROM soccer_3.club ORDER BY club.Name ;"
+  },
+  {
+    "id": 4,
+    "db_id": "soccer_3",
+    "question": "What are the managers and captains of clubs?",
+    "answer": "SELECT club.Name FROM (SELECT club.Name FROM soccer_3.club WHERE soccer_3.club.Name = 'Manchester City FC' LIMIT 1) AS m ORDER BY club.Name LIMIT 1;"
+  },
+  {
+    "id": 5,
+    "db_id": "soccer_3",
+    "question": "Return the managers and captains of all clubs.",
+    "answer": "SELECT soccer_3.club.Country FROM soccer_3.club INNER JOIN soccer_3.player ON soccer_3.club.Country = soccer_3.player.Country ORDER BY soccer_3.club.Country "
+  },
+  {
+    "id": 6,
+    "db_id": "soccer_3",
+    "question": "List the name of clubs whose manufacturer is not \"Nike\"",
+    "answer": "SELECT * FROM soccer_3.club WHERE soccer_3.club.Manufacturer <> 'Nike' ORDER BY soccer_3.club.Name ;"
+  },
+  {
+    "id": 7,
+    "db_id": "soccer_3",
+    "question": "What are the names of clubs who do not have the manufacturer Nike?",
+    "answer": "SELECT DISTINCT club.Player_ID FROM (SELECT club.Player_ID FROM (SELECT club.Player_ID FROM (SELECT club.Player_ID FROM (SELECT club.Player_ID FROM (SELECT club.Player_ID FROM (SELECT club.Player_ID FROM (SELECT club.Player_ID FROM"
+  }
+]
