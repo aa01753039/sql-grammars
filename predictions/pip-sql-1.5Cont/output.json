@@ -1,0 +1,302 @@
+[
+  {
+    "id": 0,
+    "db_id": "advertising_agencies",
+    "question": "Show all invoice status codes and details and the corresponding client id and details and agency id and details.",
+    "answer": "SELECT t2.invoice_status ,  t1.client_details,t"
+  },
+  {
+    "id": 1,
+    "db_id": "advertising_agencies",
+    "question": "What are the invoice status, invoice details, and corresponding client ids and details and agency id and details?",
+    "answer": "SELECT t2.invoice_status , \tt1.invo"
+  },
+  {
+    "id": 2,
+    "db_id": "advertising_agencies",
+    "question": "List all meeting type codes and details.",
+    "answer": "SELECT T3.[type of the code],  t21954687-0   FROM STAFF AS SA JOIN INVO"
+  },
+  {
+    "id": 3,
+    "db_id": "advertising_agencies",
+    "question": "What are all meeting types and other details?",
+    "answer": "SELECT distinct ME.MEETINGTYPE ,  T2 .OtherDetails FROM Staff AS S INNER JOIN staffinmeetings as t1"
+  },
+  {
+    "id": 4,
+    "db_id": "advertising_agencies",
+    "question": "Show all meeting outcomes and purposes.",
+    "answer": "SELECT DISTINCT T1.\"purpose of Meeting\", \tT2.'Outcome' FROM \"Meetings\" AS t1 JOIN 'out"
+  },
+  {
+    "id": 5,
+    "db_id": "advertising_agencies",
+    "question": "What are all meeting outcomes and purposes?",
+    "answer": "SELECT DISTINCT  \"purpose of the meeting\", FROM Meetings; </sql>\nIn order to select distinct purpose from meetings table,"
+  },
+  {
+    "id": 6,
+    "db_id": "advertising_agencies",
+    "question": "Show all payment ids and details for invoices whose status is 'Working'.",
+    "answer": "SELECT t2.payment_details FROM Invoices AS T1 JOIN Payments as T2"
+  },
+  {
+    "id": 7,
+    "db_id": "advertising_agencies",
+    "question": "What are all payment ids and payment details for invoices with status Working?",
+    "answer": "SELECT t2.payment_details FROM payments AS T1 JOIN Invoices  ON\r\nt"
+  },
+  {
+    "id": 8,
+    "db_id": "advertising_agencies",
+    "question": "Show all invoice ids and statuses without a payment.",
+    "answer": "SELECT t2.invoice_status ,  Invoice FROM Payments AS T1 JOIN Invoices as   T2"
+  },
+  {
+    "id": 9,
+    "db_id": "advertising_agencies",
+    "question": "What are the invoice ids and statuses for invoices without a payment?",
+    "answer": "SELECT t2.invoice_status ,  DISTINCT T3.payment_details"
+  },
+  {
+    "id": 10,
+    "db_id": "advertising_agencies",
+    "question": "How many payments do we have?",
+    "answer": "SELECT COUNT (* ) FROM Payments; </sql>\nYou can replace the name of tables and column names according to your database. This query will count"
+  },
+  {
+    "id": 11,
+    "db_id": "advertising_agencies",
+    "question": "Count the number of payments.",
+    "answer": "SELECT COUNT(\"Payment\") FROM \"payments\" WHERE payment status = 'paid'; </sql>  The answer is 0, because there are no paid"
+  },
+  {
+    "id": 12,
+    "db_id": "advertising_agencies",
+    "question": "List all payment ids and its corresponding invoice ids and details.",
+    "answer": "SELECT t2.invoice_details ,  T1 .payment_Details FROM Invoices AS T0"
+  },
+  {
+    "id": 13,
+    "db_id": "advertising_agencies",
+    "question": "What are the payment ids, invoice ids, and payment details for all payments?",
+    "answer": "SELECT T3.payment_details FROM Invoices AS t1 JOIN Payments as t"
+  },
+  {
+    "id": 14,
+    "db_id": "advertising_agencies",
+    "question": "Show all the different invoice ids and statuses of the payments",
+    "answer": "SELECT t3.invoice_status ,  count(*) FROM Invoices as T1 JOIN Payments AS  "
+  },
+  {
+    "id": 15,
+    "db_id": "advertising_agencies",
+    "question": "What are the distinct invoice ids and statuses for all payments?",
+    "answer": "SELECT DISTINCT T1.invoice_status ,  t2 .payment_details FROM Invo"
+  },
+  {
+    "id": 16,
+    "db_id": "advertising_agencies",
+    "question": "Show all invoice ids and the number of payments for each invoice.",
+    "answer": "SELECT t2 .invoice_details ,  COUNT(*) FROM Invoices AS T1 JOIN Payments"
+  },
+  {
+    "id": 17,
+    "db_id": "advertising_agencies",
+    "question": "How many payments are there for each invoice?",
+    "answer": "SELECT T3.invoice_status ,  count(*) FROM Invoices AS t1 JOIN Payments ON INVOICE-ID"
+  },
+  {
+    "id": 18,
+    "db_id": "advertising_agencies",
+    "question": "What is the invoice id, status code, and details for the invoice with most number of payments.",
+    "answer": "SELECT t2.\"invoice_status\",  sum(t1.\")payment"
+  },
+  {
+    "id": 19,
+    "db_id": "advertising_agencies",
+    "question": "Return the invoice ids, statuses, and details for invoices with the most payments?",
+    "answer": "SELECT t2.invoice_status ,  sum(t3.payment),"
+  },
+  {
+    "id": 20,
+    "db_id": "advertising_agencies",
+    "question": "How many staff do we have?",
+    "answer": "SELECT COUNT (* ) FROM Staff; </sql> \nTo find the number of sales representatives or other similar roles, you would need to know what those role"
+  },
+  {
+    "id": 21,
+    "db_id": "advertising_agencies",
+    "question": "Count the number of staff.",
+    "answer": "SELECT COUNT(* ) FROM Staff; </sql> \nThe answer is 0 since there are no rows in table \"Staff\". It should be counted"
+  },
+  {
+    "id": 22,
+    "db_id": "advertising_agencies",
+    "question": "Show the agency ids and the number of staff in each agent?",
+    "answer": "SELECT A.agency_details ,  COUNT(S.AGENCYID)) FROM Agencies AS T1 JOIN"
+  },
+  {
+    "id": 23,
+    "db_id": "advertising_agencies",
+    "question": "Return the agency ids and number of staff in each.",
+    "answer": "SELECT a.* , count(*) FROM Agencies AS A JOIN Staff as S ON A .agencyId = s   GROUP BY"
+  },
+  {
+    "id": 24,
+    "db_id": "advertising_agencies",
+    "question": "What is the agent id and details for the agency with most staff?",
+    "answer": "SELECT TOP 1 A.agency_details FROM Agencies AS T0 JOIN Staff as AT ON t0 . ag"
+  },
+  {
+    "id": 25,
+    "db_id": "advertising_agencies",
+    "question": "Return the id and detail for the agency with the most staff.",
+    "answer": "SELECT t2.\"agency_details\",  t1.* FROM \"Agencies\" AS T1 JOIN Staff as  \tt"
+  },
+  {
+    "id": 26,
+    "db_id": "advertising_agencies",
+    "question": "Show meeting outcome codes and the number of meeting in each outcome.",
+    "answer": "SELECT M2A314069F78B5ECAI,  COUNT(*) FROM STA"
+  },
+  {
+    "id": 27,
+    "db_id": "advertising_agencies",
+    "question": "How many meetings had each meeting outcome?",
+    "answer": "SELECT count (* ) ,  t2.outcome FROM Meetings AS T1 JOIN outcomes ON MeetingId  =  OUTCOME GROUP BY Outcomes"
+  },
+  {
+    "id": 28,
+    "db_id": "advertising_agencies",
+    "question": "List the client ids and the number of meeting for each client.",
+    "answer": "SELECT Clients .client_details ,  count(*) FROM clients JOIN meetings ON CLIENTS._ID = ME"
+  },
+  {
+    "id": 29,
+    "db_id": "advertising_agencies",
+    "question": "How many meetings are there for each client id?",
+    "answer": "SELECT T3.client_details, COUNT(*) FROM Clients AS t1 JOIN Meetings ON clients.. = \"t2"
+  },
+  {
+    "id": 30,
+    "db_id": "advertising_agencies",
+    "question": "Show the meeting type codes and the number of meeting for each client.",
+    "answer": "SELECT t1.*, COUNT(*) FROM meetings AS T1 JOIN clients ON  ClientId = id GROUP BY MeetingType"
+  },
+  {
+    "id": 31,
+    "db_id": "advertising_agencies",
+    "question": "How many meetings are there for each meeting type?",
+    "answer": "SELECT COUNT(*)\"+\" ,  \"t2.MeetingType FROM Meetings AS t1 JOIN MeetingTypes As T2 ON Me"
+  },
+  {
+    "id": 32,
+    "db_id": "advertising_agencies",
+    "question": "Show all meeting ids, meeting outcomes, meeting types and the details of the client atttending it.",
+    "answer": "SELECT t2 .  ,   FROM Agencies AS T1 JOIN Clients"
+  },
+  {
+    "id": 33,
+    "db_id": "advertising_agencies",
+    "question": "What are the meeting ids, meeting outcomes, meeting types, and client details for all meetings?",
+    "answer": "SELECT t2.client_details ,  T1 .meeting_type   FROM clients"
+  },
+  {
+    "id": 34,
+    "db_id": "advertising_agencies",
+    "question": "Show the meeting ids and the number of staff in each meeting.",
+    "answer": "SELECT M2.\"number\" ,  T3.'Meetings' FROM \"invoices\"- join table meetings ON"
+  },
+  {
+    "id": 35,
+    "db_id": "advertising_agencies",
+    "question": "Count the number of staff in each meeting by meeting id.",
+    "answer": "SELECT T3.[meeting_type], COUNT (* ) FROM MEETINGS AS  t1 JOIN STAFFINMEET"
+  },
+  {
+    "id": 36,
+    "db_id": "advertising_agencies",
+    "question": "Show the staff id and the number of meetings attended by the staff who attended some meeting but had the lowest attendance.",
+    "answer": "SELECT sime2134567890TGZ"
+  },
+  {
+    "id": 37,
+    "db_id": "advertising_agencies",
+    "question": "What is the staff id of the staff who attended the least meetings but attended some meeting?",
+    "answer": "SELECT Staff.StaffId FROM STAFF JOIN MEETINGS ON MeetingID = ? WHERE"
+  },
+  {
+    "id": 38,
+    "db_id": "advertising_agencies",
+    "question": "How many staff have attended a meeting?",
+    "answer": "SELECT COUNT(* ) FROM Staff AS T1 JOIN Meetings ON  t2.sales_rep  =  STAFF WHERE end_date  <"
+  },
+  {
+    "id": 39,
+    "db_id": "advertising_agencies",
+    "question": "Return the number of distinct staff who have attended a meeting?",
+    "answer": "SELECT count({number}) FROM Staff AS T1 JOIN Meetings WHERE t2.t3 id = &lt;current record&"
+  },
+  {
+    "id": 40,
+    "db_id": "advertising_agencies",
+    "question": "How many staff did not attend any meeting?",
+    "answer": "SELECT COUNT(* ) FROM Staff WHERE STAFFID NOT IN ANY MEETINGS TABLE;</sql>'WHERE', 'meetingtable"
+  },
+  {
+    "id": 41,
+    "db_id": "advertising_agencies",
+    "question": "Count the number of staff who did not attend any meeting.",
+    "answer": "SELECT COUNT(\"name\") FROM \"Staff\" WHERE role <> 1;COUNT(*)FROM Staff AS T1 JOIN Meet"
+  },
+  {
+    "id": 42,
+    "db_id": "advertising_agencies",
+    "question": "What are the ids and details of the clients who have attended any meeting or have any invoice?",
+    "answer": "SELECT C.client_details FROM CLIENTS AS T1 JOIN INVOICES"
+  },
+  {
+    "id": 43,
+    "db_id": "advertising_agencies",
+    "question": "Return the ids and details of clients who have attended a meeting or had an invoice.",
+    "answer": "SELECT clientId, group_concat(clientDetails ) FROM Clients c JOIN Meetings"
+  },
+  {
+    "id": 44,
+    "db_id": "advertising_agencies",
+    "question": "What are the ids and details of the staff who have attended at least 1 meetings and have the detail with letter 's'?",
+    "answer": "SELECT t2.name ,  \tt3.* FROM"
+  },
+  {
+    "id": 45,
+    "db_id": "advertising_agencies",
+    "question": "Return the ids and details of staff who have attended at least 1 meeting and have an s in their staff details?",
+    "answer": "SELECT t2.agency_details ,t3.* FROM clients"
+  },
+  {
+    "id": 46,
+    "db_id": "advertising_agencies",
+    "question": "What are the id, sic code and agency id of the client who has attended 1 meeting and has any invoice.",
+    "answer": "SELECT t2 .client_details , c3 ..meeting"
+  },
+  {
+    "id": 47,
+    "db_id": "advertising_agencies",
+    "question": "Return the ids, sic codes, and agency ids of clients who have attended 1 meeting and had an invoice.",
+    "answer": "SELECT client_ID , SIC_code FROM CLIENT"
+  },
+  {
+    "id": 48,
+    "db_id": "advertising_agencies",
+    "question": "List the start time, end time of each meeting, and the corresponding client detail and staff detail.",
+    "answer": "SELECT t2.start_date_time ,  TIMESTAMPADD(HOUR"
+  },
+  {
+    "id": 49,
+    "db_id": "advertising_agencies",
+    "question": "What are the start and end times of each meeting, as well as the corresponding client and staff details the attendees?",
+    "answer": "SELECT meetings.start_date_time ,  TIMESTAMPDI"
+  }
+]

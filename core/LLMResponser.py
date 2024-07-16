@@ -114,11 +114,11 @@ class LLMResponser:
         for table in tables:
             ddl_statements += table[1] + "\n"
 
-        if len(ddl_statements) > 1000:
+        if len(ddl_statements) > 950:
             # Remove the data types from the DDL statements
             ddl_statements = remove_data_types(ddl_statements)
             # just keep the first 1000 characters
-            ddl_statements = ddl_statements[:1000]
+            ddl_statements = ddl_statements[:950]
 
         return ddl_statements
 
