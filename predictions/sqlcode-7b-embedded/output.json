@@ -46,5 +46,215 @@
     "db_id": "soccer_3",
     "question": "What are the names of clubs who do not have the manufacturer Nike?",
     "answer": "SELECT DISTINCT club.Player_ID FROM (SELECT club.Player_ID FROM (SELECT club.Player_ID FROM (SELECT club.Player_ID FROM (SELECT club.Player_ID FROM (SELECT club.Player_ID FROM (SELECT club.Player_ID FROM (SELECT club.Player_ID FROM"
+  },
+  {
+    "id": 8,
+    "db_id": "soccer_3",
+    "question": "What are the names of players in ascending order of wins count?",
+    "answer": "SELECT player.Wins_count FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM"
+  },
+  {
+    "id": 9,
+    "db_id": "soccer_3",
+    "question": "Return the names of players in order of count of wins, ascending.",
+    "answer": "SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT"
+  },
+  {
+    "id": 10,
+    "db_id": "soccer_3",
+    "question": "What is the name of the player with the highest earnings?",
+    "answer": "SELECT player.Wins_count FROM (SELECT player.Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM ("
+  },
+  {
+    "id": 11,
+    "db_id": "soccer_3",
+    "question": "Return the name of the player who earns the most money.",
+    "answer": "SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT"
+  },
+  {
+    "id": 12,
+    "db_id": "soccer_3",
+    "question": "What are the distinct countries of players with earnings higher than 1200000?",
+    "answer": "SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player"
+  },
+  {
+    "id": 13,
+    "db_id": "soccer_3",
+    "question": "From which countries are players who make more than 1200000 from?",
+    "answer": "SELECT COUNT(player.Earnings )FROM soccer_3.player;"
+  },
+  {
+    "id": 14,
+    "db_id": "soccer_3",
+    "question": "What is the country of the player with the highest earnings among players that have more than 2 win counts?",
+    "answer": "SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT p"
+  },
+  {
+    "id": 15,
+    "db_id": "soccer_3",
+    "question": "Of players who have more than 2 wins, what is the country of the player who makes the most?",
+    "answer": "SELECT COUNT(*) FROM (SELECT player.Sponsor FROM (SELECT MAX(player.Wins_count ) AS max_wins_count FROM (SELECT player.Sponsor FROM (SELECT player.Sponsor FROM (SELECT player.Sponsor FROM (SELECT player.Sponsor FROM (SELECT player.Sponsor FROM (SELECT player.Sponsor FROM (SELECT player."
+  },
+  {
+    "id": 16,
+    "db_id": "soccer_3",
+    "question": "Show names of players and names of clubs they are in.",
+    "answer": "SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT"
+  },
+  {
+    "id": 17,
+    "db_id": "soccer_3",
+    "question": "What are the names of players and the corresponding clubs that they are in?",
+    "answer": "SELECT * FROM (SELECT player.Name FROM soccer_3.player) AS P INNER JOIN (SELECT club.Name FROM soccer_3.club) AS C  ON Player_ID = 1;"
+  },
+  {
+    "id": 18,
+    "db_id": "soccer_3",
+    "question": "Show names of clubs that have players with more than 2 win counts.",
+    "answer": "SELECT club.Name FROM (SELECT player.Club_ID FROM (SELECT Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player"
+  },
+  {
+    "id": 19,
+    "db_id": "soccer_3",
+    "question": "What are the names of clubs that have players who have won more than twice?",
+    "answer": "SELECT club.Events_number FROM (SELECT player.Club_ID FROM (SELECT club.Club_ID FROM (SELECT player.Club_ID FROM (SELECT player.Club_ID FROM (SELECT player.Club_ID FROM (SELECT player.Club_ID FROM (SELECT player.Club_ID FROM (SELECT player.Club_ID FROM (SELECT player.Club_ID FROM (SELECT player"
+  },
+  {
+    "id": 20,
+    "db_id": "soccer_3",
+    "question": "Show names of players from the club with manager \"Sam Allardyce\".",
+    "answer": "SELECT Player_ID FROM (SELECT player.Wins_count FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID"
+  },
+  {
+    "id": 21,
+    "db_id": "soccer_3",
+    "question": "What are the names of players from the club managed by Sam Allardyce?",
+    "answer": "SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM"
+  },
+  {
+    "id": 22,
+    "db_id": "soccer_3",
+    "question": "Show names of clubs in descending order of average earnings of players belonging.",
+    "answer": "SELECT player.Name FROM (SELECT player.Name FROM (SELECT club.Club_ID FROM (SELECT Club_ID FROM (SELECT Club_ID FROM (SELECT Club_ID FROM (SELECT Club_ID FROM (SELECT Club_ID FROM (SELECT Club_ID FROM (SELECT Club_ID FROM (SELECT Club_ID FROM (SELECT Club_ID FROM (SELECT Club_ID FROM (SELECT Club_ID FROM (SELECT Club_ID FROM (SELECT Club_"
+  },
+  {
+    "id": 23,
+    "db_id": "soccer_3",
+    "question": "What are the names of clubs, ordered descending by the average earnings of players within each?",
+    "answer": "SELECT club.Earnings FROM (SELECT player.Club_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID"
+  },
+  {
+    "id": 24,
+    "db_id": "soccer_3",
+    "question": "Show different manufacturers and the number of clubs they are associated with.",
+    "answer": "SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player_ID FROM (SELECT player.Player"
+  },
+  {
+    "id": 25,
+    "db_id": "soccer_3",
+    "question": "How many clubs use each manufacturer?",
+    "answer": "SELECT * FROM (SELECT COUNT(club.Events_number ) AS number_of_events_per_club FROM (SELECT DISTINCT club.Club_ID FROM soccer_3.club) AS t GROUP BY club.Club_ID ORDER BY club.Club_ID LIMIT 10) AS x ORDER BY club.Club_ID LIMIT 10;"
+  },
+  {
+    "id": 26,
+    "db_id": "soccer_3",
+    "question": "Please show the most common manufacturer of clubs.",
+    "answer": "SELECT DISTINCT Manager FROM soccer_3.club WHERE Manager = 'Rossi' ORDER BY Manager ;"
+  },
+  {
+    "id": 27,
+    "db_id": "soccer_3",
+    "question": "Which manufacturer is most common among clubs?",
+    "answer": "SELECT Manufacturer FROM (SELECT Manufacturer FROM soccer_3.club) ORDER BY Manufacturer LIMIT 1;"
+  },
+  {
+    "id": 28,
+    "db_id": "soccer_3",
+    "question": "List the manufacturers that are associated with more than one club.",
+    "answer": "SELECT Manufacturer FROM (SELECT DISTINCT Manufacturer FROM (SELECT Manufacturer FROM (SELECT Manufacturer FROM (SELECT Manufacturer FROM (SELECT Manufacturer FROM (SELECT Manufacturer FROM (SELECT Manufacturer FROM (SELECT Manufacturer FROM (SELECT Manufacturer FROM (SELECT Manufacturer FROM (SELECT Manufacturer FROM (SELECT Manufacturer FROM (SELECT Manufacturer FROM (SELECT Manufacturer FROM (SELECT Manufacturer FROM"
+  },
+  {
+    "id": 29,
+    "db_id": "soccer_3",
+    "question": "Which manufacturers work for more than 1 club?",
+    "answer": "SELECT Manufacturer FROM (SELECT Manufacturer FROM soccer_3.club) WHERE EXISTS (SELECT club.Manufacturer FROM soccer_3.club);"
+  },
+  {
+    "id": 30,
+    "db_id": "soccer_3",
+    "question": "List the country that have more than one player.",
+    "answer": "SELECT player.Name FROM (SELECT Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT"
+  },
+  {
+    "id": 31,
+    "db_id": "soccer_3",
+    "question": "Which countries have produced more than one player?",
+    "answer": "SELECT COUNT(player.Events_number ) FROM (SELECT COUNT(*) AS total_events FROM (SELECT DISTINCT player.Events_number FROM (SELECT DISTINCT player.Events_number FROM (SELECT DISTINCT player.Events_number FROM (SELECT DISTINCT player.Events_numbe"
+  },
+  {
+    "id": 32,
+    "db_id": "soccer_3",
+    "question": "List the name of clubs that do not have players.",
+    "answer": "SELECT club.Name FROM (SELECT club.Name FROM (SELECT Name FROM (SELECT player.Club_ID FROM (SELECT Club_ID FROM (SELECT player.Club_ID FROM (SELECT player.Club_ID FROM (SELECT player.Club_ID FROM (SELECT player.Club_ID FROM (SELECT player.Club_ID FROM (SELECT player.Club_ID FROM (SELECT p"
+  },
+  {
+    "id": 33,
+    "db_id": "soccer_3",
+    "question": "What are the names of clubs that do not have any players?",
+    "answer": "SELECT club.Name FROM (SELECT club.Club_ID FROM (SELECT club.Club_ID FROM (SELECT club.Club_ID FROM (SELECT club.Club_ID FROM (SELECT club.Club_ID FROM (SELECT club.Club_ID FROM (SELECT club.Club_ID FROM (SELECT club.Club_ID FROM (SELECT club.Club_ID FROM (SELECT club.Club"
+  },
+  {
+    "id": 34,
+    "db_id": "soccer_3",
+    "question": "Show the country of players with earnings more than 1400000 and players with earnings less than 1100000.",
+    "answer": "SELECT club.Name FROM (SELECT club.Name FROM (SELECT club.Name FROM (SELECT club.Name FROM (SELECT club.Name FROM (SELECT club.Name FROM (SELECT club.Name FROM (SELECT club.Name FROM (SELECT club.Name FROM (SELECT club.Name FROM (SELECT club.Name FROM (SELECT club.Name FROM (SELECT club.Name FROM (SELECT club.Name FROM"
+  },
+  {
+    "id": 35,
+    "db_id": "soccer_3",
+    "question": "Which country has produced both players with earnings over 1400000 and players with earnings below 1100000?",
+    "answer": "SELECT club.Earnings FROM (SELECT player.Name FROM (SELECT Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player.Name FROM (SELECT player."
+  },
+  {
+    "id": 36,
+    "db_id": "soccer_3",
+    "question": "What is the number of distinct countries of all players?",
+    "answer": "SELECT COUNT(Country ) FROM (SELECT Country FROM soccer_3.player WHERE Player_ID = 'player_id') AS t GROUP BY Country ;"
+  },
+  {
+    "id": 37,
+    "db_id": "soccer_3",
+    "question": "How many different countries are players from?",
+    "answer": "SELECT COUNT(club.Sponsor ) AS sponsors FROM (SELECT soccer_3.club.Sponsor FROM soccer_3.club) GROUP BY club.Sponsor ORDER BY club.Sponsor \n   \n  \n \n   \n   \n  \n    \n    \n    \n    \n    \n    \n   \n  \n \n    \n    \n   \n  \n   \n  \n   "
+  },
+  {
+    "id": 38,
+    "db_id": "soccer_3",
+    "question": "Show the earnings of players from country \"Australia\" or \"Zimbabwe\".",
+    "answer": "SELECT club.Earnings FROM (SELECT player.Earnings FROM (SELECT player.Earnings FROM (SELECT player.Earnings FROM (SELECT player.Earnings FROM (SELECT player.Earnings FROM (SELECT player.Earnings FROM (SELECT player.Earnings FROM (SELECT player.Earnings FROM (SELECT player.Earnings FROM (SELECT player.Earnings FROM (SELECT player.Earnings FROM"
+  },
+  {
+    "id": 39,
+    "db_id": "soccer_3",
+    "question": "What are the earnings of players from either of the countries of Australia or Zimbabwe?",
+    "answer": "SELECT club.Earnings FROM (SELECT player.Name FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_ID FROM (SELECT Player_"
+  },
+  {
+    "id": 40,
+    "db_id": "e_commerce",
+    "question": "List the id, first name and last name of the customers who both have placed more than 2 orders and have bought at least 3 items.",
+    "answer": "SELECT customer_id FROM (SELECT customer_id FROM (SELECT customer_id FROM (SELECT customer_id FROM (SELECT customer_id FROM (SELECT customer_id FROM (SELECT customer_id FROM (SELECT customer_id FROM (SELECT customer_id FROM (SELECT customer_id FROM (SELECT customer_id FROM (SELECT customer_id FROM (SELECT customer_id FROM (SELECT customer_id FROM (SELECT customer_id FROM (SELECT customer_id FROM"
+  },
+  {
+    "id": 41,
+    "db_id": "e_commerce",
+    "question": "What are the ids, first and last names of the customers who have ordered more than twice and have bought at least 3 items?",
+    "answer": "SELECT customer_first_name FROM (SELECT customer_id FROM (SELECT order_id FROM (SELECT product_id FROM (SELECT product_id FROM (SELECT product_id FROM (SELECT product_id FROM (SELECT product_id FROM (SELECT product_id FROM (SELECT product_id FROM (SELECT product_id FROM (SELECT product_id FROM (SELECT product_id FROM (SELECT product_id FROM (SELECT product_id FROM (SELECT product_id"
+  },
+  {
+    "id": 42,
+    "db_id": "e_commerce",
+    "question": "For the orders with any produts, how many products does each orders contain ? List the order id, status and the number.",
+    "answer": "SELECT order_id FROM e_commerce.Products WHERE product_name = 'AwesomeProduct' GROUP BY order_id ORDER BY order_id ;"
   }
 ]

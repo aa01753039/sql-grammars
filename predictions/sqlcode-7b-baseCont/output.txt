@@ -1,0 +1,451 @@
+SELECT MAX(v.tags) AS max_value FROM vtags_1010170203_1010170203_1010170203_1010170203_1010170203_1010170203_1010170203_101017
+SELECT AVG(value) AS average_value FROM box_table_20190514_093008_07775956954_0000000000__0000000000__0000000000__0000000000__0000000000__
+SELECT AVG(b.variance) FROM boxes_table1057079560_boxes_table1057079560_201310071110255775353347474350707757475707075707707770777
+SELECT a, b, c FROM test_table_a_b_c_0123_4567_890_abcd_efghijklmnopqrstuvwxyz_ABCDEFGHIJKLMNOPQRSTUVWXYZ_0123_4567_890_abcdefghijklmnopqrstuvwxyz_ABCDEFGHIJ
+SELECT nda, Inc.Tags         FROM (SELECT i.invoice_id, s.sales_order_id, c.customer_name, p.product_code, p.product_description, SUM(i.price) AS total_price FROM invoices_table_20190705083636_13728747493799797
+SELECT COUNT(DISTINCT) FROM c.boxes;
+SELECT count FROM box_contents_201705312317146058470_470584705847_0584705847_171460584705847_470584705847_584705847_171460
+SELECT COUNT(DISTINCT) FROM WAREHOUSES.LOCN_CD WHERE LOCN_CD IN (SELECT LOCN_CD FROM WAREHOUSES.WHSE);
+SELECT * FROM warehouse_locationsWL1097461773018565472575520197617730185654725755201976177301856547257552019761773018565
+SELECT d.code FROM delivery_point_boxes_to_warehouses_deliveries_delivered_at_warehouses_delivery_points_and_to_facilities_facility_points_facilities_to_infrastructure_infrastructure_to_infrastructure_facility_points_facilities_facility_points_facility_point_boxes_to_warehouses_deliveries
+SELECT b.from_city, b.to_city, c.name FROM delivery_details_tbl_warehouse_city_mapping_tbl_city_to_city_code_mapping_tbl_city_code_city_to_city_code_city_to_city_code_code_city_code_code_code_code_city_code_city_code_city_to_city_code_city_to_city_code_
+SELECT SUM(value) AS total_value FROM boxes_in_warehouses_at_chicago_or_new_york_city_or_new_york_state_WHERE_value_IS_NOT_NULL__OR_CASE_WHEN_value_IS_NOT_NULL_THEN_1_ELSE_0_END_OR_CASE_WHEN_warehouse_location_IS_CHICAGO_OR
+SELECT COUNT(DISTINCT_VALUE) FROM boxes_in_city_or_state_of_interest_to_chicago_or_new_york_table_boxes_in_city_or_state_of_interest_to_chicago_or_new_york_table_where_city_or_state_of_interest_is_in_city_or_state_of_interest
+SELECT COUNT(DISTINCT) FROM WAREHOUSES_CHICAGO_NEWYORK_JOINT_TABLE_10000_ROWS.WAREHOUSE_ID;
+SELECT icao_code, city_name FROM city_table_us_cao_007011_v0_0_0_0_without_deletes_00000000207235776891554749210000577077770066777000000000
+SELECT o.order_id, o.order_status, c.contents_name FROM orders_info_table_t157086794397992310110000oit1s7716795936705221700017oit2s771679593670522170
+SELECT p.tags.tag_name, COUNT(DISTINCTCASEWHENEXTRACTYEARFROMw.created_at) AS year_count FROM products_in_warehouses_nyc_only_with_snippets_of_code_or_html_in_their_descriptions_pciodihyti_snippet_types_t1757075_pciodihyti
+SELECT t.name FROM t_warehouse_content_rocks_and_not_scissors_selections_table_t_name_10070927527_6038713903_7400972817_5928775545_5347010337_7645017551
+SELECT h.define_warehouse_name FROM warehouse_defs_rock_scissor_combinations_exclude_listing_table_t1015257089301456001.h WHERE NOT IN (SELECT h.define_warehouse_name FROM warehouse_defs_rock_scissor_combinations_exclude_listing_table_t101
+SELECT ql_warehouse_id, COUNT(ql_product_sku) AS total_products FROM qm_quotes_to_warehouse_map_new_v2ql_8_0_35_1934_p7561515449_d099c5755c_f9_l_w578g555962_s578g
+SELECT DISTINCT w.tags FROM warehouse_boxes_content_info_json_arrays_without_keywords_or_regions_or_countries_or_brands_or_products_or_shipping_methods_or_return_policies_or_product_features_or_attributes_or_pricing_and_discounts_or_taxonomies_or_customer_reviews_or_rat
+SELECT the  FROM WarehouseStorageLocation.WH_LOCATION_ID, WarehouseStorageLocation.WAREHOUSE_ID, WarehouseStorageLocation.STORAGE_LEVEL, WarehouseStorageLocation.CONTENTS_ID, Content.CONTENT_ID, Content.CONTENT_NAME, Content.CONTENT_DESCRIPTION, Content.CONTENT_TYPE_CODE, ContentType.CONTENT_TYPE_
+SELECT h.tags.N, w.id FROM t_wheels_stocks_190562784190375698403257894325473045730943570948357094570935740983574983574983
+SELECT FROM FROM BOXES_TABLE_NAME_PLACEBOXORDEREDVALUES_FROM_USER_TO_ADMIN_SENDING_BOXES_BY_VOLUME_DESCRIPTION_CONTENT_AND_SIZE_ORDER_BY_SIZE_DESCRIPTION_CONTENT_AND_ORDER_BY_VALUE_DESCRIPTION_CONTENT_AND_ORDER_BY_ORDER_DESC
+SELECT * FROM tb_codes_and_contents_ordered_by_value_ascending_of_their_values_in_a_table_of_size_n_with_an_array_of_indexes_0_to_n_that_specify_the_ordering_of_the_values__and_another_table_of_size_1_containing_only_one_row_with_
+SELECT min_value, min_value FROM (SELECT MIN(value) AS min_value FROM tb_name1024t575934tfwg56vxrj85nf5wv2bh8f2738fwm75n2fx3274vwmnf235x7mvnf5473247324t574
+SELECT MAX(box_id) AS max_value FROM boxes_in_use_by_user_for_this_experiment_group_and_user_id_combination_excluding_the_one_with_the_given_code_and_contents_that_has_already_been_used_by_this_experiment_group_and_user_id_combination_excluding_the_one
+SELECT AVG(b.value) AS avg_value, b.id FROM boxed_value_double_tester.Boxes AS b GROUP BY b.id ORDER BY b.value DESC;
+SELECT avg_value, MAX(value) AS max_value FROM (SELECT avg_value, value FROM (SELECT AVG(value) AS avg_value, value FROM tb_test310742950455367855056847108005055845786754063754650675406
+SELECT category_id, COUNT(*) AS num_of_contents FROM contents_categories_map_pivotable_table_join_table_content_category_id_product_id_key__fk_content_category_id__fk_product_id_key__fk__1__2__3__4__5__6__7__8__9__0_group_by_category_id_ORDER_BY_num_of
+SELECT ia FROM tb_product_attribute_values_for_admin_user_1370765711_v2_0_0_8__e000d90d7230_777_7777777777777777777777777777777777777777
+SELECT m.value FROM mtas.boxes AS m WHERE m.content = 'Rocks' ORDER BY m.value DESC;
+SELECT MAX(b.tags) FROM Boxes_Rocks_Exploration_Tagging_Test_Data.Boxes WHERE b.value > 5;
+SELECT boxes FROM box_content_values_and_texts_with_scissors_as_content_where_value_is_higher_than_all_boxes_with_scissors_as_content_in_order_by_value_nulls_last__asc_start_from_the_beginning_return_all_values_and_texts_except_those_with_scissors_as_
+SELECT code, value, description FROM box_contents_scissors_higher_than_all_other_boxes_containing_scissors_values_of_same_size_and_value_as_scissors_should_not_be_shown_unless_you_have_a_keycard_that_unlocks_this_special_box_so_those_are_the_only_codes_and_contents
+SELECT MAX(w.capacity) AS max_capacity FROM WAREHOUSES_FREEZERS_COOLERS_STORAGE_UNITS_BAYS_CONTAINERS_BOXES_ITEMS_CONTAINERS_WAREHOUSING_ZONE1_2020_BETA_DESIGN_LIGHTWEIGHT_FURNITURE_WITH_STE
+SELECT MAX(capacity) FROM boxes_in_warehouse.tags;
+SELECT h.code, AVG(b.value) AS avg_value FROM WAREHOUSES_BOXES_VALUE_MAPPINGS_CACHE_V321987349187645123987264381972648571974816518726851726857
+SELECT w.exports.AverageValue FROM warehouses_exports_avg_value_data_store_wbqe7t8v4fyu2e13o9qm5l57nk4l2aabm6p3d4jfhhhx5gheqf017haf51hfnn496gfd4g2gm3jh7c17h
+SELECT ct.name, SUM(b.value) AS total_value, COUNT(b.id) AS num_boxes FROM content_types_with_boxes_and_values.content_type_table AS c INNER JOIN (SELECT t.id, t.value FROM value_table_with_value_list.value_table AS v INNER JOIN (SELECT id FROM box_table.box_table) AS b ON v.id = b
+SELECT c.tags.tag_name, SUM(c.price) AS total_price, COUNT(DISTINCT_c.id) AS num_of_boxes FROM content_tags_assn_map_table_0953e8645d27e8f11e0e175a0fd31c3ad0a45fe97b743a01b7f0
+SELECT s.name, SUM(s.capacity) AS total_capacity, AVG(s.capacity) AS average_capacity, MAX(s.capacity) AS max_capacity FROM stations_with_capacity_info.stations_with_capacity_info_data AS s WHERE xtrail_id IN (SELECT xtrail_id FROM trails_with_points_of_interest_data.
+SELECT s.classification_code, SUM(s.capacity) AS total_capacity, AVG(s.capacity) AS average_capacity, MAX(s.capacity) AS maximum_capacity FROM site_configurations_for_sites_with_classifications_of_type_warehouse_classification_code_only_s_capacity_s_capacity_s_capacity_s_capacity_s_cap
+SELECT SUM(w.capacity) AS total_capacity FROM warehouses_1718.warehouses AS w;
+SELECT SUM(capacity) FROM warehouse_info_tbl_cwm_3t5_sap_2019_a_bill_of_lading_2020_04_07__2020_04_30__17_16_58__GMT_Plus_8_hours_utc_time_zone__copy_of_bill_
+SELECT h.name, MAX(p.price) AS max_price FROM houses17h37m50s.warehouses AS w INNER JOIN houses17h37m50s.products AS p ON w.id = CAST_VARCHAR_AS_INT32_WITH_MAX_LENGTH_OF_CAST_VALUE_IS_111784757697071ON_
+SELECT w.module_name, MAX(w.box_price) AS max_box_price FROM warehouses_and_modules_20190711_000705_a1003_d6g5f8m4wk9y3r77z6grhjvzsqx7xnwqj1jm2fhqs99g0r2t91
+SELECT hw.code, COUNT(DISTINCT) AS num_of_boxes FROM WAREHOUSES_BOXES_MAPPINGS_TO_WAREHOUSING_BOXES_MAPPED_TO_HUB_WAREHOUSE_ID_MAPPING_PLANNED_PROD_ORDER_HW_CODE_COMPOSITE_KEY_MERGED_HUB_WA
+SELECT c.tags.tag_name, COUNT(c.item_code) AS num_items FROM category_tags_map_new_20170816_seanctags_3475922_2c0e10_fk_sctags_itemcode_170815_2b2ca0_fk_wcitems_code_170815_
+SELECT COUNT(DISTINCT) FROM RockLocationTableRLT.RockID;
+SELECT COUNT(DISTINCT) FROM Rock_Storage.tags;
+SELECT m.name, c.city_name FROM machine_table_50431985620707277575765707474775775777477777777777777777777777777777777777777777777
+SELECT b.tags.im_code, b.description, w.city FROM BASESPECIFICATIONS.BOXES AS b INNER JOIN WAREHOUSES.WAREHOUSES AS w ON b.w_id = w.id;
+SELECT FROM FROM box_code_list_entry_tbl_cps_0070054767917235548197470565454170957097770407051554545677504505040705175407050
+SELECT w.tags.id, w.code FROM warehouses_tags_map_pkey_index_btree_1705693834_1757076250_to_1910705692_and_1920705692_to_1705693834_btree_175707
+SELECT COUNT(*) AS total_boxes, w.id FROM WAREHOUSES_BOXES_MAPPINGS_VIEW_10050957036807242916400000000000000000000000000000000000000000000
+SELECT c.tags.tag_name, COUNT(DISTINCTCASEWhen) AS total_cases FROM c.cases GROUP BY c.tags.tag_name ORDER BY total_cases DESC;
+SELECT COUNT(DISTINCT) FROM Contents_Warehouses.content_type;
+SELECT SUM(CASEWHENW.from_warehouse_id)FROM WAREHOUSE_CONTENTSWHEREW.to_content_id INNER JOIN CONTENTSCONTEXONTHATTYPEINTEGERTYPETEXTORBITMAPOROTHERCOMPLEXTYPEFINDMINUSWITHTHISMECHANISMHOLDSASLARGELISTOFCONTENTSPROVIDEDBYTHEUSERSTO
+SELECT DISTINCT w.code FROM WarehouseStatusesInPeriodOfTimeExceptionsWSTEAsCapacityExceptionsWSTECAxedToExceedTheirMaxCapacityMsgsMSGsWithCodesWhoseValuesAreGreaterThanTheirMaxCapacityCapacityLimitCapacityExceededMsgCodeCapacityExceededValueOverCapacityExceptionsMsgErrorMessageCapacityOverCapacityExceptionsMsgErrorMessageCap
+SELECT c.tags, c.capacity FROM warehouse_capacities.capacity AS c WHERE c.boxes > c.capacity;
+SELECT SUM(b.value) AS total_value FROM BoxTableBoxesAsValuesTableTableTableBoxesTableBoxesTableBoxesAsValuesTableTableBoxesTableBoxesAsValuesTableValueInWarehouseChicagoBoxesChicagoTotal_value_in_warehouse_chicago_total_value_in_warehouse_chicagoboxesboxesboxesboxes_values_table_total_value_in_warehouse_
+SELECT SUM(total_value) AS total_amount FROM (SELECT total_value, COUNT(*) AS number_of_boxes FROM boxes_in_location_except_chicago_query_grouped.Tags WHERE tag = 'Chicago' GROUP BY tag, total_value) AS t;
+SELECT u.name, u.city, u.state FROM university_record_classic2015_to_2019_v3_0_0_277755554778300417510077610659575150943209806611145257594050
+SELECT u.tags.tag_name FROM universities_tags_map_join_table_128055769137475517045215546756334990057051347118175551977066712528757901770557
+SELECT CITY, ILLINOIS, OHIO, UNITEDSTATES.ByronBurrows2019                 
+SELECT COUNT(DISTINCT) FROM (SELECT UNIVERSE_ID FROM USER_UNIVERSES_JOINED_TO_UNIVERSES_WITHIN_REGION_X_KM_FROM_CENTER_OF_REGION_Y_KM_AWAY_FROM_CENTER_WHERE_X_LESS_THAN_Y_INTERSECT_SELECT_UNIVER
+SELECT MAX(enrollment) AS max_enrollment, AVG(enrollment) AS avg_enrollment, MIN(enrollment) AS min_enrollment FROM university_enrollment_data_all_time_periods_grouped_by_university__over_time__aggregated__yearwise__table__with__20__active__students_only_where__2019
+SELECT u.angular_enrollment_max, AVG(u.angular_enrollment), MIN(u.angular_enrollment) FROM university_data_model_vw_cpe_university_data_model_vw_cpe_university_data_model_vw_cpe_university_data_model_vw_cpe_university_data_model_vw_cpe_university
+SELECT o.org_name, AVG(o.enrollment) AS average_enrollment FROM organization_team_members_join_organizations_teams_to_orgs_with_enrollments_above_the_average_for_universities_with_more_than_50_students_per_school_year_with_a_filter_of_at_least_50_students_per
+SELECT name FROM university_team_members_with_extra_enrollments_after_avg_capacity_increase_percentage_of_average_capacity_change_in_team_members_count_between_teams_with_different_sizes__pct_change__micro_degrees__after_average_capacity_change_between_teams_with_different_sizes__
+SELECT * FROM conference_listing_view.conference_info WHERE conf_status = 'active' ORDER BY conf_name ASC;
+SELECT c.class_name, c.class_number, d.department_name, hc.home_conference FROM classes_table.class_info AS c INNER JOIN departments_table.departments AS d ON c.class_dept = d.dept_id ORDER BY home_conference, department_name, class_name;
+SELECT ON     FROM cis_conferences_teams_leagues_divisions_conferences_years_conf_teams_leagues_divisions_years_conf_teams_leagues_divisions_leagues_divisions_conferences_conf_teams_leagues_divisions_league_divisions_teams_team_draft_order_recent_first_year_of_
+SELECT COUNT(DISTINCT) FROM CONFERENCES_IN_PAPERS_AND_POSTERS_AT_CONFERENCES_CROSSREFERENCE.tags WHERE tags.conf_id = conf_id_1 ORDER BY COUNT DESC;
+SELECT university_name, COUNT(*) AS total_institutions FROM univ_ranked_states_v21010917154727718900000000000000000000000000000000000000000000000000000000
+SELECT COUNTY, TEXAS FROM STATS.govThe LEFT JOIN THEM.gov              
+SELECT AVERAGE FROM (SELECT AVG(enrollment) AS average_enrollment FROM institutions_by_country_and_year_of_graduation_in_US_countries_with_more_than_two_hundred_students_per_year_of_graduation_who_are_not_satellite_partner_institutions_in_the_United_States_or_Can
+SELECT c.tags.WHERE     FROM conferences_by_years_of_expereince_data_by_home_conference_id_1_0001_to_2000_percentile_of_average_university_enrollment_c_1000_to_3000_years_old_conf__1_000_to_2_00
+SELECT c.tags.name FROM ctags_courses_vwJOINSELECtcourses_courses_vwONctags_courses_vw.courseidJOINSELECTCOUNTcourses_courses_vwONctags_courses_vwWHEREctagid INNER JOIN SELECtcourses_courses_vwJOINSELECtags_courses_vwONct
+SELECT c.tags.id FROM (SELECT id, COUNT(users_enrolled) AS users_enrolled FROM ctags_sessions_enrollments_counters_per_conference_id_grouped_by_conferences_id_ordered_by_users_enrolled_descending_nulls_last_limit_100_offset_0_of_1000_items_with_total_count
+SELECT majors.tags FROM majors.major_name, majors.major_code, majors.tags WHERE major_code = '"+major+"' ORDER BY major_code, tags DESC;
+SELECT m.angular_major_code, m.angular_major_name FROM majoer_mgmt.majors AS m ORDER BY m.angular_major_code;
+SELECT COUNT(DISTINCT) FROM majors_table.id;
+SELECT m.categories.category_id, c.name FROM majors_table_010025_01024_01031_01068_01079_01095_01111_01114_01121_01136_01156_01158_01161_
+SELECT * FROM accounting_students_ranked_by_university_with_a_rank_1_on_accounting_major_in_texas_cities_and_states_with_a_city_or_state_of_a_rank_higher_than_1_in_the_us.tags;
+SELECT u.tags.Tag1 FROM u.university WHERE a.major_id = 1;
+SELECT University.letters, COUNT(*) AS number_of_majors FROM RankedMajorCompositeKeyWithRankOneView_vwGLOBAL_20220150718094855am_355706249712a9c75b0db058cad50a1fc87e723c7a5f0d
+SELECT univ_name, COUNT(*) AS rank FROM (SELECT univ_id, univ_name FROM universities_table_new_2019_v3_snapshot.export) AS m INNER JOIN (SELECT dept_major_id, major_number FROM departments_table_new_2019_v2_snapshot.export) AS n ON m.univ_id = n.dept_major_
+SELECT name FROM universities_with_rank_one_info_table.tags ORDER BY name ASC;
+SELECT u.tags FROM universities_without_majors_list_ranking_2020_snapshot_2020_07_31_without_unused_majors_v4.u WHERE length = 5 ORDER BY name ASC;
+SELECT name FROM colleges_list_table_1875729176734509555075795074707407070707570575707575575750505050050550005055500000000000
+SELECT u.Tags FROM UniversityTags.u WHERE u.Tag IN (SELECT t.Name FROM Tags.t WHERE t.Id IN (SELECT m.MajorId FROM Majors.m WHERE m.Name = 'Accounting')) ORDER BY u.UniversityName ASC;
+SELECT University, Wisconsin, USA  FROM ABOUT.comFULL OUTER JOIN INFORMATION.SECURED ON USER IN (SELECT oun FROM UNIVERSITIES_IN_WISCONSIN_STATE_RANKING_INFO_TABLEUU.WHERE ORDER BY o.UNIVERSITY_RANK)   
+SELECT u.tags, u.rank FROM universities_ranked_by_sat_math_and_critical_reading_skills_ratio_ascending_within_region_of_students_who_taking_a_specific_test_with_rank_and_tags_name_and_id_sat_score_ascending_within_region_of_students_who_taking_a
+SELECT MAX(r.tags) AS max_research_points FROM researcher_profiles_view_2015_07_01_to_2016_07_31_v2.researchers;
+SELECT MAX(r.tags_researchpoints) AS max_research_points FROM universities_research_points_info_table_t1347927405789755857275575555555555555555555555555555555555555555
+SELECT name FROM universities_reputation_points_info_tbl_hiveSortByReputationPointsAscendingSELCTUniversityNameFromUniversitiesReputationPointsInfoTblHiveWHEREUniversityNameINORDERBYReputationPointsAscendingNULLSLASTYOURTABLENAMELIKEuniversities_reputation_points_info_tbl_hiveUniversityNameIsNotNULLUNIONALLSELECTUniversityNameFROMUniversitiesReputationPoints
+SELECT u.tags.name, s.reputation_points FROM u.reputation_points AS s ORDER BY s.reputation_points ASC;
+SELECT * FROM UNIVERSE_RANKINGSURFACESUPERIOR_UNIV_NAMEWHERERANKING_VALUEGETERTHREEABOVERFROMUNIVERSE_RANKINGSrANDACCOUNTINGMAJORISCONSIDEREDACADEMICALLYEQUIVALENTTO3ORGREATERTHENSELECTuNINAMEFROMUNIVERSE
+SELECT * FROM UNIVERSE.tags WHERE TAGNAME='Accounting' GROUP BY TAGNAME ORDER BY COUNT DESC LIMIT 3;
+SELECT u.tags.rank FROM u_university_list_master_tags_mapping_view_v20170908_143250_1_20170908_144556_1_20170909_151704_1_20171009_151715_1_20
+SELECT COUNT(DISTINCT) FROM StudentSkyScraper.angular_model WHERE UniversityRank <= 5;
+SELECT universities FROM university_reputation_points_per_year_monthly_trend_table_for_individual_university_with_high_reputation_point_ranked_by_decreasing_order_of_their_reputation_points_trends_for_all_months_and_years_after_the_given_month_year_pair_starting_from_that_month_
+SELECT u.tags.NORMALIZE_SPACES_AND_CASE FROM (SELECT v.name, v.citation_point FROM universities_tags_map_joinable_list_item_view_table_item_uom_15097594675__678727_678727_356977_561567_67
+SELECT name FROM university_listing_details_table127635081412005955100000000000000000000000000000000000000000000000000000000000000000000
+SELECT u.from_state, COUNT(*) AS university_count FROM (SELECT m.from_state, m.to_state FROM map_states_to_regions_for_university_enrollment_lt_3000_filtered_for_higher_education_programs_2_years_old_or_older_than_now_minus_100_years_old_filtered_for_high
+SELECT t.title FROM title_rating_map_temp_table_classification_free_text_features_12345678901234567890123456789012345678901234567890123456789012345678901234
+SELECT m.title FROM movie_ratings_mtx.movie_ratings AS m LEFT JOIN (SELECT movie_id, COUNT(rating) AS rating_count FROM movie_ratings_mtx.movie_ratings GROUP BY movie_id) AS r ON m.movie_id = r.movie_id ORDER BY r.rating_count DESC, m.title;
+SELECT name FROM movie_ratings_table_2017_new_schema_v3.movies WHERE rating = 'G';
+SELECT title FROM movies_list_complete_copy3570718ml_v2ml_v2ml_v2ml_v2ml_v2ml_v2ml_v2ml_v2ml_v2ml_v2ml_v2ml_v2ml_v2ml_v2ml_v2ml_v2ml_v2ml_v2ml_v2ml_v2
+SELECT m.title FROM MovieTitleStgmt_Movies_To_Showings_Vw_Odeon_Theaters_Movies_v1270127_075932_196870_476697773_576759576_17570_4757474747_75
+SELECT m.tags.MUSIC, THEATER, and FROM odeontheatermusic.com, irc.freenode_megamixINNER JOIN movies_for_theatres_and_events_and_artists_and_artworks_and_venues_and_genres_and_sources_and_concerts_and_shows_and_
+SELECT m.movie_title, t.theater_name FROM movies_played_in_theaters_temp_table1234567890_1111111111111111111111111111111111111111111111111111111111
+SELECT m.tags.t1004937451_805502001 FROM (SELECT t.name, t.id FROM taggeditems_v2__movie_theaters__theaters_to_movies_played_by_theater_having_multiple_plays_for_this_tag__t1004937451_805502
+SELECT COUNT(*) FROM Movies_Ratings_100020201016051718456917545165745123456545745165451234567451234567845691754516574512345
+SELECT COUNT(m.tags) FROM mt_tag_movie_10103092648757075555575777577757777577577775777577757775777757775777577757775777577
+SELECT movie_title, COUNT(DISTINCT_CASE_WHEN_CHILD_SEAT) AS total_seats FROM movie_showtimes_distributions_per_theater_hall_seat_number_of_movies_playing_across_all_theaters__where_child_seat__is_not_null_group_by_movie_title_having_max_seats_per
+SELECT * FROM Movie_Info_Table_V20130624_V20170928_V20191024_M15_P20171111_M16_P20200206_M17_P20211101_M18_P20230701_M
+SELECT movie_title FROM movie_info_table_11737979_0745752_0745785_0755755_0757002_0775705_0775052_0770522_0700205_0052207_207
+SELECT m.tags FROM s_movie_genre_map_table.m WHERE s_movie_genre_map_table.m = 757071;
+SELECT COUNT(DISTINCT) FROM MOVIES_THEATERS_ASSOCIATIONS_V2.tags;
+SELECT COUNT(DISTINCT) FROM theater_info.module_t;
+SELECT * FROM Movies_Ratings_TableWHEREMovieNameILIKE__Citizen__ORDERBYRatingNULLSLASTREVERSED__LIMIT1000__OFFSET0__RAWSQL__1__FALSE_1__TRUE_2__FALSE_3__FALSE_4__FALSE_5__FALSE_6__FALSE_7__FALSE_8__FALSE_9__FALSE_10__FALSE_11__
+SELECT AVG(m.tags.FavoriteRating) FROM movies_tags_table_moviestags_movie_movies_tags_movietag_movie_tag_movietags_movie_tags_tags_tags_movietags_movie_tags_ratings_favorite_rating_movies_ratings_favorite_rating_movietag_movie_tags_favorite_rating_mov
+SELECT DISTINCT c.name FROM cinema_movie_showings_pg13_g_ratings_map_table_tombstone_c05619567b07d40560e9fbe50235488dc3a32ee99707dbf09bcfbb39ff5dba7c5b38519567
+SELECT m.tags.MUSIC FROM dbtables.music WHERE c.given_name = 'Ray' ORDER BY m.given_name DESC;
+SELECT theaters.The         FROM clause.The AS FINNER JOIN clause.The AS L ON clause.The IN (SELECT m.movie_id FROM cinema_movies_theater_relationship.THEATRE_ID)        ORDER BY r.rating DESC LIMIT 5;
+SELECT m.tags.MATCHES    FROM tags_movie_theaters_imdb_titles_20170905_fix_t64c0381000b_shard4_replica1_noshard5_node557575_formatSplittable2275705_75705_split_thousand1_
+SELECT m.title FROM movies_theaters_references_movies_sessions_mapping_table_v1025479376798567207760777110257707570007706607070577005775750700750700700
+SELECT is  FROM DOWNTOWN.Theyre  WHERE ALIVE.Youre                                   
+SELECT m.title FROM movie_showtimes_archive_2013_14_q4_december_2014_to_january_2015_q1_sunday_at_9pm__november_1st_2014_to_april_30th_2015_saturday_night_m_title_FROM_movie_showtimes_archive_2
+SELECT m.tags.Xploit2017September 																																																																															
+SELECT title FROM movie_listing_2014_15_2017_89_27_65_34_75_25_97_27_95_73_59_37_25_70_59_35_74_25_76_25_79_58_37_72_58_36
+SELECT ia FROM movies_table_201910311748559556977070767570570557050000777777777000007000070707007077700007077777777
+SELECT title, rating FROM movie_ratings_viewView.title, AVG_RATING_CALCULATED_ON_MOVIE_ID.rating, user_movie_ratings.user_id, users.username AS r, m.title AS m, users.username AS u ORDER BY AVG_RATING_CALCULATED_ON_MOVIE_ID.rating DESC;
+SELECT name FROM movies_ratings_votes_info_tested_unsorted_and_shit_listed_by_rating_descending_order_for_later_sorter_that_is_too_darn_good_to_sort_correctly_so_you_cant_use_it_for_real_movie_ratings_table_or_anything_else_idk_at_
+SELECT t.name FROM (SELECT m.theatre_id, COUNT(m.movie_id) AS num_movies FROM Movie_Theatres_Maps_To_Movies_Table_Mtmtmtmttmmtm1010101010101m010101m01010101010101010101010
+SELECT m.tags.name FROM mtags_theaters_movies_cities_links_mtags_theaters_cities_links_mtags_theaters_cities_links_mtags_theaters_cities_links_mtags_theaters_cities_links_mtags_theaters_cities_links_mtags_theaters_cities_links_mtags_theaters_cities_
+SELECT title, COUNT(DISTINCTcinema_id) AS num_of_theaters FROM movie_cinema_mappings_per_day_2016_2019_2023_2055_0000_0000_0000_0000_0000_0000_0000_0000_0000_
+SELECT title, COUNT(DISTINCT) AS total_theatres FROM showtimes_theater_movie_mappings_by_day_of_week_and_time_of_day_and_date_range_type_20170615_snapshot_1781397758_20170627_0747390077_20
+SELECT c.name, COUNT(m.name) AS movie_count FROM categorys_movies_rating_relationships_table_c_mrrtc20160807011450455655709091617298980307l27xnw2gq59eo27fv97jfh27
+SELECT COUNT(DISTINCT_r.namespace) AS number_of_ratings FROM rating_namespaces_mappings_pairs_v2_sparse_fk_violations_v1_sparse_fk_violation_id_sparse_fk_violation_type_id_sparse_fk_violation_sub_id_fk_violation_constraint_id_fk_
+SELECT COUNT(*) FROM Movies_Rating_Nullable_Movies_Test_Table_t0010057027937596827675401758002675002675002675002675002675002675002675002675
+SELECT COUNT(m.tags) FROM MovieTagsRatingMappingExtension.MovieTagsRatingMapping;
+SELECT m.name FROM movies_theaters_pairs_160457855730200597000000000000000000000000000000000000000000000000000000000000000000
+SELECT m.from_id FROM movies_theaters_showing_at_moment_mwm1024775757575757575757575757575757575757575757575757575757575757575757575757
+SELECT t.name FROM theater_ticket_prices_tbl_temp_3298734987534987575309530985734875430957850098737645075987537456703457678507537
+SELECT c.tags.tag FROM cinema_cinema_tags_map_table_2015_10_23_17_48_55_5859799_0_3554077_0_0_5000_2_1_0_0_0_0_0_0_0_0_0_0_0_0_0_0
+SELECT m.title, m.year, R.name FROM movies_ratings_genres_relationships_table_1024036796_A8552F50_RelationTable1024036796_A8552F50_Relationship_RelationshipTable1024036796_A8552F
+SELECT ia.tags FROM imdb_title_ratings__ratings_table__r4570797371__t2715249370__g6787675707570707757077707070707757075757077775757575
+SELECT m.title FROM movie_info_table123456789012345678901234567890123456789012345678901234567890123456789012345678901234567
+SELECT * FROM movies_titles_to_movie_tids_mapping_table_for_moviestudios_and_genres_and_languages_and_regions_and_countries_of_origin__2015_07_31_07_29_56_ORDER_BY_title_NULLS_LAST__2015_07_31_0
+SELECT DISTINCT r.rating FROM rating_store_listing_ratings_value_mappings_table_v2_ratings_mapping_table_value_ratings_to_be_added_later_and_too_much_data_to_go_into_a_commit_message_1024_characters__c__s__5d789_58797_36
+SELECT m.tags.id, t.title FROM m.tags LEFT JOIN tags_ratings_movie_tally_join_table_100k_ratings_data_r100_500_by_raters_count_r100_tally_100_to_500__1000__500__to__to__500_by_raters_count
+SELECT * FROM Movie_Ratings_Movies_Without_Rating_Table_Movies_Without_Rating_Table_Movies_Without_Rating_Table_Movies_Without_Rating_Table_Movies_Without_Rating_Table_Movies_Without_Rating_Table_Movies_Without_Rating_Table_Movies_With
+SELECT m.tags.title, m.year FROM Movie_Tags_Connection_Ratings_1_2_3_4_5_6_7_8_9_10_11_12_13_14_15_16_17_18_19_20_21_22_23_24_25_26_27_28_29
+SELECT title FROM movie_titles_not_showing_in_any_theaters_yet_db_view_2019_07_19_06_13_50_pm_7zgp_12845154497__2525707085716__7zgp_37554065517__7
+SELECT m.tags.title FROM movie_genre_map2_t1_s20191107154355835026_s2019110715550095452_s2019110715451323562_t2_s2019110715
+SELECT c.tags.id, c.name, p.name, s.name, c.size, c.weight FROM categories_items_sizes_colors_papers_types_seo_tags_text_versions_products_releases_downloads_orders_payments_customers_addresses_carts_shipping_methods_invoices_prices_variants_bundles_shipment_statuses_countries
+SELECT MAX(o.tags) AS client_name FROM orders_tags_map_client_order_status_and_shipment_methods_for_shipping_info_for_orders_in_delivery_or_return_to_order_table_orders_delivered_with_customer_to_shipper_ship_method_in_table_shipping_information_for_orders_in_delivery_or_return
+SELECT SUM(o.tags.weight) AS total_weight FROM orders_tableWHEREorders_table.customer_name INNER JOIN customers_tableONcustomers_table.id_customer_tableIQLEO_WONGGROUPBYcustomer_nameLIMIT1000000000000000000000000000000000000000000
+SELECT SUM(p.tags) AS total_weight FROM packages_tags_join_table_leo_wong_sent_packages_to_table_shipping_rates_and_actual_weight_of_the_product_by_products_id_table_product_and_product_sharing_rates_table_products_id_to_table_product_and_product_sharing_rates_table_products_
+SELECT ql FROM users_profiles_photos_like_view_page_0123456789012345678901234567890123456789012345678901234567890123456789012345678
+SELECT FROM  									  	 							 					 				 		 	   							 	 	     								  	 		   						  	 	    					 				  								
+SELECT A FROM POSITIONS_OF_DIRECTORSWHERENAMELIKE_TURANGA_LEELA_SALARY_AND_POSITION_PERCENTILE_RANK_WITHIN_DEPARTMENT_ORDER_BY_SALARY_DESC_NULLS_LAST_LIMIT_10_PERCENTAGE_OF_THE_TOP_IN_DEPARTMENT_OFF
+SELECT e.tags.education FROM emp_info_view_sriraam_hcpspi_v2019070155426685517374311810150609990513905755370234556536555447775575
+SELECT AVG(s.export_value) FROM internships_info_data_view_temp_120207856975443265555555555555555555555555555555555555555555555555555555555
+SELECT AVG(s.tags.salary) FROM s.tags;
+SELECT Level   FROM Physician_Levels_Tbl2015_to_2018_Mapping_Table_v2.xlsx, which_physician_level_is_this_row_6_2273_757071__757071__757071__757071_physician_level__757071__7
+SELECT AREA   FROM DEPT.OF INNER JOIN PRODUCT_CATALOGUE_ITEMS_FKPJF.PROD_CAT_ID ON DEPT.DEPT_CODE = PROD_CAT_ITEMS_FKPJF.PROD_CAT_ID.CLEARANCE_LEVEL ORDER BY CLEARANCE_LEVEL DESC;
+SELECT COUNT(DISTINCT) FROM Packages_outbound_sending_status_list_pkg_id_fk_tble_pk_id_fkey_to_table_pk_id_fkey_to_table_primary_key_of_outbound_sending_status_list_pkg_id_fkey_tble_primary_key_of_packages_outbound_sending_status_list_pkg
+SELECT COUNT(*) AS total_packages FROM packages_delivered_by_leo_wong_delivery_service_only_for_sure_this_time_2016_only_for_sure_this_time_2016_only_for_sure_this_time_2016_only_for_sure_this_time_2016_only_for_sure_this_
+SELECT SUM(p.tags) AS total_tags FROM packages_tagged_by_users_in_listings_with_user_id_2019_10_06_15_47_54_33_0_to_user_id_2019_10_06_15_48_0_45_pl_1_of_6_users_in_list
+SELECT DISTINCT p.tags.tg_package FROM tb_packages_tags_join_vw2p170309_1542656721_1748728004_1750554237_1752017381_1752820261_1752851079
+SELECT has    		    		 	  	                                    	     	         		    		 	  	                                    	     	       		    		 	  	                                    	     	         		    		 	  	                                    	     	         		    		 	  	                                    	     	           		
+SELECT COUNT(DISTINCT) FROM LW_LEO_PACKAGE_MAPPINGS.Tags, WHERE.lw_leo_package_mappings_id_ref INNER JOIN LW_LEO_PACKAGES_MAPPINGS_REFERENCE_IDSreference_ids_on_l_w_leo_packages_mappings_id_ref_tableONLW_LEO_P
+SELECT SUM(CASEWHEN) AS total_packages_sent_received FROM (SELECT s.user_id, COUNT(DISTINCT) AS num_packages_sent, COUNT(DISTINCT) AS num_packages_received FROM sent_packages_table_name_here_s_user_id_should_be_unique_from_others_sharing_this_project_with_ogden_FROM_TABLE_NAME_HERE
+SELECT a.tags.tag_name FROM aTagsToUsers_tuzs__1_3__aTagsToUsers_tuzs__2_4__aTagsToUsers_tuzs__3_5__aTagsToUsers_tuzs__4_6__aTagsToUsers_tuzs__5_7__aTagsToUsers_tuzs__6_8__aTagsToUsers_tuzs__7_
+SELECT ia FROM users_sessions_activity_log_history_tbl_stg_prd_cstmz_dta_tbl_13072015_195406_25_7580707_v_10_3__7570707_v_7570707_v_10_3__7570
+SELECT ia.tags.tage_name FROM ia.tags INNER JOIN ia.tags_to_articles ON ia.tags.tag_id = ia.tags_to_articles.tag_id GROUP BY ia.tags.tage_name;
+SELECT p.package_number, p.weight FROM packages_by_clients_with_john_in_their_name_pbcjitnpwjniatwcscbjnidbhjgfdcgdgdggdcjhfgdgnbdjhfgdjnbfdgjnbdfjnbdfgdjfnbdfgjbdfghdnbdfgbnfdjngfbndfjng
+SELECT MAX(p.tags_package.wgt) AS heaviest_weight FROM ptags_client_pkg_shipments_map_join_table_temp_join_table_shipment_tag_map_table_temp_where_client_name_ilike_john_or_something_similar_join_table_temp_order_by_heaviest_weight_desc_nulls_last_limit_1_
+SELECT PackageNumber, Weight FROM (SELECT PackageNumber, Weight FROM PackageWeightORDERBYWeighte_DESCLIMIT20rowsLIMIT10rowsOFFSET5000ROWSWHEREPackageNumberINCLUDEINANYFROMTableOfPackages_DISTINCTPackages_NUMBERS.sql) AS T;
+SELECT p.tags, p.weight FROM packages_test_2021_08_04_pure_universe_with_inactive_packages_removed_and_prices_set_to_zero_by_user_s_request_2021_09_30_pure_universe_with_inactive_packages_removed_and_prices_set_to_zero_by
+SELECT c.client_name, COUNT(p.id) AS total_packages FROM clients.clients AS c LEFT JOIN packages.packages AS p ON c.id = p.client_id GROUP BY c.client_name;
+SELECT c.module_name, COUNT(c.module_name) AS number_of_packages FROM clients_with_packages_sent_by_client_name_and_email_addresses_1506271959109407181332c7f8e45d8a0af0d936c1676f7720280d3705
+SELECT c.tags.name, COUNT(p.id) AS total_packages FROM clients_table.cts INNER JOIN packages_table.pts ON cts.id = pts.client_id GROUP BY cts.name;
+SELECT m.export_id, COUNT(*) AS num_packages, SUM(CASE) AS total_value FROM m.exports GROUP BY m.export_id ORDER BY num_packages DESC;
+SELECT c.name FROM clients_table123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
+SELECT c.namespace FROM client_package_counts_temp_table2021_06_09_01_47_53_pm_utc_client_package_counts_temp_table2021_06_09_01_53_57_pm_utc_client_package_counts_temp_table2021_06_09_01_5
+SELECT xtable FROM mpla_coordinates_table_view_final_srt_only_with_name_and_id_without_blank_nor_dashes_mars_coords_view_1490927537550285114_757071_757075_761111717171717
+SELECT xtable.tags_to_map.planet_name FROM tags_to_map.planet_coordinates WHERE tags_to_map.planet_name = 'Mars'
+SELECT * FROM planet_coordinates_and_names_in_alphabetical_order_of_name.name ORDER BY name ASC;
+SELECT p.tags.tag_name FROM planet_tag_map_backup_180925_to_180926_migration_planet_tags_backup_data_2022_09_25_14_19_37_630_to_2022_09_26_02_00_52_555_to
+SELECT * FROM shipments_management_listing_info_50671435021957950671435021957950671435021957950671435021957950671435021957950671435
+SELECT o.tags.delivery_id FROM o.order_tags WHERE t.user_id = u.user_id;
+SELECT shipment_id, order_date FROM shipments.SHIPMENTS ORDER BY shipment_id;
+SELECT * FROM shipments_table.tags;
+SELECT ia_shipment_id FROM shipped_items_listings_3097467125_mars_south_1_c018_r001_i001_l017_v001_a001_u001_p002_f000_t001_g003_ta001_va0
+SELECT shp.tags FROM shipments_table_view_test_shipments_v15_03_27_2023_01_10_34_PM_UTC_0100_Shipment_Table_View_Test_Shipments_v15_03_27_2023_01_10_34_PM_UTC_010
+SELECT ASSOCIATES 				   				   				   				 				   				   				 				 				    				   				    				  
+SELECT s.tags.mars_shipment_id FROM turanga_leela_sales_tag_map_table_v2_0_0_0_3_t_l_s_m_r__p_u_o_t_e_r__f_r_o_m_m_a__w_h_o_n_e__r_e_f_r_e_s_h
+SELECT SHIPMENTS FROM PLANETS.MARS, TRANSFERED.IMPORTANT ORDER BY TIME.SHIPMENTS ASC   									                                                                                                                                                    
+SELECT s.tags.t_shipment_id FROM t_shipments_with_tags_mars_only_for_leela_only_20190730_20200831_test_table_for_testing_paging_and_search_ability_of_the_feature_in_an_efficient_manner__without_affecting_any_other_tables_or
+SELECT p.name, COUNT(s.shipment_id) AS total_shipments FROM planet_shipments_table_p1705201603050250024983370620905076617014675757100279501743757575757575
+SELECT ia FROM shipment_data_for_each_shipment_per_planet_snapshot_v107052019a_44330778657189_md57c3b1fbbce8d22bd24e951fc16b1bf76f1e897542c706571
+SELECT p.name, COUNT(s.shipment_id) AS count FROM PlanetaryShipmentMappingMap_tbl_uqkjhgdsfghsdgfjhfdsgfjhdshfgjhdsfgfsdgfjhdshfgjhdshfgsdgfdsga12345789009876543210123456789
+SELECT a.tags.p, b.sname FROM (SELECT sname, COUNT(sname) AS tag_count FROM tagsgps_shipments_all_couriers.tags GROUP BY sname ORDER BY tag_count DESC LIMIT 1) AS b INNER JOIN planets_all_couriers.planets AS a ON b.sname = a.p;
+SELECT s.manager_name, COUNT(s.shipment_id) AS total_shipments FROM shipments_management_dept_vw_smd_table_vw_smt_view_smt_table_view_vw_smt_table_view_vw_smt_table_view_vw_smt_table_view_vw_smt_table_view_vw_smt
+SELECT c.tags, m.manager_name FROM company_shipment_tags_map_view_v20190715_010113124450125866899312717279427026307575950146703064705140706705
+SELECT TIMESTAMP FROM shipments_mars.shipped_time;
+SELECT SUM(p.tags_weight) AS total_weight FROM packages_on_mars_station_or_lunar_module_or_other_stuff_on_the_farm_p_s__3115076709065740_d5a7e0ae5b0dac2f20fdab87cdd389a80_g
+SELECT p.tags.name, SUM(p.total_weight) AS total_weight FROM planetary_tags_join_table_pkg_shipments_tbl_psh_shipped_to_planet_tbl_plants_with_ships_tbl_plant_shippings_tbl_packages_tbl_package_shippings_tbl_ps_shipped_to_ps_shipped_by_tbl_packaging_tbl
+SELECT p.tags.name, SUM(pl.mass) AS total_mass FROM planet_table_sphinx_idx_01234567890012345678901234567890123456789012345678901234567890123456
+SELECT p.name FROM PlanetarySystems.Planet AS p WHERE CAST_AS_FLOAT_TYPE_OR_NULLIF_NULL_VALUE_IS_GREATER_THAN_CONSTANT_30_DOT_0_NULLIF_NULL_CAST_AS_DOUBLE_PRECISION_FLOAT_TYPE_OR_NULLIF_NULL_CAST_AS_DOUBLE_
+SELECT p.from_planet, SUM(p.total_shipment_weight) AS total_shipment_weight FROM planetary_systems_with_ships_and_population_data.planets_table AS p GROUP BY p.from_planet, p.total_shipment_weight;
+SELECT DISTINCT p.name FROM package_shipping_events_packages_and_recipients_addresses_bookmarks_references_products_to_ships_by_people_with_emails_to_send_sms_text_messages_to_other_phones_of_other_people_with_email_addresses_for_shipping_notifications_and_other_things_to_ship_by
+SELECT COUNT(DISTINCT) FROM messages_sent_by_zapp_brannigan_shipped_on_omicron_persei_8_pkg_05_61_2023_16_58_47_pm_to_3_10_34_9_am_march_14th_2023.tags_are_good_now;
+SELECT FROM     FROM ophelix.star WHERE o.name IN (SELECT p.name FROM planetarySystems.planets) ORDER BY o.distance DESC LIMIT 10;
+SELECT COUNT(DISTINCT) FROM o.tags_shipped WHERE ot.status = 'shipped' ORDER BY ot.order_id;
+SELECT p.package_number, p.weight FROM packages_table20090528141756957000000000000000000000000000000000000000000000000000000000000000000
+SELECT p.package_number, p.weight FROM packages_info_table_view_176947281507472815074728727570757470707574707570707070707470747074747070707070707
+SELECT e.name FROM employeee1874307245.employee AS e WHERE e.id IN (SELECT id FROM employeee1874307245.employee WHERE clearance = 'no_clearance');
+SELECT e.angular FROM Employee_Clearances_On_Mars_e2m_JoinTable_jte2mjtae2m_jtae2mjtae2m_jt_jtae2mjtae2m_jtae2mjtae2m_jt_e2m_jte2mjtae2m_jtae2mjtae2m_jt_e2m_
+SELECT e.name FROM employee_table30102592716802e5c0fe0c2f34a47eff026e9e45a47eff026e9e45a47eff026e9e45a47eff026e9e45a47eff026e9e45a47eff0
+SELECT emp.tags.tag_name FROM omega3_employees_clearances_map_to_tags_table_tgcmttgttcmtmtaeelctaeiitvtcvaeitvcgaeaicgteiaedceitcaeatgtceaegtcggceagcaeitcaeaecgaeaicecgcaeatgcatcaeatcegaeaegtceaegtc
+SELECT p.name FROM planet_employee_access_control_list_10_524087_vw_10_524087_vw_01_524087_vw__10_524087_vw__2_524087_vw_03_524087_vw_04_524
+SELECT DISTINCT p.tags FROM planet_access_control_list_entry_view_by_user_with_clearance_and_satellite_id_view_by_planet_with_satellite_id_table_1.tags WHERE planet_access_control_list_entry_view_by_user_with_clearance_and_satellite_id_view_by_planet_with_satellite_
+SELECT e.name FROM employee_tableWHERESalaryBETWEEN5000AND10000ORDERBYe.nameNULLSLAST;
+SELECT e.from_date, e.to_date, e.first_name, e.last_name, s.salary FROM employee_salaries_view_temp20160517_20160723v2e170927e77e592475783509e87e0e967e7151775709
+SELECT * FROM employee_table_nameWHERESalary_above_average_salary__or_higher_than_5000__se_l_a_vg_a_n_e_s__w_h_o_r_e_a_d_o_b_e__s_a_l__a_v_e_r_a_g_e_ANDSalary_above_average_
+SELECT e.namespace, e.locality, AVG(e.salary), COUNT(CASEWHENe.salary) AS total_with_higher_avg FROM employee_tabelledbms_dev.employee_table GROUP BY e.namespace, e.locality;
+SELECT FROM  		   		 	  	    	      	    		     	     		   	   	   	   	   	   	    	       		   	    		    	    	       		    			    	     		    	       		    		    		 	      		    	   	   	  		   		   	   
+SELECT COUNT(DISTINCTCASEWHENEMPLOYEE.exports.WITHRESPONSIBILITY)FROM EMPLOYEEeWITHJOBTITLEWHEREEXISTSJOBSWITCHINGBETWEENMarsandEarthVIEWWITHPRINTEDJOBSWITCHINGJOBFROMMARSANDEARTHVIEWJOBSPRINTEDONMARS
+SELECT ia FROM games_stats_weekly_games_played_home_away_team_hometead_id_away_team_id_week_of_day_year_id_league_id_season_id_division_id_conference_id_day_part_id_game_part_id_status_id_date_last_updated_by_user_id_last_updated_
+SELECT COUNT(g.game_id) AS game_count FROM games.games_for_team_by_year WHERE t.team_id = g.home_team_id ORDER BY game_count DESC;
+SELECT Title, COUNT(DISTINCTCASEWHENDeveloper_IDNULLTHENTitleEND) AS units_sold FROM Games_ordered_by_players_or_devices_without_developers_in_title_case_when_title_is_null_then_title_end_group_by_title_order_by_units_sold_desc_nulls_last_limit_10000000
+SELECT game_name, developer_name, SUM(units_sold) AS total_units_sold FROM sales_data_per_game_per_developer_and_platform_combo_modified_10_29_2023_final_2024_01_2025_final_30_07_2025_final_31_10_2025_
+SELECT COUNT(AVG_sales) FROM (SELECT AVG_sales, COUNT(*) AS total_games FROM games_data_nintendo_excluding_siblings_and_self_join_excluding_Nintendo_group_by_region_id_NULLS_LAST_GROUP_BY_region_id_NULLS_LAST_WHERE_exclude_from_compilation_IS_NULL_OR_
+SELECT SUM(COUNT) AS total_sales FROM sales_data_sales_per_product_id_monthly_avg_count_millions_not_nintendo_where_is_null_nintendo_sid_group_by_product_id_month_is_not_null_nintendo_sid_not_null_avg_count_millions_not_nintendo_sid_not_null_
+SELECT ia.tags_to_market_districts_map FROM ia.platform_name, ia.market_district_name;
+SELECT d.name, m.name FROM Distributions_Market_Maps_Table.District_Map AS d INNER JOIN Market_Master_Table.Markets AS m ON d.market = m.id;
+SELECT p.Tags, p.Id FROM PlatformsWithRankingAndDownloadsCountExtendedModelImplBaseModelAsSubQueryBaseModelImplBaseModelImplBaseModelImplBaseModelImplBaseModelImplp.Tags, p.Id, FROM.PlatformsWithRankingAndDownloadsCountExtendedModelImplBaseModelAsSubQueryBaseModelImplBaseModelImplBaseModelImplp WHERE p.Tags IN (SELECT t.Tag FROM TagsAsSubQueryBaseModelImpl
+SELECT * FROM Platforms_with_download_rank_1.ORDERED_BY_DOWNLOAD_RANK;
+SELECT p.player_id, p.player_first_name, p.player_last_name, r.team_name, o.year_of_birth FROM playerspitchingstatsxrefpxr20142015.players AS p INNER JOIN teams.teams AS t ON p.team_id = t.team_id   	    	   	   	   	   	   	   	
+SELECT PLAYER, MIN(YEAR) AS MIN_YEAR, MAX(YEAR) AS MAX_YEAR FROM PLAYERS_GAMES_STATS_TEMPORARY_RANKINGspsc2317690452s8709fhgd760vgf0g40927vh0g4h7v0g4h7v
+SELECT * FROM Players_2019_Ranking_2000_3p_7mgd.tags WHERE player_id = 757071 ORDER BY player_rank ASC;
+SELECT count FROM player_stats_2019_2020_bkz_players_ranked_by_points_per_game_ranked_by_year_of_birth_desc_ranked_by_year_of_birth_desc_within_their_year_of_birth_rank_and_player_stats_2019_2020_bkz_
+SELECT name FROM players_table_name_change_request_player_details_to_be_used_in_code_gen_for_the_sake_of_conciseness_in_comments_order_by_name_ascENDING_NULLS_LAST.name;
+SELECT p.tags.name FROM players_tags_cache_view_pgpv21058390746977575747477477777777777777777777777777777777777777777777777777777777
+SELECT * FROM player_rankings_yearly_bests_by_college_name_and_position_list_ordering_descending_by_rank_of_year_to_date_year_within_limit_of_5000_players_listed_for_webpage_display_only_get_first_25_records_if_more_than_25_players_in_
+SELECT p.angular_rank FROM player_profiles_vw_extended_2018_2019_team_ranking_2019_season_ordering_2019_team_ranking_2020_season_ordering_2020_team_ranking_2020_team_ranking_2021_season_ordering_2021_team_
+SELECT name, rank FROM player_ranks_mario_world_level_75_2016_ranked_by_points_descending_order_within_the_day_of_2016_03_04_past_the_start_of_the_new_year_s_resolution_and_otherwise_use_name_and_rank_from_player_ranks_m
+SELECT * FROM PLAYER_STATS_MERGED_TO_PLAYERS_WITH_GAME_NAMES_AND_RANKS_2013_07_15_WHERE_GAME_NAME_LIKE_SUPER_MARIO_WORLD_ORDER_BY_TIMESTAMP_NULLS_LAST_AND_RANK_ASCENDING_LIMIT_1
+SELECT d.tags.id, d.name FROM (SELECT t.name, s.tournament_id, t.player_id, p.first_name, p.last_name, p.draft_pick, row_numberOver     FROM teams_tournaments_players_a_college_only_full_join_to_team_player_details_table_with_slack_tourney_id
+SELECT ia FROM games_played_by_players_at_auburn_college_football_team_join_date_range_12_years_ago_to_now_WHERE_player_id_IN_SELECT_player_id_FROM_auburn_college_football_team_in_given_time_range_12_years_ago_to_now_GROUP_BY
+SELECT AVG(COUNT) AS Average_Units_Sold FROM (SELECT u.exported_units, COUNT(*) AS count FROM player_unit_expo_time_logs_guard_players_v2.player_id_list GROUP BY u.exported_units) AS u;
+SELECT ORDINALITY FROM POSITIONS_IN_GAMES_PLAYED_BY_GUARDS_OF_PLAYERS_WHO_HAVE_THE_POSITION_GUARD_SEL_ORD_ID_6712854_827509_DISTINCT_VALUES_INCLUDING_NULLS_FROM_GAMES_PLAYED
+SELECT tg.title, p.platform_name FROM games_with_regions_and_platforms_join_table_v2_tg_pratdjpq3t6b7u1n0r7n9dbrc5o0i0e9gjf7aqb9h98mjq75g3o7rgnfsdp4tg6gqk5u2r7
+SELECT t.tags.title, p.name FROM games_genres_tags_map_temp_v2gmtmgtm307579581446sgtmgtm307579581446sgtmgtm307579581446sgtmgtm307579581446sgtmgtm3
+SELECT * FROM games_listing_games_for_pc_with_marketing_title_as_like_this__platform_in_region_a_s__or__platform_in_region_b_s__where______LIKE___OR___LIKE___.replaceAll___FIRST_PLATFORM____SECOND_PLATFORM__with_______FIRST_PLATFORM______OR_______
+SELECT GAMES FROM AROUND.threadsINNER JOIN PAGESFIRST_THREAD_PAGELAST_THREAD_PAGECURRENT_FORUM_IDFORUMSUBFORUMSGallerySubForumsUSERSINCLUDING_SUBSCRIBED_TOPICSINSIDE_REPLY_FORMFLAGSLAST_POST_IDINSIDE_POST_FORMG
+SELECT f.name, COUNT(g.game_number) AS game_count FROM franchises_with_games_without_duplicates_and_mergers_resolved_excluding_pure_mergers_f1627e03a49871d00b7a9f5c59da1afd0ff04fd7a9f753b8f1f7d7
+SELECT ouncer, SG, FN, etc.fractions_in_games  FROM player_team_statistics_2019ftl_austin_selecT_SG_FN_etc_fractions_in_games_by_player_2019ftl_austin_seleCt_SG_FN_etc_fractions_in_games_
+SELECT COUNT(DISTINCT) FROM franchise_game_listing.franchise_id WHERE game_id IN (SELECT game_id FROM game_listing_by_tournament_and_level_of_play_for_season_and_day_of_week_with_holes.tournament_and_level_of_play_for_season_and_day_of_week_with_holes) GROUP
+SELECT ia FROM games_teams_season_league_tourney_match_stats_history_team_stats_team_name_year_team_id_league_tourney_match_stats_history_match_id_year_team_id_league_tourney_match_stats_match_id_year_team_id_league_tourney_match_stats_team_name
+SELECT c.name FROM company_franchise_associations.company AS c GROUP BY c.name ORDER BY c.name;
+SELECT DISTINCT f.tags FROM franchise_games__franchise__franchise__franchise__franchise__franchise__franchise__franchise__franchise__franchise__franchise__franchise__franchise__franchise__franchise__franchise__franchise__franchise__franchise__franchise__franchise__franchise__franch
+SELECT name FROM players_without_games_listing_table_rows_from_join_table_and_table_of_game_players_table_only_to_avoid_duplicate_entries_in_joined_listing_table_if_player_played_more_than_one_game_within_day_of_each_other_otherwise_it_is_repeated_for_every
+SELECT ia_player.tags.id, COUNT(ia_game.home_team_id) AS games FROM ia_player_tags_join_games_to_players_and_teams_as_visitor_in_games_with_team_from_other_team_zone_or_league_than_current_zone_or_league_of_home_team_id_is_not_
+SELECT ia_games.tags_auburn_college FROM ia_games.tags_oklahoma_college WHERE ia_games.tags_oklahoma_college.name = 'A' ORDER BY ia_games.tags_oklahoma_college.name;
+SELECT * FROM games_played_by_college_athletes_2019_gp_07_25_2023_14_27_57_567_770777_7770_777_0_7777707770_7707_0777_70777707
+SELECT * FROM game_franchise_game_of_day_special_feature_linkage_gfdlglg100000020140625081735355851757054054540545454054540540540540545405405
+SELECT f.tags.tag FROM f.franchise_franchisetags WHERE f.franchise_id = 757071;
+SELECT t.name FROM teams_games_team_positions_listings_combined_2017t.name AS t WHERE t.position_id IN (SELECT p.team_position_id FROM players_team_positions_listings_combined_2017p.team_position_id AS p WHERE NOT IN (SELECT g.home_team_id, g.away_team_id FROM games_games
+SELECT GUARD FROM POSITION_TITLES_NOT_PLAYED_BY_GUARDS_PLAYERS_ONLY_ORDER_BY_PLAYER_NAME_NULLS_LAST_DISTINCT_CASE_INSENSITIVE_ORDER_ESCAPE_CHARACTER_PREFIX_TO_A_PLACEHOLDER_CHARACTER_UNICODE_CODE_
+SELECT p.name, SUM(s.profit) AS total_profit FROM PressesInStockageGroupsInSalesOrdersAsSuppliersToCustomersSoftwareAsSuppliersInPressesInStockageGroupsInSalesOrdersAsSuppliersToCustomersSoftwareAsSuppliersInPressesInStockageGroupsInSalesOrdersAsSuppliersToCustomersSoftwareAsSuppliersInPressesInStockageGroupsIn
+SELECT p.name FROM Presses_With_Profit_By_Year_DESCENDING_SORTED_BY_PROFIT_pwpydspbysyrpdpwpydspbysyrpdhvvapvfyuavpvfhgfjvguheiudgfjhuhegjgufhejfugjfehgfugjfehgfuhgf
+SELECT p.tags.BLOGGERS FROM publishers_sales_data_2008_2013.publisher WHERE SUM_SALES > 15.0 GROUP BY PUBLISHER_NAME, MONTH ORDER BY PUBLISHER_NAME, MONTH;
+SELECT p.name FROM PressBox_PressProfitReportingTempTable.PROFIT_REPORTING_TEMP_TABLE WHERE CAST_AS_DATE_TIME.YEAR_OF_SALES > 2017;
+SELECT AVG(profit) AS average_profit, MAX(profit) AS max_profit FROM presses_press_profit_history_all_years_summed_up_for_one_country_in_a_year_grouped_by_year_and_country_id_order_by_year_country_id_nulls_last_avg_profit_max_profit_first
+SELECT date_truncCkick, AVG(profit) AS avg_profit, MAX(profit) AS max_profit FROM (SELECT date_truncCkick, profit FROM daily_profit_loss_table.profit_loss WHERE date_truncCkick >= CURRENT_DATE ORDER BY date_truncCkick DESC LIMIT 720) GROUP BY date_truncCkick;
+SELECT p.publisher, SUM(p.price) AS total_spend FROM PublisherPriceHistoryStep3MonthsAgoStep4MonthsAgoStep5MonthsAgoStep6MonthsAgoStep7MonthsAgoStep8MonthsAgoStep9MonthsAgoStep10MonthsAgoStep11MonthsAgoStep12MonthsAgoStep13MonthsAgoStep14MonthsA
+SELECT p.name, SUM(p.price) AS total_monthly_profit FROM Press_Prices_History_Table_Name_Here_phtnh_comma_delimited_csv_file_of_price_history_table_name_here_pricing_scheme__cs_phtnh__comma_pricing_scheme__ps__comma_start_date__sd__end_date
+SELECT PUBLISHER, MAX(PROFIT) AS max_profit, MIN(PROFIT) AS min_profit FROM (SELECT p.name, SUM(sale_price) AS profit FROM sales_item_order_info_tbl_1309307643675825851266704244567231559507
+SELECT date_trunc, SUM(CASE) AS total_sales_amount FROM sales_performance_data_by_date_grouped_by_date_monthly_aggregated_view_by_product_id_year_month_sales_product_id_price_sales_price_distribution_channel_sales_price_distrin_chnl_order_status_shipped_customer_order_status_sh
+SELECT AVG(EXTRACT_YEAR) FROM EXTRACT_YEAR_OF_BIRTH_DATE_FROM_STRING_DATE_OF_DEATH_DAY_MONTH_YEAR_FORMAT_YEAR_COMPONENT_STRING_DATE_OF_DEATH_DAY_MONTH_YEAR_FROM_STRING_DATE_OF_DEATH_DAY_MONTH_YEAR_FORMAT_YEAR
+SELECT * FROM authors_table_2510475649984042113515357071720535207725575205653575757205670567570567527057077777575757575
+SELECT g.gender, AVG(a.age) AS average_age FROM author_details_table2531740569_0016003849_0017007828_0017009385_0017010541_0017012367_0017013757
+SELECT g.gender, AVG(EXTRACT_YEARFROMbirth_date) AS average_age FROM author_details_vw_gdadh53487ads6f4dsa6fds56fd98s6f4dsaf7ds98fs9d8fs98sd9fs98fdsafd9safdsafd9safdsa6f4dsa6
+SELECT AVG(CASEWHENAGEBT30) AS average_age FROM (SELECT AVG(CASEWHENAGEBT30) AS average_age FROM (SELECT CASEWHENAGEBT30 FROM authors_profile_info_table_view_v2_v5_v4_v1_v2_v5_v3_v4_v1_v2_v5_v3_v4_v
+SELECT COUNT(DISTINCTa.tags) AS number_of_authors FROM users_bookmarks_with_age_tagged_books_and_sex_filtered_for_given_age_range_sex_and_gender_where_age_is_less_than_30_and_sex_is_male_group_by_gender_having_count_of_distinct_tags_greater_
+SELECT title, author, date_published FROM books_table_1b7d6a8742c3e506950f50a2f87bf857d1a71fc19f31c0e9c83970fdee75eb55ff1c2ea8b0a1bc8774b6c71659d
+SELECT b.title FROM books_table2018b3c3b1a6b7c97257524d0e5fdf63bbb405b92574f0dfe712c0413ca278aedbc07172ab114dde59e0ea970733c59f037
+SELECT s.name, COUNT(b.title) AS book_count FROM serieses_books_link_table_071209abab56713034e8b001157dd12ab7a757070fb35e4dcd056f26f875f6757bf4757470717273
+SELECT COUNT(DISTINCT) AS book_series_count FROM book_series_lookup_table_2015_10_01_17_34_49_00_00_00_00__00__00__00___00___00______00___00___00_____00_00__00_00___00__00__
+SELECT b.title, b.pub_date FROM book_sale_qty_daily_best_of_day_view_v2_temp_070815_090815_343300_345700_352400_357800_421540_426750_432000
+SELECT title, date_trunc_month, SUM(price) AS total_sales FROM sales_per_day_product_listings_vwgp_701570_20200625_064300_UTC_USD_GBP_JPY_EUR_INR_CNY_SGD_THB_MXN_CHF_ZAR_KES_
+SELECT books FROM the_books_tableWHEREbook_count_more_than_given_number_of_copies_sold_in_the_past_month_sales_are_not_considered_valid_for_recommendation_is_active_and_user_is_not_blocked_or_blocked_user_has_not_left_a_review_or_has_left_a
+SELECT * FROM Books_with_sales_amount_above_1000_or_below_500_condition_book_series_name_is_not_null_condition_sale_amount_is_not_null_books_with_sales_amount_above_1000__500_condition_sale_amount_is_not_null__where_book_series_name_is_not_null
+SELECT a.name, b.name, c.name FROM authors_published_in_series_mm_lt_series_lt_series_lt_series_mm_series_lt_series_lt_series_lt_series_mm_series_lt_series_lt_series_lt_series_lt_series_mm_series_lt_series_lt_series_lt_series_lt_series_lt_series_mm_
+SELECT DISTINCT a.author_first_name, a.author_last_name FROM mm_lt_book_authors_mapping_table_1_2017_01_01_15_32_43_070955345678Zmwgkfhqjgfdsjkfhsdjkghsdfhsdkjfhsdkfjhsdkf
+SELECT a.name, a.age FROM author_table1767793048721548721548732174721784721347417472178374714721747374757473727475727475727
+SELECT a.tags.tag FROM authors_with_books_listing_views_v20190715_183640_762743_757071_757072_757073_757074_757075_757076_757077_75707
+SELECT a.name FROM author_book_relationship_tableaabrtaabbRMJiJo7023754717517575175757575175175175175757517517517517575175175175757517517
+SELECT a.name FROM author_book_counts_view_v1_30_04_2020_18_57_56__v2_31_04_2020_19_07_45__v2_32_04_2020_20_26_51__v1__v2__v3__v4__v5__
+SELECT b.title, b.author, b.publisher FROM (SELECT b.title, b.author, b.publisher, row_numbered_by_date_sold FROM sales_book_listing_view_hive_pig_udf_073725454091875970588763768757434774777
+SELECT b.title, a.name, p.name FROM (SELECT b.book_id, MAX(b.sales_rank) AS max_sales_rank FROM book_sales_ranking_by_year_grouped_by_book_id_year_and_customer_country_code_region_city_and_retailer_id_and_market_id_store_id_store_name_and
+SELECT p.name, SUM(s.amount) AS total_book_sales FROM books_sold_in_period_by_press_p14057612201935852323.txt GROUP BY p.name;
+SELECT p.from_press, SUM(s.amount) AS total_book_sales FROM books_sold_details_temp_table_2019_03_22_v1_07_54_PM_04_30_UTC_to_5_30_PT_2019_03_25_V1_08_00_PM_05_00_UTC
+SELECT p.name, COUNT(b.title) AS book_count, b.publisher FROM Press_Publisher_Relationship_Table_2016_Q2_01_253784691410072956_p2722957777_fk_book_press_fk_publisher_press_title_press_publisher_rel
+SELECT p.name, COUNT(b.sale_amount) AS number_of_books FROM PressesAsPublishers_Books_Sales_Above_1000sellers.PressesAsPublishers_Books_Sales_Above_1000 GROUP BY p.name;
+SELECT au.tags.title FROM articles_tags_map_auau7153948762017675757575757575757575757575757575757575757575757575757575757575757575
+SELECT a.name FROM books_authors_join_tablea.book_id, a.name AS ORIGHT JOIN authors_tableat.author_id ON a.id = at.author_id ORDER BY count DESC LIMIT 1;
+SELECT a.name, a.gender FROM Author_published_book_count_max_book_title_max_book_year_max_book_author_MAX_book_title_MAX_book_year_MAX_book_author_MAX_book_title_MAX_book_year_MAX_book_author_aapcabtmaubtaubtaudatttatauttautdaaacaaaattttaut
+SELECT a.name, a.gender FROM Author_Info_Table_One_Schema_Name_v20180530_140718_906317091007895a97f9c8b3ed8d16da6078954077e2542a6e577e0c506574
+SELECT au.au_id, au.au_fname, au.au_lname FROM author_t_book_accordance_view_v2_temp_2013_07_09_04_22_55_07_amendment_removal_2013_09_09_22_30_26_amendment_removal_201
+SELECT a.author_id, a.first_name, a.last_name FROM author_award_journal_press_assoc_table_vw_accor_journals_only_for_authors_awards_w_press_by_author_id_award_id_and_journal_id_vw_view_award_journal_press_assoc_table_accor_journals
+SELECT p.name, SUM(b.profit) AS total_profit FROM Presses_With_More_Than_Two_Books_In_Yearly_Period.dboGrouped_Press_Yearly_Profits AS g GROUP BY p.name;
+SELECT a.title, a.year_published, SUM(b.price_sold) AS total_profit FROM authors_books_sales_data_32k18b45f9a07cbd9bce7e526972bb2d22f415d7d8c0fdbeb76d4abfb5d5b3a1d3707
+SELECT COUNT(DISTINCT) FROM author_book_reviews_publications.tags;
+SELECT p.name FROM authors_posts_crosstab_view_bkpap20180517145639_vw20180517155051605aap20180517155051605aap20180517155051605aap20180
+SELECT * FROM authors_table_name.a;
+SELECT * FROM authors_details_20150702_3706505517_1000000000000487059757175707574757275707775757775707077707777070777777
+SELECT COUNT(DISTINCT) FROM my_table.id;
+SELECT name, last_name FROM authors_table_20170925a35c0158e65d37f0b71ae44eb7e3556227c9c1be4f124f0eecb70dcec17571fa01feddb54b9ddbfa57c4d751847
+SELECT TEXT FROM PAGES.export_text_items_from_pages WHERE page_id IN (SELECT page_id FROM pages_with_text_items_cache_by_page_id_and_type_code_AND_date_trunc_table_start_time_stamp_BETWEEN_107072599672826_AND_141315717
+SELECT COUNT(DISTINCT) FROM publications_author_papers_data_t.Tags;
+SELECT * FROM Documents_tbl.phtml;
+SELECT d.id, d.title FROM Documents_en_GB_0135187942_1000_1_0_0_0_7685757_770707_772727_774747_776767_780780_782727_784747_
+SELECT * FROM Documents_Table.tags WHERE tags.tag = 'China'  ORDER BY documents_table.title ASC;
+SELECT a.author_id, COUNT(a.document_id) AS num_documents FROM authors_with_docs_and_timespan_info_v231798273401723187623718276518272178651072819284724727721727777
+SELECT au.from_user, COUNT(au.from_doc) AS doc_count FROM AuthorDocumentRelationshipViewGroupedByFromUserInAuthorDocumentRelationshipViewToDocumentViewResultSet147536706355387957205800159357440740754077561757574757050
+SELECT a.author_id, COUNT(a.document_id) AS num_of_documents FROM AuthorDocumentRelationshipTable.author_id AS a GROUP BY a.author_id ORDER BY num_of_documents DESC;
+SELECT DISTINCT p.tags FROM projects_tags_map_old_to_new_old_to_new_old_to_new_old_to_new_old_to_new_old_to_new_old_to_new_old_to_new_old_to_new_old_to_new_old_to_new_old_to_new_old_to_new_old_to_new_
+SELECT process_id, process_name, process_description FROM processes_ptt_view_175707175707175707175707175707071757071757071757071757071757070717570717570717
+SELECT process_name FROM processes_processes_table_next_process_id_9.tags;
+SELECT SUM(CASEWHEN) AS total_success FROM (SELECT CASEWHEN, COUNT(*) AS num_outcomes FROM process_outcomes_table_name_hereWHERECASEWHENISINCASEWHENLISTGROUPBYCASEWHENORDERBYNUM_OUTCOMESDESCNULLSLASTLIMIT5000000000000000000000000000000
+SELECT FROM FROM PROCESS_OUTCOMES_CODES_DESCRIPTIONS_TAB_AOI_0757967123465100000000000000000000000000000000000000000000000000000000
+SELECT TIMESTAMP, PID FROM PROCESS_OUTCOMES_LOG_TABLE.angular2App WHERE RESULT = 'SUCCESS' ORDER BY TIMESTAMP ASC;
+SELECT STATUS FROM PROCESS_STATUS_TABLE_NAME_HEREWHERE_ID_IS_PROCESS_ID_HEREORDER_BY_TIMESTAMP_DESCENDING_NULLS_LASTLIMIT_10000_ROWS_ONLY_GLOBALLY_UNIQUE_IDS_ONLY.id;
+SELECT ps.code, ps.description FROM process_statuses_lookup_table_12345678901234567890123456789012345678901234567890123456789012345678901234567890
+SELECT ql_name, STATUS FROM tb_queriesql_query_name_status_map_ct_selecql_name_from_tb_queriesql_query_name_status_map_ct_where_ct_is_1707547360_and_status_is_s_and_se_s_q_n_a_m_p_c_t
+SELECT COUNT(DISTINCT) FROM employee_details.tags;
+SELECT staff_id, first_name, last_name FROM staff_members_list_tbl_staff_members_list_tbl_staff_members_list_tbl_staff_members_list_tbl_staff_members_list_tbl_staff_members_list_tbl_staff_members_list_tbl_staff_members_list_tbl_staff_members_list_tbl_staff_members_
+SELECT FROM     FROM Staff_Members_2020b.staff_members WHERE id = 100;
+SELECT COUNT(DISTINCT) FROM ROLES_ON_TEAMRTM.ROLE;
+SELECT t.code, t.description FROM mdm_staff_role_codes_t_extended_native_h20190701_test_snapshot_staging_vw_mdm_staff_roles_t_extended_native_h20190701_test_snapshot_staging_vw_mdm_staff_roles_t_extended_
+SELECT DEPARTMENT  FROM ROLES_DEPT_JOBS_SELF_SERVICE_PORTAL_STAFF_ROLES_MVT.DEPARTMENT_NAME WHERE CODE = '975975'
+SELECT nd.tags FROM nd_documents_tags_map__1608594321757955555515d808705e5f01e1bdd0a510f5dca750bdf202000100001000010000000000000
+SELECT query, but         FROM documents_in_processing.id;
+SELECT queryFROM documents_table_with_a_large_number_of_rows_in_it_to_truncate_the_output_and_get_less_than_1000_entries_returned_by_the_query_limit_is_not_an_integer_value_or_greater_than_1000_use_a_negative_value_of_limit_to
+SELECT in     FROM process_state_history_table_name.process_id INNER JOIN process_table_name.process_id ON process_state_history_table_name.process_id = process_table_name.process_id;
+SELECT pd.letters.process_outcome_description, pdletters.process_status_description FROM pdletters_170729_000000_000000_000000_000000_000000_000000_000000_000000_000000_000
+SELECT * FROM Documents_in_Progress_Table.tags WHERE tagname = 'travel'INNER JOIN Documents_in_Progress_Table.docs ON tags.docid = docs.id;
+SELECT p.process_id, COUNT(d.doc_id) AS num_docs FROM Processes_Docs_Relationship_Table_175707917087375707674207570757777770757075777770757070757077777707
+SELECT FROM FROM WHERE.id INNER JOIN PROCESS_DOCUMENTS_STAFF_USERS_VIEWERS_MANAGERS_CHANGES_NOTES_HISTORY_TEMPLATES_Etc_etc_etc_etc_etc_etc_etc_etc_etc_etc_etc_etc_etc_etc_etc_etc_etc_etc_etc_etc_etc_etc
+SELECT s.staff_id, COUNT(d.document_process) AS number_of_document_processes FROM staffs_with_documents_and_processing_times_v301518_272466_154509_917702_540709_500875_713005_617707_7
+SELECT dc.staff_code, COUNT(dc.staff_code) AS number_of_processes FROM documents_copyrights_staff_roles_table_v2_0_1_0_1_0_draft_1_0_0_1_0_0_1_0_0_1_0_1_0_1_0_1_0_0_0_0_0_
+SELECT s.angular_roles FROM staff_table_1609267380707056400377777777777777777777777777777777777777777777777777777777777777777777
+SELECT ia FROM agency_list_items_in_store_173755055092160000000000000000000000000000000000000000000000000000000000000000000
+SELECT ia.agency_id, COUNT(DISTINCT) AS total_clients FROM agencies_clients_associacciaaaccaaaccaaccaaaccaaaaccaaaaccaaaaccaaaccaaccaaaaccaaaaccaaaaccaaaaccaaaccaaaaccaaaaccaaaaccaaaccaaaccaaaccaaaaccaaaaccaaaaccaaa
+SELECT agency_id, name FROM agencies_details_vwvw.ORDERED;
+SELECT a.tags_id, a.tag_name FROM agency_tags_map_details_new_12345678901234567890123456789012345678901234567890123456789012345678901234
+SELECT COUNT(DISTINCT) FROM Clients.client_id WHERE client_type = 'G';
+SELECT * FROM client_info_table.tags WHERE name = 'client-count';
+SELECT * FROM clients_details_table.client_id, clients_details_table.first_name, clients_details_table.last_name, clients_details_table.date_of_birth, clients_details_table.phone, clients_details_table.address, clients_details_table.email, clients_details_table.gender, clients_details_table.post_code, clients_details_table.city, clients_
+SELECT c.tags, c.client_id, c.details FROM clients_temp_table_17570583269477593599210017570583269477593599210017570583269477593599210017570
+SELECT a.agency_id, COUNT(a.client_id) AS total_clients FROM agency_to_client_mapping_table_name_aatn_abtmaatn_001_gavtnd95524703227576abcd95247hfsd98hfsd98v98sd98fhds98fhdsk
+SELECT COUNT(DISTINCT) FROM customers_to_agencies_c2a_map_join_table_id_fk_to_customer_id_c2a_map_join_table_id_fk_to_customer_id_c2a_map_join_table_id_fk_to_agency_id_agency_id_join_table_id_fk_to_agency_
+SELECT c.letters, c.name, a.agency_id, a.agency_details FROM clients_lettering_agency_mappings_vw250c6725a4f391d412fe7e0e91bf4be1b52s408971e519dca5b92aea517d4b52c5a7
+SELECT a.agency_id, a.details FROM agency_info_tableaWHEREa.agency_id INNER JOIN client_tablecONc.client_idBETWEENaandbORDERBYcNULLSLASTLIMIT10000000000000000000000000000000000000000
+SELECT c.client_id, a.agency_id, b.account_id FROM client_agency_mappings_new_table_10092020cddd50637b95eac000479f3f980abca37a50e6c04e40c1fdeee54784b5a70c0
+SELECT a.from    			  		  	  		  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	    		  	  	  	  	  	  	  	  	  	  
+SELECT c.tags.id, c.name FROM clients_tags_relationship_tbls_20180530_174902_216417_316417_246502_176767_3526502_47672502_41502502_576725
+SELECT agency.tags.WhereDoesTheWorldGoToMeetingHere, isAgencyDetailsCompleteForClientWithDetailMac, isAgencyDetailsCompleteForClientWithNoDetailMac								 								  								 								  								 
+SELECT a.client_id, a.client_first_name, a.client_last_name, c.country_name, v.state_name, c.city_name, r.region_name, d.dealership_city, d.dealership_state FROM agents_clients_associations_table_1173477595233068423589757
+SELECT c.tags.id, c.first_name, c.last_name, c.phone, a.name FROM clients_tags_agency_relationship_table_c7951d80378078c6f1a0b3aa52dfea26e54fde81164c2b8abae5d7ca4b80e715
+SELECT s.code, COUNT(s.code) AS client_count FROM sales_codes_table_sctcstc10375679295537154735748675375679873275736757072707270707072707270707072
+SELECT COUNT(DISTINCTCASE.tags_to_categories.category_id) AS num_of_categories FROM tags_to_categories_per_sic_code_view270619955284634775757575757575757575757575757575757575757
+SELECT * FROM client_details_view_new_1090102778977654345678901278654357897567777777777777777777777777777777777777777777777
+SELECT ions.tags.Pollutant, the.hazardous.substance, and.toxic.materials    FROM the.hazardousSubstancesDatabase;
+SELECT COUNT(DISTINCT) FROM Agency_Clients_ClientService_History_Mapping_History_Id_Mapping_History_Id_Mapping_History_Id_Mapping_History_Id_Mapping_History_Id_Mapping_History_Id_Mapping_History_Id_Mapping_History_Id_Mapping_History_Id_Mapping_History_Id_Mapping_History_Id_Mapping_History_Id_Mapping_History_Id_Mapping
+SELECT agency.namespace, agency.id, agency.name FROM agency_clients_live_20180703_v2_0_0_10020011_00145786_00190691_00045777_00011675_00177710_001357
+SELECT DISTINCT a.agency_id FROM agency_user_group_mapping_table_20190715_v20190723.agency_user_group_mapping_table_20190715_v20190723 AS a;
+SELECT agency.Tags FROM AgencyTagsMap.AgencyTagsMap WHERE AgencyTagsMap.Tag IN (SELECT Tags FROM AgencyTagsMap.AgencyTagsMap GROUP BY Tags) ORDER BY Tags;
+SELECT COUNT(DISTINCT) FROM Invoice_id_pk_fk_tbl_invoice_id_pk_fk_tbl_invoice_id_pk_fk_tbl_invoice_id_pk_fk_tbl_invoice_id_pk_fk_tbl_invoice_id_pk_fk_tbl_invoice_id_pk_fk_tbl_invoice_id_pk
+SELECT COUNT(*) FROM invoices_2016_07_07_17_34_15_05_00000000001977_to_2017_07_07_17_48_11_000000000022758_137_75_7070_71
+SELECT * FROM invoices_clients_details_status_codes_ids_for_client_with_status_code_and_detail_s_for_given_user_id_and_status_code_and_detail_id_with_status_code_and_detail_id_like_string_with_wildcards_or_return_empty_list_if_no_matches_found_from_invoices
+SELECT * FROM invoices_table.export_all_invoices;
+SELECT c.client_id, COUNT(i.invoice_id) AS num_invoices FROM clients_table_20170405_new_client_ids_v20170407_3d769a7_0893_c6fe_5f4b_ca518cda59bc.dbo_clients AS c LEFT JOIN invoices_table_
+SELECT COUNT(i.tags_id) FROM invoices_tags_relationship_table_name_here_i_t_r_t_n_i_t__g_b_l_e_m_a__p_o_s_t_u_l_u___g_b_l_e_m_a___i_t_r_t_n_i_t__g_b_
+SELECT c.client_id, c.detail FROM clients_table20210513t045758zc9776640d78d5afe07f6bd12ce950d0f08ed2524caa17e71fc0d1fdcc768dcbadb73e8a519505
+SELECT c.angular FROM (SELECT ci.client_id, COUNT(i.invoice_id) AS total_invoices FROM clients_invoices_archive_tbl_i3wl67ci3wl67ci.i3wl67ci3wl67ci AS i INNER JOIN client_info_table_client_info_table_i3wl67ci3wl67ci.i3wl
+SELECT c.client_id FROM client_invoice_relation_table_copy_07172019_035946_050578897021c7081c4e5d6b8a8af27224937c55cf84b3e5c1c3bd7f7e9a518507
+SELECT c.from_client_id FROM invoice_table_2_12_31_14_567890_c1234567890123456789012345678901234567890123456789012345678901234567
+SELECT s.status_code, COUNT(*) AS count FROM invoices_statuses_lookup_table_with_additional_columns_for_query_performance_test_30s_duration_for_each_status_code_given_invoice_id_order_by_count_desc_nulls_last_group_by_status_code_order_by_status_code_limit_100_offset_
+SELECT status_code, COUNT(*) AS COUNT FROM invoice_statuses_history_log_vw1234567890123456789012345678901234567890123456789012345678901234567890123456
+SELECT COUNT(i.status_code) AS count, i.status_code FROM invoices_logilasri_commercial_sales_invoice_header_v1_0_0_0_7_1__SCHEMA__i_status_code__i_status_code_g_0_7__c_l_5_4399168_d_e_75707
+SELECT c.name, COUNT(i.id) AS number_of_invoices FROM customer_company_status_lookup_table_cstslt_statuses_snd_states_sts_snd_status_sss_status_ssts_state_statu_status_state_status_sts_and_countries_country_ctns_country_code_cty_FROM_customer_companies
+SELECT c.client_id, c.first_name, c.last_name, a.agency_id, a.agency_name FROM clients_table20150127103645658855509609287119390000300366069661114170574707
+SELECT * FROM invoices_details_tbl_01470267853_9550377575_4560720700_757075075707070_7075_457070_757507507007070_0757075
+SELECT t.meeting_type, d.details FROM meetings_types_info_vw12345678901234567890123456789012345678901234567890123456789012345678901234567
+SELECT * FROM MEETINGS_TYPES_DETAILS_TABLE_VIEW_3075707570757075707570757075707570757075707570757075707570757075707570757
+SELECT ia_id, i_name FROM (SELECT ia_id, i_name FROM tb_issue_area_new_20190318_211750_20190428_212015_1011926_1010711_0012163_0005571_000
+SELECT * FROM MEETINGS_OUTCOMES_PURPOSES_CODES_MASTER_FILE_VIEW_ONLY.tags, MEANINGS_OF_MEASUREMENTS_TAKEN_FROM_CUSTOMER_QUERY_TO_SELF_SERVICE_PORTAL_BESPOKE_FEEDBACK_FORMULA_IN_CODE_MAST
+SELECT i.tags, p.id, p.invoice_date FROM invoices_payment_details_table_vw_working_status_change_history_to_cents_and_decimal_points_20210527140190303976540480183771088757194571257
+SELECT PaymentId, PaymentDetails FROM InvoicePaymentsWhereInvoiceStatusCodeWorking.TagsAreActive;
+SELECT i.id, i.status FROM invoices_without_payments_2018_09_27_2019_03_14_09_i_without_payment_statuses_only__c_h_e_ckpoint__2019_05_06_21_38_09_s_with_no_invoice_id_or_status_
+SELECT i.tags, i.status FROM invoices_payments_pending_listings_for_sellers_without_a_payment_id_or_status_filtered_out_by_criteria_api_call_counts_and_summaries_i_status_jsthe_invoice_ids_and_statuses_for_invoices_without_a_payment__102400
+SELECT COUNT(*) FROM payments_table.export_to_spreadsheetWHERE EXTRACT_MONTHFROM IN (SELECT MONTH FROM payments_table.payment_dates)GROUP BY YEAR, MONTH ORDER BY YEAR, MONTH;
+SELECT COUNT(*) FROM payments_table.SQL;
+SELECT p.payment_id, i.invoice_id, p.amount FROM payments_details_table_copy_17052018_copy_25012019_copy_21062020_copy_25102021_copy_27052027_copy_27032027_copy_25072
+SELECT p.tags.id, p.invoice_id, p.payment_details FROM payments_table_20190705_161750_747039_757074_757075_757078_757079_757101_757102_757103_7
+SELECT payment_id, invoice_id, status FROM payments_list_new_status_view_temp_2019_07_05_23_26_58_04_01316215517154367114455755645430052062775616007070
+SELECT DISTINCT p.tags.invoice_id, p.status FROM PaymentDetailsTbl20170914H2_PaymentDetailsTblH2_35297781770802_PaymentDetailsTbl_27135760802017102311073539781770802017
+SELECT i.id, COUNT(p.id) AS num_payments FROM InvoicesIJKLASDJFKLASJDFKLASJDFKJLSDKJFLKASJDFLKSDJFLASJDKFLSJDKFLSJDFLKSJDLKFJLSKDFLKSJDFLKSDJFLKSJDFLKSJDFLKSDJFLKSJDF
+SELECT c.tags.tag_name, COUNT(DISTINCT) FROM invoices_payments_tags_join_table.payment_id WHERE invoices_payments_tags_join_table.invoice_id = i.id GROUP BY c.tag_name;
+SELECT i.id, i.status_code, COUNT(p.payment_date) AS num_payments, SUM(p.amount) AS total_amount FROM invoices.invoice AS i LEFT JOIN payments.payment_info AS p ON i.id = p.invoice_id GROUP BY i.id, i.status_code ORDER BY num_payments DESC;
+SELECT i.exports.invoice_id, i.status, p.payment_method_code FROM invoices_with_payments_vw2019011720045800368307311155074447449917175307729495451545054505050
+SELECT COUNT(DISTINCT) FROM employee_details.tags;
+SELECT the     FROM staff_hierarchy_entry_vw_with_children_and_siblings_count_new_staff_id_only_dept_based_on_existing_staff_ids_only_dept_based_on_staff_ids_by_level_of_managerial_staff_where_staff_hierarchy_entry_is_not_null_and_
+SELECT a.tags, COUNT(s.id) AS num_staff FROM affiliates_agencies_staffs_join_table_v2_0_3_13_btaaf4c6a77c78abf7d05256efa9f4ae24e074ed109dff54c1fa870586c78d517
+SELECT agency_id, COUNT(staff_id) AS num_staff FROM agents_agency_staff_assoc_table_vw_agent_user_id_fkey_agent_id_fk_table_name_staff_id_fk_user_id_fkey_staff_id_fk_user_id_fk_group_id_fk_groups_group_id_f
+SELECT MAX(COUNT) AS max_staff FROM (SELECT a.export_agency_id, COUNT(*) AS COUNT FROM AgentExportDetailGroupRelationship_vwGREL_30857924165841840647477123153215321705652150714576456756757
+SELECT MAX(a.id) AS max_id FROM agencies_staff_counts_pending_update_on_next_scheduled_update_date_with_at_least_one_row_left_for_next_scheduled_update_date_agency_staff_counts_table_update_frequency_days_away_from_now_pending_update_update_date_agency_st
+SELECT c.name, COUNT(c.id) AS num_of_meetings FROM conference_outcomes_mapping_table_07122017_145129_3579908545_6476541371_8257058_54148712363_7513471357_
+SELECT COUNT(*) AS total_meetings FROM meetings_outcomes_history_table_2015_16_2017_18_2019_2020_2021_21__22__23__24__25__26__27__28__29__30__31__32__33__34__35__36
+SELECT c.client_id, COUNT(m.meeting_id) AS number_of_meetings FROM clients_table_clients_cstm_tbl_197438562011909415250974015483107075437732072064070370754707
+SELECT COUNT(DISTINCT) FROM client_meetings.tags;
+SELECT mt.code, COUNT(mt.code) AS total_meetings FROM MEETINGS_TYPES_METADATA_VIEW15460897177270205803057101417204305072275622771536547302754707
+SELECT COUNT(m.tags) AS tags_count, mt.meeting_type_name FROM MEETINGS_METADATA_TYPES_MVGAS_310568795324270017953177558255555000000000000000000000000
+SELECT * FROM meetings_client_data_view_v1075562855456756545675654567565456756756545675654567567565456756545675675654567565456
+SELECT * FROM MEETINGS_EXTRACTED_METADATA_VIEW_02_01_2023_06_10_23_PM_GMT_UTC_METADATA_VIEW_01_01_2023_06_10_23_PM_GMT_UTC_METADATA_VIEW_01
+SELECT m.meeting_id, COUNT(s.staff_id) AS num_staff FROM meetings_staff_joinable_table_view_32557290040715475978605171677008207077855099551731777906770777
+SELECT c.meeting_id, COUNT(s.staff_id) AS total_staff FROM conference_staff_memberships_vw_1095327976sjcgfhjdgsdc987fgdsgd986fgdsgf9786dgf967dfgfd67gd9fh7gd67fg7hdgf7g
+SELECT s.staff_id, COUNT(m.staff_attended_meeting_id) AS num_meetings FROM staffs_attend_meeting_table2021_v3_0_0_5_bak_v1_1_7_8_9_25_6_7_2_5_17_26_6_7_2_5_17_26_
+SELECT s.export_staff_id FROM staff_meetings_attended_count_least_of_the_rest_s170425756987_g170425756987_v170425756987_m170425756987_w170425756987_
+SELECT count_staff FROM staff_attendance_list_20210527_083945_367570747050907700770606111060000600005000040000300002000010000000000
+SELECT COUNT(DISTINCT) AS total_staff FROM vw_meetings_attended_by_staff_members_with_roles_and_dept_ids_v5_0_1_0_mismatched_on_table_name_v4_5_3_mismatched_on_field_names_v3_6_2_staff_member_id_v5_0_1
+SELECT d.tags FROM staff_event_log_meeting_attended_members_table_vw_s3_20190705_6559440_1_201911127_105901__a80cde90_d759_48ff_b3bd_adfafe5e09b57_vw_
+SELECT COUNT(DISTINCT) FROM Attendance_Sheet_tbl_A1900506001020304050607080910111213141516171819202122232425262728293031323334353637
+SELECT c.from_client_contacts_client_id_seq, c.to_client_contact_contact_id_seq, c.details FROM client_contacts_client_ids_view_vw20170119538607173317108207171817238175118171085118171
+SELECT m.id, c.first_name, c.last_name FROM MEETINGS_ATTENDED_CLIENTS_VIEWER_METADATA_MIDDLE_TABLE_V513m7b69f7d5f70e7f6745a7675136741303703672703070
+SELECT m.angular_staff.id, m.first_name, m.last_name FROM m.angular_staff INNER JOIN m.meeting_attendance ON m.id = m.angular_staff.id ORDER BY first_name DESC, last_name DESC;
+SELECT DISTINCT s.tags.s_staff_id, s.details FROM s_staff_info_data_vw_new_20190605_s287428_s202047_s203722_s206617_s210026_s211497_s214008_s2
+SELECT c.id, c.sic_code, c.agency_id FROM clients_without_invoices_or_deals_with_multiple_companies_or_people_claims_to_be_clients_without_invoices_or_deals_with_multiple_companies_or_people_claims_to_be_clients_without_invoices_or_de
+SELECT c.id, c.sic_code, c.agency_id FROM client_table.client_info AS c WHERE c.attended_meeting = 1 ORDER BY c.id;
+SELECT * FROM meetings_table_new_v101547080019651253957757595074950743535070507050707507075707070507057057070707570707070
+SELECT * FROM meetings_calendars_events_details_v2_new_hg_table_20170405_173158__temp__HG_MIGRATION_DETAILS_V2__NEW_HG_TABLE_20170405_173158__MIGRATE_TO_V2__NEXT_STEP__H

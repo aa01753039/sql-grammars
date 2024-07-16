@@ -1,9 +1,8 @@
 import argparse
 from pathlib import Path
 
-from core.SQLGrammar import SQLGrammar
 from core.LLMResponser import LLMResponser
-
+from core.SQLGrammar import SQLGrammar
 
 if __name__ == "__main__":
     # parse the arguments: databases folder path, questions json file path, and the output file path, and if use_embedded_grammar is set
@@ -39,6 +38,15 @@ if __name__ == "__main__":
         default=None,
         required=False,
     )
+
+    parser.add_argument(
+        "--prompt_template",
+        type=str,
+        help="The string prompt template",
+        default=None,
+        required=False,
+    )
+
     parser.add_argument(
         "--questions_file",
         type=str,
@@ -62,8 +70,8 @@ if __name__ == "__main__":
 
         if Path(args.grammar_directory).is_dir():
             sql_grammar = SQLGrammar(
-            args.grammar_template_path, args.db_base_path, args.grammar_directory
-        )
+                args.grammar_template_path, args.db_base_path, args.grammar_directory
+            )
             print(sql_grammar)
             # write the grammar to the embedded grammar file
             sql_grammar.process_databases()
@@ -74,7 +82,12 @@ if __name__ == "__main__":
 
     # create a LLMResponse object
     llm_response = LLMResponser(
-        args.llm_repo, args.llm_file, args.predicted_path, grammar_path
+        args.llm_repo,
+        args.llm_file,
+        args.predicted_path,
+        grammar_path,
+        args.db_base_path,
+        args.prompt_template,
     )
     # read the questions from the json file
     llm_response.predict(args.questions_file)
