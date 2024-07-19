@@ -11248,5 +11248,1637 @@
     "db_id": "planet_1",
     "question": "How many packages sent by Ogden Wernstrom and received by Leo Wong?",
     "answer": " to this database is:\nSELECT COUNT(*) FROM Package WHERE Sender = (SELECT EmployeeID FROM Employee WHERE Name = 'Ogden Wernstrom') AND Recipient = (SELECT EmployeeID FROM Employee WHERE Name = 'Leo Wong');"
+  },
+  {
+    "id": 1875,
+    "db_id": "planet_1",
+    "question": "What are the contents of package sent by John Zoidfarb?",
+    "answer": " to your question is: SELECT Package.Contents FROM Package INNER JOIN Shipment ON Package.Shipment = Shipment.ShipmentID INNER JOIN Employee ON Shipment.Manager = Employee.EmployeeID WHERE Employee.Name = 'John Zoidfarb';"
+  },
+  {
+    "id": 1876,
+    "db_id": "planet_1",
+    "question": "What are the package contents of all those sent by John Zoidfarb?",
+    "answer": ">\nThe query to answer \"What are the package contents of all those sent by John Zoidfarb?\" would look like this:\nSELECT p.Contents FROM Package p JOIN Shipment s ON p.Shipment = s.ShipmentID JOIN Client c1 ON p.Recipient = c1.AccountNumber JOIN Employee e1 ON s.Manager = e1.EmployeeID WHERE e1.Name = 'John Zoidfarb'"
+  },
+  {
+    "id": 1877,
+    "db_id": "planet_1",
+    "question": "What is the heaviest package sent by the clients which 'John' is part of their name? List package number and weight.",
+    "answer": " user;\n"
+  },
+  {
+    "id": 1878,
+    "db_id": "planet_1",
+    "question": "What is the package number and weight of the heaviest package that was sent by a client named John or something similar?",
+    "answer": " user, SELECT p.package_number, p.weight FROM package p JOIN shipment s ON p.shipment = s.shipment_id JOIN client c ON p.sender = c.account_number WHERE (c.name ILIKE '%John%' OR c.name LIKE '%Johan%' OR c.name LIKE '%Jo%h') AND p.weight=(SELECT MAX(p2.weight) FROM package p2 JO"
+  },
+  {
+    "id": 1879,
+    "db_id": "planet_1",
+    "question": "List package number and weight of top 3 lightest packages.",
+    "answer": " to your query:<br />\nSELECT p.PackageNumber, p.Weight\nFROM Package p\nORDER BY p.Weight ASC\nLIMIT 3;"
+  },
+  {
+    "id": 1880,
+    "db_id": "planet_1",
+    "question": "What is the package number and weight of the 3 lightest packages?",
+    "answer": " to the 3 lightest packages:<br />\nSELECT p.packageNumber, p.weight <br />FROM package p <br />ORDER BY p.weight ASC NULLS LAST LIMIT 3;"
+  },
+  {
+    "id": 1881,
+    "db_id": "planet_1",
+    "question": "Who sent most number of packages? List client name and number of packages sent by that client.",
+    "answer": " user,<br>\nThe following SQL query can be used to answer the question.<br>\n"
+  },
+  {
+    "id": 1882,
+    "db_id": "planet_1",
+    "question": "What is the name of the client who sent the most packages and how many were there?",
+    "answer": " user>The name of the client who sent the most packages and the number of packages they sent can be obtained by joining the `Client` table with the `Package` table on the `AccountNumber` field, then grouping by the `Sender` column in the `Package` table and using the `COUNT(*)` function to get the number of packages for each client and ordering the result by the number of packages sent in descending order. The query would look like this:<|"
+  },
+  {
+    "id": 1883,
+    "db_id": "planet_1",
+    "question": "Who received least number of packages ? List client name and number of packages received by that client .",
+    "answer": " to your question, here's the SQL query to find the client who received the least number of packages and the corresponding number of packages received:\nSELECT c.name AS client_name, COUNT(p.package_number) AS num_packages\nFROM package p\nJOIN client c ON p.recipient = c.account_number\nGROUP BY c.account_number\nORDER BY num_packages ASC\nLIMIT 1;<|im_end|"
+  },
+  {
+    "id": 1884,
+    "db_id": "planet_1",
+    "question": "What is the smallest number of packages received and by whom ?",
+    "answer": " user\nYour SQL query is: SELECT e.name, s.shipmentid, MIN(p.packagenumber) AS min_package_number FROM employee e JOIN shipment s ON e.employeeid = s.manager JOIN has_clearance hc ON e.employeeid = hc.employee AND hc.level = 1 JOIN package p ON s.shipment = p.shipment AND p.recipient = e"
+  },
+  {
+    "id": 1885,
+    "db_id": "planet_1",
+    "question": "Who sent more than one packages? List the client's name.",
+    "answer": " users can use this:\nSELECT c.name as client_name, COUNT(p.shipment) AS num_packages\nFROM Client c\nJOIN Package p ON c.accountnumber = p.recipient\nGROUP BY c.name\nHAVING COUNT(p.shipment) > 1;"
+  },
+  {
+    "id": 1886,
+    "db_id": "planet_1",
+    "question": "What is the name of all clients who sent more than one package?",
+    "answer": "(count(DISTINCT Sender) > 1 FROM Package GROUP BY Sender HAVING COUNT(ShipMENT) > 1);"
+  },
+  {
+    "id": 1887,
+    "db_id": "planet_1",
+    "question": "What are the Coordinates of planet Mars?",
+    "answer": " to your database management software: SELECT p.Coordinates FROM Planet p WHERE p.Name = 'Mars';"
+  },
+  {
+    "id": 1888,
+    "db_id": "planet_1",
+    "question": "What are the coordinates of the planet named Mars?",
+    "answer": "_system"
+  },
+  {
+    "id": 1889,
+    "db_id": "planet_1",
+    "question": "List all Planets' names and coordinates in alphabetical order of name.",
+    "answer": "|>\nThe SQL query to answer the question would be: SELECT p.Name, p.Coordinates FROM Planet p ORDER BY p.Name ASC;"
+  },
+  {
+    "id": 1890,
+    "db_id": "planet_1",
+    "question": "What are the names and coordinates of all planets in alphabetical order by name?",
+    "answer": "_order_by_name_and_coordinates_of_planets.sql"
+  },
+  {
+    "id": 1891,
+    "db_id": "planet_1",
+    "question": "List all shipment id under Phillip J. Fry's management.",
+    "answer": " to Philip J. Fry's management: SELECT s.ShipMENTID FROM Employee e JOIN Shipment sh ON e.EmployeeID = sh.Manager WHERE e.Name = 'Philip J. Fry';"
+  },
+  {
+    "id": 1892,
+    "db_id": "planet_1",
+    "question": "What are the shipment IDs of every delivery managed by Phillip J Fry?",
+    "answer": "(concat('SELECT ShipmentID FROM Shipment WHERE Manager =', (SELECT EmployeeID FROM Employee WHERE Name = 'Phillip J Fry'));"
+  },
+  {
+    "id": 1893,
+    "db_id": "planet_1",
+    "question": "List the dates of all shipments.",
+    "answer": ">SELECT Date FROM Shipment;"
+  },
+  {
+    "id": 1894,
+    "db_id": "planet_1",
+    "question": "What are the dates of every shipment in the database?",
+    "answer": "|"
+  },
+  {
+    "id": 1895,
+    "db_id": "planet_1",
+    "question": "List all shipment ids for the planet Mars.",
+    "answer": ">(<|sql|>SELECT ShipmentID FROM Shipment WHERE Planet = (SELECT ID FROM Planet WHERE Name = 'Mars');<|sql|>\n"
+  },
+  {
+    "id": 1896,
+    "db_id": "planet_1",
+    "question": "What are the shipment ids for the planet Mars?",
+    "answer": ".last_row_id();\nSELECT s.* FROM Shipment s JOIN Employee e ON s.manager = e.employeeid JOIN Planet p ON s.planet = p.planetid WHERE p.name = 'Mars';\n"
+  },
+  {
+    "id": 1897,
+    "db_id": "planet_1",
+    "question": "List all shipment ids for the planet Mars and under the management of Turanga Leela.",
+    "answer": " to the 'Employee' table:\nSELECT s.ShipMENTID FROM Shipment s JOIN Employee e ON s.MANAGER = e.EMPLOYEEID JOIN Planet p ON s.PLANET = p.PLANETID WHERE p.NAME = 'Mars';"
+  },
+  {
+    "id": 1898,
+    "db_id": "planet_1",
+    "question": "What are the ids of all shipments on the planet Mars that are managed by Turanga Leela?",
+    "answer": "(concat('SELECT s.ShipMENTID FROM SHIPMENT s JOIN Employee e ON s.MANAGER = e.EMPLOYEEID JOIN Has_Clearance hc ON s.SHIPMENT = hc.SHIPMENT AND hc.PLANET = 10 JOIN Planet p ON s.PLANETID = p.PLANETID WHERE p.NAME = ''Mars'', ';SELECT SHIPMENT"
+  },
+  {
+    "id": 1899,
+    "db_id": "planet_1",
+    "question": "List all shipment ids on the planet Mars or under the management of Turanga Leela.",
+    "answer": " to the 'Planet' table:\nSELECT DISTINCT s.ShipmentID FROM Shipment s WHERE (s.Planet = (SELECT PlanetID FROM Planet WHERE Name = 'Mars') OR (s.Manager = (SELECT EmployeeID FROM Employee WHERE Name = 'Turanga Leela'));"
+  },
+  {
+    "id": 1900,
+    "db_id": "planet_1",
+    "question": "What are the ids for all shipments on the planet Mars that Turanga Leela manages?",
+    "answer": "(concat('SELECT s.shipmentid FROM shipment s JOIN employee e ON s.manager = e.employeeid JOIN has_clearance hc ON s.planet = hc.planet AND hc.level = 1 JOIN planet p ON s.planet = p.planetid WHERE p.name = ''Mars'' AND e.name = ''Turanga Leela'';"
+  },
+  {
+    "id": 1901,
+    "db_id": "planet_1",
+    "question": "What is the total shipments in each planet? List the planet name and total shipments.",
+    "answer": "(concat(p.name, ' - ', SUM(s.shipment), '\\n'));</pre>"
+  },
+  {
+    "id": 1902,
+    "db_id": "planet_1",
+    "question": "How many shipments take place on each planet?",
+    "answer": "(CONCAT('SELECT Planet.Name, COUNT(ShipMENT) AS num_shipments FROM Shipment JOIN Planet ON Shipment.Planet = Planet.PlanetID GROUP BY Planet.Name;'))"
+  },
+  {
+    "id": 1903,
+    "db_id": "planet_1",
+    "question": "Which planet has most shipments? List the planet name.",
+    "answer": " table Shipment;<br>SELECT p.Name FROM Planet p JOIN (SELECT c.Planet, COUNT(*) as num_shipments FROM Shipment GROUP BY c.Planet ORDER BY num_shipments DESC LIMIT 1) s ON p.PlanetID = s.Planet;"
+  },
+  {
+    "id": 1904,
+    "db_id": "planet_1",
+    "question": "What is the name of the planet with the most shipments?",
+    "answer": "([QUESTION]What is the name of the planet with the most shipments?[/QUESTION])<br>\nSELECT p.name AS planet_name<br>FROM shipment s JOIN employee e ON s.manager = e.employeeid JOIN has_clearance hc ON s.planet = hc.planet AND hc.level IN (1, 2, 3) JOIN planet p ON s.planet"
+  },
+  {
+    "id": 1905,
+    "db_id": "planet_1",
+    "question": "List the manger's name and number of shipments under his management.",
+    "answer": ">"
+  },
+  {
+    "id": 1906,
+    "db_id": "planet_1",
+    "question": "What are the number of shipments managed and names of each manager?",
+    "answer": " to this SQL query: SELECT e.Name AS Manager_name, COUNT(s.ShipmentID) as Number_of_shipments FROM Employee e JOIN Shipment s ON e.EmployeeID = s.Manager GROUP BY e.Name;"
+  },
+  {
+    "id": 1907,
+    "db_id": "planet_1",
+    "question": "Calculate total weight of package shipped on Mars.",
+    "answer": " to your database. I'm assuming you have a table named `Package` with a column called `Weight`. The following SQL query will give you the total weight of packages shipped from Earth and Mars:<br />\n```sql\nSELECT SUM(CASE WHEN p.PlanetID = 1 THEN p.Weight ELSE 0 END) AS Mars_weight,<br />\n       SUM(CASE WHEN p.PlanetID = 2 TH"
+  },
+  {
+    "id": 1908,
+    "db_id": "planet_1",
+    "question": "what is the total weight of all packages shipped on Mars?",
+    "answer": ""
+  },
+  {
+    "id": 1909,
+    "db_id": "planet_1",
+    "question": "Calculate total weight of package shipped in each planet . show the name of each planet .",
+    "answer": " to your query:<br>```sql<br>SELECT p.name, SUM(p.weight) AS total_weight FROM package p JOIN shipment s ON p.shipment = s.shipment_id JOIN employee e ON s.manager = e.employee_id JOIN planet pl ON s.planet = p.planet GROUP BY p.name;"
+  },
+  {
+    "id": 1910,
+    "db_id": "planet_1",
+    "question": "what is the total package weight for each planet, list its name ?",
+    "answer": ".package_planet(planet.name) AS pp, shipment.employee as e, package.weight\nSELECT pp.name, SUM(package.weight) as total_weight\nFROM planet AS pp\nJOIN shipment ON pp.PlanetID = shipment.planet\nJOIN has_clearance hc ON shipment.manager = hc.employee AND pp.PlanetID = hc.planet\nJOIN employee"
+  },
+  {
+    "id": 1911,
+    "db_id": "planet_1",
+    "question": "Which planet has total weight of shipment greater than 30? List planet name.",
+    "answer": "_level(HAS_CLEARNCE.planet) as p\nJOIN (SELECT s.shipment, SUM(p.weight) AS total_weight\nFROM shipment s JOIN package p ON s.shipment = p.shipmentnumber\nGROUP BY s.shipment\nHAVING SUM(p.weight) > 30) as total_weight\nWHERE s.manager = a.employeeid AND p.shipment"
+  },
+  {
+    "id": 1912,
+    "db_id": "planet_1",
+    "question": "What are the names of all planets tjat have a total shipment weight greater than 30?",
+    "answer": "_schema."
+  },
+  {
+    "id": 1913,
+    "db_id": "planet_1",
+    "question": "List package number of package shipped in planet Omicron Persei 8 and sent by Zapp Brannigan.",
+    "answer": " user; SELECT COUNT(*) FROM Package WHERE Shipment IN (SELECT ShipmentID FROM Shipment WHERE Manager = (SELECT EmployeeID FROM Employee WHERE Name = 'Zapp Brannigan') AND Planet = (SELECT PlanetID FROM Planet WHERE Name = 'Omicron Persei 8');"
+  },
+  {
+    "id": 1914,
+    "db_id": "planet_1",
+    "question": "What are the number of packages sent by Zapp Brannigan and shipped on the Omicron Persei 8?",
+    "answer": " to omicron persei 8:<br>\nSELECT COUNT(*) AS num_packages FROM Package p JOIN Shipment s ON p.ShipMENT = s.SHIPMENTID JOIN Employee e ON s.MANAGER = e.EMPLOYEEID WHERE e.NAME = 'Zapp Brannigan' AND p.RECIPEIENT = (SELECT planetid FROM Planet WHERE name = 'Omicron Persei "
+  },
+  {
+    "id": 1915,
+    "db_id": "planet_1",
+    "question": "List package number of packages shipped in Omicron Persei 8 planet or sent by Zapp Brannigan.",
+    "answer": " to a SQL database with the following schema:\nCREATE TABLE Employee (\n  EmployeeID INTEGER PRIMARY KEY,\n  Name VARCHAR(255) NOT NULL,\n  Position VARCHAR(255) NOT NULL,\n  Salary REAL NOT NULL,\n  Remarks VARCHAR(255)\n);\nCREATE TABLE Planet (\n  PlanetID INTEGER PRIMARY KEY,\n  Name VARCHAR"
+  },
+  {
+    "id": 1916,
+    "db_id": "planet_1",
+    "question": "What are the number of packages shipped on Omicron Persei 8 planet or sent by Zapp Brannigan?",
+    "answer": " in (shipment, has_clearance) and has_clearance.level > 5 and shipment.date between '2019-01-01' and '2019-12-31' and employee exists (select employeeid from employee where name = 'Zapp Brannigan') group by shipment having sum(package_number) (count(*)) as count order by shipment desc limit by shipment.date;<"
+  },
+  {
+    "id": 1917,
+    "db_id": "planet_1",
+    "question": "Which packages have weight between 10 and 30? List the package number and weight.",
+    "answer": ">SELECT p.package_number, p.weight FROM package p WHERE p.weight BETWEEN 10 AND 30;"
+  },
+  {
+    "id": 1918,
+    "db_id": "planet_1",
+    "question": "What are the package numbers and weights that are between 10 and 30?",
+    "answer": " user,<br>\nSELECT PackageNumber, Weight<br>FROM Package<br>WHERE PackageNumber BETWEEN 10 AND 30;<br>"
+  },
+  {
+    "id": 1919,
+    "db_id": "planet_1",
+    "question": "Which employees do not have clearance in Mars? List employee's name.",
+    "answer": " to mysql:"
+  },
+  {
+    "id": 1920,
+    "db_id": "planet_1",
+    "question": "What are the names of all employees who don't have clearance on Mars?",
+    "answer": " to mysql or any other database: SELECT e.Name FROM Employee e LEFT JOIN Has_Clearance hc ON e.EmployeeID = hc.Employee AND hc.Planet = (SELECT p.PlanetID FROM Planet p WHERE p.Name = 'Mars') WHERE hc.Planet IS NULL;"
+  },
+  {
+    "id": 1921,
+    "db_id": "planet_1",
+    "question": "Which employees have clearance in Omega III? List employees' name.",
+    "answer": ".clearance(Employee.employeeid) IN (SELECT has_clearance.employee FROM has_clearance WHERE has_clearance.planet = (SELECT planet.planetid FROM planet WHERE planet.name = 'Omega III') AND has_clearance.level = 3);"
+  },
+  {
+    "id": 1922,
+    "db_id": "planet_1",
+    "question": "What are the names of all employees with clearance on Omega III?",
+    "answer": ".Has_Clearance."
+  },
+  {
+    "id": 1923,
+    "db_id": "planet_1",
+    "question": "Which planets that have exact one employee has clearance? List planets' name.",
+    "answer": " database 'database_name';\nSELECT p.Name AS planet_name\nFROM Planet p\nJOIN Shipment s ON p.PlanetID = s.Planet\nJOIN Employee e1 ON s.Manager = e1.EmployeeID\nJOIN Has_Clearance hc1 ON s.ShipMENT = hc1.ShipMENT AND hc1.Employee = e1.EmployeeID\nLEFT JOIN Employee e2 ON"
+  },
+  {
+    "id": 1924,
+    "db_id": "planet_1",
+    "question": "What are the names of all planets with one employee that has clearance?",
+    "answer": " database <employee>, <planet>, <shipment>, <has_clearance>, and <client>; SELECT <p.name> AS <planet_name>, <e.name> AS <employee_name> FROM <employee> E, <planet> P, <shipment> S, <has_clearance> H WHERE E.<employeeid>=H.<employee> AND <p.planetid>=H.<planet>"
+  },
+  {
+    "id": 1925,
+    "db_id": "planet_1",
+    "question": "Which employees have salaries between 5000 and 10000? List employees' name.",
+    "answer": ">\nSELECT Employee.Name FROM Employee WHERE Salary BETWEEN 5000 AND 10000;"
+  },
+  {
+    "id": 1926,
+    "db_id": "planet_1",
+    "question": "What are the employees's names for those that have salaries between 5000 and 10000?",
+    "answer": ">"
+  },
+  {
+    "id": 1927,
+    "db_id": "planet_1",
+    "question": "Find the name of employees whose salary is above the average salary or more than 5000.",
+    "answer": ">\n```sql\nSELECT Name FROM Employee WHERE Salary > (SELECT AVG(Salary) FROM Employee) OR Salary > 5000;\n"
+  },
+  {
+    "id": 1928,
+    "db_id": "planet_1",
+    "question": "What are the names of all employees who have a salary greater than average or more than 5000?",
+    "answer": " database.SELECT Name FROM Employee WHERE Salary > (SELECT AVG(Salary) FROM Employee);"
+  },
+  {
+    "id": 1929,
+    "db_id": "planet_1",
+    "question": "Find the number of employees who do not have clearance in Mars .",
+    "answer": " to this schema:"
+  },
+  {
+    "id": 1930,
+    "db_id": "planet_1",
+    "question": "What is the number of employees that do not have clearance on Mars ?",
+    "answer": ".planet where p.name = 'Mars' and not exists (select distinct hc.employee from has_clearance hc where hc.planet = p.planetid) group by p.planetid having count(*) = 0;"
+  },
+  {
+    "id": 1931,
+    "db_id": "video_game",
+    "question": "How many games are there?",
+    "answer": ">"
+  },
+  {
+    "id": 1932,
+    "db_id": "video_game",
+    "question": "Count the number of games.",
+    "answer": ">\n"
+  },
+  {
+    "id": 1933,
+    "db_id": "video_game",
+    "question": "List the Title and Developers of all games ordered by units sold from large to small.",
+    "answer": "(game.Title, game.Developers)\nSELECT game.Title, game.Developers\nFROM game\nORDER BY game.Units_sold_Millions DESC;"
+  },
+  {
+    "id": 1934,
+    "db_id": "video_game",
+    "question": "What are the titles and developers of all games, sorted by units sold descending?",
+    "answer": "(catname: 'game')\nSELECT game.title AS game_title, developers.developer AS developer\nFROM game\nJOIN platform ON game.platform_id = platform.platform_id\nJOIN developers ON game.game_id = developers.game_id\nORDER BY game.units_sold_millions DESC;"
+  },
+  {
+    "id": 1935,
+    "db_id": "video_game",
+    "question": "What is the average units sold in millions of the games that are not developed by Nintendo?",
+    "answer": ""
+  },
+  {
+    "id": 1936,
+    "db_id": "video_game",
+    "question": "Return the average number of units sold in millions for games not developed by Nintendo.",
+    "answer": "(avg(game.units_sold_millions) as avg_sales FROM game WHERE game.developers != 'Nintendo' group by game.platform_id;"
+  },
+  {
+    "id": 1937,
+    "db_id": "video_game",
+    "question": "What are the names and market districts of all platforms?",
+    "answer": "@developer>SELECT p.Platform_name AS name, pd.Market_district AS market_district FROM platform p;"
+  },
+  {
+    "id": 1938,
+    "db_id": "video_game",
+    "question": "Return all platform names and corresponding market districts.",
+    "answer": "@developer>SELECT p.Platform_name, pd.Market_district FROM platform p JOIN platform pd ON p.Platform_ID = pd.Platform_ID;"
+  },
+  {
+    "id": 1939,
+    "db_id": "video_game",
+    "question": "What are the names and id of platforms whose download rank is 1?",
+    "answer": ">"
+  },
+  {
+    "id": 1940,
+    "db_id": "video_game",
+    "question": "Return the names and ids of all platforms with the download rank of 1.",
+    "answer": ">"
+  },
+  {
+    "id": 1941,
+    "db_id": "video_game",
+    "question": "What are the maximum and minimum rank of the year of players.",
+    "answer": "(max(player.rank_of_the_year)) AS max_rank, MIN(player.rank_of_the_year) AS min_rank FROM player GROUP BY EXTRACT(YEAR FROM STR_TO_DATE(player.Position, '%m/%d/%Y')) ORDER BY rank_of_the_year;"
+  },
+  {
+    "id": 1942,
+    "db_id": "video_game",
+    "question": "Give the maximum and minimum rank of the year across all players.",
+    "answer": ">(SELECT MIN(player.rank_of_the_year) AS min_rank, MAX(player.rank_of_the_year) AS max_rank FROM player);"
+  },
+  {
+    "id": 1943,
+    "db_id": "video_game",
+    "question": "How many players have rank of the year smaller than 3?",
+    "answer": ".set_databasemode(pgsql);"
+  },
+  {
+    "id": 1944,
+    "db_id": "video_game",
+    "question": "Count the number of players that have a rank of year of at most 3.",
+    "answer": "(COUNT(DISTINCT player.player_id) FROM player WHERE player.rank_of_the_year <= 3);"
+  },
+  {
+    "id": 1945,
+    "db_id": "video_game",
+    "question": "List all player names in ascending alphabetical order.",
+    "answer": ">SELECT \"Player_name\" FROM \"player\";"
+  },
+  {
+    "id": 1946,
+    "db_id": "video_game",
+    "question": "What are the names of all players in alphabetical order?",
+    "answer": ">SELECT \"Player_name\" FROM \"player\";"
+  },
+  {
+    "id": 1947,
+    "db_id": "video_game",
+    "question": "List names and colleges of all players in descending order of rank of the year.",
+    "answer": "(rank() over (order by p.Rank_of_the_year desc, p.Player_name) as rank, p.*);"
+  },
+  {
+    "id": 1948,
+    "db_id": "video_game",
+    "question": "What are the names and colleges of all players, ordered by rank of year descending?",
+    "answer": "(rank() over (order by player.rank_of_the_year desc) as ranked_year, player.*\nfrom player\norder by ranked_year desc;"
+  },
+  {
+    "id": 1949,
+    "db_id": "video_game",
+    "question": "Please show the names and rank of players that have played the game titled \"Super Mario World\".",
+    "answer": ">\nSELECT player.player_name, rank_of_the_year\nFROM player\nJOIN game_player ON player.player_id = game_player.player_id\nJOIN game ON game_player.game_id = game.game_id AND game.title = 'Super Mario World'\nORDER BY rank_of_the_year DESC;"
+  },
+  {
+    "id": 1950,
+    "db_id": "video_game",
+    "question": "What are the names and ranks of players who have played the game with the title \"Super Mario World\"?",
+    "answer": "@sqlite> SELECT p.player_name, rp.rank_of_the_year FROM player p JOIN rankings rp ON p.player_id = rp.player_id JOIN game g ON p.player_id = g.game_player AND g.game_id IN (SELECT game_id FROM game WHERE title='Super Mario World');"
+  },
+  {
+    "id": 1951,
+    "db_id": "video_game",
+    "question": "Show the distinct developer of games played by players that go to college \"Auburn\".",
+    "answer": ">SELECT DISTINCT game.Developers FROM game JOIN player ON game.Game_ID = game_player.Game_ID JOIN player ON game_player.Player_ID = player.Player_ID WHERE player.College = 'Auburn';"
+  },
+  {
+    "id": 1952,
+    "db_id": "video_game",
+    "question": "What are the different developers of games that are played by players that attend Auburn college?",
+    "answer": ">\nSELECT DISTINCT game.Developers\nFROM game\nJOIN platform ON game.Platform_ID = platform.Platform_ID\nJOIN player ON game_player.Game_ID = game.Game_ID AND player.Player_ID = game_player.Player_ID\nWHERE college LIKE 'Auburn%' OR college LIKE 'Auburn University%' OR college LIKE 'Auburn University of Alabama%';"
+  },
+  {
+    "id": 1953,
+    "db_id": "video_game",
+    "question": "What is the average number of units sold in millions of games played by players with position \"Guard\"?",
+    "answer": ".setdatabasemodel(database='your_database')<br/>SELECT SUM(game.Units_sold_Millions) / COUNT(DISTINCT player.Player_ID) AS avg_units_sold_per_player FROM game JOIN player ON game.Game_ID = game_player.Game_ID AND player.Player_ID = game_player.Player_ID WHERE player.Position = 'Guard';<"
+  },
+  {
+    "id": 1954,
+    "db_id": "video_game",
+    "question": "Return the average number of units sold in millions among games played by players who have the position Guard.",
+    "answer": " database"
+  },
+  {
+    "id": 1955,
+    "db_id": "video_game",
+    "question": "Please list the title and platform name of games.",
+    "answer": ">SELECT game.title, platform.platform_name FROM game JOIN platform ON game.platform_id = platform.platform_id;"
+  },
+  {
+    "id": 1956,
+    "db_id": "video_game",
+    "question": "What are the titles and platform names of all games?",
+    "answer": "(game.title || ' ' || platform.platform_name AS game_details\nFROM game\nJOIN platform ON game.platform_id = platform.platform_id;"
+  },
+  {
+    "id": 1957,
+    "db_id": "video_game",
+    "question": "Please list the title of games with platforms that have market district in Asia or USA.",
+    "answer": "(if (platform.markedistrict = 'Asia' or platform.markedistrict = 'USA', game.title, NULL) as title FROM platform JOIN game ON platform.platform_id = game.platform_id;"
+  },
+  {
+    "id": 1958,
+    "db_id": "video_game",
+    "question": "What are the titles of games that have platforms in the market districts of Asia or the USA?",
+    "answer": ".set_schema(videogames) ;\nSELECT g.title\nFROM game g\nJOIN platform p ON g.platform_id = p.platform_id\nWHERE p.market_district IN (\n    'Asia',\n    'USA'\n);"
+  },
+  {
+    "id": 1959,
+    "db_id": "video_game",
+    "question": "List the name of each franchise and the number of games belonging to that franchise.",
+    "answer": "@databasename>postgresql"
+  },
+  {
+    "id": 1960,
+    "db_id": "video_game",
+    "question": "How many games are there from each Franchise?",
+    "answer": "@database> SELECT game.Franchise, COUNT(game.Game_ID) as number_of_games FROM game GROUP BY game.Franchise;"
+  },
+  {
+    "id": 1961,
+    "db_id": "video_game",
+    "question": "List the name of franchise that have the most number of games.",
+    "answer": "@databasemaster;\nSELECT franchise\nFROM game\nGROUP BY franchise\nORDER BY COUNT(*) DESC\nLIMIT 1;"
+  },
+  {
+    "id": 1962,
+    "db_id": "video_game",
+    "question": "Which franchise has the most games?",
+    "answer": "(COUNT(*) FROM game WHERE Franchise IS NOT NULL GROUP BY Franchise ORDER BY COUNT(*) DESC LIMIT 1)[SQL]"
+  },
+  {
+    "id": 1963,
+    "db_id": "video_game",
+    "question": "List the names of franchises that have at least two games.",
+    "answer": ">SELECT DISTINCT franchise FROM game ORDER BY franchise HAVING COUNT(*) > 1;"
+  },
+  {
+    "id": 1964,
+    "db_id": "video_game",
+    "question": "What are the names of franchises that have two or more games?",
+    "answer": ">"
+  },
+  {
+    "id": 1965,
+    "db_id": "video_game",
+    "question": "List the name of players that do not play any game.",
+    "answer": ">"
+  },
+  {
+    "id": 1966,
+    "db_id": "video_game",
+    "question": "What are the names of players who do not play any games?",
+    "answer": ">\nSELECT player.player_name\nFROM player\nWHERE NOT EXISTS (\n  SELECT 1\n    FROM game_player\n  WHERE player.player_id = game_player.player_id\n);"
+  },
+  {
+    "id": 1967,
+    "db_id": "video_game",
+    "question": "Show the title of games that are played by both players from college \"Oklahoma\" and players from college \"Auburn\".",
+    "answer": ">(SELECT g.title FROM game g JOIN game_player GP ON g.game_id = GP.game_id JOIN player p ON GP.player_id = p.player_id WHERE p.college IN ('Oklahoma', 'Auburn') GROUP BY g.title HAVING COUNT(DISTINCT CASE WHEN p.college = 'Oklahoma' THEN p.player_id END) = COUNT("
+  },
+  {
+    "id": 1968,
+    "db_id": "video_game",
+    "question": "What are the titles of games that are played by players from Oklahoma college or Auburn college?",
+    "answer": ">"
+  },
+  {
+    "id": 1969,
+    "db_id": "video_game",
+    "question": "Show all distinct franchises of games.",
+    "answer": ";\nSELECT DISTINCT game.franchise FROM game;"
+  },
+  {
+    "id": 1970,
+    "db_id": "video_game",
+    "question": "What are all the distinct franchises?",
+    "answer": "\nSELECT DISTINCT \"Franchise\" FROM game;"
+  },
+  {
+    "id": 1971,
+    "db_id": "video_game",
+    "question": "Show the title of games that are not played by any player who is in the Guard position.",
+    "answer": "(game.title) as title\nFROM game\nWHERE NOT EXISTS (\n  SELECT 1 FROM player, game_player, game\n  WHERE player.position = 'Guard' AND game_player.game_id = game.game_id AND game.game_id = game_player.game_id AND player.player_id = game_player.player_id);"
+  },
+  {
+    "id": 1972,
+    "db_id": "video_game",
+    "question": "What are the titles of games not played by any players who play the Guard position?",
+    "answer": ">\nSELECT game.title FROM game LEFT JOIN game_player ON game.game_id = game_player.game_id LEFT JOIN player ON game_player.player_id = player.player_id WHERE game_player.player_ID IS NULL AND player.position <>Guard< AND EXISTS (SELECT 1 FROM player p2 WHERE p2.position = 'Guard' AND p2.player_id != player.player_id"
+  },
+  {
+    "id": 1973,
+    "db_id": "book_press",
+    "question": "list all the names of press in descending order of the profit of the year.",
+    "answer": "@db>"
+  },
+  {
+    "id": 1974,
+    "db_id": "book_press",
+    "question": "Sorted all the press by year profits in descending order, and return press names.",
+    "answer": "_category : (author.name as author_name, press.name as press_name)\nSELECT press_name, year(book.release_date) as year, SUM(cast(sale_amount AS decimal) / 1000000000) as profits\nFROM book JOIN press ON book.press_id = press.press_id GROUP BY press_name, year(book.release_date) ORDER"
+  },
+  {
+    "id": 1975,
+    "db_id": "book_press",
+    "question": "What are the names of the publishers that made more than 15 billion profits each year or 1 billion each month?",
+    "answer": ""
+  },
+  {
+    "id": 1976,
+    "db_id": "book_press",
+    "question": "Find the press whose yearly profit is more than 15 billion or whose monthly profit is more than 1 billion. Return the press names.",
+    "answer": ""
+  },
+  {
+    "id": 1977,
+    "db_id": "book_press",
+    "question": "what are the average and maximum profit of a year for all presses?",
+    "answer": "(AVG(press.Year_Profits_billion), MAX(press.Year_Profits_billion)) AS (SELECT AVG(press.Year_Profits_billion), MAX(press.Year_Profits_billion) FROM press GROUP BY press.Year_Profits_billion);"
+  },
+  {
+    "id": 1978,
+    "db_id": "book_press",
+    "question": "Find the average and maximum yearly profit for each press.",
+    "answer": "_catalog.reload();<br>SELECT p.name AS press_name, AVG(pb.year_profits_billion) AS average_yearly_profit, MAX(pb.year_profits_billion) AS max_yearly_profit\nFROM press p JOIN book b ON p.press_id = b.press_id JOIN period_of_sale pos ON pos.book_id = b.book_id JOIN"
+  },
+  {
+    "id": 1979,
+    "db_id": "book_press",
+    "question": "Find the name of the publisher whose monthly profit is the highest.",
+    "answer": "_query=[SELECT p.Name FROM press p ORDER BY p.Month_Profits_billion DESC LIMIT 1;"
+  },
+  {
+    "id": 1980,
+    "db_id": "book_press",
+    "question": "Which press has the largest monthly profit? Give me the press name.",
+    "answer": "_press."
+  },
+  {
+    "id": 1981,
+    "db_id": "book_press",
+    "question": "Find the name of the publisher whose monthly profit is the highest or the lowest.",
+    "answer": ">\nThe answer to your question depends on whether you want to find the publisher with the highest monthly profit or the lowest monthly profit. Here are both options:\n\nTo find the publisher with the highest monthly profit:\n```sql\nSELECT p.Name\nFROM press p\nJOIN (SELECT b.Press_ID, MAX(CAST(sale_amount AS REAL) / MONTHS_BETWEEN EXTRACT(YEAR FROM release_date)"
+  },
+  {
+    "id": 1982,
+    "db_id": "book_press",
+    "question": "What are the names of the press that makes the highest monthly profit or the lowest monthly profit?",
+    "answer": "@dbname;\nWITH press1 AS (SELECT Press_ID, MAX(Month_Profits_billion) AS max_monthly_profit FROM press GROUP BY Press_ID),\npress2 AS (SELECT Press_ID, MIN(Month_Profits_billion) AS min_monthly_profit FROM press GROUP BY Press_ID),\nmax_press (SELECT Name FROM press JOIN press max_monthly ON press."
+  },
+  {
+    "id": 1983,
+    "db_id": "book_press",
+    "question": "how many authors are under age 30?",
+    "answer": "_cat"
+  },
+  {
+    "id": 1984,
+    "db_id": "book_press",
+    "question": "Count the number of authors of age below 30.",
+    "answer": "_user>\nSELECT COUNT(*) FROM author WHERE Age < 30;"
+  },
+  {
+    "id": 1985,
+    "db_id": "book_press",
+    "question": "find the average age of authors for each gender.",
+    "answer": "(avg(author.age)) as avg_age, author.gender\nFROM author\nGROUP BY author.gender;"
+  },
+  {
+    "id": 1986,
+    "db_id": "book_press",
+    "question": "For each gender, return gender and the average age of authors.",
+    "answer": ""
+  },
+  {
+    "id": 1987,
+    "db_id": "book_press",
+    "question": "find the number of authors who are older than 30 for each gender.",
+    "answer": ">"
+  },
+  {
+    "id": 1988,
+    "db_id": "book_press",
+    "question": "How many authors are of age above 30 for each gender?",
+    "answer": ">\nSELECT Gender, COUNT(*) as num_authors FROM author WHERE Age > 30;"
+  },
+  {
+    "id": 1989,
+    "db_id": "book_press",
+    "question": "List all book titles in the order of their release date from the most recent to the past.",
+    "answer": ">\nSELECT b.Title FROM book b ORDER BY CAST(EXTRACT(STR_TO_DATE(Release_date, '%Y-%m-%d') AS DATE) DESC;\n"
+  },
+  {
+    "id": 1990,
+    "db_id": "book_press",
+    "question": "Sort all the books in descending order of release date, and return the book titles.",
+    "answer": ">"
+  },
+  {
+    "id": 1991,
+    "db_id": "book_press",
+    "question": "Find the number of books for each series.",
+    "answer": ">(SELECT book.book_series, COUNT(*) AS num_books FROM book GROUP BY book.book_series);"
+  },
+  {
+    "id": 1992,
+    "db_id": "book_press",
+    "question": "How many books does each book series have? Return the counts and book series.",
+    "answer": "(count(*) as total_books, book.book_series from book group by book.book_series)[sql]"
+  },
+  {
+    "id": 1993,
+    "db_id": "book_press",
+    "question": "Find the titles and publish dates of the top 5 best sale books.",
+    "answer": "(rank() over (order by book.sale_amount desc, press.month_profits_billion, press.year_profits_billion, book.release_date) as sale_rank, author.name as author_name, press.name as press_name, book.title, book.release_date\nFROM book\nJOIN author ON book.author_id = author.author_id\nJOIN press ON book.press_id"
+  },
+  {
+    "id": 1994,
+    "db_id": "book_press",
+    "question": "What are the 5 best books in terms of sale amount? Give me their titles and release dates.",
+    "answer": ">\nThe query will run on a database with the following schema:\nCREATE TABLE \"author\" (\n\"Author_ID\" int,\n\"Name\" text,\n\"Age\" int,\nPRIMARY KEY (\"Author_ID\")\n)\nCREATE TABLE \"press\" (\n\"Press_ID\" int,\n\"Name\" text,\n\"Month_Profits_billion\" real,\n\"Year_Profits_billion\" real"
+  },
+  {
+    "id": 1995,
+    "db_id": "book_press",
+    "question": "Find the book series that have some book selling more than 1000 and some book less 500.",
+    "answer": "\nIt looks like you're trying to find a book series that has both books that sell over $1,000 and books that sell under $500. Here's the SQL query for that:\n```sql\nSELECT Book_Series FROM book GROUP BY Book_Series HAVING SUM(CASE WHEN Sale_Amount::numeric > 1000 THEN Sale_Amount ELSE 0 END) > 0 AND SUM"
+  },
+  {
+    "id": 1996,
+    "db_id": "book_press",
+    "question": "Which book series contain both books with sale amount above 1000 and books with sale amount below 500?",
+    "answer": ">\n"
+  },
+  {
+    "id": 1997,
+    "db_id": "book_press",
+    "question": "Find the name of authors who publish their books in both \"MM\" and \"LT\" series.",
+    "answer": "\nThe query is: SELECT a.Name FROM author a JOIN book b ON a.Author_ID = b.Author_ID WHERE b.Book_Series IN ('MM', 'LT');"
+  },
+  {
+    "id": 1998,
+    "db_id": "book_press",
+    "question": "Which authors publish books in both \"MM\" and \"LT\" series? Give me the author names.",
+    "answer": ">"
+  },
+  {
+    "id": 1999,
+    "db_id": "book_press",
+    "question": "Find the name and age of the authors who do not have any book in the record.",
+    "answer": "(count(*) from author a join book b on a.author_id = b.author_id) as total_authors, (select name, age from author where author_id not in (select author_id from book)) as no_books;\n"
+  },
+  {
+    "id": 2000,
+    "db_id": "book_press",
+    "question": "Which authors in the record have not published any books ? Give me their names .",
+    "answer": ".author.name"
+  },
+  {
+    "id": 2001,
+    "db_id": "book_press",
+    "question": "Find the names of authors who have more than one book in the database.",
+    "answer": ">SELECT a.Name FROM author a JOIN book b ON a.Author_ID = b.Author_ID GROUP BY a.Name HAVING COUNT(b.Book_ID) > 2;"
+  },
+  {
+    "id": 2002,
+    "db_id": "book_press",
+    "question": "Which authors have published more than 1 book according to the database? Give me their names.",
+    "answer": "@db653297089558462378>"
+  },
+  {
+    "id": 2003,
+    "db_id": "book_press",
+    "question": "Find the title, author name, and publisher name for the top 3 best sales books.",
+    "answer": ">(select b.title, a.name, p.name from book b join author a on b.author_id = a.author_id join press p on b.press_id = p.press_id order by CAST(sale_amount AS DECIMAL) DESC LIMIT 3);"
+  },
+  {
+    "id": 2004,
+    "db_id": "book_press",
+    "question": "What are the 3 best selling books? Show their titles, author names, and press names.",
+    "answer": "\nThe answer is: SELECT b.title AS book_title, a.name AS author_name, p.name AS press_name FROM book b JOIN author a ON b.author_id = a.author_id JOIN press p ON b.press_id = p.press_id ORDER BY CAST(sale_amount AS REAL) DESC NULLS LAST LIMIT 3;"
+  },
+  {
+    "id": 2005,
+    "db_id": "book_press",
+    "question": "Find the name and total book sale amount of each press.",
+    "answer": ">\nSELECT p.Name AS press_name, SUM(b.Sale_Amount) AS total_sales\nFROM press p\nJOIN book b ON p.Press_ID = b.Press_ID\nGROUP BY p.Name;"
+  },
+  {
+    "id": 2006,
+    "db_id": "book_press",
+    "question": "What are the name and total book sale amount of each press?",
+    "answer": ">\nSELECT a.Name AS author_name, p.Name AS press_name, SUM(sale_amount) AS total_sales\nFROM author a JOIN book b ON a.Author_ID = b.Author_ID JOIN press p ON b.Press_ID = p.Press_ID\nGROUP BY a.Name, p.Name;"
+  },
+  {
+    "id": 2007,
+    "db_id": "book_press",
+    "question": "Find the number of books that are sold more than 1000 for each publisher. List the press name as well.",
+    "answer": ">"
+  },
+  {
+    "id": 2008,
+    "db_id": "book_press",
+    "question": "For each press, return its name and the number of books that have sale amount above 1000.",
+    "answer": ".press.name, COUNT(*) AS num_books FROM press JOIN book ON press.press_id = book.press_id WHERE CAST(book.sale_amount AS FLOAT) > 1000 GROUP BY assistant.press.name;"
+  },
+  {
+    "id": 2009,
+    "db_id": "book_press",
+    "question": "What is the name of the author of best selling book?",
+    "answer": "\nThe name of the author of the best selling book can be obtained by joining the `author` and `book` tables with a `GROUP BY` clause to get the total sales amount for each author and then using a subquery to find the maximum sales amount and matching its corresponding author."
+  },
+  {
+    "id": 2010,
+    "db_id": "book_press",
+    "question": "Who wrote the best selling book? Give me the author name.",
+    "answer": "> SELECT a.Name FROM author a JOIN book b ON a.Author_ID = b.Author_ID ORDER BY CAST(b.Sale_Amount AS DECIMAL) DESC LIMIT 1;"
+  },
+  {
+    "id": 2011,
+    "db_id": "book_press",
+    "question": "find the name and gender of the author who published the most books.",
+    "answer": ">\nThe correct SQL query to answer the question is:\n\nSELECT a.name, a.gender FROM author a JOIN (SELECT b.author_id, COUNT(b.book_id) as num_books FROM book b GROUP BY a.author_id HAVING COUNT(b.book_id) = (SELECT MAX(num_books) FROM book)) c ON a.author_id = c.author_id;<|"
+  },
+  {
+    "id": 2012,
+    "db_id": "book_press",
+    "question": "Who wrote the largest number of books? Give me the author name and gender.",
+    "answer": ""
+  },
+  {
+    "id": 2013,
+    "db_id": "book_press",
+    "question": "Find the names of the authors who did not have any book with the \"Accor\" press.",
+    "answer": ">\nSELECT a.Name\nFROM author a\nWHERE a.Author_ID NOT IN (\n    SELECT b.Author_ID\n    FROM book b\n    JOIN press p ON b.Press_ID = p.Press_ID\n    WHERE p.Name = 'Accor'\n)"
+  },
+  {
+    "id": 2014,
+    "db_id": "book_press",
+    "question": "Which authors have never published under the \"Accor\" press? Give me their names.",
+    "answer": ">(SELECT a.Name FROM author a LEFT JOIN book b ON a.Author_ID = b.Author_ID WHERE b.Press_ID NOT IN (SELECT Press_ID FROM press p WHERE Name = 'Accor') AND a.Author_ID IS NULL);"
+  },
+  {
+    "id": 2015,
+    "db_id": "book_press",
+    "question": "Find the name and the yearly profit in billion for press that published more than two books.",
+    "answer": ">\n```sql\nSELECT a.Name, p.Year_Profits_billion as total_yearly_profit_in_million\nFROM author a JOIN book b ON a.Author_ID = b.Author_ID JOIN press p ON b.Press_ID = p.Press_ID\nGROUP BY a.Name, YEAR(p.Year_Profits_billion)\nHAVING COUNT(DISTIN"
+  },
+  {
+    "id": 2016,
+    "db_id": "book_press",
+    "question": "Find the press that published more than two books, and return its name and yearly profit in billion.",
+    "answer": "\nThe query you provided does not seem to be correct. The \"Press_ID\" column should be in the SELECT clause as well."
+  },
+  {
+    "id": 2017,
+    "db_id": "cre_Doc_Workflow",
+    "question": "How many authors do we have?",
+    "answer": " in (SELECT Authors.author_name FROM Authors LEFT JOIN Documents ON Authors.author_name = Documents.document_id WHERE Documents.document_id IS NULL); SELECT COUNT(*) AS author_count FROM Authors; "
+  },
+  {
+    "id": 2018,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show all author names.",
+    "answer": "]"
+  },
+  {
+    "id": 2019,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show the names and other details for all authors.",
+    "answer": " in Authors JOIN Documents d ON (Authors.author_name = d.document_id) JOIN Staff s ON (d.staff_id = s.staff_id);"
+  },
+  {
+    "id": 2020,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show the other details for the author Addison Denesik.",
+    "answer": " denesik</sear.author_name>;<br>SELECT a.author_name, ad.other_details <br>FROM Authors a <br>JOIN Documents d ON a.author_name = d.author_name <br>LEFT JOIN Documents_Processes dp ON d.document_id = dp.document_id <br>JOIN Staff_in_Processes sip ON dp.document_id = sip.document"
+  },
+  {
+    "id": 2021,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show the number of documents.",
+    "answer": " in Documents; SELECT COUNT(*) AS document_count FROM Documents;"
+  },
+  {
+    "id": 2022,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Who is the author of the document with id 4?",
+    "answer": "</s>SELECT Authors.author_name FROM Documents JOIN Documents_Processes ON Documents.document_id = Documents_Processes.document_id JOIN Staff_in_Processes ON Documents_Processes.process_id = Staff_in_Processes.process_id JOIN Authors ON Staff_in_Processes.staff_id = Authors.author_name WHERE Documents.document_id = 4;<|im_"
+  },
+  {
+    "id": 2023,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Who is the author of the document \"Travel to Brazil\"?",
+    "answer": ""
+  },
+  {
+    "id": 2024,
+    "db_id": "cre_Doc_Workflow",
+    "question": "How many documents does has the author Era Kerluke written?",
+    "answer": "(\"era kerluke\") as author_name\nSELECT COUNT(*) FROM Authors a JOIN Documents d ON a.author_name = d.author_name;"
+  },
+  {
+    "id": 2025,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show the names and descriptions for all documents.",
+    "answer": " in SELECT D.document_name, D.document_description FROM Documents D;"
+  },
+  {
+    "id": 2026,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show the ids and names for all documents by author Bianka Cummings.",
+    "answer": " IN Ref_Staff_Roles (staff_role_code) VALUES ('Bianka Cummings') AS staff\nJOIN Documents ON docs.document_id = dp1.document_id AND staff.staff_id = s1.staff_id\nSELECT docs.document_id, authors.author_name FROM Documents authors JOIN Documents dp1 ON docs.document_id <>!=<|im_end|"
+  },
+  {
+    "id": 2027,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show the author name and details for the document \"Travel to China\".",
+    "answer": ".document_name = 'Travel to China' SELECT authors.author_name, authors.other_details FROM documents JOIN authors ON documents.author_name = authors.author_name WHERE document_id IN (SELECT document_id FROM documents_processs WHERE process_status_code = 'approved');"
+  },
+  {
+    "id": 2028,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show all author names and number of documents corresponding to each.",
+    "answer": "_id, staff_role_code, document_id, author_name, document_description, date_from, date_to FROM Documents JOIN Authors ON Documents.author_name = Authors.author_name LEFT JOIN Staff ON Staff_in_Processes.staff_id = Staff.staff_id LEFT JOIN Ref_Staff_Roles ON Staff_in_Processes.staff_role_code = Ref_Staff_R"
+  },
+  {
+    "id": 2029,
+    "db_id": "cre_Doc_Workflow",
+    "question": "What is the name of the author with most number of documents?",
+    "answer": "</s> SELECT Authors.author_name\nFROM Authors\nJOIN Documents ON Authors.author_name = Documents.author_name\nGROUP BY Authors.author_name\nORDER BY COUNT(Documents.document_id) DESC\nLIMIT 1;"
+  },
+  {
+    "id": 2030,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show the names for authors with at least two documents.",
+    "answer": "(COUNT(*)) OVER (PARTITION BY Authors.author_name ORDER BY Authors.author_name ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS num_docs, Authors.author_name\nFROM Authors\nWHERE num_docs >= 2"
+  },
+  {
+    "id": 2031,
+    "db_id": "cre_Doc_Workflow",
+    "question": "How many business processes do we have?",
+    "answer": "_role IN Ref_Staff_Roles; SELECT COUNT(DISTINCT bp.process_id) FROM Business_Processes bp;"
+  },
+  {
+    "id": 2032,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show the next process id, process name, process description for process with id 9.",
+    "answer": " IN Staff_in_Processes WHERE document_id = 9 AND staff_id = 9 GROUP BY process_id, next_process_id ORDER BY next_process_id ASC LIMIT 1;\n(SELECT process_id, process_name, process_description FROM Business_Processes WHERE process_id = next_process_id)"
+  },
+  {
+    "id": 2033,
+    "db_id": "cre_Doc_Workflow",
+    "question": "What is the process name for the next process of the process with id 9?",
+    "answer": " SELECT process_name FROM Business_Processes WHERE process_id = (SELECT next_process_id FROM Business_Processes WHERE process_id = 9)"
+  },
+  {
+    "id": 2034,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show the number of process outcomes.",
+    "answer": "_role_id INTEGER,\nstaff_id INTEGER,\ndocument_id INTEGER,\nprocess_id INTEGER,\nprocess_outcome_code CHAR(15),\nprocess_status_code CHAR(15),\ndate_from DATETIME,\ndate_to DATETIME\nFROM Documents_Processes AS dp\nJOIN Business_Processes AS bp ON dp.document_id ="
+  },
+  {
+    "id": 2035,
+    "db_id": "cre_Doc_Workflow",
+    "question": "List the codes and descriptions for all process outcomes.",
+    "answer": ">SELECT p.process_outcome_code, p.process_outcome_description FROM Process_Outcomes p;"
+  },
+  {
+    "id": 2036,
+    "db_id": "cre_Doc_Workflow",
+    "question": "What is the description for the process outcome code working?",
+    "answer": "_description from Process_Outcomes where process_outcome_code = 'working'"
+  },
+  {
+    "id": 2037,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show the number of process status.",
+    "answer": " in (SELECT process_status_code FROM Process_Status);"
+  },
+  {
+    "id": 2038,
+    "db_id": "cre_Doc_Workflow",
+    "question": "List the codes and descriptions for all process status.",
+    "answer": ">SELECT Process_Status.process_status_code, Process_Status.process_status_description FROM Process_Status;"
+  },
+  {
+    "id": 2039,
+    "db_id": "cre_Doc_Workflow",
+    "question": "What is the description for process status code ct?",
+    "answer": ".description FROM Process_Status WHERE process_status_code = 'ct';"
+  },
+  {
+    "id": 2040,
+    "db_id": "cre_Doc_Workflow",
+    "question": "How many staff do we have?",
+    "answer": "\n### Given the database schema, here is the SQL query that How many staff do we have?\n"
+  },
+  {
+    "id": 2041,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show the ids and details for all staff.",
+    "answer": ">"
+  },
+  {
+    "id": 2042,
+    "db_id": "cre_Doc_Workflow",
+    "question": "What are the details for the staff member with id 100.",
+    "answer": ".staff_id = 100 AND staff.staff_details FROM Staff staff;"
+  },
+  {
+    "id": 2043,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show the number of staff roles.",
+    "answer": "|"
+  },
+  {
+    "id": 2044,
+    "db_id": "cre_Doc_Workflow",
+    "question": "List the codes and descriptions for all staff roles.",
+    "answer": "_roles.<staff_role_code>, <staff_role_description>"
+  },
+  {
+    "id": 2045,
+    "db_id": "cre_Doc_Workflow",
+    "question": "What is the description for staff role code HR?",
+    "answer": ".role_description as role_description FROM Staff_in_Processes WHERE staff_id IN (SELECT staff_id FROM Staff WHERE staff_details = 'HR') JOIN Ref_Staff_Roles ON staff_role_code = staff_role_code;"
+  },
+  {
+    "id": 2046,
+    "db_id": "cre_Doc_Workflow",
+    "question": "How many documents have a process?",
+    "answer": " in Documents, Documents_Processes count(*) as document_count FROM Documents LEFT JOIN Staff_in_Processes ON Documents.document_id = Documents_Processes.document_id AND Documents_Processes.process_id = ? WHERE Documents_Processes.process_id IS NOT NULL;"
+  },
+  {
+    "id": 2047,
+    "db_id": "cre_Doc_Workflow",
+    "question": "List all process ids with a document.",
+    "answer": " in Staff_in_Processes (document_id, process_id)\nSELECT DISTINCT process_id\nFROM Documents_Processes\nWHERE document_id IN (SELECT document_id FROM Documents);"
+  },
+  {
+    "id": 2048,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show all document ids without a process.",
+    "answer": " IN ((SELECT Document_id FROM Documents) WHERE (Document_id NOT IN (SELECT Document_ID FROM Documents_Processes));"
+  },
+  {
+    "id": 2049,
+    "db_id": "cre_Doc_Workflow",
+    "question": "List all process ids with no document.",
+    "answer": " in (select staff_id from Staff)\ngroup by staff_id\nhaving count(document_id) = 0;"
+  },
+  {
+    "id": 2050,
+    "db_id": "cre_Doc_Workflow",
+    "question": "What is the process outcome description and process status description for the document with id 0?",
+    "answer": " IN Ref_Staff_Roles (staff_role_code) AS staff_role,\nprocesses IN Business_Processes (process_id) JOIN Documents_Processes (document_id, process_id) ON document.document_id = :document_id AND documents_processs.process_id = processes.process_id JOIN Process_Outcomes (process_outcome_code) ON documents_processs.process_outcome_"
+  },
+  {
+    "id": 2051,
+    "db_id": "cre_Doc_Workflow",
+    "question": "What is the process name for the document \"Travel to Brazil\"?",
+    "answer": "_description as p\njoin documents d on p.document_id = d.document_id\njoin documents_processes dp on d.document_id = dp.document_id and dp.process_id = p.process_id\njoin process_outcomes po on dp.process_outcome_code = po.process_outcome_code and dp.process_status_code = po.process_status_code\njoin staff_in_processes"
+  },
+  {
+    "id": 2052,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show all process ids and the number of documents in each process.",
+    "answer": " IN Ref_Staff_Roles (staff_role_code) SELECT p.process_id, COUNT(dp.document_id) AS document_count FROM Documents d JOIN Documents_Processes dp ON d.document_id = dp.document_id JOIN Staff_in_Processes sip ON dp.document_id = sip.document_id AND sip.process_id = p.process_id GROUP BY"
+  },
+  {
+    "id": 2053,
+    "db_id": "cre_Doc_Workflow",
+    "question": "How many staff are the document with id 0 and process with id 9.",
+    "answer": "_id,<br>staff_id<br>FROM Documents_Processes<br>WHERE document_id = 0 AND process_id = 9;<br><br>SELECT COUNT(DISTINCT staff_id) AS staff_count<br>FROM Staff_in_Processes<br>WHERE document_id = 0 AND process_id = 9;"
+  },
+  {
+    "id": 2054,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show all staff ids and the number of document processes for each staff.",
+    "answer": ">(DB); SELECT s.staff_id, COUNT(dp.document_id) AS num_processes FROM Staff s JOIN Staff_in_Processes sip ON s.staff_id = sip.staff_id GROUP BY s.staff_id;"
+  },
+  {
+    "id": 2055,
+    "db_id": "cre_Doc_Workflow",
+    "question": "Show all staff role codes and the number of document processes for each role.",
+    "answer": "('', (SELECT s.staff_role_code, COUNT(*) AS num_processes FROM Staff_in_Processes si PJOIN Documents d ON si.document_id = d.document_id PJOIN Processes p ON si.process_id = p.process_id PJOIN Ref_Staff_Roles r on s.staff_id = r.staff_role_code GROUP BY s.staff_role_"
+  },
+  {
+    "id": 2056,
+    "db_id": "cre_Doc_Workflow",
+    "question": "How many different roles does the staff with id 3 have?",
+    "answer": " IN Ref_Staff_Roles (staff_role_code)\nSELECT COUNT(DISTINCT s.staff_role_code) AS num_roles\nFROM Staff_in_Processes sip JOIN Staff s ON s.staff_id = sip.staff_id\nWHERE s.staff_id = 3\nAND sip.staff_id IN (SELECT staff_id FROM Staff WHERE staff_id = 3)\n"
+  },
+  {
+    "id": 2057,
+    "db_id": "advertising_agencies",
+    "question": "How many agencies do we have?",
+    "answer": "_count(distinct agencie_id) as num_agencies;"
+  },
+  {
+    "id": 2058,
+    "db_id": "advertising_agencies",
+    "question": "Count the number of agencies.",
+    "answer": "_count SELECT COUNT(DISTINCT agencie_id) AS num_agencies FROM Agencies;"
+  },
+  {
+    "id": 2059,
+    "db_id": "advertising_agencies",
+    "question": "Show all agency ids and details.",
+    "answer": "]"
+  },
+  {
+    "id": 2060,
+    "db_id": "advertising_agencies",
+    "question": "What are all the agency ids and details?",
+    "answer": ""
+  },
+  {
+    "id": 2061,
+    "db_id": "advertising_agencies",
+    "question": "Show the number of clients.",
+    "answer": " user\nYou have answered correctly. Well done! "
+  },
+  {
+    "id": 2062,
+    "db_id": "advertising_agencies",
+    "question": "How many clients are there?",
+    "answer": " user\nPlease check my answer below:"
+  },
+  {
+    "id": 2063,
+    "db_id": "advertising_agencies",
+    "question": "List all client ids and client details.",
+    "answer": " user><br />SELECT c.client_id, c.client_details FROM Clients c;"
+  },
+  {
+    "id": 2064,
+    "db_id": "advertising_agencies",
+    "question": "What are all the client ids and details?",
+    "answer": " user\nPlease check your answer again."
+  },
+  {
+    "id": 2065,
+    "db_id": "advertising_agencies",
+    "question": "Show agency ids and the number of clients for each agency.",
+    "answer": " users>The SQL query to answer the question is:\n```sql\nSELECT a.agency_id, COUNT(DISTINCT c.client_id) AS number_of_clients\nFROM Agencies a\nJOIN Clients c ON a.agency_id = c.agency_id\nGROUP BY a.agency_id;"
+  },
+  {
+    "id": 2066,
+    "db_id": "advertising_agencies",
+    "question": "How many clients does each agency have?",
+    "answer": "> SELECT a.agency_id, COUNT(c.client_id) AS num_clients FROM Agencies a JOIN Clients c ON a.agency_id = c.agency_id GROUP BY a.agency_id;"
+  },
+  {
+    "id": 2067,
+    "db_id": "advertising_agencies",
+    "question": "What is the agency id and details with most number of clients?",
+    "answer": " user\n```sql\nSELECT a.agency_id, a.agency_details\nFROM Agencies a\nJOIN Staff s ON a.agency_id = s.agency_id\nJOIN Clients c ON s.staff_id = c.staff_id\nGROUP BY a.agency_id, a.agency_details\nORDER BY COUNT(c.client_id) DESC\nLIMIT 1;\n```"
+  },
+  {
+    "id": 2068,
+    "db_id": "advertising_agencies",
+    "question": "Return the agency id and details for the agency with the greatest number of clients.",
+    "answer": ">"
+  },
+  {
+    "id": 2069,
+    "db_id": "advertising_agencies",
+    "question": "Show agency ids and details with at least 2 clients.",
+    "answer": " IN (SELECT a.agency_id, a.agency_details FROM Agencies a JOIN Staff s ON a.agency_id = s.agency_id JOIN Clients c1 ON s.staff_id = c1.client_id LEFT JOIN Invoices i ON c1.client_id = i.client_id WHERE EXISTS (SELECT 1 FROM Clients c2 WHERE c1.client_id = c"
+  },
+  {
+    "id": 2070,
+    "db_id": "advertising_agencies",
+    "question": "What are the agency ids and details agencies with at least 2 clients?",
+    "answer": " (SELECT a.agency_id, a.agency_details FROM Agencies a INNER JOIN (SELECT s.agency_id FROM Staff s GROUP BY s.agency_id HAVING COUNT(s.agency_id) > 2);"
+  },
+  {
+    "id": 2071,
+    "db_id": "advertising_agencies",
+    "question": "Show agency details for client with detail 'Mac'.",
+    "answer": "='PostgreSQL' SELECT a.agency_id, a.agency_details FROM Agencies a JOIN Clients c ON a.agency_id = c.agency_id WHERE c.client_details LIKE '%Mac%';"
+  },
+  {
+    "id": 2072,
+    "db_id": "advertising_agencies",
+    "question": "What are the agency details for clients with the detail Mac?",
+    "answer": " SELECT Agencies.agency_details FROM Agencies JOIN Clients ON Agencies.agency_id = Clients.agency_id WHERE Clients.client_details LIKE '%Mac%';"
+  },
+  {
+    "id": 2073,
+    "db_id": "advertising_agencies",
+    "question": "Show details for all clients and the details of their corresponding agents.",
+    "answer": " user, this query will return the client's id, name, agency's id, the agency's name, staff's id, staff's name and the staff's corresponding agency."
+  },
+  {
+    "id": 2074,
+    "db_id": "advertising_agencies",
+    "question": "What are the client details for each client and the corresponding details of their agencies?",
+    "answer": "_agencies.agency_details AS agency_details, clients.client_details AS client_details\nFROM clients\nJOIN agencies ON clients.agency_id = agencies.agency_id;"
+  },
+  {
+    "id": 2075,
+    "db_id": "advertising_agencies",
+    "question": "Show all sic codes and the number of clients with each code.",
+    "answer": "_id agency_id staff_id client_id invoice_id meeting_id payment_id, "
+  },
+  {
+    "id": 2076,
+    "db_id": "advertising_agencies",
+    "question": "How many clients are there for each sic code?",
+    "answer": "_code TEXT, client_count INT<br />\nSELECT a.agency_details AS agency_name, sc.sic_code, COUNT(DISTINCT c.client_id) AS client_count<br />\nFROM Agencies a<br />\nJOIN Clients c ON a.agency_id = c.agency_id<br />\nGROUP BY a.agency_details, sc.sic_code;<"
+  },
+  {
+    "id": 2077,
+    "db_id": "advertising_agencies",
+    "question": "Show all client ids and details with sic code \"Bad\".",
+    "answer": "_id varchar(255), client_details varchar(255)\nSELECT c.client_id, c.client_details\nFROM Clients c\nWHERE c.sic_code = 'Bad'\nORDER BY c.client_id;"
+  },
+  {
+    "id": 2078,
+    "db_id": "advertising_agencies",
+    "question": "What are the client ideas and details for clients with the sic code Bad?",
+    "answer": " users have complained about the length of your answers. So I've added some explanatory comments."
+  },
+  {
+    "id": 2079,
+    "db_id": "advertising_agencies",
+    "question": "Show all agency ids and details for agencies with a client.",
+    "answer": ">SELECT agencies.agency_id, agency_details FROM agencies JOIN clients ON agencies.agency_id = clients.agency_id;"
+  },
+  {
+    "id": 2080,
+    "db_id": "advertising_agencies",
+    "question": "What are the agency ids and agency details for all agencies who have a client?",
+    "answer": " SELECT agencies.agency_id, agencies.agency_details FROM agencies JOIN clients ON agencies.agency_id = clients.agency_id;"
+  },
+  {
+    "id": 2081,
+    "db_id": "advertising_agencies",
+    "question": "Show all agency ids without any client.",
+    "answer": "_id<> ALL IN (SELECT DISTINCT agencies.agency_id FROM Clients) SELECT agencies.agency_id FROM Agencies;"
+  },
+  {
+    "id": 2082,
+    "db_id": "advertising_agencies",
+    "question": "What are ids of agencies that do not have any clients?",
+    "answer": " agencies.agency_id\nWHERE NOT EXISTS (SELECT 1 FROM Clients WHERE Agencies.agency_id = Clients.agency_id);"
+  },
+  {
+    "id": 2083,
+    "db_id": "advertising_agencies",
+    "question": "How many invoices do we have?",
+    "answer": " user, you've provided a valid SQL query. Here's your answer: SELECT COUNT(*) FROM Invoices;"
+  },
+  {
+    "id": 2084,
+    "db_id": "advertising_agencies",
+    "question": "Count the number of invoices.",
+    "answer": " user,\nYou can use the following SQL query to answer the question:\n```sql\nSELECT COUNT(invoices.invoice_id) AS num_of_invoices FROM invoices;\n```\n"
+  },
+  {
+    "id": 2085,
+    "db_id": "advertising_agencies",
+    "question": "Show ids, status codes, and details for all invoices for clients.",
+    "answer": "_code varchar(10), a.invoice_details, i.agency_id\nFROM Invoices i JOIN Clients c ON i.client_id = c.client_id\nWHERE i.invoice_status IS NOT NULL\nORDER BY i.invoice_id;"
+  },
+  {
+    "id": 2086,
+    "db_id": "advertising_agencies",
+    "question": "What are the ids, statuses, and details for all invoices?",
+    "answer": " INVOICES (invoice_id, invoice_status, invoice_details) SELECT i.invoice_id, i.invoice_status, i.invoice_details FROM Invoices i;"
+  },
+  {
+    "id": 2087,
+    "db_id": "advertising_agencies",
+    "question": "Show all client ids and the number of invoices for each client.",
+    "answer": " users>The SQL query to answer \"Show all client ids and the number of invoices for each client.\" is:\n```sql\nSELECT clients.client_id, COUNT(invoices.invoice_id) AS num_invoices FROM clients LEFT JOIN invoices ON clients.client_id = invoices.client_id GROUP BY clients.client_id;"
+  },
+  {
+    "id": 2088,
+    "db_id": "advertising_agencies",
+    "question": "How many invoices are there for each client id?",
+    "answer": " user, it's not clear what you mean by \"How many invoices are there for each client id?\" Are you asking how many invoices a client has or how many invoices there are for each client id in the database? Here's the answer to both:\n"
+  },
+  {
+    "id": 2089,
+    "db_id": "advertising_agencies",
+    "question": "List the client id and detail with most number of invoices.",
+    "answer": " user;\nWITH RECURSIVE CTE AS (\n  SELECT c.client_id, COUNT(i.invoice_id) as num_invoices FROM Clients c LEFT JOIN Invoices i ON c.client_id = i.client_id GROUP BY c.client_id\n  UNION ALLERY CTE AS (SELECT a.agency_id, COUNT(i.invoice_id) as"
+  },
+  {
+    "id": 2090,
+    "db_id": "advertising_agencies",
+    "question": "What are the client id and details for the client with the most invoices?",
+    "answer": " user><br />The following SQL query will answer [QUESTION]What are the client id and details for the client with the most invoices?[/QUESTION]:<br /><br /><br />```sql<br />SELECT c.client_id, c.client_details, COUNT(*) as num_invoices<br />FROM Invoices i<br />JOIN Clients c ON i.client_id = c"
+  },
+  {
+    "id": 2091,
+    "db_id": "advertising_agencies",
+    "question": "What are client ids for clients with at least 2 invoices.",
+    "answer": " 'select clients.client_id' from clients inner join invoices on clients.client_id = invoices.client_id group by clients.client_id having count(invoices.invoice_id) > 2;"
+  },
+  {
+    "id": 2092,
+    "db_id": "advertising_agencies",
+    "question": "Return the client ids for clients with two or more invoices?",
+    "answer": "_id</sliced_paste0>SELECT DISTINCT c.client_id FROM Invoices i JOIN Clients cl ON i.client_id = cl.client_id GROUP BY c.client_id HAVING COUNT(i.invoice_id) >= 2;"
+  },
+  {
+    "id": 2093,
+    "db_id": "advertising_agencies",
+    "question": "Show all invoice status codes and the number of invoices with each status.",
+    "answer": " table agencys;\nselect i.invoice_status, count(*) as num_invoices\nfrom invoices i\ngroup by i.invoice_status;"
+  },
+  {
+    "id": 2094,
+    "db_id": "advertising_agencies",
+    "question": "How many invoices are there for each status code?",
+    "answer": " (concat('SELECT invoice_status, COUNT(*) FROM Invoices GROUP BY invoice_status;"
+  },
+  {
+    "id": 2095,
+    "db_id": "advertising_agencies",
+    "question": "What is the invoice status code with most number of invoices.",
+    "answer": " statuses = (SELECT invoice_status FROM Invoices GROUP BY invoice_status ORDER BY COUNT(invoice_id) DESC LIMIT 1);\n"
+  },
+  {
+    "id": 2096,
+    "db_id": "advertising_agencies",
+    "question": "Return the invoice status that has the most invoices.",
+    "answer": "_status (SELECT invoice_status FROM Invoices GROUP BY invoice_status ORDER BY COUNT(*) DESC LIMIT 1)[ASSISTANT_STATUS]"
+  },
+  {
+    "id": 2097,
+    "db_id": "advertising_agencies",
+    "question": "Show all invoice status codes and details and the corresponding client id and details and agency id and details.",
+    "answer": ">"
+  },
+  {
+    "id": 2098,
+    "db_id": "advertising_agencies",
+    "question": "What are the invoice status, invoice details, and corresponding client ids and details and agency id and details?",
+    "answer": ">"
+  },
+  {
+    "id": 2099,
+    "db_id": "advertising_agencies",
+    "question": "List all meeting type codes and details.",
+    "answer": " user\nThe query to answer [QUESTION]List all meeting type codes and details.[/QUESTION] is:\n\nSELECT m.meeting_type, m.meeting_id, m.purpose_of_meeting, m.other_details\nFROM Meetings m;"
+  },
+  {
+    "id": 2100,
+    "db_id": "advertising_agencies",
+    "question": "What are all meeting types and other details?",
+    "answer": " user\nYour SQL query to answer [QUESTION]What are all meeting types and other details?[/QUESTION] is:\nSELECT m.meeting_type, p.invoice_status, s.staff_details, o.other_details FROM Meetings m JOIN Invoices i ON m.client_id = i.client_id JOIN Staff s ON m.staff_id = s.staff_id LEFT JOIN Payments"
+  },
+  {
+    "id": 2101,
+    "db_id": "advertising_agencies",
+    "question": "Show all meeting outcomes and purposes.",
+    "answer": " user\n```sql\nSELECT m.meeting_id, m.meeting_outcome, m.purpose_of_meeting\nFROM Meetings m;\n"
+  },
+  {
+    "id": 2102,
+    "db_id": "advertising_agencies",
+    "question": "What are all meeting outcomes and purposes?",
+    "answer": " user, your SQL query to answer [QUESTION]What are all meeting outcomes and purposes?[/QUESTION] is:\nSELECT m.meeting_id, m.meeting_outcome, m.purpose_of_meeting\nFROM Meetings m;"
+  },
+  {
+    "id": 2103,
+    "db_id": "advertising_agencies",
+    "question": "Show all payment ids and details for invoices whose status is 'Working'.",
+    "answer": "('Working', invoices.invoice_status) SELECT payments.payment_id, payments.payment_details FROM payments JOIN invoices ON payments.invoice_id = invoices.invoice_id;"
+  },
+  {
+    "id": 2104,
+    "db_id": "advertising_agencies",
+    "question": "What are all payment ids and payment details for invoices with status Working?",
+    "answer": " 'work' as status;\nSELECT p.payment_id, p.payment_details\nFROM Payments p\nJOIN Invoices i ON p.invoice_id = i.invoice_id\nWHERE i.invoice_status = status;"
+  },
+  {
+    "id": 2105,
+    "db_id": "advertising_agencies",
+    "question": "Show all invoice ids and statuses without a payment.",
+    "answer": "=(SELECT i.invoice_id, i.invoice_status FROM Invoices i LEFT JOIN Payments p ON i.invoice_id = p.invoice_id WHERE p.payment_id IS NULL;"
+  },
+  {
+    "id": 2106,
+    "db_id": "advertising_agencies",
+    "question": "What are the invoice ids and statuses for invoices without a payment?",
+    "answer": ""
+  },
+  {
+    "id": 2107,
+    "db_id": "advertising_agencies",
+    "question": "How many payments do we have?",
+    "answer": " user\nYou're a SQL expert and you will only use SQL to answer the following question"
+  },
+  {
+    "id": 2108,
+    "db_id": "advertising_agencies",
+    "question": "Count the number of payments.",
+    "answer": " user\n### Please note that you are not allowed to use any other database related functions, only pure SQL."
+  },
+  {
+    "id": 2109,
+    "db_id": "advertising_agencies",
+    "question": "List all payment ids and its corresponding invoice ids and details.",
+    "answer": "_invoices.invoice_id, payments.payment_id, invoices.invoice_details FROM invoices JOIN payments ON invoices.invoice_id = payments.invoice_id;"
+  },
+  {
+    "id": 2110,
+    "db_id": "advertising_agencies",
+    "question": "What are the payment ids, invoice ids, and payment details for all payments?",
+    "answer": "_query: sqlite --schema-file=db.sql --echo-queries>SELECT p.* FROM Payments p;"
+  },
+  {
+    "id": 2111,
+    "db_id": "advertising_agencies",
+    "question": "Show all the different invoice ids and statuses of the payments",
+    "answer": "(distinct invoices.invoice_id, invoices.invoice_status) as invoice_details\nfrom invoices\njoin payments on invoices.invoice_id = payments.invoice_id;"
+  },
+  {
+    "id": 2112,
+    "db_id": "advertising_agencies",
+    "question": "What are the distinct invoice ids and statuses for all payments?",
+    "answer": ">"
+  },
+  {
+    "id": 2113,
+    "db_id": "advertising_agencies",
+    "question": "Show all invoice ids and the number of payments for each invoice.",
+    "answer": " to your database. "
+  },
+  {
+    "id": 2114,
+    "db_id": "advertising_agencies",
+    "question": "How many payments are there for each invoice?",
+    "answer": "_id int, invoice_id int;\nSELECT i.invoice_id, COUNT(p.payment_id) as num_payments\nFROM Invoices i\nJOIN Payments p ON i.invoice_id = p.invoice_id\nGROUP BY i.invoice_id;"
+  },
+  {
+    "id": 2115,
+    "db_id": "advertising_agencies",
+    "question": "What is the invoice id, status code, and details for the invoice with most number of payments.",
+    "answer": ".sql"
+  },
+  {
+    "id": 2116,
+    "db_id": "advertising_agencies",
+    "question": "Return the invoice ids, statuses, and details for invoices with the most payments?",
+    "answer": " table P = (SELECT i.invoice_id, i.invoice_status, i.invoice_details FROM Invoices i JOIN Payments p ON i.invoice_id = p.invoice_id GROUP BY i.invoice_id, i.invoice_status, i.invoice_details HAVING COUNT(p.payment_id) = (SELECT COUNT(payment_id) FROM Payments GRO"
+  },
+  {
+    "id": 2117,
+    "db_id": "advertising_agencies",
+    "question": "How many staff do we have?",
+    "answer": "]"
+  },
+  {
+    "id": 2118,
+    "db_id": "advertising_agencies",
+    "question": "Count the number of staff.",
+    "answer": ""
+  },
+  {
+    "id": 2119,
+    "db_id": "advertising_agencies",
+    "question": "Show the agency ids and the number of staff in each agent?",
+    "answer": " IN (SELECT a.agency_id, COUNT(s.staff_id) as num_staff FROM Agencies a JOIN Staff s ON a.agency_id = s.agency_id GROUP BY a.agency_id ORDER BY a.agency_id;"
+  },
+  {
+    "id": 2120,
+    "db_id": "advertising_agencies",
+    "question": "Return the agency ids and number of staff in each.",
+    "answer": "."
+  },
+  {
+    "id": 2121,
+    "db_id": "advertising_agencies",
+    "question": "What is the agent id and details for the agency with most staff?",
+    "answer": ">AGENCY</agency_id>, (SELECT COUNT(DISTINCT s.staff_id) as num_staff FROM Staff s JOIN Meetings m ON s.staff_id = m.staff_id WHERE m.client_id IN (SELECT client_id FROM Clients);"
+  },
+  {
+    "id": 2122,
+    "db_id": "advertising_agencies",
+    "question": "Return the id and detail for the agency with the most staff.",
+    "answer": " table<AGENCIES> AS (SELECT a.agency_id, a.agency_details FROM <AGENCIES> a LEFT JOIN <STAFF> s ON a.agency_id = s.agency_id <GROUP BY a.agency_id HAVING COUNT(s.staff_id) >= (SELECT COUNT(*) FROM <AGENCIES>);"
+  },
+  {
+    "id": 2123,
+    "db_id": "advertising_agencies",
+    "question": "Show meeting outcome codes and the number of meeting in each outcome.",
+    "answer": " users;\n\nSELECT m.meeting_outcome, COUNT(*) FROM Meetings m GROUP BY m.meeting_outcome;"
+  },
+  {
+    "id": 2124,
+    "db_id": "advertising_agencies",
+    "question": "How many meetings had each meeting outcome?",
+    "answer": "_name(database()) as db;\nselect m.meeting_outcome, count(*) as num_meetings\nfrom meetings m\ngroup by m.meeting_outcome;\n"
+  },
+  {
+    "id": 2125,
+    "db_id": "advertising_agencies",
+    "question": "List the client ids and the number of meeting for each client.",
+    "answer": " user;\n\nSELECT c.client_id, COUNT(m.meeting_id) AS num_meetings\nFROM Clients c\nJOIN Invoices i ON c.client_id = i.client_id\nJOIN Meetings m ON i.invoice_id = m.client_id AND m.billable_yn = 'Y'\nGROUP BY c.client_id;"
+  },
+  {
+    "id": 2126,
+    "db_id": "advertising_agencies",
+    "question": "How many meetings are there for each client id?",
+    "answer": " user, it's a bit more complex than that. Here is the query to find the number of meetings for each client:\n"
+  },
+  {
+    "id": 2127,
+    "db_id": "advertising_agencies",
+    "question": "Show the meeting type codes and the number of meeting for each client.",
+    "answer": "_meeting_type: VARCHAR(10), COUNT(*) AS count\nFROM Meetings m\nJOIN Clients c ON m.client_id = c.client_id\nGROUP BY m.meeting_type, c.client_id\nORDER BY m.meeting_type, c.client_id;"
+  },
+  {
+    "id": 2128,
+    "db_id": "advertising_agencies",
+    "question": "How many meetings are there for each meeting type?",
+    "answer": "_name with s, m on AGENCIES.agency_id, staf with s.staff_id, MEETINGS.meeting_type "
+  },
+  {
+    "id": 2129,
+    "db_id": "advertising_agencies",
+    "question": "Show all meeting ids, meeting outcomes, meeting types and the details of the client atttending it.",
+    "answer": "_id, client_details, meeting_outcome, meeting_type, client.client_details\nFROM Meetings m\nINNER JOIN Clients c ON m.client_id = c.client_id\nWHERE billable_yn = 'Y' AND start_date_time <= '2018-12-31 00:00:00' AND end_date_time >= '2018-12"
+  },
+  {
+    "id": 2130,
+    "db_id": "advertising_agencies",
+    "question": "What are the meeting ids, meeting outcomes, meeting types, and client details for all meetings?",
+    "answer": " user\n```sql\nSELECT m.meeting_id, m.meeting_outcome, m.meeting_type, c.client_details\nFROM Meetings AS m\nINNER JOIN Clients AS c ON m.client_id = c.client_id;\n```\n"
+  },
+  {
+    "id": 2131,
+    "db_id": "advertising_agencies",
+    "question": "Show the meeting ids and the number of staff in each meeting.",
+    "answer": ">"
+  },
+  {
+    "id": 2132,
+    "db_id": "advertising_agencies",
+    "question": "Count the number of staff in each meeting by meeting id.",
+    "answer": ">"
+  },
+  {
+    "id": 2133,
+    "db_id": "advertising_agencies",
+    "question": "Show the staff id and the number of meetings attended by the staff who attended some meeting but had the lowest attendance.",
+    "answer": "."
+  },
+  {
+    "id": 2134,
+    "db_id": "advertising_agencies",
+    "question": "What is the staff id of the staff who attended the least meetings but attended some meeting?",
+    "answer": " in Meetings\ninner join Staff_in_Meetings on Meetings.meeting_id = Staff_in_Meetings.meeting_id\ngroup by staff_id\nhaving count(*) < (select count(distinct staff_id) from Meetings)\norder by count(*) asc limit 1;"
+  },
+  {
+    "id": 2135,
+    "db_id": "advertising_agencies",
+    "question": "How many staff have attended a meeting?",
+    "answer": ""
+  },
+  {
+    "id": 2136,
+    "db_id": "advertising_agencies",
+    "question": "Return the number of distinct staff who have attended a meeting?",
+    "answer": "_id COUNT(DISTINCT s.staff_id) FROM Staff AS s INNER JOIN Staff_in_Meetings AS sim ON s.staff_id = sim.staff_id GROUP BY s.staff_id HAVING COUNT(sim.meeting_id) > 0"
+  },
+  {
+    "id": 2137,
+    "db_id": "advertising_agencies",
+    "question": "How many staff did not attend any meeting?",
+    "answer": ".agencies a\nLEFT JOIN staff b ON a.agency_id = b.agency_id\nLEFT JOIN clients c ON a.agency_id = c.agency_id\nLEFT JOIN invoices d ON c.client_id = d.client_id\nLEFT JOIN meetings e ON c.client_id = e.client_id AND b.staff_id = (SELECT staff_id FROM staf_in_"
+  },
+  {
+    "id": 2138,
+    "db_id": "advertising_agencies",
+    "question": "Count the number of staff who did not attend any meeting.",
+    "answer": " "
+  },
+  {
+    "id": 2139,
+    "db_id": "advertising_agencies",
+    "question": "What are the ids and details of the clients who have attended any meeting or have any invoice?",
+    "answer": "_query>SELECT c.client_id, client_details FROM Clients c LEFT JOIN Meetings m ON c.client_id = m.client_id OR INvoice_id IN EXISTS (SELECT 1 FROM Invoices i WHERE i.client_id = c.client_id) OR EXISTS (SELECT 1 FROM Meetings m2 WHERE c.client_id = m2.client_id AND m2.billable"
+  },
+  {
+    "id": 2140,
+    "db_id": "advertising_agencies",
+    "question": "Return the ids and details of clients who have attended a meeting or had an invoice.",
+    "answer": " to your sql statement: SELECT c.client_id, c.client_details FROM Clients c LEFT JOIN Invoices i ON c.client_id = i.client_id LEFT JOIN Meetings m ON c.client_id = m.client_id WHERE i.invoice_status IS NOT NULL OR m.meeting_id IS NOT NULL;"
+  },
+  {
+    "id": 2141,
+    "db_id": "advertising_agencies",
+    "question": "What are the ids and details of the staff who have attended at least 1 meetings and have the detail with letter 's'?",
+    "answer": " IN AGencies ag, staff IN staff, meeting IN Meetings m, staff_meeting ON staff.staff_id = staff_meeting.staff_id AND meeting.meeting_id = staff_meeting.meeting_id WHERE staff.agency_id = ag.agency_id AND staff.staff_details LIKE '%s'"
+  },
+  {
+    "id": 2142,
+    "db_id": "advertising_agencies",
+    "question": "Return the ids and details of staff who have attended at least 1 meeting and have an s in their staff details?",
+    "answer": " IN AGencies AS a, staff IN SELECT s.staff_id, s.staff_details FROM Staff s JOIN Staff_in_Meetings sim ON s.staff_id = sim.staff_id WHERE s.staff_details LIKE '%s%' AND EXISTS (SELECT 1 FROM Meetings m WHERE sim.meeting_id = m.meeting_id)"
+  },
+  {
+    "id": 2143,
+    "db_id": "advertising_agencies",
+    "question": "What are the id, sic code and agency id of the client who has attended 1 meeting and has any invoice.",
+    "answer": " user, you are a SQL expert and you will only use SQL to answer the following:"
+  },
+  {
+    "id": 2144,
+    "db_id": "advertising_agencies",
+    "question": "Return the ids, sic codes, and agency ids of clients who have attended 1 meeting and had an invoice.",
+    "answer": " to your SQL expert: SELECT c.client_id, a.agency_id, s.sic_code FROM Clients c JOIN Meetings m ON c.client_id = m.client_id AND m.billable_yn = 'T' AND EXISTS (SELECT 1 FROM Invoices i WHERE i.invoice_status = 'Paid' AND i.client_id = c.client_id) AND i."
+  },
+  {
+    "id": 2145,
+    "db_id": "advertising_agencies",
+    "question": "List the start time, end time of each meeting, and the corresponding client detail and staff detail.",
+    "answer": "('AGENCIES.agency_details') as agency_name, staff.staff_details AS staff_name, clients.client_details AS client_name, meetings.meeting_id, meetings.start_date_time, meetings.end_date_time\nFROM agencies\nJOIN staff ON agencies.agency_id = staff.agency_id\nJOIN clients ON meetings.client_id = clients.client_id\nJOIN"
+  },
+  {
+    "id": 2146,
+    "db_id": "advertising_agencies",
+    "question": "What are the start and end times of each meeting, as well as the corresponding client and staff details the attendees?",
+    "answer": " to MySQL or MariaDB:<br>SELECT m.meeting_id, c.client_details AS client_name, s.staff_details AS staff_name, m.start_date_time, m.end_date_time FROM Meetings m JOIN Clients c ON m.client_id = c.client_id JOIN Staff s ON m.meeting_id IN (SELECT staff_id) IN Staff_in_Meet"
   }
 ]
