@@ -1,73 +1,120 @@
-sql_stmt_list ::= [ sql_stmt ] ( ';' [ sql_stmt ] ) *
-sql_stmt ::= [ EXPLAIN [ QUERY PLAN ] ] select_stmt
+# Root rule specifies the overall pattern
+root ::= select-stmt [;]?
 
-select_stmt ::= [ WITH [ RECURSIVE ] common_table_expression ( ',' common_table_expression ) * ] 
-                select_core 
-                ( compound_operator select_core ) * 
-                [ ORDER BY ordering_term ( ',' ordering_term ) * ] 
-                [ LIMIT expr [ ( OFFSET | ',' ) expr ] ]
+# Select statement
 
-common_table_expression ::= table_name [ '(' column_name ( ',' column_name ) * ')' ] AS '(' select_stmt ')'
+select-stmt ::= (
+    select-core (compound-operator subquery)* 
+    ("ORDER" "BY" ordering-term ("," ordering-term)*)? 
+    ("LIMIT" expr (("OFFSET" | ",") expr)?)?
+)
 
-select_core ::= ( SELECT [ DISTINCT | ALL ] result_column ( ',' result_column ) * 
-                [ FROM ( table_or_subquery ( ',' table_or_subquery ) * | join_clause ) ] 
-                [ WHERE expr ] 
-                [ GROUP BY expr ( ',' expr ) * [ HAVING expr ] ]
-                | VALUES '(' expr ( ',' expr ) * ')' 
-                ( ',' '(' expr ( ',' expr ) * ')' ) * )
 
-table_or_subquery ::= ( [ database_name '.' ] table_name [ [ AS ] table_alias ] 
-                      [ INDEXED BY index_name | NOT INDEXED ]
-                      | '(' ( table_or_subquery ( ',' table_or_subquery ) * | join_clause ) ')'
-                      | '(' select_stmt ')' [ [ AS ] table_alias ] )
+# Common table expression
+common-table-expression ::= table-name ("(" column-name ("," column-name)* ")")? "AS" "(" select-stmt ")"
 
-join_clause ::= table_or_subquery [ join_operator table_or_subquery join_constraint ]
+# Compound operator
+compound-operator ::= ("UNION" | "UNION" "ALL" | "INTERSECT" | "EXCEPT")
 
-result_column ::= ( '*' 
-                  | table_name '.' '*' 
-                  | expr [ [ AS ] column_alias ] )
+# Join clause
+join-clause ::= table-or-subquery (join-operator table-or-subquery join-constraint)*
 
-join_operator ::= ( ',' 
-                  | [ NATURAL ] [ LEFT [ OUTER ] | INNER | CROSS ] JOIN )
+# Join operator
+join-operator ::= ("," | "NATURAL"? ("LEFT" "OUTER"? | "INNER" | "CROSS")? "JOIN")
 
-join_constraint ::= [ ON expr | USING '(' column_name ( ',' column_name ) * ')' ]
+# Join constraint
+join-constraint ::= ("ON" expr | "USING" "(" column-name ("," column-name)* ")")?
 
-ordering_term ::= expr [ COLLATE collation_name ] [ ASC | DESC ]
+# Ordering term
+ordering-term ::= expr ("COLLATE" collation-name)? ("ASC" | "DESC")? ("NULLS" ("FIRST" | "LAST"))?
 
-compound_operator ::= ( UNION 
-                      | UNION ALL 
-                      | INTERSECT 
-                      | EXCEPT )
+# Result column
+result-column ::= (expr ("AS"? column-alias)? | "*" | table-name "." "*")
 
-expr ::= ( literal_value
-         | bind_parameter
-         | [ [ database_name '.' ] table_name '.' ] column_name
-         | unary_operator expr
-         | expr binary_operator expr
-         | function_name '(' [ [ DISTINCT ] expr ( ',' expr ) * | '*' ] ')'
-         | '(' expr ')'
-         | CAST '(' expr AS type_name ')'
-         | expr COLLATE collation_name
-         | expr [ NOT ] ( LIKE | GLOB | REGEXP | MATCH ) expr [ ESCAPE expr ]
-         | expr ( ISNULL | NOTNULL | NOT NULL )
-         | expr IS [ NOT ] expr
-         | expr [ NOT ] BETWEEN expr AND expr
-         | expr [ NOT ] IN ( '(' [ select_stmt | expr ( ',' expr ) * ] ')' 
-                           | [ database_name '.' ] table_name )
-         | [ [ NOT ] EXISTS ] '(' select_stmt ')'
-         | CASE [ expr ] WHEN expr THEN expr [ ELSE expr ] END
-         | raise_function )
+# Table or subquery
+table-or-subquery ::= (
+    qualified-table-name 
+    | (schema-name ".")? table-function-name "(" expr ("," expr)* ")" ("AS"? table-alias)? 
+    | "(" (table-or-subquery ("," table-or-subquery)* | join-clause) ")" 
+    | "(" select-stmt ")" ("AS"? table-alias)?
+)
 
-literal_value ::= ( numeric_literal
-                  | string_literal
-                  | blob_literal
-                  | NULL
-                  | CURRENT_TIME
-                  | CURRENT_DATE
-                  | CURRENT_TIMESTAMP )
+# Qualified table name
+qualified-table-name ::= (schema-name ".")? table-name ("AS"? table-name)? ("INDEXED" "BY" index-name | "NOT" "INDEXED")?
 
-numeric_literal ::= ( digit [ decimal_point ( digit ) * ] 
-                   | decimal_point digit ) 
-                   [ E [ '+' | '-' ] digit ]
+# Window definition
+window-defn ::= "(" base-window-name ("PARTITION" "BY" expr ("," expr)*)? ("ORDER" "BY" ordering-term ("," ordering-term)*)? frame-spec? ")"
 
-raise_function ::= RAISE '(' ( IGNORE | ( ROLLBACK | ABORT | FAIL ) ',' error_message ) ')'
+# Frame specification
+frame-spec ::= (
+    ("RANGE" | "ROWS" | "GROUPS") 
+    ("BETWEEN" 
+        (("UNBOUNDED" | expr) "PRECEDING" 
+        | "CURRENT" "ROW" 
+        | expr "FOLLOWING")
+        "AND"
+        (("UNBOUNDED" | expr) "FOLLOWING" 
+        | "CURRENT" "ROW" 
+        | expr "PRECEDING")
+    | ("UNBOUNDED" | expr) "PRECEDING" 
+    | "CURRENT" "ROW")
+    ("EXCLUDE" ("NO" "OTHERS" | "CURRENT" "ROW" | "GROUP" | "TIES") )?
+)
+
+# Expression
+expr ::= (
+    literal-value 
+    | bind-parameter 
+    | ( (schema-name ".")? table-name "." )? column-name 
+    | unary-operator expr 
+    | expr binary-operator expr 
+    | function-name "(" ("DISTINCT"? expr ("," expr)* | "*")? ")" filter-clause? over-clause? 
+    | "(" expr ("," expr)* ")" 
+    | "CAST" "(" expr "AS" type-name ")" 
+    | expr "COLLATE" collation-name 
+    | expr "NOT"? ("LIKE" | "GLOB" | "REGEXP" | "MATCH") expr ("ESCAPE" expr)? 
+    | expr ("ISNULL" | "NOTNULL" | "NOT" "NULL") 
+    | expr "IS" "NOT"? expr 
+    | expr "NOT"? "BETWEEN" expr "AND" expr 
+    | expr "NOT"? "IN" ("(" (select-stmt | expr ("," expr)*) ")" | (schema-name ".")? (table-name | table-function "(" (expr ("," expr)*)? ")" ) ) 
+    | ("NOT"? "EXISTS")? "(" select-stmt ")" 
+    | "CASE" expr? ("WHEN" expr "THEN" expr)+ ("ELSE" expr)? "END" 
+    | raise-function
+)
+
+# Raise function
+raise-function ::= "RAISE" "(" ("IGNORE" | ("ROLLBACK" | "ABORT" | "FAIL") "," error-message) ")"
+
+# Literal value
+literal-value ::= (numeric-literal | string-literal | blob-literal | "NULL" | "TRUE" | "FALSE" | "CURRENT_TIME" | "CURRENT_DATE" | "CURRENT_TIMESTAMP")
+
+# Numeric literal
+numeric-literal ::= (digit+ (decimal-point digit*)? | decimal-point digit+) ("E" ("+" | "-")? digit+)? | "0x" hexdigit+
+
+# Select core
+select-core ::= (
+    "SELECT" ("DISTINCT" | "ALL")? result-column ("," result-column)* 
+    ("FROM" (table-or-subquery ("," table-or-subquery)* | join-clause) )? 
+    ("WHERE" expr)? 
+    ("GROUP" "BY" expr ("," expr)* ("HAVING" expr)? )? 
+    ("WINDOW" window-name "AS" window-defn ("," window-name "AS" window-defn)* )? 
+    | "VALUES" "(" expr ("," expr)* ")" ("," "(" expr ("," expr)* ")" )*
+)
+subquery::= (
+    "SELECT" ("DISTINCT" | "ALL")? result-column ("," result-column)* 
+    ("FROM" (table-or-subquery ("," table-or-subquery)* | join-clause) )? 
+    ("WHERE" expr)? 
+    ("GROUP" "BY" expr ("," expr)* ("HAVING" expr)? )? 
+    ("WINDOW" window-name "AS" window-defn ("," window-name "AS" window-defn)* )? 
+    | "VALUES" "(" expr ("," expr)* ")" ("," "(" expr ("," expr)* ")" )*
+)
+
+# Column name list
+column-name-list ::= "(" column-name ("," column-name)* ")"
+
+# Filter clause
+filter-clause ::= "FILTER" "(" "WHERE" expr ")"
+
+# Over clause
+over-clause ::= "OVER" (window-name | window-defn)
+
