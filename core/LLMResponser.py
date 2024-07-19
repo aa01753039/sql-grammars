@@ -42,7 +42,7 @@ class LLMResponser:
         prompt_template=None,
     ):
         self.llm = Llama.from_pretrained(
-            repo_id=llm_repo, filename=llm_file, verbose=False
+            repo_id=llm_repo, filename=llm_file, verbose=False, n_ctx=2048
         )
         self.questions = []
         self.grammar_directory = grammar_directory
@@ -114,11 +114,11 @@ class LLMResponser:
         for table in tables:
             ddl_statements += table[1] + "\n"
 
-        if len(ddl_statements) > 950:
+        if len(ddl_statements) > 1500:
             # Remove the data types from the DDL statements
             ddl_statements = remove_data_types(ddl_statements)
             # just keep the first 1000 characters
-            ddl_statements = ddl_statements[:950]
+            # ddl_statements = ddl_statements[:800]
 
         return ddl_statements
 
@@ -146,20 +146,28 @@ class LLMResponser:
             question_db = question["db_id"]
             question = question["question"]
 
-            prompt = question
+            db_path = os.path.join(
+                    self.db_directory, question_db, f"{question_db}.sqlite"
+                )
+            schema = self.get_ddl_statements(db_path)
+            prompt = f"schema: {schema}\n question: {question}"
+            prompt += "Use only SQL to answer the question above, using only the schema provided.\n"
+            prompt += "Do not use any natural language, start with SELECT" 
+         
             if self.prompt_template:
                 db_path = os.path.join(
                     self.db_directory, question_db, f"{question_db}.sqlite"
                 )
                 schema = self.get_ddl_statements(db_path)
                 prompt = self.prompt_template.format(question=question, schema=schema)
-
+            print(prompt)
             # get the answer for each question
             answer = self.llm(
                 prompt,  # prompt
                 grammar=grammar,
                 max_tokens=100,  # as necessary tokens
                 seed=0,  # seed for reproducibility
+                stop=["<|im_end|>"],  # stop token
             )
 
             # store the answer in the dictionary

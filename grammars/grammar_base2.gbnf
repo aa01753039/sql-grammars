@@ -96,8 +96,6 @@ order-column ::= column (" ASC" | " DESC")?
 # LIMIT clause, to limit the number of results, with optional OFFSET
 limit-clause ::= ws? "LIMIT " integer (" OFFSET " integer)?
 
-# Quoted identifier for cases where identifiers include spaces or other special characters
-quoted-identifier ::= "\"" [^\"]* "\""
 
 # Optional whitespace, for better readability in the grammar
 ws ::= [ \t\n]*
