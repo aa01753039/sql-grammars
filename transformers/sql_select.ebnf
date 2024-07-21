@@ -1,0 +1,35 @@
+root ::= query
+
+query ::= "SELECT" ws attributes ws "FROM" ws tables ws ("WHERE" ws condition)? ws ("GROUP BY" ws attribute)? ws ("ORDER BY" ws order)? ws ("LIMIT" ws number)? ws ("OFFSET" ws number)? ws ";"
+
+attribute ::= string
+
+attributes ::= attribute attributes_rest
+
+attributes_rest ::= ("," attribute attributes_rest)? 
+
+table ::= string
+
+join ::= "JOIN" | "LEFT JOIN" | "RIGHT JOIN" | "FULL JOIN" | "INNER JOIN"
+
+join_condition ::= attribute "=" attribute
+
+tables ::= table tables_rest
+
+tables_rest ::= (join ws table "ON" join_condition tables_rest)?
+
+condition ::= condition_term condition_rest
+
+condition_term ::= attribute "=" value | attribute "<" value | attribute ">" value | attribute "<=" value | attribute ">=" value | attribute "!=" value | attribute "LIKE" value | "(" condition ")" | attribute "IS" "NULL" | attribute "IS" "NOT" "NULL" | attribute "IN" "(" value ("," value)* ")"
+
+condition_rest ::= ("AND" condition_term condition_rest | "OR" condition_term condition_rest)?
+
+order ::= attribute ("ASC" | "DESC")?
+
+value ::= string | number
+
+string ::= [ \t!#-\[\]-~]* ws
+
+number ::= ("-"? ([0-9] | [1-9] [0-9]*)) ("." [0-9]+)? ([eE] [-+]? [0-9]+)? ws
+
+ws ::= [ \t\n]+
