@@ -2,13 +2,17 @@ root ::= query
 
 query ::= "SELECT " attributes ws "FROM " tables (ws "WHERE " condition)? (ws "GROUP BY " attribute)? (ws "ORDER BY " order)? (ws "LIMIT " number)? (ws "OFFSET " number)? ";"
 
-attribute ::= string
+attribute ::= column | string
 
 attributes ::= attribute attributes-rest
 
 attributes-rest ::= ("," attribute attributes-rest)? 
 
-table ::= string
+table ::= TABLE_NAMES_PLACEHOLDER
+
+column ::= (table ".")? column-name
+
+column-name ::= COLUMN_NAMES_PLACEHOLDER
 
 join ::= "JOIN " | "LEFT JOIN " | "RIGHT JOIN " | "FULL JOIN " | "INNER JOIN "
 
