@@ -1,0 +1,13 @@
+root ::= query ";"
+
+query ::= "SELECT " attributes ws "FROM " attribute ( "WHERE " attribute)? ( "GROUP BY " attribute ("HAVING " attribute)?)? ( "ORDER BY " attribute)? ( "LIMIT " attribute)?
+
+attribute ::= string
+
+attributes ::= attribute attributes-rest
+
+attributes-rest ::= ("," attribute attributes-rest)? 
+
+string ::= [ \t!#-\[\]-~]* ws
+
+ws ::= [ \t\n]+
