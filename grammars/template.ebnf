@@ -1,0 +1,23 @@
+root ::= query ";"
+
+query ::= "SELECT " attributes ws "FROM " attribute-table ( ws "WHERE " attribute)? ( "GROUP BY " attribute-column ("HAVING " attribute)?)? ( "ORDER BY " attribute-column)? ( "LIMIT " attribute)?
+
+attribute-table ::= table-name | atribute
+
+table-name ::= TABLE_NAMES_PLACEHOLDER
+
+attribute ::= string
+
+attributes ::= attribute-column attributes-rest
+
+attribute-column ::= column | atribute
+
+column ::= (table-name".")? column-name
+
+column-name ::= COLUMNS_PLACEHOLDER
+
+attributes-rest ::= ("," attribute attributes-rest)? 
+
+string ::= [ \t!#-\[\]-~]* ws
+
+ws ::= [ \t\n]+

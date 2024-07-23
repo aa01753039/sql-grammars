@@ -4,8 +4,12 @@ import re
 import sqlite3
 from pathlib import Path
 
-from llama_cpp import Llama, LlamaGrammar
+import torch
 from tqdm import tqdm
+from transformers_cfg.generation.logits_process import GrammarConstrainedLogitsProcessor
+from transformers_cfg.grammar_utils import IncrementalGrammarConstraint
+
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
 def remove_data_types(sql_definition):
@@ -31,19 +35,27 @@ def remove_data_types(sql_definition):
     return processed_definition
 
 
-class LLMResponser:
+class Text2SQL:
     def __init__(
         self,
-        llm_repo,
-        llm_file,
+        model_id,
         predicted_path,
         grammar_directory=None,
         db_directory=None,
         prompt_template=None,
     ):
-        self.llm = Llama.from_pretrained(
-            repo_id=llm_repo, filename=llm_file, verbose=False, n_ctx=2048
-        )
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        print(f"Using device: {self.device}")
+
+        self.tokenizer = AutoTokenizer.from_pretrained(model_id)
+        self.tokenizer.pad_token = self.tokenizer.eos_token
+        #some models that uses LlamaTokenizer needs this
+        self.tokenizer.padding_side = "right"
+
+        self.llm = AutoModelForCausalLM.from_pretrained(model_id).to(self.device)
+        self.llm.generation_config.pad_token_id = self.llm.generation_config.eos_token_id
+        self.llm.resize_token_embeddings(len(self.tokenizer))
+
         self.questions = []
         self.grammar_directory = grammar_directory
         self.json_output = predicted_path + "/output.json"
@@ -79,16 +91,19 @@ class LLMResponser:
 
     def get_embedded_grammar(self, db_id):
         if self.grammar_directory:
-            grammar_path = os.path.join(self.grammar_directory, f"{db_id}.gbnf")
+            grammar_path = os.path.join(self.grammar_directory, f"{db_id}.ebnf")
             if os.path.exists(grammar_path):
-                grammar = LlamaGrammar.from_file(grammar_path, verbose=False)
+                # Load json grammar
+                with open(grammar_path, "r", encoding="utf-8-sig") as file:
+                    grammar = file.read()
         return grammar
 
     def get_base_grammar(self):
         if self.grammar_directory:
             grammar_path = self.grammar_directory
             if os.path.exists(grammar_path):
-                grammar = LlamaGrammar.from_file(grammar_path, verbose=False)
+                with open(grammar_path, "r", encoding="utf-8-sig") as file:
+                    grammar = file.read()
         return grammar
 
     def get_ddl_statements(self, database_path):
@@ -131,44 +146,63 @@ class LLMResponser:
         for question in tqdm(
             self.questions, desc=f"Answering {len(self.questions)} questions"
         ):
-            # if grammar_directory is a directory get_embedded_grammar if grammar_directory is a file get_base_grammar
-            if self.grammar_directory:
-                grammar_path = Path(self.grammar_directory)
-                if grammar_path.is_dir():
-                    grammar = self.get_embedded_grammar(question["db_id"])
-                elif grammar_path.is_file():
-                    grammar = self.get_base_grammar()
-            else:
-                grammar = None
-
             # get the answer for each question
             question_id = question["id"]
             question_db = question["db_id"]
             question = question["question"]
 
             db_path = os.path.join(
-                    self.db_directory, question_db, f"{question_db}.sqlite"
-                )
+                self.db_directory, question_db, f"{question_db}.sqlite"
+            )
             schema = self.get_ddl_statements(db_path)
-            prompt = f"schema: {schema}\n question: {question}"
-            prompt += "Use only SQL to answer the question above, using only the schema provided.\n"
-            prompt += "Do not use any natural language, start with SELECT" 
-         
+
+            prompt = question
             if self.prompt_template:
                 db_path = os.path.join(
                     self.db_directory, question_db, f"{question_db}.sqlite"
                 )
                 schema = self.get_ddl_statements(db_path)
                 prompt = self.prompt_template.format(question=question, schema=schema)
-            print(prompt)
-            # get the answer for each question
-            answer = self.llm(
-                prompt,  # prompt
-                grammar=grammar,
-                max_tokens=100,  # as necessary tokens
-                seed=0,  # seed for reproducibility
-                stop=["<|im_end|>"],  # stop token
-            )
+
+            input_ids = self.tokenizer(
+                prompt, add_special_tokens=False, return_tensors="pt", padding=True
+            )["input_ids"].to(self.device)
+
+            # if grammar_directory is a directory get_embedded_grammar if grammar_directory is a file get_base_grammar
+            if self.grammar_directory:
+                grammar_path = Path(self.grammar_directory)
+                if grammar_path.is_dir():
+                    grammar_str = self.get_embedded_grammar(question["db_id"])
+                elif grammar_path.is_file():
+                    grammar_str = self.get_base_grammar()
+                grammar = IncrementalGrammarConstraint(
+                    grammar_str, "root", self.tokenizer
+                )
+                grammar_processor = GrammarConstrainedLogitsProcessor(grammar)
+
+                output = self.llm.generate(
+                    input_ids,
+                    max_length=len(input_ids[0])+200,
+                    logits_processor=[grammar_processor],
+                    repetition_penalty=1.1,
+                    num_beams=1,
+                    num_return_sequences=1,
+                    do_sample=False,
+                   
+                )
+            else:
+                output = self.llm.generate(
+                    input_ids,
+                    max_length=len(input_ids[0])+200,
+                    repetition_penalty=1.1,
+                    num_beams=1,
+                    num_return_sequences=1,
+                    do_sample=False,
+
+                )
+
+            # decode output
+            answer = self.tokenizer.batch_decode(output, skip_special_tokens=True)
 
             # store the answer in the dictionary
             answers_list.append(
@@ -176,7 +210,7 @@ class LLMResponser:
                     "id": question_id,
                     "db_id": question_db,
                     "question": question,
-                    "answer": answer["choices"][0]["text"],
+                    "answer": answer[0],
                 }
             )
 
@@ -201,4 +235,3 @@ class LLMResponser:
         self.read_questions(question_file)
         # get the answers for the questions
         self.get_answers()
-

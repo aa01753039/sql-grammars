@@ -1,7 +1,5 @@
 llama-cpp-python
 huggingface-hub
-lark-parser
-mistralrs
 transformers
 torch
 transformers-cfg
