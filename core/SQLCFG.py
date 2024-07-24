@@ -75,7 +75,7 @@ class SQLCFG:
             if os.path.isfile(db_file):
                 schema = self.extract_schema(db_file)
                 grammar = self.replace_placeholders(schema)
-                grammar_path = os.path.join(self.grammar_directory, f"{db_name}.gbnf")
+                grammar_path = os.path.join(self.grammar_directory, f"{db_name}.ebnf")
                 self.write_grammar(grammar, grammar_path)
 
     def write_grammar(self, grammar, grammar_path):

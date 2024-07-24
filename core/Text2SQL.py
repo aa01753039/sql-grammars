@@ -50,7 +50,7 @@ class Text2SQL:
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
         self.tokenizer.pad_token = self.tokenizer.eos_token
         #some models that uses LlamaTokenizer needs this
-        self.tokenizer.padding_side = "right"
+        # self.tokenizer.padding_side = "right"
 
         self.llm = AutoModelForCausalLM.from_pretrained(model_id).to(self.device)
         self.llm.generation_config.pad_token_id = self.llm.generation_config.eos_token_id
@@ -92,6 +92,7 @@ class Text2SQL:
     def get_embedded_grammar(self, db_id):
         if self.grammar_directory:
             grammar_path = os.path.join(self.grammar_directory, f"{db_id}.ebnf")
+            print(grammar_path)
             if os.path.exists(grammar_path):
                 # Load json grammar
                 with open(grammar_path, "r", encoding="utf-8-sig") as file:
@@ -129,12 +130,6 @@ class Text2SQL:
         for table in tables:
             ddl_statements += table[1] + "\n"
 
-        if len(ddl_statements) > 1500:
-            # Remove the data types from the DDL statements
-            ddl_statements = remove_data_types(ddl_statements)
-            # just keep the first 1000 characters
-            # ddl_statements = ddl_statements[:800]
-
         return ddl_statements
 
     def get_answers(self):
@@ -149,20 +144,20 @@ class Text2SQL:
             # get the answer for each question
             question_id = question["id"]
             question_db = question["db_id"]
-            question = question["question"]
+            user_question = question["question"]
 
             db_path = os.path.join(
                 self.db_directory, question_db, f"{question_db}.sqlite"
             )
             schema = self.get_ddl_statements(db_path)
 
-            prompt = question
+            prompt = user_question
             if self.prompt_template:
                 db_path = os.path.join(
                     self.db_directory, question_db, f"{question_db}.sqlite"
                 )
                 schema = self.get_ddl_statements(db_path)
-                prompt = self.prompt_template.format(question=question, schema=schema)
+                prompt = self.prompt_template.format(question=user_question, schema=schema)
 
             input_ids = self.tokenizer(
                 prompt, add_special_tokens=False, return_tensors="pt", padding=True

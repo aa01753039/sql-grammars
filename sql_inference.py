@@ -68,7 +68,6 @@ if __name__ == "__main__":
             sql_grammar = SQLCFG(
                 args.grammar_template_path, args.db_path, args.grammar_directory
             )
-            print(sql_grammar)
             # write the grammar to the embedded grammar file
             sql_grammar.process_databases()
             grammar_path = args.grammar_directory
