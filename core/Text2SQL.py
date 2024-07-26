@@ -49,11 +49,12 @@ class Text2SQL:
 
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
         self.tokenizer.pad_token = self.tokenizer.eos_token
-        #some models that uses LlamaTokenizer needs this
+        # some models that uses LlamaTokenizer needs this
         # self.tokenizer.padding_side = "right"
 
         self.llm = AutoModelForCausalLM.from_pretrained(model_id).to(self.device)
-        self.llm.generation_config.pad_token_id = self.llm.generation_config.eos_token_id
+        # some models needs this
+        # self.llm.generation_config.pad_token_id = self.llm.generation_config.eos_token_id
         self.llm.resize_token_embeddings(len(self.tokenizer))
 
         self.questions = []
@@ -157,7 +158,9 @@ class Text2SQL:
                     self.db_directory, question_db, f"{question_db}.sqlite"
                 )
                 schema = self.get_ddl_statements(db_path)
-                prompt = self.prompt_template.format(question=user_question, schema=schema)
+                prompt = self.prompt_template.format(
+                    question=user_question, schema=schema
+                )
 
             input_ids = self.tokenizer(
                 prompt, add_special_tokens=False, return_tensors="pt", padding=True
@@ -177,23 +180,21 @@ class Text2SQL:
 
                 output = self.llm.generate(
                     input_ids,
-                    max_length=len(input_ids[0])+200,
-                    logits_processor=[grammar_processor],
+                    max_length=len(input_ids[0]) + 200,
                     repetition_penalty=1.1,
                     num_beams=1,
                     num_return_sequences=1,
                     do_sample=False,
-                   
+                    logits_processor=[grammar_processor],
                 )
             else:
                 output = self.llm.generate(
                     input_ids,
-                    max_length=len(input_ids[0])+200,
+                    max_length=len(input_ids[0]) + 200,
                     repetition_penalty=1.1,
                     num_beams=1,
                     num_return_sequences=1,
                     do_sample=False,
-
                 )
 
             # decode output
