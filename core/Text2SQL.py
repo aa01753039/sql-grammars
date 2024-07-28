@@ -55,7 +55,7 @@ class Text2SQL:
         self.llm = AutoModelForCausalLM.from_pretrained(model_id).to(self.device)
         # some models needs this
         # self.llm.generation_config.pad_token_id = self.llm.generation_config.eos_token_id
-        self.llm.resize_token_embeddings(len(self.tokenizer))
+        # self.llm.resize_token_embeddings(len(self.tokenizer))
 
         self.questions = []
         self.grammar_directory = grammar_directory

@@ -11,13 +11,17 @@
 #$ -q all.q
 
 conda activate sql
-python sql_inference.py --model_id "defog/sqlcoder-34b-alpha" --db_path "spider/test_database" --prompt_template """### Task
-Generate a SQL query to answer [QUESTION]{question}[/QUESTION]
+python sql_inference.py --model_id "meta-llama/Meta-Llama-3.1-8B" --db_path "spider/test_database" --prompt_template """
+Your role is a natural language to SQL translator who is expert writing SQL queries in SQLite dialect.
+For the given schema, output the SQL query you need to answer the problem.
 
-### Database Schema
-The query will run on a database with the following schema:
+The problem is given below in natural language.
+Additionally, here are the CREATE TABLE statements for the schema:
 {schema}
 
-### Answer
-Given the database schema, here is the SQL query that [QUESTION]{question}[/QUESTION]
-[SQL]""" --questions_file "spider/test_data/dev.json" --predicted_path "predictions/T_sqlcoder-34b-alpha"
+Do not write anything after the SQL query.
+Do not write anything other than the SQL query - no comments, no newlines, no print statements.
+
+Problem: {question}
+
+""" --questions_file "spider/test_data/dev3.json" --predicted_path "predictions/T_llama-3.1-8bCont"
