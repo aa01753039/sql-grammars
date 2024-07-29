@@ -11,7 +11,7 @@
 #$ -q all.q
 
 conda activate sql
-python sql_inference.py --model_id "meta-llama/Meta-Llama-3.1-8B" --db_path "spider/test_database" --prompt_template """
+python sql_inference.py --model_id "meta-llama/Meta-Llama-3.1-8B" --db_path "spider/test_database8" --prompt_template """
 Your role is a natural language to SQL translator who is expert writing SQL queries in SQLite dialect.
 For the given schema, output the SQL query you need to answer the problem.
 
@@ -24,4 +24,4 @@ Do not write anything other than the SQL query - no comments, no newlines, no pr
 
 Problem: {question}
 
-""" --questions_file "spider/test_data/dev3.json" --predicted_path "predictions/T_llama-3.1-8bCont"
+""" --questions_file "spider/test_data/dev9.json" --predicted_path "predictions/T_Llama-3.1-8BContCont"
