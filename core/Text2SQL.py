@@ -36,6 +36,15 @@ def remove_data_types(sql_definition):
 
 
 class Text2SQL:
+    """
+    Converts natural language questions into SQL queries using an LLM.
+
+    This class handles:
+        * Initialization of the LLM and tokenizer
+        * Loading of questions and grammars
+        * Generation of SQL answers
+        * Output management (JSON, TXT)
+    """
     def __init__(
         self,
         model_id,
@@ -44,6 +53,16 @@ class Text2SQL:
         db_directory=None,
         prompt_template=None,
     ):
+        """
+        Initializes the Text2SQL object.
+
+        Args:
+            model_id (str): Identifier for the pretrained language model.
+            predicted_path (str): Directory to save prediction outputs.
+            grammar_directory (str, optional): Path to grammar files (if used).
+            db_directory (str, optional): Path to SQLite database files (if used).
+            prompt_template (str, optional): Template for formatting question prompts.
+        """
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         print(f"Using device: {self.device}")
 
@@ -69,6 +88,12 @@ class Text2SQL:
         os.makedirs(os.path.dirname(self.txt_output), exist_ok=True)
 
     def read_questions(self, questions_file):
+        """
+        Reads questions from a JSON file and stores them in the object.
+
+        Args:
+            questions_file (str): Path to the JSON file containing questions.
+        """
         print("Reading questions from ", questions_file)
         # read the questions from the json file
         with open(questions_file, "r") as file:
@@ -91,6 +116,15 @@ class Text2SQL:
             )
 
     def get_embedded_grammar(self, db_id):
+        """
+        Retrieves the embedded grammar for a specific database from the grammar directory.
+
+        Args:
+            db_id (str): Identifier for the database.
+
+        Returns:
+            str: The embedded grammar as a string, or None if not found.
+        """
         if self.grammar_directory:
             grammar_path = os.path.join(self.grammar_directory, f"{db_id}.ebnf")
             print(grammar_path)
@@ -101,6 +135,12 @@ class Text2SQL:
         return grammar
 
     def get_base_grammar(self):
+        """
+        Retrieves the base grammar from the grammar directory.
+
+        Returns:
+            str: The base grammar as a string, or None if not found.
+        """
         if self.grammar_directory:
             grammar_path = self.grammar_directory
             if os.path.exists(grammar_path):
@@ -110,10 +150,13 @@ class Text2SQL:
 
     def get_ddl_statements(self, database_path):
         """
-        Retrieve the DDL statements for all tables in the specified SQLite database.
+        Retrieves DDL statements for all tables in an SQLite database.
 
-        :param database_path: Path to the SQLite database file.
-        :return: A dictionary with table names as keys and DDL statements as values.
+        Args:
+            database_path (str): Path to the SQLite database file.
+
+        Returns:
+            str: Concatenated DDL statements for all tables.
         """
         # Connect to the SQLite database
         conn = sqlite3.connect(database_path)
@@ -134,6 +177,9 @@ class Text2SQL:
         return ddl_statements
 
     def get_answers(self):
+        """
+        Generates SQL answers for each question and saves them in JSON format.
+        """
         print("NL2SQL")
         # Create a dictionary to store the answers
         answers_list = []
@@ -216,6 +262,9 @@ class Text2SQL:
         print("Predictions saved to ", self.json_output)
 
     def convert_json_to_txt(self):
+        """
+        Converts the JSON output file to a TXT file with only SQL answers.
+        """
         # read the answers from the json file
         with open(self.json_output, "r") as file:
             answers = json.load(file)
@@ -227,6 +276,12 @@ class Text2SQL:
         print(f"Answers written to {self.txt_output}")
 
     def predict(self, question_file):
+        """
+        Executes the prediction pipeline: reads questions, gets answers, saves output.
+
+        Args:
+            question_file (str): Path to the JSON file containing questions.
+        """
         # read the questions from the json file
         self.read_questions(question_file)
         # get the answers for the questions
