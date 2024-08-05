@@ -56,6 +56,8 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+    print(args)
+
     grammar_path = None
     # create a SQLGrammar object if grammar_directory is provided
     if args.grammar_directory:

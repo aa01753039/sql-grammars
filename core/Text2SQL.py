@@ -9,7 +9,7 @@ from tqdm import tqdm
 from transformers_cfg.generation.logits_process import GrammarConstrainedLogitsProcessor
 from transformers_cfg.grammar_utils import IncrementalGrammarConstraint
 
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 
 
 def remove_data_types(sql_definition):
@@ -35,6 +35,15 @@ def remove_data_types(sql_definition):
     return processed_definition
 
 
+def keep_after_select(text):
+    keyword = "SELECT"
+    index = text.find(keyword)
+    if index != -1:
+        return text[index:]
+    else:
+        return text
+
+
 class Text2SQL:
     """
     Converts natural language questions into SQL queries using an LLM.
@@ -45,6 +54,7 @@ class Text2SQL:
         * Generation of SQL answers
         * Output management (JSON, TXT)
     """
+
     def __init__(
         self,
         model_id,
@@ -76,6 +86,10 @@ class Text2SQL:
         # # self.llm.generation_config.pad_token_id = self.llm.generation_config.eos_token_id
         # self.llm.resize_token_embeddings(len(self.tokenizer))
 
+        #if model_id contains "instruct" set Instruction to True
+        self.instruct = False
+        if "instruct" in model_id.lower():
+            self.instruct = True
         self.questions = []
         self.grammar_directory = grammar_directory
         self.json_output = predicted_path + "/output.json"
@@ -176,6 +190,25 @@ class Text2SQL:
 
         return ddl_statements
 
+    def execute_sql_query(self, query: str, db_path: str):
+        try:
+            # Connect to the SQLite database
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
+
+            # Execute the SQL query
+            cursor.execute(query)
+
+            # Commit the changes
+            conn.commit()
+
+            # Close the connection
+            conn.close()
+
+            return None
+        except sqlite3.Error as e:
+            return str(e)
+
     def get_answers(self):
         """
         Generates SQL answers for each question and saves them in JSON format.
@@ -200,61 +233,230 @@ class Text2SQL:
 
             prompt = user_question
             if self.prompt_template:
-                db_path = os.path.join(
-                    self.db_directory, question_db, f"{question_db}.sqlite"
-                )
-                schema = self.get_ddl_statements(db_path)
                 prompt = self.prompt_template.format(
                     question=user_question, schema=schema
                 )
 
-            input_ids = self.tokenizer(
-                prompt, add_special_tokens=False, return_tensors="pt", padding=True
-            )["input_ids"].to(self.device)
+            attempts = 3
+            last_prompt = prompt
 
-            # if grammar_directory is a directory get_embedded_grammar if grammar_directory is a file get_base_grammar
-            if self.grammar_directory:
-                grammar_path = Path(self.grammar_directory)
-                if grammar_path.is_dir():
-                    grammar_str = self.get_embedded_grammar(question["db_id"])
-                elif grammar_path.is_file():
-                    grammar_str = self.get_base_grammar()
-                grammar = IncrementalGrammarConstraint(
-                    grammar_str, "root", self.tokenizer
+            while attempts > 0:
+                print(f"Question: {user_question}")
+                print(f"Attempt: {4-attempts}")
+
+                input_ids = self.tokenizer(
+                    last_prompt,
+                    add_special_tokens=False,
+                    return_tensors="pt",
+                    padding=True,
+                )["input_ids"].to(self.device)
+
+                # if grammar_directory is a directory get_embedded_grammar if grammar_directory is a file get_base_grammar
+                if self.grammar_directory:
+                    grammar_path = Path(self.grammar_directory)
+                    if grammar_path.is_dir():
+                        grammar_str = self.get_embedded_grammar(question["db_id"])
+                    elif grammar_path.is_file():
+                        grammar_str = self.get_base_grammar()
+                    grammar = IncrementalGrammarConstraint(
+                        grammar_str, "root", self.tokenizer
+                    )
+                    grammar_processor = GrammarConstrainedLogitsProcessor(grammar)
+
+                    output = self.llm.generate(
+                        input_ids,
+                        max_length=len(input_ids[0]) + 200,
+                        repetition_penalty=1.1,
+                        num_beams=1,
+                        num_return_sequences=1,
+                        do_sample=False,
+                        logits_processor=[grammar_processor],
+                    )
+                else:
+                    output = self.llm.generate(
+                        input_ids,
+                        max_length=len(input_ids[0]) + 200,
+                        repetition_penalty=1.1,
+                        num_beams=1,
+                        num_return_sequences=1,
+                        do_sample=False,
+                    )
+
+                # decode output
+                answer = self.tokenizer.batch_decode(output, skip_special_tokens=True)
+                cleaned_answer = keep_after_select(answer[0])
+                cleaned_answer = (
+                    re.sub(r"\n+", "\n", cleaned_answer)
+                    .replace("\n", " ")
+                    .replace("\r", " ")
                 )
-                grammar_processor = GrammarConstrainedLogitsProcessor(grammar)
 
-                output = self.llm.generate(
-                    input_ids,
-                    max_length=len(input_ids[0]) + 200,
-                    repetition_penalty=1.1,
-                    num_beams=1,
-                    num_return_sequences=1,
-                    do_sample=False,
-                    logits_processor=[grammar_processor],
+                error = self.execute_sql_query(cleaned_answer, db_path)
+
+                if error is None:
+                    # store the answer in the dictionary
+                    answers_list.append(
+                        {
+                            "id": question_id,
+                            "db_id": question_db,
+                            "question": user_question,
+                            "attempts": 4-attempts,
+                            "answer": cleaned_answer,
+                        }
+                    )
+                    break
+
+                # Prepare the new prompt for the next iteration
+                last_prompt = f"""{prompt}
+    Encountered an error: {error}. 
+    To address this, please generate an alternative SQL query response that avoids this specific error. 
+    Follow the instructions mentioned above to remediate the error. 
+
+    Modify the below SQL query to resolve the issue:
+    {cleaned_answer}
+
+    Ensure the revised SQL query aligns precisely with the requirements outlined in the initial question."""
+                attempts -= 1
+
+            if attempts == 0:
+                answers_list.append(
+                    {
+                        "id": question_id,
+                        "db_id": question_db,
+                        "question": user_question,
+                        "attempts": 4-attempts,
+                        "answer": cleaned_answer,
+                    }
                 )
-            else:
-                output = self.llm.generate(
-                    input_ids,
-                    max_length=len(input_ids[0]) + 200,
-                    repetition_penalty=1.1,
-                    num_beams=1,
-                    num_return_sequences=1,
-                    do_sample=False,
-                )
 
-            # decode output
-            answer = self.tokenizer.batch_decode(output, skip_special_tokens=True)
+            # save the answers_dict to a json file after each answer
+            with open(self.json_output, "w") as file:
+                json.dump(answers_list, file, indent=2)
+        print("Predictions saved to ", self.json_output)
 
-            # store the answer in the dictionary
-            answers_list.append(
-                {
-                    "id": question_id,
-                    "db_id": question_db,
-                    "question": question,
-                    "answer": answer[0],
-                }
+    def get_answers_instruct(self):
+        """
+        Generates SQL answers for each question and saves them in JSON format.
+        """
+        print("NL2SQL Instruction Mode")
+        # Create a dictionary to store the answers
+        answers_list = []
+
+        # iterate over the questions dictionary
+        for question in tqdm(
+            self.questions, desc=f"Answering {len(self.questions)} questions"
+        ):
+            # get the answer for each question
+            question_id = question["id"]
+            question_db = question["db_id"]
+            user_question = question["question"]
+
+            db_path = os.path.join(
+                self.db_directory, question_db, f"{question_db}.sqlite"
             )
+            schema = self.get_ddl_statements(db_path)
+
+            prompt = user_question
+            if self.prompt_template:
+                prompt = self.prompt_template.format(
+                    question=user_question, schema=schema
+                )
+
+            attempts = 3
+            last_prompt = prompt
+
+            
+
+            while attempts > 0:
+
+                print(f"Question: {user_question}")
+                print(f"Attempt: {4-attempts}")
+                
+                pipe = pipeline(
+                "text-generation",
+                model=self.llm,
+                tokenizer=self.tokenizer,
+                device_map="auto",
+                max_length=len(last_prompt) + 200,
+                batch_size=2,
+    )
+
+                # if grammar_directory is a directory get_embedded_grammar if grammar_directory is a file get_base_grammar
+                if self.grammar_directory:
+                    grammar_path = Path(self.grammar_directory)
+                    if grammar_path.is_dir():
+                        grammar_str = self.get_embedded_grammar(question["db_id"])
+                    elif grammar_path.is_file():
+                        grammar_str = self.get_base_grammar()
+                    grammar = IncrementalGrammarConstraint(
+                        grammar_str, "root", self.tokenizer
+                    )
+                    grammar_processor = GrammarConstrainedLogitsProcessor(grammar)
+
+                    messages = [
+    {"role": "system", "content": "Your role is a natural language to SQL translator who is an expert in writing SQL queries in SQLite dialect. For the given schema, output the SQL query you need to answer the problem."},
+    {"role": "user", "content": last_prompt},
+]
+
+                    generation = pipe(
+                        messages,
+                        do_sample=False,
+                        logits_processor=[grammar_processor],
+                    )
+                else:
+                    generation = pipe(
+                        last_prompt,
+                        do_sample=False,
+                    )
+
+                output= generation[0]["generated_text"][-1]
+
+                # decode output
+                answer = self.tokenizer.batch_decode(output, skip_special_tokens=True)
+                cleaned_answer = keep_after_select(answer[0])
+                cleaned_answer = (
+                    re.sub(r"\n+", "\n", cleaned_answer)
+                    .replace("\n", " ")
+                    .replace("\r", " ")
+                )
+
+                error = self.execute_sql_query(cleaned_answer, db_path)
+
+                if error is None:
+                    # store the answer in the dictionary
+                    answers_list.append(
+                        {
+                            "id": question_id,
+                            "db_id": question_db,
+                            "question": user_question,
+                            "attempts": 4-attempts,
+                            "answer": cleaned_answer,
+                        }
+                    )
+                    break
+
+                # Prepare the new prompt for the next iteration
+                last_prompt = f"""{prompt}
+        Encountered an error: {error}. 
+        To address this, please generate an alternative SQL query response that avoids this specific error. 
+        Follow the instructions mentioned above to remediate the error. 
+
+        Modify the below SQL query to resolve the issue:
+        {cleaned_answer}
+
+        Ensure the revised SQL query aligns precisely with the requirements outlined in the initial question."""
+                attempts -= 1
+
+            if attempts == 0:
+                answers_list.append(
+                    {
+                        "id": question_id,
+                        "db_id": question_db,
+                        "question": user_question,
+                        "attempts": 4-attempts,
+                        "answer": cleaned_answer,
+                    }
+                )
 
             # save the answers_dict to a json file after each answer
             with open(self.json_output, "w") as file:
@@ -272,7 +474,9 @@ class Text2SQL:
         # write the answers to the txt file
         with open(self.txt_output, "w") as file:
             for answer in answers:
-                file.write(answer["answer"].replace("\n", "").replace("\r", "") + "\n")
+                file.write(
+                    answer["answer"].replace("\n", " ").replace("\r", " ") + "\n"
+                )
         print(f"Answers written to {self.txt_output}")
 
     def predict(self, question_file):
