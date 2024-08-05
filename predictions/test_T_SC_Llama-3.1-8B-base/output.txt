@@ -1,0 +1,5 @@
+SELECT COUNT(*) FROM club; 
+SELECT COUNT(*) FROM club; 
+SELECT Name FROM club ORDER BY Name ASC; 
+SELECT Name FROM club ORDER BY Name ASC; 
+SELECT club.Manager, club.Captain FROM club WHERE club.Club_ID IN (SELECT player.Club_ID FROM player WHERE player.Country = 'Spain' AND player.Earnings > 1000000) 

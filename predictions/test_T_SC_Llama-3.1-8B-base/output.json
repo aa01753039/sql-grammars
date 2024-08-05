@@ -1,0 +1,52 @@
+[
+  {
+    "id": 0,
+    "db_id": "soccer_3",
+    "question": {
+      "id": 0,
+      "db_id": "soccer_3",
+      "question": "How many clubs are there?"
+    },
+    "answer": "SELECT COUNT(*) FROM club; "
+  },
+  {
+    "id": 1,
+    "db_id": "soccer_3",
+    "question": {
+      "id": 1,
+      "db_id": "soccer_3",
+      "question": "Count the number of clubs."
+    },
+    "answer": "SELECT COUNT(*) FROM club; "
+  },
+  {
+    "id": 2,
+    "db_id": "soccer_3",
+    "question": {
+      "id": 2,
+      "db_id": "soccer_3",
+      "question": "List the name of clubs in ascending alphabetical order."
+    },
+    "answer": "SELECT Name FROM club ORDER BY Name ASC; "
+  },
+  {
+    "id": 3,
+    "db_id": "soccer_3",
+    "question": {
+      "id": 3,
+      "db_id": "soccer_3",
+      "question": "What are the names of clubs, ordered alphabetically?"
+    },
+    "answer": "SELECT Name FROM club ORDER BY Name ASC; "
+  },
+  {
+    "id": 4,
+    "db_id": "soccer_3",
+    "question": {
+      "id": 4,
+      "db_id": "soccer_3",
+      "question": "What are the managers and captains of clubs?"
+    },
+    "answer": "SELECT club.Manager, club.Captain FROM club WHERE club.Club_ID IN (SELECT player.Club_ID FROM player WHERE player.Country = 'Spain' AND player.Earnings > 1000000) "
+  }
+]
