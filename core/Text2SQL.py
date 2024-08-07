@@ -2,6 +2,7 @@ import json
 import os
 import re
 import sqlite3
+import time
 from pathlib import Path
 
 import torch
@@ -42,6 +43,24 @@ def keep_after_select(text):
         return text[index:]
     else:
         return text
+
+
+def keep_after_last_occurrence(input_str: str) -> str:
+    """
+    Returns the substring after the last occurrence of the search_str in input_str.
+
+    Parameters:
+    input_str (str): The input string to search within.
+    search_str (str): The string to find the last occurrence of.
+
+    Returns:
+    str: The substring after the last occurrence of search_str.
+    """
+    search_str = "Ensure the revised SQL query aligns precisely with the requirements outlined in the initial question."
+    last_index = input_str.rfind(search_str)
+    if last_index == -1:
+        return ""
+    return input_str[last_index + len(search_str) :]
 
 
 class Text2SQL:
@@ -141,7 +160,7 @@ class Text2SQL:
         """
         if self.grammar_directory:
             grammar_path = os.path.join(self.grammar_directory, f"{db_id}.ebnf")
-            print(grammar_path)
+
             if os.path.exists(grammar_path):
                 # Load json grammar
                 with open(grammar_path, "r", encoding="utf-8-sig") as file:
@@ -162,58 +181,158 @@ class Text2SQL:
                     grammar = file.read()
         return grammar
 
-    def get_ddl_statements(self, database_path):
-        """
-        Retrieves DDL statements for all tables in an SQLite database.
+    def get_ddl_statements_with_retries(
+        self, database_path, max_retries=15, max_directories=15
+    ):
+        def get_ddl_statements(database_path):
+            """
+            Retrieves DDL statements for all tables in an SQLite database.
 
-        Args:
-            database_path (str): Path to the SQLite database file.
+            Args:
+                database_path (str): Path to the SQLite database file.
 
-        Returns:
-            str: Concatenated DDL statements for all tables.
-        """
-        # Connect to the SQLite database
-        conn = sqlite3.connect(database_path)
-        cursor = conn.cursor()
-
-        # Query the sqlite_master table to get the names and DDL statements for all tables
-        cursor.execute("SELECT name, sql FROM sqlite_master WHERE type='table';")
-        tables = cursor.fetchall()
-
-        # Close the connection
-        conn.close()
-
-        # join all the DDL statements into a single string
-        ddl_statements = ""
-        for table in tables:
-            ddl_statements += table[1] + "\n"
-
-        return ddl_statements
-
-    def execute_sql_query(self, query: str, db_path: str):
-        try:
+            Returns:
+                str: Concatenated DDL statements for all tables.
+            """
             # Connect to the SQLite database
-            conn = sqlite3.connect(db_path)
+            conn = sqlite3.connect(database_path)
             cursor = conn.cursor()
 
-            # Execute the SQL query
-            cursor.execute(query)
-
-            # Commit the changes
-            conn.commit()
+            # Query the sqlite_master table to get the names and DDL statements for all tables
+            cursor.execute("SELECT name, sql FROM sqlite_master WHERE type='table';")
+            tables = cursor.fetchall()
 
             # Close the connection
             conn.close()
 
-            return None
-        except sqlite3.Error as e:
-            return str(e)
+            # Join all the DDL statements into a single string
+            ddl_statements = ""
+            for table in tables:
+                ddl_statements += table[1] + "\n"
+
+            return ddl_statements
+
+        retries = 0
+        base_path, db_name = os.path.split(database_path)
+
+        while retries < max_retries:
+            try:
+                ddl_statements = get_ddl_statements(database_path)
+                return ddl_statements, retries + 1, base_path
+            except sqlite3.OperationalError as e:
+                if "disk I/O error" in str(e):
+                    retries += 1
+                    time.sleep(1)
+                    continue
+                else:
+                    return f"OperationalError: {e}", retries + 1, base_path
+            except sqlite3.DatabaseError as e:
+                if "database disk image is malformed" in str(e):
+                    retries += 1
+                    time.sleep(1)
+                    continue
+                else:
+                    return f"DatabaseError: {e}", retries + 1, base_path
+
+        for i in range(2, max_directories + 1):
+            new_base_path = f"{base_path}{i}"
+            new_db_path = os.path.join(new_base_path, db_name)
+            retries = 0
+            while retries < max_retries:
+                try:
+                    ddl_statements = get_ddl_statements(new_db_path)
+                    return ddl_statements, retries + 1, new_base_path
+                except sqlite3.OperationalError as e:
+                    if "disk I/O error" in str(e):
+                        retries += 1
+                        print("Retrying", retries, "error:", str(e))
+                        time.sleep(1)
+                        continue
+                    else:
+                        return f"OperationalError: {e}", retries + 1, new_base_path
+                except sqlite3.DatabaseError as e:
+                    if "database disk image is malformed" in str(e):
+                        retries += 1
+                        print("Retrying", retries, "error:", str(e))
+                        time.sleep(1)
+                        continue
+                    else:
+                        return f"DatabaseError: {e}", retries + 1, new_base_path
+
+        return (
+            f"Failed after trying {max_directories} directories",
+            retries + 1,
+            new_base_path,
+        )
+
+    def execute_sql_query_with_retries(
+        self, query: str, db_path: str, max_retries=15, max_directories=15
+    ):
+        def execute_sql_query(query: str, db_path: str):
+            try:
+                # Connect to the SQLite database
+                conn = sqlite3.connect(db_path)
+                cursor = conn.cursor()
+
+                # Execute the SQL query
+                cursor.execute(query)
+
+                # Commit the changes
+                conn.commit()
+
+                # Close the connection
+                conn.close()
+
+                return None
+            except sqlite3.Error as e:
+                return str(e)
+
+        retries = 0
+        base_path, db_name = os.path.split(db_path)
+
+        while retries < max_retries:
+            error = execute_sql_query(query, db_path)
+            if error is None:
+                return None
+            elif (
+                "disk I/O error" in error or "database disk image is malformed" in error or "unable to open database file" in error
+            ):
+                retries += 1
+                print("Retrying", retries, "error:", error)
+                time.sleep(1)
+                continue
+            else:
+                return error
+
+        for i in range(2, max_directories + 1):
+            new_base_path = f"{base_path}{i}"
+            new_db_path = os.path.join(new_base_path, db_name)
+            retries = 0
+            while retries < max_retries:
+                error = execute_sql_query(query, new_db_path)
+                if error is None:
+                    return None
+                elif (
+                    "disk I/O error" in error
+                    or "database disk image is malformed" in error
+                    or "unable to open database file" in error
+                ):
+                    retries += 1
+                    time.sleep(1)
+                    continue
+                else:
+                    return error
+
+        # Return None if the last attempt still gives disk error or database malformed error
+        return None
 
     def get_answers(self):
         """
         Generates SQL answers for each question and saves them in JSON format.
         """
         print("NL2SQL")
+        if self.instruct:
+            print("Instruction mode enabled")
         # Create a dictionary to store the answers
         answers_list = []
 
@@ -221,6 +340,7 @@ class Text2SQL:
         for question in tqdm(
             self.questions, desc=f"Answering {len(self.questions)} questions"
         ):
+            outputs_history = []
             # get the answer for each question
             question_id = question["id"]
             question_db = question["db_id"]
@@ -229,7 +349,7 @@ class Text2SQL:
             db_path = os.path.join(
                 self.db_directory, question_db, f"{question_db}.sqlite"
             )
-            schema = self.get_ddl_statements(db_path)
+            schema = self.get_ddl_statements_with_retries(db_path)
 
             prompt = user_question
             if self.prompt_template:
@@ -280,24 +400,48 @@ class Text2SQL:
                         do_sample=False,
                         logits_processor=[grammar_processor],
                         truncation=True,
+                        temperature=None,
+                        top_p=None,
                     )
                 else:
                     generation = pipe(
                         messages,
                         do_sample=False,
                         truncation=True,
+                        temperature=None,
+                        top_p=None,
                     )
 
                 # get output
-                answer = generation[0][0]["generated_text"]
+
+                if self.instruct:
+                    answer = generation[0]["generated_text"][-1]["content"]
+                    full_answer = (
+                        generation[0]["generated_text"][-2]["content"]
+                        + " "
+                        + generation[0]["generated_text"][-1]["content"]
+                    )
+                    outputs_history.append(full_answer)
+                else:
+                    answer = generation[0][0]["generated_text"]
+
+                    outputs_history.append(answer)
+
                 cleaned_answer = keep_after_select(answer)
+
+                if attempts != 3:
+                    if self.instruct:
+                        cleaned_answer = keep_after_last_occurrence(full_answer)
+                    else:
+                        cleaned_answer = keep_after_last_occurrence(answer)
+
                 cleaned_answer = (
                     re.sub(r"\n+", "\n", cleaned_answer)
                     .replace("\n", " ")
                     .replace("\r", " ")
                 )
 
-                error = self.execute_sql_query(cleaned_answer, db_path)
+                error = self.execute_sql_query_with_retries(cleaned_answer, db_path)
 
                 if error is None:
                     # store the answer in the dictionary
@@ -307,13 +451,14 @@ class Text2SQL:
                             "db_id": question_db,
                             "question": user_question,
                             "attempts": 4 - attempts,
+                            "outputs_history": outputs_history,
                             "answer": cleaned_answer,
                         }
                     )
                     break
-
-                # Prepare the new prompt for the next iteration
-                last_prompt = f"""{prompt}
+                
+                if self.instruct:
+                    last_prompt = f"""{full_answer}
     Encountered an error: {error}. 
     To address this, please generate an alternative SQL query response that avoids this specific error. 
     Follow the instructions mentioned above to remediate the error. 
@@ -322,6 +467,17 @@ class Text2SQL:
     {cleaned_answer}
 
     Ensure the revised SQL query aligns precisely with the requirements outlined in the initial question."""
+                else:
+                # Prepare the new prompt for the next iteration
+                    last_prompt = f"""{answer}
+        Encountered an error: {error}. 
+        To address this, please generate an alternative SQL query response that avoids this specific error. 
+        Follow the instructions mentioned above to remediate the error. 
+
+        Modify the below SQL query to resolve the issue:
+        {cleaned_answer}
+
+        Ensure the revised SQL query aligns precisely with the requirements outlined in the initial question."""
                 attempts -= 1
 
             if attempts == 0:
@@ -331,6 +487,7 @@ class Text2SQL:
                         "db_id": question_db,
                         "question": user_question,
                         "attempts": 4 - attempts,
+                        "outputs_history": outputs_history,
                         "answer": cleaned_answer,
                     }
                 )

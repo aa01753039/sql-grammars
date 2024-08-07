@@ -1,5 +1,6 @@
 import os
 import sqlite3
+import time
 
 
 class SQLCFG:
@@ -16,6 +17,7 @@ class SQLCFG:
         db_base_path (str): Base directory containing database folders.
         grammar_directory (str): Directory to store generated grammar files.
     """
+
     def __init__(self, grammar_template_path, db_base_path, grammar_directory):
         """
         Initializes the SQLCFG object.
@@ -31,36 +33,87 @@ class SQLCFG:
         # Ensure the grammar directory exists
         os.makedirs(grammar_directory, exist_ok=True)
 
-    def extract_schema(self, db_path):
-        """
-        Extracts table and column information from an SQLite database.
+    def extract_schema_with_retries(self, db_path, max_retries=5, max_directories=15):
+        def extract_schema(db_path):
+            """
+            Extracts table and column information from an SQLite database.
 
-        Args:
-            db_path (str): Path to the SQLite database file.
+            Args:
+                db_path (str): Path to the SQLite database file.
 
-        Returns:
-            dict: A dictionary where keys are table names and values are lists of column names.
-        """
-        """Extracts tables and columns from the SQLite database."""
-        conn = sqlite3.connect(db_path)
-        cursor = conn.cursor()
+            Returns:
+                dict: A dictionary where keys are table names and values are lists of column names.
+            """
+            conn = sqlite3.connect(db_path)
+            cursor = conn.cursor()
 
-        # Extract table names
-        cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-        tables = cursor.fetchall()
+            # Extract table names
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+            tables = cursor.fetchall()
 
-        # Extract columns for each table
-        schema = {}
-        for table in tables:
-            table_name = table[0]
-            cursor.execute(f"PRAGMA table_info({table_name})")
-            columns = cursor.fetchall()
-            schema[table_name] = [
-                col[1] for col in columns
-            ]  # Assuming col[1] is the column name
+            # Extract columns for each table
+            schema = {}
+            for table in tables:
+                table_name = table[0]
+                cursor.execute(f"PRAGMA table_info({table_name})")
+                columns = cursor.fetchall()
+                schema[table_name] = [
+                    col[1] for col in columns
+                ]  # Assuming col[1] is the column name
 
-        conn.close()
-        return schema
+            conn.close()
+            return schema
+
+        retries = 0
+        base_path, db_name = os.path.split(db_path)
+
+        while retries < max_retries:
+            try:
+                schema = extract_schema(db_path)
+                return schema
+            except sqlite3.OperationalError as e:
+                if "disk I/O error" in str(e):
+                    retries += 1
+                    time.sleep(1)
+                    continue
+                else:
+                    return (f"OperationalError: {e}",)
+            except sqlite3.DatabaseError as e:
+                if "database disk image is malformed" in str(e):
+                    retries += 1
+                    time.sleep(1)
+                    continue
+                else:
+                    return f"DatabaseError: {e}"
+
+        for i in range(2, max_directories + 1):
+            new_base_path = f"{base_path}{i}"
+            new_db_path = os.path.join(new_base_path, db_name)
+            retries = 0
+            while retries < max_retries:
+                try:
+                    schema = extract_schema(new_db_path)
+                    return schema
+                except sqlite3.OperationalError as e:
+                    if "disk I/O error" in str(e):
+                        retries += 1
+                        time.sleep(1)
+                        continue
+                    else:
+                        return f"OperationalError: {e}"
+                except sqlite3.DatabaseError as e:
+                    if "database disk image is malformed" in str(e):
+                        retries += 1
+                        time.sleep(1)
+                        continue
+                    else:
+                        return f"DatabaseError: {e}"
+
+        return (
+            f"Failed after trying {max_directories} directories",
+            retries + 1,
+            new_base_path,
+        )
 
     def get_table_names(self, schema):
         """
@@ -95,7 +148,7 @@ class SQLCFG:
     def get_placeholders(self, table_names, schema):
         """
         Prepares placeholders for table names and column names to be used in the grammar template.
-        
+
         Args:
             table_names (list): List of table names.
             schema (dict): Dictionary containing table and column information.
@@ -106,13 +159,12 @@ class SQLCFG:
                 - columns_placeholder: A string containing pipe-separated column names.
         """
         # Prepare placeholders content
-       
+
         tables_placeholder = " | ".join(f'"{tbl}"' for tbl in table_names)
         for table in table_names:
-            columns_placeholder = ' | '.join(f'"{col}"' for col in schema[table])
-        
+            columns_placeholder = " | ".join(f'"{col}"' for col in schema[table])
 
-        return  tables_placeholder, columns_placeholder
+        return tables_placeholder, columns_placeholder
 
     def replace_placeholders(self, schema):
         """
@@ -126,11 +178,13 @@ class SQLCFG:
         """
         # Replace placeholders with actual content
         table_names = self.get_table_names(schema)
-        tables_placeholder,columns_placeholder = (
-            self.get_placeholders( table_names, schema)
+        tables_placeholder, columns_placeholder = self.get_placeholders(
+            table_names, schema
         )
-        
-        grammar = self.grammar_template.replace("TABLE_NAMES_PLACEHOLDER", tables_placeholder)
+
+        grammar = self.grammar_template.replace(
+            "TABLE_NAMES_PLACEHOLDER", tables_placeholder
+        )
         grammar = grammar.replace("COLUMNS_PLACEHOLDER", columns_placeholder)
         return grammar
 
@@ -148,7 +202,7 @@ class SQLCFG:
             db_dir = os.path.join(self.db_base_path, db_name)
             db_file = os.path.join(db_dir, f"{db_name}.sqlite")
             if os.path.isfile(db_file):
-                schema = self.extract_schema(db_file)
+                schema = self.extract_schema_with_retries(db_file)
                 grammar = self.replace_placeholders(schema)
                 grammar_path = os.path.join(self.grammar_directory, f"{db_name}.ebnf")
                 self.write_grammar(grammar, grammar_path)

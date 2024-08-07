@@ -2,51 +2,11 @@
   {
     "id": 0,
     "db_id": "soccer_3",
-    "question": {
-      "id": 0,
-      "db_id": "soccer_3",
-      "question": "How many clubs are there?"
-    },
+    "question": "How many clubs are there?",
+    "attempts": 1,
+    "outputs_history": [
+      "\nYour role is a natural language to SQL translator who is an expert in writing SQL queries in SQLite dialect.\nFor the given schema, output the SQL query you need to answer the problem.\n\nThe problem is given below in natural language.\nAdditionally, here are the CREATE TABLE statements for the schema:\n('CREATE TABLE \"club\" (\\n\"Club_ID\" int,\\n\"Name\" text,\\n\"Manager\" text,\\n\"Captain\" text,\\n\"Manufacturer\" text,\\n\"Sponsor\" text,\\nPRIMARY KEY (\"Club_ID\")\\n)\\nCREATE TABLE \"player\" (\\n\"Player_ID\" real,\\n\"Name\" text,\\n\"Country\" text,\\n\"Earnings\" real,\\n\"Events_number\" int,\\n\"Wins_count\" int,\\n\"Club_ID\" int,\\nPRIMARY KEY (\"Player_ID\"),\\nFOREIGN KEY (\"Club_ID\") REFERENCES \"club\"(\"Club_ID\")\\n)\\n', 1, 'spider/test_database/soccer_3')\n\nDo not write anything after the SQL query.\nDo not write anything other than the SQL query - no comments, no newlines, no print statements.\n\nProblem: How many clubs are there?\n\nSELECT COUNT(*) FROM club;\n\n"
+    ],
     "answer": "SELECT COUNT(*) FROM club; "
-  },
-  {
-    "id": 1,
-    "db_id": "soccer_3",
-    "question": {
-      "id": 1,
-      "db_id": "soccer_3",
-      "question": "Count the number of clubs."
-    },
-    "answer": "SELECT COUNT(*) FROM club; "
-  },
-  {
-    "id": 2,
-    "db_id": "soccer_3",
-    "question": {
-      "id": 2,
-      "db_id": "soccer_3",
-      "question": "List the name of clubs in ascending alphabetical order."
-    },
-    "answer": "SELECT Name FROM club ORDER BY Name ASC; "
-  },
-  {
-    "id": 3,
-    "db_id": "soccer_3",
-    "question": {
-      "id": 3,
-      "db_id": "soccer_3",
-      "question": "What are the names of clubs, ordered alphabetically?"
-    },
-    "answer": "SELECT Name FROM club ORDER BY Name ASC; "
-  },
-  {
-    "id": 4,
-    "db_id": "soccer_3",
-    "question": {
-      "id": 4,
-      "db_id": "soccer_3",
-      "question": "What are the managers and captains of clubs?"
-    },
-    "answer": "SELECT club.Manager, club.Captain FROM club WHERE club.Club_ID IN (SELECT player.Club_ID FROM player WHERE player.Country = 'Spain' AND player.Earnings > 1000000) "
   }
 ]
