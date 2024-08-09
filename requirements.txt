@@ -1,5 +1,6 @@
-llama-cpp-python
 huggingface-hub
-transformers
+transformers==4.43.4
 torch
 transformers-cfg
+accelerate
+bitsandbytes

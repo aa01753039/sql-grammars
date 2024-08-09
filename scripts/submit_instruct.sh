@@ -5,11 +5,10 @@
 #$ -j y
 #$ -S /bin/bash
 
-#$ -N T_SC_Llama-3.1-8B-Instruct-embedded
+#$ -N T_SC_Llama-3.1-8B-Instruct-base-0
 #$ -M lg23109@essex.ac.uk
 #$ -m be
 #$ -q all.q
-#$ -l mem_free=256G
 
 conda activate sql
 python sql_inference.py --model_id "meta-llama/Meta-Llama-3.1-8B-Instruct" --db_path "spider/test_database" --prompt_template """
@@ -22,4 +21,4 @@ Do not write anything other than the SQL query - no comments, no newlines, no pr
 
 Problem: {question}
 
-""" --questions_file "spider/test_data/dev.json" --predicted_path "predictions/T_SC_Llama-3.1-8B-Instruct-embedded" --grammar_template "grammars/template.ebnf" --grammar_directory "embedded_grammars3"
+""" --questions_file "spider/test_data/dev_0.json" --predicted_path "predictions/T_SC_Llama-3.1-8B-Instruct-base-0" --grammar_template "grammars/base.ebnf"

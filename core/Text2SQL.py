@@ -10,7 +10,12 @@ from tqdm import tqdm
 from transformers_cfg.generation.logits_process import GrammarConstrainedLogitsProcessor
 from transformers_cfg.grammar_utils import IncrementalGrammarConstraint
 
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+from transformers import (
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    pipeline,
+    BitsAndBytesConfig,
+)
 
 
 def remove_data_types(sql_definition):
@@ -92,15 +97,27 @@ class Text2SQL:
             db_directory (str, optional): Path to SQLite database files (if used).
             prompt_template (str, optional): Template for formatting question prompts.
         """
+        bnb_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_use_double_quant=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16,
+        )
+        print("Loading Quantization model")
+
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         print(f"Using device: {self.device}")
+        print(torch.cuda.is_available())
 
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
         self.tokenizer.pad_token = self.tokenizer.eos_token
         # some models that uses LlamaTokenizer needs this
         # self.tokenizer.padding_side = "right"
 
-        self.llm = AutoModelForCausalLM.from_pretrained(model_id).to(self.device)
+        self.llm = AutoModelForCausalLM.from_pretrained(
+            model_id, quantization_config=bnb_config, device_map="auto"
+        )
+        # self.llm = AutoModelForCausalLM.from_pretrained(model_id).to(self.device)
         # some models needs this
         # # self.llm.generation_config.pad_token_id = self.llm.generation_config.eos_token_id
         # self.llm.resize_token_embeddings(len(self.tokenizer))
@@ -295,7 +312,9 @@ class Text2SQL:
             if error is None:
                 return None
             elif (
-                "disk I/O error" in error or "database disk image is malformed" in error or "unable to open database file" in error
+                "disk I/O error" in error
+                or "database disk image is malformed" in error
+                or "unable to open database file" in error
             ):
                 retries += 1
                 print("Retrying", retries, "error:", error)
@@ -456,7 +475,7 @@ class Text2SQL:
                         }
                     )
                     break
-                
+
                 if self.instruct:
                     last_prompt = f"""{full_answer}
     Encountered an error: {error}. 
@@ -468,7 +487,7 @@ class Text2SQL:
 
     Ensure the revised SQL query aligns precisely with the requirements outlined in the initial question."""
                 else:
-                # Prepare the new prompt for the next iteration
+                    # Prepare the new prompt for the next iteration
                     last_prompt = f"""{answer}
         Encountered an error: {error}. 
         To address this, please generate an alternative SQL query response that avoids this specific error. 
