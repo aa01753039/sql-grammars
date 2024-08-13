@@ -13,9 +13,12 @@ from transformers_cfg.grammar_utils import IncrementalGrammarConstraint
 from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
-    pipeline,
     BitsAndBytesConfig,
+    pipeline,
+    set_seed,
 )
+
+set_seed(12)
 
 
 def remove_data_types(sql_definition):
@@ -61,7 +64,7 @@ def keep_after_last_occurrence(input_str: str) -> str:
     Returns:
     str: The substring after the last occurrence of search_str.
     """
-    search_str = "Ensure the revised SQL query aligns precisely with the requirements outlined in the initial question."
+    search_str = "Modified SQLite query:"
     last_index = input_str.rfind(search_str)
     if last_index == -1:
         return ""
@@ -235,21 +238,21 @@ class Text2SQL:
         while retries < max_retries:
             try:
                 ddl_statements = get_ddl_statements(database_path)
-                return ddl_statements, retries + 1, base_path
+                return ddl_statements
             except sqlite3.OperationalError as e:
                 if "disk I/O error" in str(e):
                     retries += 1
                     time.sleep(1)
                     continue
                 else:
-                    return f"OperationalError: {e}", retries + 1, base_path
+                    return f"OperationalError: {e}"
             except sqlite3.DatabaseError as e:
                 if "database disk image is malformed" in str(e):
                     retries += 1
                     time.sleep(1)
                     continue
                 else:
-                    return f"DatabaseError: {e}", retries + 1, base_path
+                    return f"DatabaseError: {e}"
 
         for i in range(2, max_directories + 1):
             new_base_path = f"{base_path}{i}"
@@ -258,7 +261,7 @@ class Text2SQL:
             while retries < max_retries:
                 try:
                     ddl_statements = get_ddl_statements(new_db_path)
-                    return ddl_statements, retries + 1, new_base_path
+                    return ddl_statements
                 except sqlite3.OperationalError as e:
                     if "disk I/O error" in str(e):
                         retries += 1
@@ -266,7 +269,7 @@ class Text2SQL:
                         time.sleep(1)
                         continue
                     else:
-                        return f"OperationalError: {e}", retries + 1, new_base_path
+                        return f"OperationalError: {e}"
                 except sqlite3.DatabaseError as e:
                     if "database disk image is malformed" in str(e):
                         retries += 1
@@ -274,13 +277,9 @@ class Text2SQL:
                         time.sleep(1)
                         continue
                     else:
-                        return f"DatabaseError: {e}", retries + 1, new_base_path
+                        return f"DatabaseError: {e}"
 
-        return (
-            f"Failed after trying {max_directories} directories",
-            retries + 1,
-            new_base_path,
-        )
+        return f"Failed after trying {max_directories} directories"
 
     def execute_sql_query_with_retries(
         self, query: str, db_path: str, max_retries=15, max_directories=15
@@ -382,13 +381,15 @@ class Text2SQL:
             while attempts > 0:
                 print(f"Question: {user_question}")
                 print(f"Attempt: {4-attempts}")
+                print(f"Prompt: {last_prompt}")
+                print(f"length: {int(len(last_prompt)/2.8)}")
 
                 pipe = pipeline(
                     "text-generation",
                     model=self.llm,
                     tokenizer=self.tokenizer,
                     device_map="auto",
-                    max_length=len(last_prompt) + 200,
+                    max_length=int(len(last_prompt) / 2.8),
                     batch_size=2,
                 )
                 messages = [last_prompt]
@@ -448,7 +449,7 @@ class Text2SQL:
 
                 cleaned_answer = keep_after_select(answer)
 
-                if attempts != 3:
+                if attempts == 2:
                     if self.instruct:
                         cleaned_answer = keep_after_last_occurrence(full_answer)
                     else:
@@ -460,8 +461,11 @@ class Text2SQL:
                     .replace("\r", " ")
                 )
 
+                print(f"Answer: {cleaned_answer}")
+
                 error = self.execute_sql_query_with_retries(cleaned_answer, db_path)
 
+                print(f"Error: {error}")
                 if error is None:
                     # store the answer in the dictionary
                     answers_list.append(
@@ -475,20 +479,9 @@ class Text2SQL:
                         }
                     )
                     break
-
-                if self.instruct:
-                    last_prompt = f"""{full_answer}
-    Encountered an error: {error}. 
-    To address this, please generate an alternative SQL query response that avoids this specific error. 
-    Follow the instructions mentioned above to remediate the error. 
-
-    Modify the below SQL query to resolve the issue:
-    {cleaned_answer}
-
-    Ensure the revised SQL query aligns precisely with the requirements outlined in the initial question."""
-                else:
-                    # Prepare the new prompt for the next iteration
-                    last_prompt = f"""{answer}
+                if attempts == 3:
+                    if self.instruct:
+                        last_prompt = f"""{full_answer}
         Encountered an error: {error}. 
         To address this, please generate an alternative SQL query response that avoids this specific error. 
         Follow the instructions mentioned above to remediate the error. 
@@ -496,8 +489,29 @@ class Text2SQL:
         Modify the below SQL query to resolve the issue:
         {cleaned_answer}
 
-        Ensure the revised SQL query aligns precisely with the requirements outlined in the initial question."""
-                attempts -= 1
+        Ensure the revised SQL query aligns precisely with the requirements outlined in the initial question.
+        Modified SQLite query:"""
+                    else:
+                        # Prepare the new prompt for the next iteration
+                        last_prompt = f"""{answer}
+            Encountered an error: {error}. 
+            To address this, please generate an alternative SQL query response that avoids this specific error. 
+            Follow the instructions mentioned above to remediate the error. 
+
+            Modify the below SQL query to resolve the issue:
+            {cleaned_answer}
+
+            Ensure the revised SQL query aligns precisely with the requirements outlined in the initial question.
+            Modified SQLite query:"""
+                    attempts -= 1
+                else:
+                    last_prompt = (
+                        self.prompt_template.format(
+                            question=user_question, schema=schema
+                        )
+                        + "\n\n"
+                    )
+                    attempts -= 1
 
             if attempts == 0:
                 answers_list.append(

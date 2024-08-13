@@ -65,7 +65,7 @@ def main(directory):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Test SQLite databases in a directory.")
-    parser.add_argument("directory", type=str, help="Path to the directory containing the database folders.")
+    parser.add_argument("--directory", type=str, help="Path to the directory containing the database folders.")
     args = parser.parse_args()
     
     main(args.directory)

@@ -1,0 +1,263 @@
+SELECT PackageNumber, Name FROM Package, Client WHERE Package.Recipient = Client.AccountNumber AND Package.Weight = (SELECT MIN(Package.Weight) FROM Package); 
+SELECT Client.Recipient, Client.Name 
+SELECT Client.Recipient FROM Client WHERE Client.AccountNumber IN (SELECT Package.Recipient FROM Package WHERE Package.PackageNumber IN (SELECT PackageNumber FROM Package WHERE Package.Sender IN (SELECT Client.AccountNumber FROM Client WHERE Client.Name = 'John Doe') AND Package.Weight > 1000)) AND Client.AccountNumber IN (SELECT Package.Sender FROM Package WHERE Package.PackageNumber IN (SELECT PackageNumber FROM Package WHERE Package.Sender IN (SELECT Client.AccountNumber FROM Client WHERE Client.Name = 'John Doe') AND Package.Weight > 1000)) AND Client.AccountNumber IN (SELECT Package.Sender FROM Package WHERE Package.PackageNumber IN (SELECT PackageNumber FROM Package WHERE Package.Sender IN (SELECT Client.AccountNumber FROM Client WHERE Client.Name = 'John Doe') AND Package.Weight > 1000)) AND Client.AccountNumber IN (SELECT Package.Sender FROM Package WHERE Package.PackageNumber IN (SELECT PackageNumber FROM Package WHERE Package.Sender IN (SELECT Client.AccountNumber FROM Client WHERE Client.Name = 'John Doe') AND Package.Weight > 1000)) AND Client.AccountNumber IN (SELECT Package.Sender FROM Package WHERE Package.PackageNumber IN (SELECT PackageNumber FROM Package WHERE Package.Sender IN (SELECT Client.AccountNumber FROM Client WHERE Client.Name = 'John Doe') AND Package.Weight > 1000)) AND Client.AccountNumber IN (SELECT Package.Sender FROM Package WHERE Package.PackageNumber IN (SELECT PackageNumber FROM Package WHERE Package.Sender IN (SELECT Client.AccountNumber FROM Client WHERE Client.Name = 'John Doe') AND Package.Weight > 1000)) AND Client.AccountNumber IN (SELECT Package.Sender FROM
+SELECT Planet.Contents FROM Planet WHERE Planet.Name = 'Mars' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Earth' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Venus' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Jupiter' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Saturn' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Uranus' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Neptune' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Pluto' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Earth' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Venus' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Jupiter' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Saturn' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Uranus' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Neptune' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Pluto' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Earth' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Venus' AND Planet.Coordinates = (SELECT Coordinates FROM Planet WHERE Planet.Name = 'Jupiter
+SELECT Planet.Contents FROM Planet WHERE Planet.Name = 'Mars'; 
+SELECT Planet.PackageNumber, Package.Contents, Package.Weight, Package.Sender, Package.Recipient 
+SELECT Planet.PackageNumber, Package.Contents, Package.Weight, Package.Sender, Package.Recipient 
+SELECT Shipment.Shipment 
+SELECT Shipment.Shipment 
+SELECT Shipment.Shipment 
+SELECT Shipment.Shipment 
+SELECT Shipment.Shipment 
+SELECT Shipment.Shipment 
+SELECT Shipment.Shipment 
+SELECT Shipment.Shipment 
+SELECT Shipment.Shipment 
+SELECT Shipment.Shipment 
+SELECT Planet.PackageNumber, Planet.Name, SUM(Shipment.ShipmentID) AS TotalShipments 
+SELECT Planet.PackageNumber, COUNT(Shipment.ShipmentID) AS ShipmentCount 
+SELECT Planet.PackageNumber 
+SELECT Planet.Contents FROM Planet 
+SELECT Employee.Recipient, COUNT(*) FROM Employee, Shipment, Package WHERE Employee.EmployeeID = Shipment.Manager AND Shipment.ShipmentID = Package.Shipment GROUP BY Employee.EmployeeID ORDER BY COUNT(*) DESC LIMIT 1; 
+SELECT Employee.Sender, COUNT(*) FROM Shipment, Employee, Client WHERE Shipment.Manager = Employee.EmployeeID AND Shipment.ShipmentID = Employee.EmployeeID AND Shipment.Recipient = Client.AccountNumber GROUP BY Employee.Sender; 
+SELECT Weight FROM Package WHERE Shipment IN (SELECT ShipmentID FROM Shipment WHERE Planet IN (SELECT PlanetID FROM Planet WHERE Name = 'Mars')) AND Recipient IN (SELECT AccountNumber FROM Client WHERE Name = 'Mars') AND Sender IN (SELECT AccountNumber FROM Client WHERE Name = 'Earth') AND Contents LIKE '%computer%' AND PackageNumber = 1 
+SELECT Weight 
+SELECT Planet.PackageNumber, SUM(Package.Weight) FROM Package, Shipment, Planet WHERE Package.Shipment = Shipment.ShipmentID AND Shipment.Planet = Planet.PlanetID GROUP BY Planet.PlanetID; 
+SELECT Planet.PackageNumber, Planet.Name, SUM(Package.Weight) FROM Planet, Package WHERE Package.Shipment = Planet.Shipment GROUP BY Planet.Name ORDER BY SUM(Package.Weight) DESC; 
+SELECT Planet.PackageNumber 
+SELECT Planet.PackageNumber 
+SELECT PackageNumber FROM Package WHERE Shipment IN (SELECT ShipmentID FROM Shipment WHERE Planet IN (SELECT PlanetID FROM Planet WHERE Name = 'Omicron Persei 8') AND Sender IN (SELECT AccountNumber FROM Client WHERE Name = 'Zapp Brannigan')) AND Recipient IN (SELECT AccountNumber FROM Client WHERE Name = 'Kif Kroker') ORDER BY PackageNumber ASC; 
+SELECT Package.PackageNumber 
+SELECT PackageNumber FROM Package WHERE Shipment IN (SELECT ShipmentID FROM Shipment WHERE Planet IN (SELECT PlanetID FROM Planet WHERE Name = 'Omicron Persei 8') OR Sender IN (SELECT AccountNumber FROM Client WHERE Name = 'Zapp Brannigan')) OR Recipient IN (SELECT AccountNumber FROM Client WHERE Name = 'Zapp Brannigan') 
+SELECT Shipment.Shipment, COUNT(*) FROM Shipment 
+SELECT PackageNumber, Weight FROM Package WHERE Weight BETWEEN 10 AND 30; 
+SELECT PackageNumber, Weight FROM Package WHERE Weight BETWEEN 10 AND 30 
+SELECT Employee.Recipient FROM Employee 
+SELECT Employee.Recipient FROM Employee 
+SELECT Employee.Recipient FROM Employee 
+SELECT Employee.Recipient FROM Employee 
+SELECT Planet.PackageNumber 
+SELECT Planet.PackageNumber 
+SELECT Employee.Recipient FROM Employee WHERE Employee.Salary BETWEEN 5000 AND 10000; 
+SELECT Employee.Recipient FROM Package WHERE Package.Sender = 1 AND Package.Recipient = 2 AND Package.Contents = 'Gold' AND Package.Weight > 1000 
+SELECT Employee.Recipient FROM Employee 
+SELECT Employee.Recipient 
+SELECT Employee.Recipient FROM Employee 
+SELECT Employee.Recipient FROM Employee 
+SELECT Game_ID FROM game 
+SELECT Game_ID FROM game WHERE Units_sold_Millions > 100 
+SELECT game.Game_ID, game.Title, game.Developers 
+SELECT game.Game_ID, game.Title, game.Developers FROM game ORDER BY Units_sold_Millions DESC; 
+SELECT Game_ID, AVG(Units_sold_Millions) FROM game WHERE Developers!= 'Nintendo' GROUP BY Game_ID; 
+SELECT Game_ID, AVG(Units_sold_Millions) FROM game WHERE Developers!= 'Nintendo' GROUP BY Game_ID; 
+SELECT platform.Player_ID, platform.Platform_name, platform.Market_district 
+SELECT platform.Player_ID, platform.Platform_name, platform.Market_district 
+SELECT platform.Player_ID, platform.Platform_name 
+SELECT platform.Player_ID, platform.Platform_name 
+SELECT player.Player_ID, player.Rank_of_the_year 
+SELECT Player_ID, MAX(Rank_of_the_year), MIN(Rank_of_the_year) FROM player GROUP BY Player_ID; 
+SELECT player.Player_ID 
+SELECT Player_ID FROM player WHERE Rank_of_the_year <= 3; 
+SELECT player.Player_ID, player.Player_name 
+SELECT player.Player_ID, player.Player_name 
+SELECT player.Player_ID, player.Player_name, player.College 
+SELECT player.Player_ID, player.Player_name, player.College 
+SELECT player.Player_ID, player.Player_name, player.Rank_of_the_year FROM game_player JOIN player ON game_player.Player_ID = player.Player_ID WHERE game_player.Game_ID = (SELECT Game_ID FROM game WHERE Title = 'Super Mario World') AND game_player.If_active = 1 
+SELECT player.Player_ID, player.Player_name, player.Rank_of_the_year 
+SELECT game.Game_ID, game.Developers 
+SELECT game.Game_ID, game.Title, game.Developers, game_player.If_active 
+SELECT Game_ID, AVG(Units_sold_Millions) FROM game_player JOIN game ON game_player.Game_ID = game.Game_ID JOIN player ON game_player.Player_ID = player.Player_ID WHERE Position = 'Guard' GROUP BY Game_ID; 
+SELECT Game_ID, AVG(Units_sold_Millions) FROM game_player 
+SELECT game.Game_ID, game.Title, platform.Platform_name 
+SELECT game.Game_ID, game.Title, platform.Platform_name FROM game, platform WHERE game.Platform_ID = platform.Platform_ID; 
+SELECT game.Game_ID, game.Title FROM game WHERE game.Platform_ID IN (SELECT Platform_ID FROM platform WHERE platform.Market_district IN ('Asia', 'USA'))  
+SELECT game.Game_ID, game.Title 
+SELECT game.Game_ID, game.Title, game.Franchise, game.Platform_ID, game.Units_sold_Millions, platform.Platform_name, platform.Download_rank, platform.Market_district 
+SELECT game.Game_ID, game.Title, game.Release_Date, game.Franchise, game.Developers, game.Platform_ID, game.Units_sold_Millions, platform.Platform_ID, platform.Platform_name, platform.Market_district, platform.Download_rank FROM game, platform WHERE game.Platform_ID = platform.Platform_ID GROUP BY game.Franchise ORDER BY game.Franchise ASC; 
+SELECT game.Game_ID, game.Title, game.Franchise, game.Platform_ID, game.Units_sold_Millions 
+SELECT game.Game_ID, game.Title, game.Franchise, game.Platform_ID, game.Units_sold_Millions 
+SELECT game.Game_ID, game.Title, game.Franchise, game.Platform_ID, game.Units_sold_Millions, platform.Platform_name, platform.Download_rank 
+SELECT game.Game_ID, game.Title, game.Release_Date, game.Franchise, game.Developers, game.Platform_ID, game.Units_sold_Millions, platform.Platform_ID, platform.Platform_name, platform.Market_district, platform.Download_rank 
+SELECT player.Player_ID, player.Player_name 
+SELECT player.Player_ID, player.Player_name 
+SELECT game.Game_ID, game.Title 
+SELECT game.Game_ID, game.Title 
+SELECT Game_ID, Franchise 
+SELECT Game_ID, Franchise 
+SELECT game.Game_ID, game.Title 
+SELECT game.Game_ID, game.Title 
+SELECT press.Press_ID, press.Name, press.Month_Profits_billion, press.Year_Profits_billion FROM press ORDER BY press.Year_Profits_billion DESC; 
+SELECT press.Press_ID, press.Name FROM press ORDER BY press.Year_Profits_billion DESC; 
+SELECT press.Press_ID, press.Name 
+SELECT Press_ID, Name FROM press WHERE Year_Profits_billion > 15 OR Month_Profits_billion > 1 
+SELECT Press_ID, AVG(Year_Profits_billion), MAX(Year_Profits_billion) FROM press GROUP BY Press_ID; 
+SELECT Press_ID, AVG(Year_Profits_billion), MAX(Year_Profits_billion) FROM press GROUP BY Press_ID; 
+SELECT press.Press_ID, press.Name 
+SELECT press.Press_ID, press.Name 
+SELECT Press_ID FROM press WHERE Month_Profits_billion = (SELECT MAX(Month_Profits_billion) FROM press) OR Month_Profits_billion = (SELECT MIN(Month_Profits_billion) FROM press); 
+SELECT Press_ID, Name, Month_Profits_billion FROM press ORDER BY Month_Profits_billion DESC LIMIT 1; 
+SELECT Author_ID FROM author WHERE Age < 30; 
+SELECT Author_ID FROM author WHERE Age < 30; 
+SELECT Author_ID, Gender, AVG(Age) FROM author GROUP BY Gender; 
+SELECT author.Author_ID, author.Name, author.Age, author.Gender, AVG(author.Age) AS avg_age 
+SELECT Author_ID, Gender, COUNT(*) FROM author WHERE Age > 30 GROUP BY Gender; 
+SELECT Author_ID, Gender, COUNT(*) FROM author WHERE Age > 30 GROUP BY Gender; 
+SELECT Title FROM book WHERE Release_date IS NOT NULL ORDER BY Release_date DESC; 
+SELECT Title FROM book WHERE Release_date IS NOT NULL ORDER BY Release_date DESC; 
+SELECT Book_Series, COUNT(*) FROM book GROUP BY Book_Series; 
+SELECT Book_Series, COUNT(*) AS Count FROM book GROUP BY Book_Series; 
+SELECT book.Title, book.Release_date FROM book WHERE book.Sale_Amount = (SELECT MAX(book.Sale_Amount) FROM book) ORDER BY book.Sale_Amount DESC LIMIT 5; 
+SELECT book.Title, book.Release_date FROM book WHERE book.Sale_Amount IN (SELECT MAX(book.Sale_Amount) FROM book) LIMIT 5; 
+SELECT Book_Series FROM book WHERE Sale_Amount > 1000 AND Sale_Amount < 500 
+SELECT Book_Series FROM book WHERE Sale_Amount > 1000 OR Sale_Amount < 500 
+SELECT author.Author_ID, author.Name FROM author WHERE author.Author_ID IN (SELECT book.Author_ID FROM book WHERE book.Book_Series IN ('MM', 'LT')) ORDER BY author.Author_ID ASC; 
+SELECT author.Author_ID, author.Name FROM author WHERE author.Author_ID IN (SELECT book.Author_ID FROM book WHERE book.Book_Series IN ('MM', 'LT')) ORDER BY author.Author_ID ASC; 
+SELECT author.Author_ID, author.Name, author.Age FROM author LEFT JOIN book ON author.Author_ID = book.Author_ID WHERE book.Book_ID IS NULL; 
+SELECT author.Author_ID, author.Name 
+SELECT author.Author_ID, author.Name 
+SELECT author.Author_ID, author.Name 
+SELECT book.Title, author.Name, press.Name FROM book INNER JOIN author ON book.Author_ID = author.Author_ID INNER JOIN press ON book.Press_ID = press.Press_ID ORDER BY book.Sale_Amount DESC LIMIT 3; 
+SELECT book.Title, author.Name, press.Name 
+SELECT press.Press_ID, press.Name, SUM(book.Sale_Amount) AS Total_Sale_Amount FROM book JOIN author ON book.Author_ID = author.Author_ID JOIN press ON book.Press_ID = press.Press_ID GROUP BY press.Press_ID, press.Name 
+SELECT press.Press_ID, press.Name, SUM(book.Sale_Amount) AS Total_Sale_Amount FROM book JOIN author ON book.Author_ID = author.Author_ID JOIN press ON book.Press_ID = press.Press_ID GROUP BY press.Press_ID 
+SELECT press.Press_ID, press.Name, COUNT(book.Book_ID) AS Book_Count 
+SELECT press.Press_ID, press.Name, COUNT(book.Book_ID) FROM press LEFT JOIN book ON press.Press_ID = book.Press_ID WHERE book.Sale_Amount > 1000 GROUP BY press.Press_ID, press.Name; 
+SELECT author.Author_ID, author.Name 
+SELECT author.Author_ID, author.Name 
+SELECT author.Author_ID, author.Name, author.Gender 
+SELECT author.Author_ID, author.Name, author.Gender 
+SELECT author.Author_ID, author.Name FROM author WHERE author.Author_ID NOT IN (SELECT book.Author_ID FROM book WHERE book.Press_ID = (SELECT press.Press_ID FROM press WHERE press.Name = 'Accor')); 
+SELECT author.Author_ID, author.Name FROM author WHERE author.Author_ID NOT IN (SELECT book.Author_ID FROM book WHERE book.Press_ID IN (SELECT press.Press_ID FROM press WHERE press.Name = 'Accor'))  
+SELECT press.Press_ID, press.Name, press.Year_Profits_billion 
+SELECT press.Press_ID, press.Name, press.Year_Profits_billion 
+SELECT Authors.other_details 
+SELECT document_id, process_id, staff_id, staff_role_code, date_from, date_to, other_details FROM Staff_in_Processes WHERE document_id IN (SELECT document_id FROM Documents WHERE author_name IN (SELECT author_name FROM Authors WHERE author_name IN (SELECT author_name FROM Documents_Processes WHERE process_outcome_code IN (SELECT process_outcome_code FROM Process_Outcomes WHERE process_outcome_code IN (SELECT process_outcome_code FROM Documents_Processes WHERE process_status_code IN (SELECT process_status_code FROM Process_Status WHERE process_status_code IN (SELECT process_status_code FROM Business_Processes WHERE process_id IN (SELECT process_id FROM Documents_Processes WHERE document_id IN (SELECT document_id FROM Documents WHERE author_name IN (SELECT author_name FROM Authors WHERE author_name IN (SELECT author_name FROM Documents_Processes WHERE process_outcome_code IN (SELECT process_outcome_code FROM Process_Outcomes WHERE process_outcome_code IN (SELECT process_outcome_code FROM Documents_Processes WHERE process_status_code IN (SELECT process_status_code FROM Process_Status WHERE process_status_code IN (SELECT process_status_code FROM Business_Processes WHERE process_id IN (SELECT process_id FROM Documents_Processes WHERE document_id IN (SELECT document_id FROM Documents WHERE author_name IN (SELECT author_name FROM Authors WHERE author_name IN (SELECT author_name FROM Documents_Processes WHERE process_outcome_code IN (SELECT process_outcome_code FROM Process_Outcomes WHERE process_outcome_code IN (SELECT process_outcome_code FROM Documents_Processes WHERE process_status_code IN (SELECT process_status_code FROM Process_Status WHERE process_status_code IN (SELECT process_status_code FROM Business_Processes WHERE process_id IN (SELECT process_id FROM Documents_Processes WHERE document_id IN (SELECT document_id FROM Documents WHERE author_name IN (SELECT author_name FROM Authors WHERE author_name IN (SELECT author_name FROM Documents_Processes WHERE process_outcome_code IN (SELECT process_outcome_code FROM Process_Outcomes WHERE process_outcome_code IN (SELECT process_outcome_code FROM Documents_Processes WHERE process_status_code IN (SELECT process_status_code FROM Process_Status WHERE process_status_code IN (SELECT process_status_code FROM Business_Processes WHERE process_id IN (SELECT process_id FROM Documents_Processes WHERE document_id IN (SELECT document_id FROM Documents WHERE author_name IN (SELECT author_name FROM Authors WHERE author_name IN (SELECT author_name FROM Documents_Processes WHERE process_outcome_code IN
+SELECT Authors.other_details, Authors.author_name FROM Authors 
+SELECT other_details FROM Authors WHERE author_name = 'Addison Denesik'; 
+SELECT document_id FROM Documents 
+SELECT document_id, author_name 
+SELECT document_id, process_id, staff_id, staff_role_code, date_from, date_to, other_details 
+SELECT document_id FROM Documents WHERE author_name = 'Era Kerluke'; 
+SELECT document_id, document_name, document_description FROM Documents; 
+SELECT document_id, document_name FROM Documents WHERE author_name = 'Bianka Cummings'; 
+SELECT Authors.other_details, Authors.author_name FROM Documents JOIN Authors ON Documents.author_name = Authors.author_name WHERE Documents.document_name = 'Travel to China'; 
+SELECT Authors.other_details, COUNT(DISTINCT Documents.document_id) AS num_documents FROM Authors JOIN Documents ON Authors.author_name = Documents.author_name GROUP BY Authors.other_details; 
+SELECT document_id, author_name, COUNT(document_id) AS num_documents FROM Documents GROUP BY author_name ORDER BY num_documents DESC LIMIT 1; 
+SELECT document_id, process_id, staff_id, staff_role_code, date_from, date_to, other_details 
+SELECT process_id FROM Business_Processes 
+SELECT process_id, process_name, process_description FROM Business_Processes WHERE process_id = 9; 
+SELECT process_id, process_name FROM Business_Processes WHERE process_id = 9; 
+SELECT process_id, COUNT(process_outcome_code) FROM Documents_Processes GROUP BY process_id; 
+SELECT process_id, process_outcome_code, process_outcome_description 
+SELECT process_id, process_name, process_description, process_outcome_code, process_status_code, document_name, document_description, author_name, staff_role_code, staff_details, date_from, date_to, other_details FROM Business_Processes, Documents_Processes, Documents, Staff_in_Processes, Staff, Ref_Staff_Roles, Authors WHERE process_outcome_code = 'working' AND process_status_code = 'working' AND document_id = 1 AND process_id = 1 AND staff_id = 1 AND staff_role_code = 'working' AND author_name = 'working' AND document_name = 'working' AND staff_details = 'working' AND date_from = 'working' AND date_to = 'working' AND other_details = 'working' ORDER BY process_id, process_name, process_description, process_outcome_code, process_status_code, document_name, document_description, author_name, staff_role_code, staff_details, date_from, date_to, other_details; 
+SELECT process_id, process_status_code, COUNT(process_status_code) FROM Documents_Processes GROUP BY process_id, process_status_code ORDER BY process_id, process_status_code; 
+SELECT process_id, process_status_code, process_status_description 
+SELECT process_id, process_status_description 
+SELECT staff_id FROM Staff 
+SELECT staff_id, staff_details FROM Staff; 
+SELECT staff_id, staff_details FROM Staff WHERE staff_id = 100; 
+SELECT staff_role_code, COUNT(*) FROM Staff_in_Processes GROUP BY staff_role_code ORDER BY COUNT(*) DESC; 
+SELECT staff_role_code, staff_role_description FROM Ref_Staff_Roles; 
+SELECT Ref_Staff_Roles.staff_role_code, Ref_Staff_Roles.staff_role_description FROM Ref_Staff_Roles WHERE Ref_Staff_Roles.staff_role_code = 'HR'; 
+SELECT document_id FROM Documents_Processes WHERE process_id IN (SELECT process_id FROM Business_Processes WHERE process_name = 'How many documents have a process?'); 
+SELECT process_id FROM Documents_Processes WHERE document_id IN (SELECT document_id FROM Documents WHERE author_name IN (SELECT author_name FROM Authors WHERE author_name = 'John Doe')); 
+SELECT document_id FROM Documents_Processes WHERE process_id IS NULL; 
+SELECT process_id FROM Business_Processes WHERE process_id NOT IN (SELECT process_id FROM Documents_Processes); 
+SELECT process_id, process_outcome_code, process_status_code FROM Documents_Processes WHERE document_id = 0; 
+SELECT process_id, process_name FROM Business_Processes WHERE process_id IN (SELECT process_id FROM Documents_Processes WHERE document_id IN (SELECT document_id FROM Documents WHERE document_name = 'Travel to Brazil')); 
+SELECT process_id, COUNT(document_id) FROM Documents_Processes GROUP BY process_id; 
+SELECT staff_id FROM Staff_in_Processes WHERE document_id = 0 AND process_id = 9; 
+SELECT staff_id, COUNT(*) FROM Staff_in_Processes GROUP BY staff_id; 
+SELECT staff_role_code, COUNT(*) FROM Staff_in_Processes GROUP BY staff_role_code; 
+SELECT staff_role_code FROM Staff_in_Processes WHERE staff_id = 3 GROUP BY staff_role_code HAVING COUNT(*) > 1; 
+SELECT Agencies.staff_id, Staff.staff_details, Staff.agency_id, Agencies.agency_details 
+SELECT Agencies.staff_id, COUNT(Staff.staff_id) FROM Agencies, Staff WHERE Agencies.agency_id = Staff.agency_id GROUP BY Agencies.agency_id HAVING COUNT(Staff.staff_id) > 1 ORDER BY Agencies.agency_id ASC; 
+SELECT Agencies.staff_id, Agencies.agency_details 
+SELECT Agencies.staff_id, Agencies.agency_details FROM Agencies INNER JOIN Staff ON Agencies.agency_id = Staff.agency_id WHERE Staff.staff_id = 1; 
+SELECT Clients.meeting_id, COUNT(Clients.meeting_id) AS num_clients 
+SELECT Clients.meeting_id, COUNT(Clients.meeting_id) AS num_clients 
+SELECT Clients.meeting_id, Clients.client_details FROM Clients WHERE Clients.client_id = 1; 
+SELECT Clients.meeting_id, Clients.client_id, Clients.client_details 
+SELECT Agencies.staff_id, COUNT(Clients.client_id) FROM Agencies, Clients WHERE Agencies.agency_id = Clients.agency_id GROUP BY Agencies.agency_id; 
+SELECT Agencies.staff_id, COUNT(Clients.client_id) AS num_clients 
+SELECT Agencies.staff_id, Agencies.agency_details, COUNT(Clients.client_id) AS client_count FROM Agencies INNER JOIN Staff ON Agencies.agency_id = Staff.agency_id INNER JOIN Clients ON Staff.staff_id = Clients.staff_id GROUP BY Agencies.agency_id ORDER BY client_count DESC LIMIT 1; 
+SELECT Agencies.staff_id, Agencies.agency_details 
+SELECT Agencies.staff_id, Agencies.agency_details, Clients.client_id, Clients.sic_code, Clients.client_details 
+SELECT Agencies.staff_id, Agencies.agency_details 
+SELECT Agencies.staff_id, Agencies.agency_details, Staff.staff_details, Clients.client_details, Invoices.invoice_details, Meetings.meeting_outcome, Meetings.meeting_type, Meetings.billable_yn, Meetings.start_date_time, Meetings.end_date_time, Meetings.purpose_of_meeting, Meetings.other_details, Payments.payment_details FROM Agencies, Staff, Clients, Invoices, Meetings, Payments WHERE Clients.client_id = Invoices.client_id AND Meetings.client_id = Clients.client_id AND Payments.invoice_id = Invoices.invoice_id AND Staff.staff_id = Meetings.staff_id AND Clients.client_details = 'Mac' AND Agencies.agency_id = Clients.agency_id AND Invoices.invoice_status = 'Paid' AND Meetings.meeting_outcome = 'Successful' AND Meetings.meeting_type = 'Business' AND Meetings.billable_yn = 'Y' AND Meetings.start_date_time >= '2022-01-01' AND Meetings.end_date_time <= '2022-12-31' AND Meetings.purpose_of_meeting LIKE '%Business%' AND Meetings.other_details LIKE '%Business%' AND Payments.payment_details LIKE '%Business%' ORDER BY Agencies.agency_id, Staff.staff_id, Clients.client_id, Invoices.invoice_id, Meetings.meeting_id, Payments.payment_id; 
+SELECT Agencies.staff_id, Agencies.agency_details, Staff.staff_details, Clients.client_details, Invoices.invoice_details, Meetings.meeting_outcome, Meetings.meeting_type, Meetings.billable_yn, Meetings.start_date_time, Meetings.end_date_time, Meetings.purpose_of_meeting, Meetings.other_details, Payments.payment_details FROM Agencies INNER JOIN Staff ON Agencies.agency_id = Staff.agency_id INNER JOIN Clients ON Agencies.agency_id = Clients.agency_id INNER JOIN Invoices ON Clients.client_id = Invoices.client_id INNER JOIN Meetings ON Clients.client_id = Meetings.client_id INNER JOIN Payments ON Invoices.invoice_id = Payments.invoice_id WHERE Clients.client_details = 'Mac' AND Agencies.agency_details = 'Mac' AND Staff.staff_details = 'Mac' AND Invoices.invoice_details = 'Mac' AND Meetings.meeting_outcome = 'Mac' AND Meetings.meeting_type = 'Mac' AND Meetings.billable_yn = 'Mac' AND Meetings.start_date_time = 'Mac' AND Meetings.end_date_time = 'Mac' AND Meetings.purpose_of_meeting = 'Mac' AND Meetings.other_details = 'Mac' AND Payments.payment_details = 'Mac' ORDER BY Agencies.agency_details, Staff.staff_details, Clients.client_details, Invoices.invoice_details, Meetings.meeting_outcome, Meetings.meeting_type, Meetings.billable_yn, Meetings.start_date_time, Meetings.end_date_time, Meetings
+SELECT Clients.staff_id, Clients.client_id, Clients.sic_code, Clients.client_details, Agencies.agency_id, Agencies.agency_details, Staff.staff_id, Staff.agency_id, Staff.staff_details FROM Clients INNER JOIN Agencies ON Clients.agency_id = Agencies.agency_id INNER JOIN Staff ON Agencies.agency_id = Staff.agency_id WHERE Clients.client_id = Staff.staff_id; 
+SELECT Clients.meeting_id, Clients.client_details, Agencies.agency_details FROM Clients, Agencies WHERE Clients.agency_id = Agencies.agency_id; 
+SELECT Staff.staff_id, Staff.agency_id, Staff.staff_details, Agencies.agency_details, Clients.client_id, Clients.sic_code, Clients.client_details, Invoices.invoice_id, Invoices.invoice_status, Invoices.invoice_details, Meetings.meeting_id, Meetings.client_id, Meetings.meeting_outcome, Meetings.meeting_type, Meetings.billable_yn, Meetings.start_date_time, Meetings.end_date_time, Meetings.purpose_of_meeting, Meetings.other_details, Payments.payment_id, Payments.invoice_id, Payments.payment_details FROM Staff INNER JOIN Agencies ON Staff.agency_id = Agencies.agency_id INNER JOIN Clients ON Agencies.agency_id = Clients.agency_id INNER JOIN Invoices ON Clients.client_id = Invoices.client_id INNER JOIN Meetings ON Clients.client_id = Meetings.client_id INNER JOIN Payments ON Invoices.invoice_id = Payments.invoice_id WHERE Clients.sic_code = '12345' ORDER BY Clients.sic_code ASC; 
+SELECT Clients.staff_id, Clients.sic_code, COUNT(Clients.sic_code) AS num_clients 
+SELECT Clients.meeting_id, Clients.client_details, Clients.sic_code 
+SELECT Clients.staff_id, Clients.client_details 
+SELECT Agencies.staff_id, Agencies.agency_details 
+SELECT Agencies.staff_id, Agencies.agency_details 
+SELECT Agencies.staff_id FROM Agencies WHERE Agencies.agency_id NOT IN (SELECT Clients.agency_id FROM Clients WHERE Clients.client_id NOT IN (SELECT Invoices.client_id FROM Invoices WHERE Invoices.invoice_id NOT IN (SELECT Payments.invoice_id FROM Payments WHERE Payments.payment_id NOT IN (SELECT Staff_in_Meetings.meeting_id FROM Staff_in_Meetings WHERE Staff_in_Meetings.staff_id NOT IN (SELECT Staff.staff_id FROM Staff WHERE Staff.agency_id = Agencies.agency_id)))))) 
+SELECT Agencies.staff_id 
+SELECT Invoices.meeting_id, COUNT(Invoice_id) AS Invoice_count 
+SELECT Invoices.meeting_id, COUNT(InvoiceStatus) AS InvoiceCount 
+SELECT Payments.meeting_id, Payments.invoice_id, Payments.payment_details 
+SELECT Invoices.meeting_id, Invoices.invoice_status, Invoices.invoice_details 
+SELECT Clients.meeting_id, COUNT(Meetings.meeting_id) AS num_invoices 
+SELECT Clients.meeting_id, COUNT(Clients.meeting_id) AS num_invoices 
+SELECT Clients.meeting_id, Clients.client_details, COUNT(Invoices.invoice_id) AS invoice_count 
+SELECT Clients.meeting_id, Clients.client_details 
+SELECT Clients.meeting_id 
+SELECT Clients.meeting_id 
+SELECT Invoices.meeting_id, InvoiceStatus.invoice_status, COUNT(InvoiceStatus.invoice_status) AS InvoiceCount 
+SELECT Invoices.meeting_id, InvoiceStatuses.invoice_status, COUNT(InvoiceStatuses.invoice_status) AS InvoiceCount 
+SELECT Invoices.meeting_id, COUNT(InvoiceStatuses.invoice_status) AS InvoiceStatusCount 
+SELECT Invoices.meeting_id, Invoices.invoice_status 
+SELECT Invoices.meeting_id, Clients.client_id, Clients.client_details, Agencies.agency_id, Agencies.agency_details, Invoices.invoice_status, Invoices.invoice_details FROM Invoices INNER JOIN Clients ON Invoices.client_id = Clients.client_id INNER JOIN Agencies ON Clients.agency_id = Agencies.agency_id WHERE Invoices.invoice_status = 'Paid' ORDER BY Invoices.invoice_status DESC; 
+SELECT Invoices.meeting_id, Invoices.invoice_status, Invoices.invoice_details, Clients.client_id, Clients.client_details, Agencies.agency_id, Agencies.agency_details FROM Invoices INNER JOIN Clients ON Invoices.client_id = Clients.client_id INNER JOIN Agencies ON Clients.agency_id = Agencies.agency_id WHERE Invoices.invoice_status = 'Paid' AND Invoices.invoice_details LIKE '%meeting%' ORDER BY Invoices.invoice_id DESC; 
+SELECT meeting_id, meeting_type, purpose_of_meeting, other_details FROM Meetings WHERE meeting_type = 'Consultation' OR meeting_type = 'Training' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop' OR meeting_type = 'Seminar' OR meeting_type = 'Conference' OR meeting_type = 'Lecture' OR meeting_type = 'Presentation' OR meeting_type = 'Workshop'
+SELECT meeting_id, meeting_type, purpose_of_meeting, other_details FROM Meetings 
+SELECT meeting_id, meeting_outcome, purpose_of_meeting FROM Meetings 
+SELECT meeting_id, meeting_outcome, purpose_of_meeting FROM Meetings 
+SELECT Payments.meeting_id, Payments.payment_details 
+SELECT Payments.meeting_id, Payments.payment_details 
+SELECT Payments.meeting_id, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment
+SELECT Payments.meeting_id, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments.invoice_id, Payments.payment_details, Payments
+SELECT Payments.meeting_id, Payments.payment_id, Payments.payment_details, Payments.invoice_id, Payments.client_id, Payments.agency_id, Payments.staff_id, Payments.sic_code, Payments.invoice_status, Payments.invoice_details, Payments.meeting_outcome, Payments.meeting_type, Payments.billable_yn, Payments.start_date_time, Payments.end_date_time, Payments.purpose_of_meeting, Payments.other_details, Payments.agency_details, Payments.staff_details, Payments.client_details FROM Payments INNER JOIN Invoices ON Payments.invoice_id = Invoices.invoice_id INNER JOIN Clients ON Invoices.client_id = Clients.client_id INNER JOIN Staff ON Payments.staff_id = Staff.staff_id INNER JOIN Agencies ON Staff.agency_id = Agencies.agency_id INNER JOIN Meetings ON Payments.meeting_id = Meetings.meeting_id WHERE Payments.payment_details LIKE '%How many payments do we have?%' ORDER BY Payments.payment_id ASC; 
+SELECT Payments.meeting_id, Payments.payment_id, Payments.payment_details, Payments.invoice_id, Payments.client_id, Payments.staff_id, Payments.agency_id, Payments.sic_code, Payments.invoice_status, Payments.invoice_details, Payments.meeting_outcome, Payments.meeting_type, Payments.billable_yn, Payments.start_date_time, Payments.end_date_time, Payments.purpose_of_meeting, Payments.other_details, Payments.agency_details, Payments.staff_details, Payments.client_details FROM Payments INNER JOIN Invoices ON Payments.invoice_id = Invoices.invoice_id INNER JOIN Clients ON Invoices.client_id = Clients.client_id INNER JOIN Staff ON Payments.staff_id = Staff.staff_id INNER JOIN Agencies ON Staff.agency_id = Agencies.agency_id WHERE Payments.payment_details LIKE '%Count the number of payments.%' ORDER BY Payments.payment_id ASC; 
+SELECT Payments.meeting_id, Payments.payment_id, Payments.payment_details, Invoices.invoice_id, Invoices.invoice_details FROM Payments, Invoices WHERE Payments.invoice_id = Invoices.invoice_id; 
+SELECT Payments.meeting_id, Payments.invoice_id, Payments.payment_details 
+SELECT Payments.meeting_id, Payments.invoice_id, Payments.invoice_status 
+SELECT Invoices.meeting_id, InvoiceStatuses.invoice_status 
+SELECT Payments.meeting_id, COUNT(Payments.payment_id) AS num_payments 
+SELECT Payments.meeting_id, Payments.payment_id, Payments.payment_details, Payments.invoice_id, Payments.client_id, Payments.agency_id, Payments.staff_id, Payments.sic_code, Payments.invoice_status, Payments.invoice_details, Payments.meeting_outcome, Payments.meeting_type, Payments.billable_yn, Payments.start_date_time, Payments.end_date_time, Payments.purpose_of_meeting, Payments.other_details, Payments.agency_details, Payments.staff_details, Payments.client_details FROM Payments INNER JOIN Invoices ON Payments.invoice_id = Invoices.invoice_id INNER JOIN Clients ON Invoices.client_id = Clients.client_id INNER JOIN Agencies ON Clients.agency_id = Agencies.agency_id INNER JOIN Staff ON Payments.staff_id = Staff.staff_id INNER JOIN Meetings ON Payments.meeting_id = Meetings.meeting_id WHERE Payments.payment_id = Payments.payment_id AND Payments.invoice_id = Payments.invoice_id AND Payments.client_id = Payments.client_id AND Payments.agency_id = Payments.agency_id AND Payments.staff_id = Payments.staff_id AND Payments.sic_code = Payments.sic_code AND Payments.invoice_status = Payments.invoice_status AND Payments.invoice_details = Payments.invoice_details AND Payments.meeting_outcome = Payments.meeting_outcome AND Payments.meeting_type = Payments.meeting_type AND Payments.billable_yn = Payments.billable_yn AND Payments.start_date_time = Payments.start_date_time AND Payments.end_date_time = Payments.end_date_time AND Payments
+SELECT Invoices.meeting_id, Invoices.invoice_status, Invoices.invoice_details 
+SELECT Invoices.meeting_id, Invoices.invoice_status, Invoices.invoice_details 
+SELECT staff_id FROM Staff 
+SELECT staff_id FROM Staff WHERE agency_id = 1; 
+SELECT Agencies.staff_id, COUNT(Staff.staff_id) FROM Agencies, Staff WHERE Agencies.agency_id = Staff.agency_id GROUP BY Agencies.agency_id; 
+SELECT Agencies.staff_id, COUNT(Staff.staff_id) FROM Agencies, Staff WHERE Agencies.agency_id = Staff.agency_id GROUP BY Agencies.agency_id; 
+SELECT Agencies.staff_id, Agencies.agency_details 
+SELECT Agencies.staff_id, Agencies.agency_details 
+SELECT meeting_id, meeting_outcome, COUNT(*) AS meeting_count FROM Meetings GROUP BY meeting_outcome ORDER BY meeting_count DESC; 
+SELECT meeting_id, meeting_outcome, COUNT(*) AS meeting_count FROM Meetings GROUP BY meeting_outcome; 
+SELECT Clients.meeting_id, COUNT(Clients.meeting_id) AS meeting_count 
+SELECT meeting_id, client_id, COUNT(*) AS meeting_count FROM Meetings GROUP BY client_id ORDER BY client_id ASC; 
+SELECT meeting_id, client_id, meeting_type, COUNT(*) FROM Meetings GROUP BY meeting_id, client_id, meeting_type; 
+SELECT meeting_id, meeting_type, COUNT(*) AS meeting_count FROM Meetings GROUP BY meeting_type, meeting_id ORDER BY meeting_type, meeting_id; 
+SELECT meeting_id, meeting_outcome, meeting_type, client_details FROM Meetings JOIN Clients ON Meetings.client_id = Clients.client_id; 
+SELECT meeting_id, meeting_outcome, meeting_type, client_details 
+SELECT meeting_id, COUNT(staff_id) FROM Staff_in_Meetings GROUP BY meeting_id; 
+SELECT meeting_id, COUNT(staff_id) FROM Staff_in_Meetings GROUP BY meeting_id; 
+SELECT staff_id, COUNT(*) FROM Staff_in_Meetings GROUP BY staff_id HAVING COUNT(*) > 0 ORDER BY COUNT(*) ASC LIMIT 1; 
+SELECT staff_id FROM Staff WHERE staff_id IN (SELECT staff_id FROM Staff_in_Meetings GROUP BY staff_id HAVING COUNT(*) = (SELECT COUNT(*) FROM Staff_in_Meetings GROUP BY staff_id HAVING COUNT(*) = (SELECT COUNT(*) FROM Staff_in_Meetings GROUP BY staff_id HAVING COUNT(*) = (SELECT COUNT(*) FROM Staff_in_Meetings GROUP BY staff_id HAVING COUNT(*) = (SELECT COUNT(*) FROM Staff_in_Meetings GROUP BY staff_id HAVING COUNT(*) = (SELECT COUNT(*) FROM Staff_in_Meetings GROUP BY staff_id HAVING COUNT(*) = (SELECT COUNT(*) FROM Staff_in_Meetings GROUP BY staff_id HAVING COUNT(*) = (SELECT COUNT(*) FROM Staff_in_Meetings GROUP BY staff_id HAVING COUNT(*) = (SELECT COUNT(*) FROM Staff_in_Meetings GROUP BY staff_id HAVING COUNT(*) = (SELECT COUNT(*) FROM Staff_in_Meetings GROUP BY staff_id HAVING COUNT(*) = (SELECT COUNT(*) FROM Staff_in_Meetings GROUP BY staff_id HAVING COUNT(*) = (SELECT COUNT(*) FROM Staff_in_Meetings GROUP BY staff_id HAVING COUNT(*) = (SELECT COUNT(*) FROM Staff_in_Meetings GROUP BY staff_id HAVING COUNT(*) = (SELECT COUNT(*) FROM Staff_in_Meetings GROUP BY staff_id HAVING COUNT(*) = (SELECT COUNT
+SELECT staff_id FROM Staff_in_Meetings WHERE meeting_id IN (SELECT meeting_id FROM Meetings WHERE billable_yn = 'Y' AND meeting_outcome = 'Successful' AND meeting_type = 'Client Meeting' AND start_date_time >= '2019-01-01' AND start_date_time <= '2019-12-31' AND end_date_time >= '2019-01-01' AND end_date_time <= '2019-12-31' AND purpose_of_meeting LIKE '%Client Meeting%' AND other_details LIKE '%Client Meeting%') GROUP BY staff_id HAVING COUNT(*) > 1; 
+SELECT staff_id FROM Staff_in_Meetings 
+SELECT staff_id FROM Staff WHERE staff_id NOT IN (SELECT staff_id FROM Staff_in_Meetings); 
+SELECT staff_id FROM Staff WHERE staff_id NOT IN (SELECT staff_id FROM Staff_in_Meetings); 
+SELECT Clients.meeting_id, Clients.client_id, Clients.client_details 
+SELECT Clients.meeting_id, Clients.client_id, Clients.sic_code, Clients.client_details, Clients.agency_id, Clients.invoice_id, Clients.invoice_status, Clients.invoice_details, Clients.payment_id, Clients.payment_details, Clients.staff_id, Clients.staff_details, Clients.agency_details, Clients.meeting_id, Clients.meeting_outcome, Clients.meeting_type, Clients.billable_yn, Clients.start_date_time, Clients.end_date_time, Clients.purpose_of_meeting, Clients.other_details FROM Clients WHERE Clients.meeting_id IS NOT NULL OR Clients.invoice_id IS NOT NULL; 
+SELECT staff_id, staff_details FROM Staff WHERE staff_id IN (SELECT staff_id FROM Staff_in_Meetings WHERE meeting_id IN (SELECT meeting_id FROM Meetings WHERE meeting_id IN (SELECT meeting_id FROM Meetings WHERE meeting_outcome LIKE '%s%'))) 
+SELECT staff_id, staff_details FROM Staff WHERE staff_id IN (SELECT staff_id FROM Staff_in_Meetings WHERE meeting_id IN (SELECT meeting_id FROM Meetings WHERE billable_yn = 'Y' AND meeting_outcome = 'S' AND meeting_type = 'S' AND start_date_time >= '2019-01-01' AND end_date_time <= '2019-12-31' AND purpose_of_meeting LIKE '%S%') AND staff_id IN (SELECT staff_id FROM Staff WHERE staff_details LIKE '%S%')) AND staff_details LIKE '%S%'; 
+SELECT Clients.meeting_id, Clients.sic_code, Agencies.agency_id FROM Clients INNER JOIN Meetings ON Clients.client_id = Meetings.client_id INNER JOIN Agencies ON Clients.agency_id = Agencies.agency_id WHERE Meetings.meeting_id = 1 AND Clients.client_id IS NOT NULL AND Clients.sic_code IS NOT NULL AND Agencies.agency_id IS NOT NULL; 
+SELECT Clients.meeting_id, Clients.sic_code, Agencies.agency_id 
+SELECT Meetings.meeting_id, Meetings.start_date_time, Meetings.end_date_time, Clients.client_details, Staff.staff_details 
+SELECT Meetings.meeting_id, Meetings.start_date_time, Meetings.end_date_time, Clients.client_details, Staff.staff_details FROM Meetings INNER JOIN Clients ON Meetings.client_id = Clients.client_id INNER JOIN Staff_in_Meetings ON Meetings.meeting_id = Staff_in_Meetings.meeting_id INNER JOIN Staff ON Staff_in_Meetings.staff_id = Staff.staff_id WHERE Meetings.meeting_outcome = 'Successful' AND Meetings.billable_yn = 'Y' ORDER BY Meetings.meeting_id ASC; 

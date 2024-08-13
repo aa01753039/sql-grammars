@@ -112,25 +112,25 @@ window-function-invocation ::= window-function-name "(" ("DISTINCT"? expr ( "," 
 
 ws ::= [ \t\n]+
 
-schema-name ::= [a-zA-Z_][a-zA-Z0-9_]*
+schema-name ::= [ \t!#-\[\]-~]* ws
 
-table-name ::= [a-zA-Z_][a-zA-Z0-9_]*
+table-name ::= [ \t!#-\[\]-~]* ws
 
-column-name ::= [a-zA-Z_][a-zA-Z0-9_]*
+column-name ::= [ \t!#-\[\]-~]* ws
 
-index-name ::= [a-zA-Z_][a-zA-Z0-9_]*
+index-name ::= [ \t!#-\[\]-~]* ws
 
-column-alias ::= [a-zA-Z_][a-zA-Z0-9_]*
+column-alias ::= [ \t!#-\[\]-~]* ws
 
-table-function-name ::= [a-zA-Z_][a-zA-Z0-9_]*
+table-function-name ::= [ \t!#-\[\]-~]* ws
 
-function-name ::= [a-zA-Z_][a-zA-Z0-9_]*
+function-name ::= [ \t!#-\[\]-~]* ws
 
-base-window-name ::= [a-zA-Z_][a-zA-Z0-9_]*
+base-window-name ::= [ \t!#-\[\]-~]* ws
 
-window-name ::= [a-zA-Z_][a-zA-Z0-9_]*
+window-name ::= [ \t!#-\[\]-~]* ws
 
-error-message ::= [a-zA-Z_][a-zA-Z0-9_]*
+error-message ::=[ \t!#-\[\]-~]* ws
 
 anything-except-newline ::= [^\n]*
 
