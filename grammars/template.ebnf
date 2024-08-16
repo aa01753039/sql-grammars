@@ -2,6 +2,18 @@ root ::= query ";"
 
 query ::= "SELECT " attributes ws "FROM " attribute-table ( ws "WHERE " attribute)? ( "GROUP BY " attribute-column ("HAVING " attribute)?)? ( "ORDER BY " attribute-column)? ( "LIMIT " attribute)?
 
+where-clause ::=  "WHERE " attribute
+
+group-by-clause ::= "GROUP BY " ttribute-column having-clause?
+
+having-clause ::= "HAVING " attribute
+
+order-by-clause ::= "ORDER BY " attribute-column
+
+limit-clause ::= "LIMIT " attribute offset-clause?
+
+offset-clause ::= "OFFSET " attribute
+
 attribute-table ::= table-name | atribute
 
 table-name ::= TABLE_NAMES_PLACEHOLDER

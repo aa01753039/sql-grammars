@@ -1,6 +1,18 @@
 root ::= query ";"
 
-query ::= "SELECT " attributes ws "FROM " attribute ( "WHERE " attribute)? ( "GROUP BY " attribute ("HAVING " attribute)?)? ( "ORDER BY " attribute)? ( "LIMIT " attribute)?
+query ::= "SELECT " attributes ws "FROM " attribute where-clause? group-by-clause? order-by-clause? limit-clause?
+
+where-clause ::=  "WHERE " attribute
+
+group-by-clause ::= "GROUP BY " attribute having-clause?
+
+having-clause ::= "HAVING " attribute
+
+order-by-clause ::= "ORDER BY " attribute
+
+limit-clause ::= "LIMIT " attribute offset-clause?
+
+offset-clause ::= "OFFSET " attribute
 
 attribute ::= string
 

@@ -114,16 +114,11 @@ class Text2SQL:
 
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
         self.tokenizer.pad_token = self.tokenizer.eos_token
-        # some models that uses LlamaTokenizer needs this
-        # self.tokenizer.padding_side = "right"
 
         self.llm = AutoModelForCausalLM.from_pretrained(
             model_id, quantization_config=bnb_config, device_map="auto"
         )
-        # self.llm = AutoModelForCausalLM.from_pretrained(model_id).to(self.device)
-        # some models needs this
-        # # self.llm.generation_config.pad_token_id = self.llm.generation_config.eos_token_id
-        # self.llm.resize_token_embeddings(len(self.tokenizer))
+        #self.llm = AutoModelForCausalLM.from_pretrained(model_id).to(self.device)
 
         # if model_id contains "instruct" set Instruction to True
         self.instruct = False
@@ -375,12 +370,12 @@ class Text2SQL:
                     question=user_question, schema=schema
                 )
 
-            attempts = 3
+            attempts = 2
             last_prompt = prompt
 
             while attempts > 0:
                 print(f"Question: {user_question}")
-                print(f"Attempt: {4-attempts}")
+                print(f"Attempt: {3-attempts}")
                 print(f"Prompt: {last_prompt}")
                 print(f"length: {int(len(last_prompt)/2.8)}")
 
@@ -449,7 +444,7 @@ class Text2SQL:
 
                 cleaned_answer = keep_after_select(answer)
 
-                if attempts == 2:
+                if attempts == 1:
                     if self.instruct:
                         cleaned_answer = keep_after_last_occurrence(full_answer)
                     else:
@@ -479,7 +474,7 @@ class Text2SQL:
                         }
                     )
                     break
-                if attempts == 3:
+                if attempts == 2:
                     if self.instruct:
                         last_prompt = f"""{full_answer}
         Encountered an error: {error}. 
@@ -504,14 +499,6 @@ class Text2SQL:
             Ensure the revised SQL query aligns precisely with the requirements outlined in the initial question.
             Modified SQLite query:"""
                     attempts -= 1
-                else:
-                    last_prompt = (
-                        self.prompt_template.format(
-                            question=user_question, schema=schema
-                        )
-                        + "\n\n"
-                    )
-                    attempts -= 1
 
             if attempts == 0:
                 answers_list.append(
@@ -519,7 +506,7 @@ class Text2SQL:
                         "id": question_id,
                         "db_id": question_db,
                         "question": user_question,
-                        "attempts": 4 - attempts,
+                        "attempts": 3 - attempts,
                         "outputs_history": outputs_history,
                         "answer": cleaned_answer,
                     }

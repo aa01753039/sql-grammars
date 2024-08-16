@@ -1,8 +1,11 @@
 .conda/
 .DS_Store
+.vscode/
 embedded_grammars/
 notebooks/
 spider/
 __pycache__
 embedded_grammars2/
 grammars_embedded2/
+predictions/
+scripts/
